@@ -44,7 +44,7 @@ const steps = [
     <!-- Statement hero (UNStudio pattern): type first, image after -->
     <section class="hero wrap" aria-label="Introduction">
       <p class="label label--accent reveal">Sam Lepley &mdash; 3D Visualisation &amp; CAD, the Netherlands</p>
-      <h1 class="reveal">Making the unbuilt look <em>real</em>.</h1>
+      <h1 class="reveal">SL3D<sup class="brand-mark">&#9650;</sup></h1>
       <div class="hero-row reveal">
         <p>
           Photorealistic renders, product animations and technical drawings for architecture,
@@ -65,7 +65,6 @@ const steps = [
       >
         <source src="/video/hero-loop.mp4" type="video/mp4" />
       </video>
-      <p class="hero-media-caption label">Rendered, not filmed &mdash; the SL3D signature run</p>
     </section>
 
     <!-- Selected work: editorial rhythm — full, half/half, full -->
@@ -138,9 +137,11 @@ const steps = [
     max-width: 12ch;
   }
 
-  .hero h1 em {
-    font-style: normal;
+  .hero h1 .brand-mark {
+    font-size: 0.32em;
     color: var(--accent-ink);
+    vertical-align: super;
+    letter-spacing: 0;
   }
 
   .hero-row {
@@ -161,14 +162,6 @@ const steps = [
     width: 100%;
     height: clamp(20rem, 62vh, 44rem);
     object-fit: cover;
-  }
-
-  .hero-media-caption {
-    padding: 0.7rem var(--gutter) 0;
-    max-width: var(--max-width);
-    margin-inline: auto;
-    font-size: 0.62rem;
-    color: var(--ink-soft);
   }
 
   .work-grid {
