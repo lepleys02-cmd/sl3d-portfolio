@@ -77,6 +77,21 @@ const skills = [
         </div>
       </div>
     </section>
+
+    <section class="wrap reference" aria-label="Reference">
+      <div class="reveal">
+        <p class="label label--accent">Reference</p>
+        <blockquote>
+          <p>
+            &ldquo;He seized the tasks that were put before him &hellip; bringing new services to the
+            company such as <em>2D and 3D CAD drawings and designs</em>, which have improved
+            communication and understanding of certain contracts tremendously. &hellip; I believe he
+            would be an asset to any organisation who employs him.&rdquo;
+          </p>
+          <cite>Employer&rsquo;s reference &mdash; Fixed Cost Property Maintenance (Pty) Ltd, Johannesburg</cite>
+        </blockquote>
+      </div>
+    </section>
   </main>
 </Base>
 
@@ -145,6 +160,46 @@ const skills = [
 
   .skill-row p {
     font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .reference {
+    margin-top: calc(var(--space-section) * 0.5);
+  }
+
+  .reference > div {
+    border-top: 1px solid var(--ink);
+    padding-top: 1.3rem;
+  }
+
+  .reference .label {
+    margin-bottom: 1.4rem;
+  }
+
+  .reference blockquote {
+    margin: 0;
+  }
+
+  .reference blockquote p {
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: var(--text-h2);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 34ch;
+    text-wrap: balance;
+  }
+
+  .reference blockquote em {
+    font-style: normal;
+    color: var(--accent-ink);
+  }
+
+  .reference cite {
+    display: block;
+    margin-top: 1.4rem;
+    font-style: normal;
+    font-size: 0.85rem;
     color: var(--ink-soft);
   }
 
