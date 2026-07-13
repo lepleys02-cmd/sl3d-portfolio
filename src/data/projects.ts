@@ -93,13 +93,13 @@ export const projects: Project[] = [
       'Some products are easier to sell in motion: how a bicycle shed opens, how a veranda goes together, how a garden building sits in evening light.',
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
-    previewVideo: '/video/preview-product-animations.mp4',
+    previewVideo: '/video/preview-product-animations-v2.mp4',
     videos: [
       '/video/product-anim-01.mp4',
       '/video/product-anim-02.mp4',
-      '/video/product-anim-03.mp4',
-      '/video/product-anim-04.mp4',
-      '/video/product-anim-05.mp4',
+      '/video/product-anim-03-v2.mp4',
+      '/video/product-anim-04-v2.mp4',
+      '/video/product-anim-05-v2.mp4',
     ],
   },
 ];
