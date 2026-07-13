@@ -51,65 +51,17 @@ const steps = [
       </div>
     </section>
 
-    <section class="hero-media reveal" aria-label="Showreel: SL3D signature animation — the logo carving through snow">
-      <!-- Floor plan schematic (decorative) -->
-      <svg class="schematic" width="320" height="400" viewBox="0 0 320 400" fill="none" stroke="currentColor" aria-hidden="true">
-        <rect x="50" y="70" width="220" height="220" stroke-width="1.4" />
-        <rect x="58" y="78" width="204" height="204" stroke-width="0.8" />
-        <line x1="170" y1="78" x2="170" y2="190" stroke-width="1.4" />
-        <line x1="170" y1="190" x2="262" y2="190" stroke-width="1.4" />
-        <rect x="90" y="68" width="40" height="12" stroke-width="0.8" />
-        <line x1="90" y1="74" x2="130" y2="74" stroke-width="0.8" />
-        <line x1="130" y1="290" x2="130" y2="250" stroke-width="0.8" />
-        <path d="M130 250 A40 40 0 0 1 170 290" stroke-width="0.8" stroke-dasharray="3 3" />
-        <line x1="30" y1="180" x2="290" y2="180" stroke-width="0.6" stroke-dasharray="10 4 2 4" />
-        <line x1="160" y1="50" x2="160" y2="310" stroke-width="0.6" stroke-dasharray="10 4 2 4" />
-        <line x1="50" y1="330" x2="270" y2="330" stroke-width="0.8" />
-        <line x1="46" y1="334" x2="54" y2="326" stroke-width="0.8" />
-        <line x1="266" y1="334" x2="274" y2="326" stroke-width="0.8" />
-        <text x="160" y="348" text-anchor="middle" stroke="none" fill="currentColor" font-size="10" letter-spacing="1.5">6 200</text>
-        <line x1="300" y1="70" x2="300" y2="290" stroke-width="0.8" />
-        <line x1="296" y1="74" x2="304" y2="66" stroke-width="0.8" />
-        <line x1="296" y1="294" x2="304" y2="286" stroke-width="0.8" />
-        <text transform="rotate(90 312 180)" x="312" y="180" text-anchor="middle" stroke="none" fill="currentColor" font-size="10" letter-spacing="1.5">5 400</text>
-      </svg>
-
+    <section class="hero-media reveal" aria-label="Showreel: product animation montage">
       <video
         class="hero-video"
         muted
         loop
         playsinline
         preload="auto"
-        poster="/video/hero-poster-v2.jpg"
+        poster="/video/showreel-poster.jpg"
       >
-        <source src="/video/hero-loop-v2.mp4" type="video/mp4" />
+        <source src="/video/showreel-product-animations.mp4" type="video/mp4" />
       </video>
-
-      <!-- Elevation schematic (decorative) -->
-      <svg class="schematic" width="320" height="400" viewBox="0 0 320 400" fill="none" stroke="currentColor" aria-hidden="true">
-        <line x1="20" y1="320" x2="300" y2="320" stroke-width="1.4" />
-        <g stroke-width="0.6">
-          <line x1="30" y1="320" x2="22" y2="330" /><line x1="55" y1="320" x2="47" y2="330" />
-          <line x1="80" y1="320" x2="72" y2="330" /><line x1="105" y1="320" x2="97" y2="330" />
-          <line x1="130" y1="320" x2="122" y2="330" /><line x1="155" y1="320" x2="147" y2="330" />
-          <line x1="180" y1="320" x2="172" y2="330" /><line x1="205" y1="320" x2="197" y2="330" />
-          <line x1="230" y1="320" x2="222" y2="330" /><line x1="255" y1="320" x2="247" y2="330" />
-          <line x1="280" y1="320" x2="272" y2="330" />
-        </g>
-        <path d="M70 320 V180 L160 120 L250 180 V320" stroke-width="1.4" />
-        <path d="M78 186 L160 128 L242 186" stroke-width="0.8" />
-        <rect x="100" y="240" width="34" height="80" stroke-width="0.8" />
-        <rect x="170" y="220" width="50" height="50" stroke-width="0.8" />
-        <line x1="195" y1="220" x2="195" y2="270" stroke-width="0.6" />
-        <line x1="170" y1="245" x2="220" y2="245" stroke-width="0.6" />
-        <path d="M96 180 A 30 30 0 0 1 92 198" stroke-width="0.8" />
-        <text x="106" y="200" stroke="none" fill="currentColor" font-size="10" letter-spacing="1.5">35&deg;</text>
-        <line x1="160" y1="100" x2="160" y2="335" stroke-width="0.6" stroke-dasharray="10 4 2 4" />
-        <line x1="280" y1="120" x2="280" y2="320" stroke-width="0.8" />
-        <line x1="276" y1="124" x2="284" y2="116" stroke-width="0.8" />
-        <line x1="276" y1="324" x2="284" y2="316" stroke-width="0.8" />
-        <text transform="rotate(90 292 220)" x="292" y="220" text-anchor="middle" stroke="none" fill="currentColor" font-size="10" letter-spacing="1.5">2 800</text>
-      </svg>
     </section>
 
     <!-- Selected work: editorial rhythm — full, half/half, full -->
@@ -203,44 +155,11 @@ const steps = [
     color: var(--ink-soft);
   }
 
-  /* Square signature animation centred, flanked by decorative technical
-     schematics — the full square frame stays visible; never crop it. */
-  .hero-media {
-    display: grid;
-    grid-template-columns: 1fr min(clamp(20rem, 68vh, 40rem), 60vw) 1fr;
-    align-items: center;
-    gap: clamp(1.5rem, 4vw, 4.5rem);
-    max-width: var(--max-width);
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-  }
-
+  /* Wide showreel band — full-bleed, cover-cropped to a cinematic strip. */
   .hero-media video {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1;
-  }
-
-  .schematic {
-    width: 100%;
-    max-width: 20rem;
-    justify-self: center;
-    color: var(--ink-soft);
-    opacity: 0.5;
-  }
-
-  .schematic text {
-    font-family: var(--font-display);
-  }
-
-  @media (max-width: 900px) {
-    .hero-media {
-      grid-template-columns: 1fr;
-    }
-
-    .schematic {
-      display: none;
-    }
+    height: clamp(20rem, 62vh, 44rem);
+    object-fit: cover;
   }
 
   .work-grid {
