@@ -5,7 +5,6 @@ import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects';
 import portrait from '../assets/about/portrait.jpg';
-import heroImage from '../assets/nubuiten/06.jpg';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
   eager: true,
@@ -45,25 +44,38 @@ const steps = [
     <!-- Statement hero (UNStudio pattern): type first, image after -->
     <section class="hero wrap" aria-label="Introduction">
       <p class="label label--accent reveal">Sam Lepley &mdash; 3D Visualisation &amp; CAD, the Netherlands</p>
-      <h1 class="reveal">Clarity you can <em>build</em> from.</h1>
+      <h1 class="reveal">Making the unbuilt look <em>real</em>.</h1>
       <div class="hero-row reveal">
         <p>
-          Photorealistic renders, technical floor plans and product animations for architecture,
-          outdoor living and product teams.
+          Photorealistic renders, product animations and technical drawings for architecture,
+          outdoor living and product teams &mdash; every image rendered, nothing photographed.
         </p>
         <a class="arrow-link" href="#work">Selected work &darr;</a>
       </div>
     </section>
 
-    <section class="hero-media reveal" aria-hidden="true">
-      <Image
-        src={heroImage}
-        alt=""
-        widths={[720, 1200, 1800, 2400]}
-        sizes="100vw"
-        loading="eager"
-        fetchpriority="high"
-      />
+    <section class="hero-media reveal" aria-label="Showreel: rendered evening scene of a canal-side veranda">
+      <video
+        class="hero-video"
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/video/hero-poster.jpg"
+      >
+        <source src="/video/hero-loop.mp4" type="video/mp4" />
+      </video>
+      <p class="hero-media-caption label">Rendered, not filmed &mdash; product animation still running</p>
+    </section>
+
+    <!-- Client strip -->
+    <section class="clients wrap reveal" aria-label="Clients and studios">
+      <p class="label">Made for &amp; with</p>
+      <ul>
+        <li>Nubuiten</li>
+        <li>Outdoor Life Group</li>
+        <li>Vesuvio Luxury Interiors</li>
+      </ul>
     </section>
 
     <!-- Selected work: editorial rhythm — full, half/half, full -->
@@ -155,10 +167,44 @@ const steps = [
     color: var(--ink-soft);
   }
 
-  .hero-media img {
+  .hero-media video {
     width: 100%;
     height: clamp(20rem, 62vh, 44rem);
     object-fit: cover;
+  }
+
+  .hero-media-caption {
+    padding: 0.7rem var(--gutter) 0;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    font-size: 0.62rem;
+    color: var(--ink-soft);
+  }
+
+  .clients {
+    margin-top: calc(var(--space-section) * 0.35);
+  }
+
+  .clients .label {
+    margin-bottom: 1rem;
+  }
+
+  .clients ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem clamp(2rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--line-strong);
+    padding-top: 1.3rem;
+  }
+
+  .clients li {
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: var(--text-h3);
+    letter-spacing: -0.01em;
+    color: var(--ink-soft);
   }
 
   .work-grid {
@@ -249,3 +295,16 @@ const steps = [
     }
   }
 </style>
+
+<script>
+  // Hero loop: autoplay only when the user hasn't asked for reduced motion.
+  // Without JS (or with reduced motion) the poster frame stands in.
+  document.addEventListener('astro:page-load', () => {
+    const video = document.querySelector<HTMLVideoElement>('.hero-video');
+    if (!video) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    video.play().catch(() => {
+      /* Autoplay blocked — poster remains, which is fine. */
+    });
+  });
+</script>

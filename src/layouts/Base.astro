@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -11,6 +12,9 @@ interface Props {
 }
 
 const { title, description, compactFooter = false } = Astro.props;
+const site = Astro.site ?? new URL('https://sl3d.net');
+const canonical = new URL(Astro.url.pathname, site);
+const ogImage = new URL('/og.jpg', site);
 ---
 
 <html lang="en">
@@ -19,6 +23,14 @@ const { title, description, compactFooter = false } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SL3D — Sam Lepley" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f6f2'/%3E%3Cpath d='M6 22 16 6l10 16z' fill='none' stroke='%23c14a0a' stroke-width='2.5'/%3E%3C/svg%3E"
@@ -30,6 +42,7 @@ const { title, description, compactFooter = false } = Astro.props;
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
   </head>
   <body>
     <Header currentPath={Astro.url.pathname} />
@@ -38,24 +51,28 @@ const { title, description, compactFooter = false } = Astro.props;
 
     <script>
       // Scroll-reveal: purely progressive enhancement. Reduced-motion users
-      // get static content via the CSS media query.
-      const items = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                io.unobserve(entry.target);
+      // get static content via the CSS media query. Re-runs after every
+      // view-transition navigation (astro:page-load fires on initial load too).
+      function initReveal() {
+        const items = document.querySelectorAll('.reveal:not(.is-visible)');
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  io.unobserve(entry.target);
+                }
               }
-            }
-          },
-          { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
-        );
-        items.forEach((el) => io.observe(el));
-      } else {
-        items.forEach((el) => el.classList.add('is-visible'));
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
+          );
+          items.forEach((el) => io.observe(el));
+        } else {
+          items.forEach((el) => el.classList.add('is-visible'));
+        }
       }
+      document.addEventListener('astro:page-load', initReveal);
     </script>
   </body>
 </html>

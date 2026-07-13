@@ -21,9 +21,22 @@ const total = String(projects.length).padStart(2, '0');
 const allImages = import.meta.glob<{ default: ImageMetadata }>('../../assets/**/*.jpg', {
   eager: true,
 });
-const gallery = Object.entries(allImages)
+const projectImages = Object.entries(allImages)
   .filter(([path]) => path.includes(`/assets/${project.slug}/`))
-  .sort(([a], [b]) => a.localeCompare(b))
+  .sort(([a], [b]) => a.localeCompare(b));
+
+// Drawing-vs-render pairing: pulled out of the normal gallery flow.
+const processImages = project.process
+  ? {
+      before: projectImages.find(([path]) => path.endsWith(`/${project.process!.before}`))?.[1]
+        .default,
+      after: projectImages.find(([path]) => path.endsWith(`/${project.process!.after}`))?.[1]
+        .default,
+    }
+  : undefined;
+const processFiles = project.process ? [project.process.before, project.process.after] : [];
+const gallery = projectImages
+  .filter(([path]) => !processFiles.some((file) => path.endsWith(`/${file}`)))
   .map(([, mod]) => mod.default);
 ---
 
@@ -47,6 +60,55 @@ const gallery = Object.entries(allImages)
         }
       </dl>
     </section>
+
+    {
+      (project.brief || project.approach) && (
+        <section class="case wrap" aria-label="Case study">
+          {project.brief && (
+            <div class="reveal">
+              <p class="label label--accent">Brief</p>
+              <p>{project.brief}</p>
+            </div>
+          )}
+          {project.approach && (
+            <div class="reveal">
+              <p class="label label--accent">Approach</p>
+              <p>{project.approach}</p>
+            </div>
+          )}
+        </section>
+      )
+    }
+
+    {
+      project.process && processImages?.before && processImages?.after && (
+        <section class="process wrap" aria-label="From drawing to render">
+          <div class="process-pair">
+            <figure class="reveal">
+              <Image
+                src={processImages.before}
+                alt="Technical drawing sheet"
+                widths={[640, 1080, 1600]}
+                sizes="(max-width: 900px) 100vw, 46vw"
+                loading="eager"
+              />
+              <figcaption class="label">Drawn</figcaption>
+            </figure>
+            <figure class="reveal">
+              <Image
+                src={processImages.after}
+                alt="Photorealistic render of the same building"
+                widths={[640, 1080, 1600]}
+                sizes="(max-width: 900px) 100vw, 46vw"
+                loading="eager"
+              />
+              <figcaption class="label">Rendered</figcaption>
+            </figure>
+          </div>
+          <p class="process-caption reveal">{project.process.caption}</p>
+        </section>
+      )
+    }
 
     {
       gallery.length > 0 && (
@@ -131,6 +193,53 @@ const gallery = Object.entries(allImages)
     font-weight: 500;
   }
 
+  .case {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 3rem);
+    margin-bottom: var(--space-block);
+  }
+
+  .case .label {
+    margin-bottom: 0.8rem;
+  }
+
+  .case p:not(.label) {
+    max-width: 36rem;
+    color: var(--ink-soft);
+  }
+
+  .process {
+    margin-bottom: var(--space-block);
+  }
+
+  .process-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    align-items: center;
+  }
+
+  .process-pair figure {
+    margin: 0;
+  }
+
+  .process-pair img {
+    width: 100%;
+    border: 1px solid var(--line);
+  }
+
+  .process-pair figcaption {
+    margin-top: 0.7rem;
+  }
+
+  .process-caption {
+    margin-top: 1.2rem;
+    max-width: var(--max-prose);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
   /* Editorial rhythm: one full-bleed image, then a two-up pair */
   .gallery {
     display: grid;
@@ -188,6 +297,11 @@ const gallery = Object.entries(allImages)
 
   @media (max-width: 720px) {
     .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .case,
+    .process-pair {
       grid-template-columns: 1fr;
     }
 
