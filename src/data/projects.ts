@@ -15,6 +15,8 @@ export interface Project {
   process?: { before: string; after: string; caption: string };
   /** Short muted MP4 played on card hover (path under /public). */
   previewVideo?: string;
+  /** Autoplaying muted showreel shown as the project-page header (path under /public). */
+  headerVideo?: string;
   /** Projects without an image gallery list videos from /public/video instead. */
   videos?: string[];
 }
@@ -94,6 +96,7 @@ export const projects: Project[] = [
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
     previewVideo: '/video/preview-product-animations-v2.mp4',
+    headerVideo: '/video/showreel-product-animations.mp4',
     videos: [
       '/video/product-anim-01.mp4',
       '/video/product-anim-02.mp4',
