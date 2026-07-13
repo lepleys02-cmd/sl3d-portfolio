@@ -64,7 +64,14 @@ const gallery = projectImages
     {
       project.headerVideo && (
         <section class="header-media wrap reveal" aria-label={`${project.title} showreel`}>
-          <video autoplay muted loop playsinline preload="auto">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster={project.headerVideo.replace('.mp4', '-poster.jpg')}
+          >
             <source src={project.headerVideo} type="video/mp4" />
           </video>
         </section>
@@ -144,7 +151,7 @@ const gallery = projectImages
           {project.videos.map((src) => (
             <figure class="reveal">
               {/* eslint-disable-next-line */}
-              <video controls preload="metadata" playsinline>
+              <video controls preload="metadata" playsinline poster={src.replace('.mp4', '-poster.jpg')}>
                 <source src={src} type="video/mp4" />
               </video>
             </figure>
@@ -209,6 +216,7 @@ const gallery = projectImages
 
   .header-media video {
     width: 100%;
+    aspect-ratio: 16 / 9;
     background: var(--ink);
   }
 
@@ -282,6 +290,7 @@ const gallery = projectImages
 
   .videos video {
     width: 100%;
+    aspect-ratio: 16 / 9;
     background: var(--ink);
   }
 

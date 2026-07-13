@@ -21,6 +21,9 @@ export interface Project {
   videos?: string[];
 }
 
+// TODO(sam): real case-study numbers still missing — e.g. how many product
+// variants / webshop scenes at Nubuiten, catalogue size at OLG. Add them to
+// `facts` or weave into `approach` when known; do not invent numbers.
 export const projects: Project[] = [
   {
     slug: 'nubuiten',
@@ -58,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'archviz',
-    title: 'ArchViz',
+    title: '5 Apple Road',
     year: '2024',
     discipline: 'Architectural visualisation',
     facts: [
