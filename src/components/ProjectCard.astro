@@ -40,7 +40,6 @@ const num = String(index + 1).padStart(2, '0');
   </div>
   <div class="meta">
     <h3><span class="num">{num}</span>{project.title}</h3>
-    <span class="tail">{project.discipline} &middot; {project.year}</span>
   </div>
   <a class="cover-link" href={`/work/${project.slug}`} aria-label={`View ${project.title} project`}
   ></a>
@@ -110,13 +109,6 @@ const num = String(index + 1).padStart(2, '0');
     margin-right: 0.9em;
   }
 
-  .tail {
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    text-align: right;
-    white-space: nowrap;
-  }
-
   .card:hover .meta h3 {
     color: var(--accent-ink);
   }
@@ -126,11 +118,6 @@ const num = String(index + 1).padStart(2, '0');
     inset: 0;
   }
 
-  @media (max-width: 540px) {
-    .tail {
-      white-space: normal;
-    }
-  }
 </style>
 
 <script>
