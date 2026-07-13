@@ -18,6 +18,8 @@ interface Props {
   /** Motion tiles: source + poster under /public. */
   video?: string;
   poster?: string;
+  /** Optional one-line curatorial note shown under the caption row. */
+  note?: string;
 }
 
 const {
@@ -31,6 +33,7 @@ const {
   eager = false,
   video,
   poster,
+  note,
 } = Astro.props;
 
 // Drawings are shown matted on a sheet (contain); renders/animation bleed to the edge (cover).
@@ -75,8 +78,11 @@ const isMotion = discipline === 'Animation';
     {isMotion && <span class="cue" aria-hidden="true">Motion</span>}
   </div>
   <figcaption>
-    <span class="disc">{discipline}</span>
-    <span class="ttl">{title}</span>
+    <span class="cap-row">
+      <span class="disc">{discipline}</span>
+      <span class="ttl">{title}</span>
+    </span>
+    {note && <span class="note">{note}</span>}
   </figcaption>
 </figure>
 
@@ -160,10 +166,23 @@ const isMotion = discipline === 'Animation';
   }
 
   figcaption {
+    display: block;
+    padding-top: 0.75rem;
+  }
+
+  .cap-row {
     display: flex;
     align-items: baseline;
     gap: 0.9rem;
-    padding-top: 0.75rem;
+  }
+
+  .note {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 52ch;
   }
 
   .disc {
