@@ -4,16 +4,16 @@
    ============================================================ */
 
 :root {
-  --bg: #0d0e10;
-  --bg-raise: #141519;
-  --line: #26282e;
-  --text: #ece9e2;
-  --muted: #9a968c;
-  --accent: #c8a15a;
-  --accent-soft: rgba(200, 161, 90, 0.14);
+  --bg: #f7f5f1;
+  --bg-raise: #ffffff;
+  --line: #e5e1d8;
+  --text: #1d1d1b;
+  --muted: #75726a;
+  --accent: #5f7059;
+  --accent-soft: rgba(95, 112, 89, 0.14);
 
-  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
-  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Hanken Grotesk", "Segoe UI", sans-serif;
 
   --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   --text-hero: clamp(2.8rem, 1.2rem + 7vw, 7.5rem);
@@ -44,14 +44,15 @@ img, video { max-width: 100%; display: block; }
 
 a { color: inherit; text-decoration: none; }
 
-::selection { background: var(--accent); color: #14100a; }
+::selection { background: var(--accent); color: #fff; }
 
 /* ---------- typography helpers ---------- */
 
 .label {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: var(--text-label);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -72,16 +73,22 @@ a { color: inherit; text-decoration: none; }
 }
 
 .site-header.is-scrolled {
-  background: rgba(13, 14, 16, 0.88);
+  background: rgba(247, 245, 241, 0.9);
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--line);
 }
 
+/* over the home hero video the header text must stay light until scrolled */
+body.home .site-header:not(.is-scrolled) .brand,
+body.home .site-header:not(.is-scrolled) .site-nav a { color: rgba(250, 249, 245, 0.92); }
+body.home .site-header:not(.is-scrolled) .site-nav a:hover,
+body.home .site-header:not(.is-scrolled) .site-nav a:focus-visible { color: #fff; }
+
 .brand {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
 }
 
 .brand sup {
@@ -93,9 +100,10 @@ a { color: inherit; text-decoration: none; }
 .site-nav { display: flex; gap: 2.2rem; align-items: center; }
 
 .site-nav a {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 0.82rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
   position: relative;
@@ -156,23 +164,29 @@ a:focus-visible, button:focus-visible {
   z-index: 2;
   width: 100%;
   padding: 0 var(--gutter) clamp(3rem, 8vh, 6rem);
+  color: #f6f4ef;
   text-shadow: 0 2px 24px rgba(10, 10, 14, 0.75), 0 1px 4px rgba(10, 10, 14, 0.6);
 }
+
+.hero .label--accent { color: #c4cfba; }
+.hero__tag { color: rgba(242, 240, 232, 0.78) !important; }
+.hero .scroll-hint { color: rgba(242, 240, 232, 0.72); }
+.hero .scroll-hint:hover { color: #fff; }
 
 .hero__kicker { margin-bottom: 1.2rem; }
 
 .hero h1 {
   font-family: var(--font-display);
   font-size: var(--text-hero);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.02em;
-  max-width: 12ch;
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: 0;
+  max-width: 14ch;
 }
 
 .hero h1 em {
-  font-style: normal;
-  color: var(--accent);
+  font-style: italic;
+  color: #cdd8c2;
 }
 
 .hero__row {
@@ -194,9 +208,10 @@ a:focus-visible, button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: var(--text-label);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   transition: color 0.25s;
@@ -239,8 +254,8 @@ a:focus-visible, button:focus-visible {
 .section-head h2 {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 1.1rem + 2vw, 2.6rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .section-head .count { color: var(--muted); font-family: var(--font-display); }
@@ -302,7 +317,7 @@ a:focus-visible, button:focus-visible {
 .work-card__meta h3 {
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 1rem + 0.8vw, 1.6rem);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .work-card__meta .num { color: var(--accent); margin-right: 0.6rem; font-size: 0.85em; }
@@ -339,9 +354,10 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   gap: 0.7rem;
   margin-top: 1.6rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 0.85rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
   transition: color 0.25s, gap 0.35s var(--ease-out);
@@ -360,9 +376,9 @@ a:focus-visible, button:focus-visible {
 .project-hero h1 {
   font-family: var(--font-display);
   font-size: var(--text-title);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
   margin: 0.8rem 0 1.4rem;
 }
 
@@ -378,7 +394,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .project-meta div span { display: block; }
-.project-meta .k { font-size: var(--text-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; font-family: var(--font-display); }
+.project-meta .k { font-size: var(--text-label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; font-family: var(--font-body); font-weight: 500; }
 .project-meta .v { font-family: var(--font-display); font-size: 0.95rem; }
 
 /* masonry-ish gallery */
@@ -440,7 +456,7 @@ a:focus-visible, button:focus-visible {
 .project-nav .name {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 1rem + 1.2vw, 1.9rem);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* ---------- about page ---------- */
@@ -462,7 +478,7 @@ a:focus-visible, button:focus-visible {
   letter-spacing: 0.06em;
 }
 
-.prose p { margin-bottom: 1.4em; color: #cfccc4; }
+.prose p { margin-bottom: 1.4em; color: #45433d; }
 .prose p strong { color: var(--text); }
 
 .skills { margin-top: var(--space-section); }
@@ -497,9 +513,10 @@ a:focus-visible, button:focus-visible {
 
 .contact-form label {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: var(--text-label);
-  letter-spacing: 0.24em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 0.5rem;
@@ -523,11 +540,11 @@ a:focus-visible, button:focus-visible {
 .btn {
   display: inline-block;
   background: var(--accent);
-  color: #14100a;
-  font-family: var(--font-display);
+  color: #fff;
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.9rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   border: none;
   padding: 1rem 2.4rem;
@@ -535,7 +552,7 @@ a:focus-visible, button:focus-visible {
   transition: transform 0.3s var(--ease-out), background 0.3s;
 }
 
-.btn:hover { background: #d9b26c; transform: translateY(-2px); }
+.btn:hover { background: #4d5c48; transform: translateY(-2px); }
 
 .contact-aside .big-mail {
   font-family: var(--font-display);
@@ -563,10 +580,10 @@ a:focus-visible, button:focus-visible {
 .footer-cta h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 1.2rem + 4vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  max-width: 18ch;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.12;
+  max-width: 20ch;
 }
 
 .footer-cta h2 a {
@@ -616,8 +633,8 @@ a:focus-visible, button:focus-visible {
 .lightbox button {
   position: absolute;
   background: none;
-  border: 1px solid var(--line);
-  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #f0eee8;
   font-family: var(--font-display);
   font-size: 1rem;
   width: 48px; height: 48px;
@@ -635,7 +652,7 @@ a:focus-visible, button:focus-visible {
   bottom: 1.4rem;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--muted);
+  color: rgba(240, 238, 232, 0.7);
   font-family: var(--font-display);
   font-size: 0.85rem;
   letter-spacing: 0.2em;
