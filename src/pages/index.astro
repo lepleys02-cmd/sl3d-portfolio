@@ -3,8 +3,17 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import ShowcaseTile from '../components/ShowcaseTile.astro';
 import { projects } from '../data/projects';
 import portrait from '../assets/about/portrait.jpg';
+
+// Curated best-of pieces (imported so astro:assets can size/optimise them).
+import drawnElevation from '../assets/archviz/02.jpg';
+import renderedStreet from '../assets/archviz/01.jpg';
+import lakesideVeranda from '../assets/nubuiten/13.jpg';
+import goldenTerrace from '../assets/nubuiten/05.jpg';
+import productSheet from '../assets/outdoor-life-group/04.jpg';
+import chestnutFence from '../assets/outdoor-life-group/01.jpg';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
   eager: true,
@@ -46,22 +55,141 @@ const steps = [
       <p class="label label--accent reveal">Sam Lepley &mdash; CAD Specialist</p>
       <h1 class="reveal">SL3D<sup class="brand-mark">&#9650;</sup></h1>
       <div class="hero-row reveal">
-        <p>Clarity you can build from.</p>
+        <div>
+          <p>Clarity you can build from.</p>
+          <p class="hero-sub">
+            Photorealistic 3D visualisation and CAD drawings for outdoor living and architecture
+            &mdash; from technical drawing to webshop-ready image.
+          </p>
+        </div>
         <a class="arrow-link" href="#work">Selected work &darr;</a>
       </div>
     </section>
 
-    <section class="hero-media reveal" aria-label="Showreel: product animation montage">
-      <video
-        class="hero-video"
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="/video/showreel-poster.jpg"
-      >
-        <source src="/video/showreel-product-animations.mp4" type="video/mp4" />
-      </video>
+    <section class="hero-media wrap reveal" aria-label="Showreel: product animation montage">
+      <div class="reel">
+        <video
+          class="hero-video"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          width="1920"
+          height="1080"
+          poster="/video/showreel-product-animations-poster.jpg"
+        >
+          <source src="/video/showreel-product-animations.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="reel-cap">
+        <span class="label">Showreel</span>
+        <span class="reel-meta">Five product animations &middot; 0:14</span>
+      </div>
+    </section>
+
+    <!-- Curated best-of mix: drawn, rendered, moving -->
+    <section class="section wrap showcase" id="showcase" aria-labelledby="showcase-heading">
+      <div class="section-head reveal">
+        <h2 id="showcase-heading">Drawn, rendered, moving</h2>
+        <span class="count">08 pieces</span>
+      </div>
+      <p class="showcase-lede reveal">
+        A cross-section of the work &mdash; the measured drawings that get a building approved, the
+        photoreal images that sell it, and the animations that put a product in motion.
+      </p>
+
+      <!-- The pairing: one model, two deliverables -->
+      <div class="pair reveal" aria-label="One model, two deliverables">
+        <ShowcaseTile
+          discipline="Drawing"
+          title="Technical elevation sheet"
+          ratio="4 / 3"
+          image={drawnElevation}
+          alt="Measured east & north elevation drawing sheet for 5 Apple Road"
+          widths={[520, 900, 1400]}
+          sizes="(max-width: 860px) 100vw, 46vw"
+          eager={true}
+        />
+        <span class="pair-seam" aria-hidden="true">
+          <span class="pair-seam-line"></span>
+          <span class="pair-seam-tag">one model<br />two deliverables</span>
+          <span class="pair-seam-line"></span>
+        </span>
+        <ShowcaseTile
+          discipline="Render"
+          title="Photoreal street view"
+          ratio="4 / 3"
+          image={renderedStreet}
+          alt="Photorealistic street-view render of the same 5 Apple Road building"
+          widths={[520, 900, 1400]}
+          sizes="(max-width: 860px) 100vw, 46vw"
+          eager={true}
+        />
+      </div>
+      <p class="pair-caption reveal">
+        <strong>5 Apple Road</strong> &mdash; the same geometry, drawn to be built and rendered to be
+        sold.
+      </p>
+
+      <!-- Bento of the rest: varied scale, alternating weight -->
+      <div class="bento">
+        <div class="bento-row bento-row--a">
+          <ShowcaseTile
+            discipline="Render"
+            title="Lakeside veranda, golden hour"
+            ratio="3 / 2"
+            image={lakesideVeranda}
+            alt="Golden-hour render of a wooden veranda beside a pond with a swan"
+            widths={[640, 1000, 1500]}
+            sizes="(max-width: 860px) 100vw, 56vw"
+          />
+          <ShowcaseTile
+            discipline="Animation"
+            title="Lakeside veranda — reveal"
+            ratio="16 / 9"
+            video="/video/product-anim-04-v2.mp4"
+            poster="/video/product-anim-04-v2-poster.jpg"
+          />
+        </div>
+        <div class="bento-row bento-row--b">
+          <ShowcaseTile
+            discipline="Animation"
+            title="Bicycle shed — assembly"
+            ratio="16 / 9"
+            video="/video/product-anim-03-v2.mp4"
+            poster="/video/product-anim-03-v2-poster.jpg"
+          />
+          <ShowcaseTile
+            discipline="Drawing"
+            title="Roll-border, production sheet"
+            ratio="4 / 5"
+            image={productSheet}
+            alt="Multilingual production drawing for a timber roll-border product"
+            widths={[420, 720, 1000]}
+            sizes="(max-width: 860px) 100vw, 40vw"
+          />
+        </div>
+        <div class="bento-row bento-row--c">
+          <ShowcaseTile
+            discipline="Render"
+            title="Golden-hour terrace canopy"
+            ratio="4 / 3"
+            image={goldenTerrace}
+            alt="Render of a glass terrace canopy against a white brick house at sunset"
+            widths={[520, 860, 1200]}
+            sizes="(max-width: 860px) 100vw, 48vw"
+          />
+          <ShowcaseTile
+            discipline="Render"
+            title="Chestnut fence, spring meadow"
+            ratio="4 / 3"
+            image={chestnutFence}
+            alt="Render of a rustic chestnut paling fence with sheep in a meadow"
+            widths={[520, 860, 1200]}
+            sizes="(max-width: 860px) 100vw, 48vw"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Selected work: editorial rhythm — full, half/half, full -->
@@ -82,6 +210,21 @@ const steps = [
           ))
         }
       </div>
+    </section>
+
+    <!-- Third-party proof: one employer reference pulled up from /about -->
+    <section class="section wrap" aria-label="Reference">
+      <figure class="pull-quote reveal">
+        <blockquote>
+          &ldquo;Bringing new services to the company such as <em>2D and 3D CAD drawings and
+          designs</em>, which have improved communication and understanding of certain contracts
+          tremendously.&rdquo;
+        </blockquote>
+        <figcaption>
+          Employer&rsquo;s reference &mdash; Fixed Cost Property Maintenance, Johannesburg &middot;
+          <a href="/about">All references &rarr;</a>
+        </figcaption>
+      </figure>
     </section>
 
     <!-- Process strip (Vision Scapes pattern) -->
@@ -155,17 +298,173 @@ const steps = [
     color: var(--ink-soft);
   }
 
-  /* Wide showreel band — full-bleed, cover-cropped to a cinematic strip. */
-  .hero-media video {
+  .hero-sub {
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+    max-width: 38rem;
+  }
+
+  /* Showreel band — the montage shown FULL FRAME (16:9, nothing cropped),
+     matted in generous paper and closed with a caption so it reads composed. */
+  .hero-media {
+    padding-block: 0 calc(var(--space-section) * 0.5);
+  }
+
+  .reel {
+    width: min(100%, 84rem);
+    margin-inline: auto;
+    aspect-ratio: 16 / 9;
+    background: var(--line);
+    border: 1px solid var(--line-strong);
+    overflow: hidden;
+  }
+
+  .reel .hero-video {
     width: 100%;
-    height: clamp(20rem, 62vh, 44rem);
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain; /* full frame — the whole 1920×1080 montage stays visible */
+    display: block;
+  }
+
+  .reel-cap {
+    width: min(100%, 84rem);
+    margin-inline: auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.8rem;
+  }
+
+  .reel-meta {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Curated best-of mix ---------- */
+  .showcase-lede {
+    max-width: 46ch;
+    margin-top: calc(var(--space-block) * -0.4);
+    margin-bottom: var(--space-block);
+    color: var(--ink-soft);
+    font-size: var(--text-h3);
+    line-height: 1.4;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* The pairing: drawing ↔ render with a hairline connector. */
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .pair-seam {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    align-self: stretch;
+    padding-block: 2.5rem;
+  }
+
+  .pair-seam-line {
+    flex: 1;
+    width: 1px;
+    background: var(--line-strong);
+  }
+
+  .pair-seam-tag {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    text-align: center;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .pair-caption {
+    margin-top: 1rem;
+    margin-bottom: var(--space-block);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .pair-caption strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Bento: alternating feature weight, deliberately uneven scale. */
+  .bento {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+  }
+
+  .bento-row {
+    display: grid;
+    align-items: start;
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+
+  .bento-row--a {
+    grid-template-columns: 1.35fr 1fr;
+  }
+
+  .bento-row--b {
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .bento-row--c {
+    grid-template-columns: 1fr 1fr;
   }
 
   .work-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(1.5rem, 3.5vw, 3.5rem) clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+
+  .pull-quote {
+    margin: 0;
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-block);
+  }
+
+  .pull-quote blockquote {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 560;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 34ch;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .pull-quote em {
+    font-style: normal;
+    color: var(--accent-ink);
+  }
+
+  .pull-quote figcaption {
+    margin-top: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .pull-quote figcaption a:hover {
+    color: var(--accent-ink);
   }
 
   .work-grid > :global(.card--wide) {
@@ -230,6 +529,36 @@ const steps = [
   .about-strip em {
     color: var(--accent-ink);
     font-style: normal;
+  }
+
+  /* Pairing + bento collapse to a single readable column on small screens. */
+  @media (max-width: 860px) {
+    .pair {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .pair-seam {
+      flex-direction: row;
+      padding-block: 0;
+      gap: 0.9rem;
+    }
+
+    .pair-seam-line {
+      width: auto;
+      height: 1px;
+      flex: 1;
+    }
+
+    .pair-seam-tag {
+      white-space: normal;
+    }
+
+    .bento-row--a,
+    .bento-row--b,
+    .bento-row--c {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 720px) {
