@@ -78,9 +78,9 @@ const skills = [
       </div>
     </section>
 
-    <section class="wrap reference" aria-label="Reference">
+    <section class="wrap reference" aria-label="References">
       <div class="reveal">
-        <p class="label label--accent">Reference</p>
+        <p class="label label--accent">References</p>
         <blockquote>
           <p>
             &ldquo;He seized the tasks that were put before him &hellip; bringing new services to the
@@ -89,6 +89,15 @@ const skills = [
             would be an asset to any organisation who employs him.&rdquo;
           </p>
           <cite>Employer&rsquo;s reference &mdash; Fixed Cost Property Maintenance (Pty) Ltd, Johannesburg</cite>
+        </blockquote>
+        <blockquote class="secondary reveal">
+          <p>
+            &ldquo;I was simply blown away by the workload that Mr Lepley was able to handle yet
+            remaining perfectly pleasant. &hellip; We were <em>kept well informed throughout and felt
+            extremely valued</em>. &hellip; I really struggle to think of when I&rsquo;ve enjoyed such
+            a fine example of excellence.&rdquo;
+          </p>
+          <cite>Corporate guest, in a letter to the General Manager &mdash; Sheraton Heathrow, London</cite>
         </blockquote>
       </div>
     </section>
@@ -201,6 +210,17 @@ const skills = [
     font-style: normal;
     font-size: 0.85rem;
     color: var(--ink-soft);
+  }
+
+  .reference blockquote.secondary {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--line-strong);
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .reference blockquote.secondary p {
+    font-size: var(--text-h3);
+    max-width: 52ch;
   }
 
   @media (max-width: 860px) {
