@@ -1,0 +1,251 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+import portrait from '../assets/about/portrait.jpg';
+import heroImage from '../assets/nubuiten/06.jpg';
+
+const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
+  eager: true,
+});
+
+function coverFor(slug: string): ImageMetadata {
+  const entry = covers[`../assets/covers/${slug}.jpg`];
+  if (!entry) throw new Error(`Missing cover image for project "${slug}"`);
+  return entry.default;
+}
+
+const steps = [
+  {
+    title: 'Understand',
+    text: 'Drawings, product data, mood references — I start from what the project actually needs to communicate.',
+  },
+  {
+    title: 'Model',
+    text: 'Accurate 3D geometry and CAD-clean technical drawings, built to real dimensions.',
+  },
+  {
+    title: 'Render',
+    text: 'Photorealistic stills, 360° panoramas and animation — materials and light treated like photography.',
+  },
+  {
+    title: 'Deliver',
+    text: 'Print- and web-ready files, revisions included, on the agreed date.',
+  },
+];
+---
+
+<Base
+  title="Sam Lepley — SL3D | 3D Visualisation & CAD"
+  description="Sam Lepley (SL3D) — 3D visualisation, photorealistic rendering, CAD floor plans and product animation from the south of the Netherlands. Clarity you can build from."
+>
+  <main>
+    <!-- Statement hero (UNStudio pattern): type first, image after -->
+    <section class="hero wrap" aria-label="Introduction">
+      <p class="label label--accent reveal">Sam Lepley &mdash; 3D Visualisation &amp; CAD, the Netherlands</p>
+      <h1 class="reveal">Clarity you can <em>build</em> from.</h1>
+      <div class="hero-row reveal">
+        <p>
+          Photorealistic renders, technical floor plans and product animations for architecture,
+          outdoor living and product teams.
+        </p>
+        <a class="arrow-link" href="#work">Selected work &darr;</a>
+      </div>
+    </section>
+
+    <section class="hero-media reveal" aria-hidden="true">
+      <Image
+        src={heroImage}
+        alt=""
+        widths={[720, 1200, 1800, 2400]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </section>
+
+    <!-- Selected work: editorial rhythm — full, half/half, full -->
+    <section class="section wrap" id="work" aria-labelledby="work-heading">
+      <div class="section-head reveal">
+        <h2 id="work-heading">Selected work</h2>
+        <span class="count">{String(projects.length).padStart(2, '0')} projects</span>
+      </div>
+      <div class="work-grid">
+        {
+          projects.map((project, i) => (
+            <ProjectCard
+              project={project}
+              index={i}
+              cover={coverFor(project.slug)}
+              wide={i === 0 || i === projects.length - 1}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Process strip (Vision Scapes pattern) -->
+    <section class="section wrap" aria-labelledby="process-heading">
+      <div class="section-head reveal">
+        <h2 id="process-heading">How I work</h2>
+        <span class="count">04 steps</span>
+      </div>
+      <ol class="steps">
+        {
+          steps.map((step, i) => (
+            <li class="reveal">
+              <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- About strip -->
+    <section class="section wrap" aria-label="About Sam Lepley">
+      <div class="about-strip reveal">
+        <Image src={portrait} alt="Portrait of Sam Lepley" widths={[320, 500]} sizes="(max-width: 720px) 40vw, 220px" />
+        <div>
+          <p class="label label--accent">About</p>
+          <blockquote>
+            From managing construction sites in South Africa to 3D visualisation in the Netherlands
+            &mdash; <em>&ldquo;he who dares, wins.&rdquo;</em>
+          </blockquote>
+          <a class="arrow-link" href="/about">Read the full story &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .hero {
+    padding-block: calc(var(--space-section) * 0.7) calc(var(--space-section) * 0.45);
+  }
+
+  .hero .label {
+    margin-bottom: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: var(--text-hero);
+    max-width: 12ch;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent-ink);
+  }
+
+  .hero-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 3rem;
+    margin-top: clamp(1.8rem, 4vw, 3.2rem);
+  }
+
+  .hero-row p {
+    max-width: 34rem;
+    color: var(--ink-soft);
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: clamp(20rem, 62vh, 44rem);
+    object-fit: cover;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 3.5rem) clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+
+  .work-grid > :global(.card--wide) {
+    grid-column: 1 / -1;
+  }
+
+  .steps {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .steps li {
+    border-top: 1px solid var(--line-strong);
+    padding-top: 1.1rem;
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .steps h3 {
+    font-size: var(--text-h3);
+    margin-block: 0.5rem 0.6rem;
+  }
+
+  .steps p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .about-strip {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    border-top: 1px solid var(--ink);
+    padding-top: var(--space-block);
+  }
+
+  .about-strip img {
+    width: clamp(8rem, 18vw, 13.75rem);
+    aspect-ratio: 1;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .about-strip blockquote {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 560;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 26ch;
+    margin-block: 0.9rem 1.4rem;
+  }
+
+  .about-strip em {
+    color: var(--accent-ink);
+    font-style: normal;
+  }
+
+  @media (max-width: 720px) {
+    .work-grid,
+    .steps {
+      grid-template-columns: 1fr;
+    }
+
+    .about-strip {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (min-width: 721px) and (max-width: 1023px) {
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

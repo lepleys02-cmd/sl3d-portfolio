@@ -1,0 +1,161 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import portrait from '../assets/about/portrait.jpg';
+
+const skills = [
+  {
+    title: '3D Rendering',
+    text: 'High-quality, photorealistic 3D renders as well as 360° panoramic views, created with various 3D modelling software and render engines.',
+  },
+  {
+    title: '2D / 3D Floor Plans',
+    text: 'Simple and clear bird’s-eye-view floor plans as well as technical drawings and elevations.',
+  },
+  {
+    title: 'Product Animations',
+    text: 'From a virtual 3D product to basic product animations.',
+  },
+];
+---
+
+<Base
+  title="About — Sam Lepley | SL3D"
+  description="About Sam Lepley — from construction management in South Africa to 3D visualisation and CAD in the Netherlands."
+>
+  <main>
+    <section class="page-hero wrap">
+      <p class="label label--accent reveal">About</p>
+      <h1 class="reveal">He who dares, wins.</h1>
+    </section>
+
+    <section class="wrap layout">
+      <figure class="portrait reveal">
+        <Image src={portrait} alt="Portrait of Sam Lepley" widths={[400, 640]} sizes="(max-width: 860px) 100vw, 400px" />
+        <figcaption>Sam Lepley &mdash; South of the Netherlands</figcaption>
+      </figure>
+
+      <div>
+        <div class="prose reveal">
+          <p>
+            I&rsquo;ve been drawn to design for as long as I can remember &mdash; first with LEGO,
+            and later through building real projects as a
+            <strong>construction company manager</strong>.
+          </p>
+          <p>
+            In South Africa, I realised we were spending unnecessary time and money outsourcing
+            floor plans. I was the middleman, coordinating architects for drawings I knew I could
+            learn to produce myself. So I did &mdash; bringing CAD drawings in-house, reducing costs
+            for clients, and improving our tender success rate.
+          </p>
+          <p>
+            That&rsquo;s when I caught the <strong>&ldquo;CAD bug&rdquo;</strong>. What started as a
+            practical solution became a passion &mdash; because CAD sits perfectly at the crossroads
+            of two things I love: technology and understanding how things are built.
+          </p>
+          <p>
+            I made the decision to start over in Europe, even without qualifications or industry
+            experience. I sold everything I had and enrolled in a hospitality design school in
+            Switzerland.
+          </p>
+          <p>
+            Five years later, I&rsquo;m living in the south of the Netherlands, pursuing my vocation
+            and building a career &mdash; and a life &mdash; that feels genuinely mine.
+          </p>
+        </div>
+
+        <div class="skills reveal">
+          <p class="label label--accent">My skills</p>
+          {
+            skills.map((skill) => (
+              <div class="skill-row">
+                <h3>{skill.title}</h3>
+                <p>{skill.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: calc(var(--space-section) * 0.55) var(--space-block);
+  }
+
+  .page-hero .label {
+    margin-bottom: 1.4rem;
+  }
+
+  .page-hero h1 {
+    font-size: var(--text-h1);
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(16rem, 25rem) 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .portrait img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .portrait figcaption {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    padding-top: 0.7rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.7rem;
+  }
+
+  .prose p + p {
+    margin-top: 1.1em;
+  }
+
+  .prose strong {
+    font-weight: 500;
+    color: var(--accent-ink);
+  }
+
+  .skills {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .skills .label {
+    margin-bottom: 1.2rem;
+  }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: minmax(10rem, 16rem) 1fr;
+    gap: 1rem 2rem;
+    border-top: 1px solid var(--line-strong);
+    padding-block: 1.1rem;
+  }
+
+  .skill-row h3 {
+    font-size: 1.05rem;
+  }
+
+  .skill-row p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+  }
+</style>

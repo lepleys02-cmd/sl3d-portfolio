@@ -1,0 +1,202 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug } }));
+}
+
+const { slug } = Astro.params;
+const index = projects.findIndex((p) => p.slug === slug);
+const project = projects[index];
+if (!project) throw new Error(`Unknown project slug "${slug}"`);
+
+const prev = projects[(index - 1 + projects.length) % projects.length];
+const next = projects[(index + 1) % projects.length];
+const num = String(index + 1).padStart(2, '0');
+const total = String(projects.length).padStart(2, '0');
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>('../../assets/**/*.jpg', {
+  eager: true,
+});
+const gallery = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/assets/${project.slug}/`))
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod]) => mod.default);
+---
+
+<Base
+  title={`${project.title} — Sam Lepley | SL3D`}
+  description={`${project.title}: ${project.description}`}
+>
+  <main>
+    <section class="project-hero wrap">
+      <p class="label label--accent reveal">{num} / {total} &mdash; {project.discipline}</p>
+      <h1 class="reveal">{project.title}</h1>
+      <p class="intro reveal">{project.description}</p>
+      <dl class="facts reveal">
+        {
+          project.facts.map((fact) => (
+            <div>
+              <dt class="label">{fact.k}</dt>
+              <dd>{fact.v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    {
+      gallery.length > 0 && (
+        <section class="gallery wrap" aria-label={`${project.title} gallery`}>
+          {gallery.map((img, i) => (
+            <figure class="reveal">
+              <Image
+                src={img}
+                alt={`${project.title} visualisation ${i + 1}`}
+                widths={[640, 1080, 1600, 2000]}
+                sizes="(max-width: 900px) 100vw, 92vw"
+                loading={i < 1 ? 'eager' : 'lazy'}
+              />
+            </figure>
+          ))}
+        </section>
+      )
+    }
+
+    {
+      project.videos && (
+        <section class="videos wrap" aria-label={`${project.title} videos`}>
+          {project.videos.map((src) => (
+            <figure class="reveal">
+              {/* eslint-disable-next-line */}
+              <video controls preload="metadata" playsinline>
+                <source src={src} type="video/mp4" />
+              </video>
+            </figure>
+          ))}
+        </section>
+      )
+    }
+
+    <nav class="project-nav wrap" aria-label="Project navigation">
+      <a href={`/work/${prev.slug}`}>
+        <span class="label">&larr; Previous</span>
+        <span class="name">{prev.title}</span>
+      </a>
+      <a href={`/work/${next.slug}`} class="next">
+        <span class="label">Next &rarr;</span>
+        <span class="name">{next.title}</span>
+      </a>
+    </nav>
+  </main>
+</Base>
+
+<style>
+  .project-hero {
+    padding-block: calc(var(--space-section) * 0.55) var(--space-block);
+  }
+
+  .project-hero .label {
+    margin-bottom: 1.4rem;
+  }
+
+  .project-hero h1 {
+    font-size: var(--text-h1);
+  }
+
+  .intro {
+    max-width: var(--max-prose);
+    color: var(--ink-soft);
+    margin-top: 1.4rem;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 14rem));
+    gap: 1.5rem;
+    margin-top: var(--space-block);
+  }
+
+  .facts div {
+    border-top: 1px solid var(--line-strong);
+    padding-top: 0.8rem;
+  }
+
+  .facts dd {
+    margin: 0.35rem 0 0;
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  /* Editorial rhythm: one full-bleed image, then a two-up pair */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    align-items: start;
+  }
+
+  .gallery figure:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+
+  .gallery img {
+    width: 100%;
+  }
+
+  .videos {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .videos video {
+    width: 100%;
+    background: var(--ink);
+  }
+
+  .project-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    border-top: 1px solid var(--ink);
+    margin-top: var(--space-section);
+    padding-top: 1.4rem;
+  }
+
+  .project-nav a {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .project-nav .next {
+    text-align: right;
+  }
+
+  .project-nav .name {
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: var(--text-h3);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .project-nav a:hover .name {
+    color: var(--accent-ink);
+  }
+
+  @media (max-width: 720px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery figure:nth-child(3n + 1) {
+      grid-column: auto;
+    }
+
+    .facts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

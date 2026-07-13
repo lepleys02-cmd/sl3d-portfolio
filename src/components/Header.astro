@@ -1,0 +1,85 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: '/#work', label: 'Work', active: currentPath.startsWith('/work') },
+  { href: '/about', label: 'About', active: currentPath.startsWith('/about') },
+  { href: '/contact', label: 'Contact', active: currentPath.startsWith('/contact') },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">SL3D<sup>&#9650;</sup></a>
+    <nav aria-label="Main navigation">
+      {
+        links.map((link) => (
+          <a href={link.href} aria-current={link.active ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+  }
+
+  .brand sup {
+    color: var(--accent);
+    font-size: 0.55em;
+    margin-left: 0.15em;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  nav a {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    padding-block: 0.35rem;
+    border-bottom: 1px solid transparent;
+    transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease;
+  }
+
+  nav a:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+
+  nav a[aria-current='page'] {
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+</style>

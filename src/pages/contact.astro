@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contact — Sam Lepley | SL3D"
+  description="Get in touch with Sam Lepley (SL3D) for 3D visualisation, CAD floor plans and product animation."
+  compactFooter
+>
+  <main>
+    <section class="page-hero wrap">
+      <p class="label label--accent reveal">Contact</p>
+      <h1 class="reveal">Let&rsquo;s talk.</h1>
+      <p class="intro reveal">
+        Have a project that needs photorealistic renders, technical drawings or product animation?
+        Send a message &mdash; I usually reply within one working day.
+      </p>
+    </section>
+
+    <section class="wrap layout">
+      <form class="reveal" action="https://formsubmit.co/lepleys02@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry via sl3d portfolio" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="message">Project</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit">Send message &rarr;</button>
+      </form>
+
+      <aside class="reveal">
+        <div class="direct">
+          <p class="label label--accent">Direct</p>
+          <a class="arrow-link" href="mailto:lepleys02@gmail.com">lepleys02@gmail.com</a>
+        </div>
+        <div class="direct">
+          <p class="label label--accent">Elsewhere</p>
+          <a
+            class="arrow-link"
+            href="https://www.linkedin.com/in/sam-lepley-7389b0180/"
+            target="_blank"
+            rel="noopener">LinkedIn &nearr;</a
+          >
+        </div>
+        <div class="direct">
+          <p class="label label--accent">Based in</p>
+          <p>South of the Netherlands &mdash; working remotely across Europe.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: calc(var(--space-section) * 0.55) var(--space-block);
+  }
+
+  .page-hero .label {
+    margin-bottom: 1.4rem;
+  }
+
+  .page-hero h1 {
+    font-size: var(--text-h1);
+  }
+
+  .intro {
+    max-width: var(--max-prose);
+    color: var(--ink-soft);
+    margin-top: 1.4rem;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 40rem) 1fr;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+    padding-bottom: var(--space-block);
+  }
+
+  .field {
+    display: grid;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-family: var(--font-display);
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  input,
+  textarea {
+    font: inherit;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    padding: 0.8rem 1rem;
+    border-radius: 0;
+    transition: border-color var(--duration-fast) ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 0.9rem 2rem;
+    cursor: pointer;
+    transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+  }
+
+  button:hover {
+    background: var(--accent-ink);
+    border-color: var(--accent-ink);
+  }
+
+  .direct {
+    border-top: 1px solid var(--line-strong);
+    padding-block: 1.2rem;
+  }
+
+  .direct .label {
+    margin-bottom: 0.7rem;
+  }
+
+  .direct p {
+    color: var(--ink-soft);
+    max-width: 26rem;
+  }
+
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

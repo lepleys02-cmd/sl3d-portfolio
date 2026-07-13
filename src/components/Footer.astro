@@ -1,0 +1,80 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  {
+    !compact && (
+      <div class="wrap cta reveal">
+        <p class="label label--accent">Get in touch</p>
+        <h2>
+          Have a project that needs clarity? <a href="/contact">Let&rsquo;s talk.</a>
+        </h2>
+      </div>
+    )
+  }
+  <div class="wrap bar">
+    <span>&copy; {year} Sam Lepley &mdash; SL3D &middot; South of the Netherlands</span>
+    <div class="links">
+      <a href="mailto:lepleys02@gmail.com">lepleys02@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sam-lepley-7389b0180/" target="_blank" rel="noopener">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: calc(var(--space-section) / 2);
+    border-top: 1px solid var(--ink);
+  }
+
+  .cta {
+    padding-block: var(--space-section);
+  }
+
+  .cta .label {
+    margin-bottom: 1.2rem;
+  }
+
+  .cta h2 {
+    font-size: var(--text-h1);
+    max-width: 20ch;
+  }
+
+  .cta a {
+    color: var(--accent-ink);
+    border-bottom: 3px solid var(--accent);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .cta a:hover {
+    color: var(--ink);
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-block: 1.4rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .links {
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  .links a:hover {
+    color: var(--accent-ink);
+  }
+</style>

@@ -1,0 +1,39 @@
+/* ------------------------------------------------------------------
+   SL3D design tokens — light "Dutch bureau" direction.
+   Warm paper white, near-black ink, one signal accent. Photography
+   carries the color; the chrome stays quiet.
+------------------------------------------------------------------- */
+:root {
+  /* Palette */
+  --paper: #f7f6f2;
+  --surface: #ffffff;
+  --ink: #16150f;
+  --ink-soft: #63605a;
+  --line: #e2e0d8;
+  --line-strong: #c9c6bc;
+  --accent: #c14a0a;
+  --accent-ink: #a03c06;
+
+  /* Typography */
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  --text-hero: clamp(2.75rem, 1rem + 7vw, 7.5rem);
+  --text-h1: clamp(2.4rem, 1.4rem + 4vw, 5rem);
+  --text-h2: clamp(1.7rem, 1.2rem + 2vw, 3rem);
+  --text-h3: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-label: 0.72rem;
+
+  /* Rhythm */
+  --space-section: clamp(4.5rem, 3rem + 7vw, 11rem);
+  --space-block: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --max-width: 96rem;
+  --max-prose: 44rem;
+
+  /* Motion */
+  --duration-fast: 180ms;
+  --duration-slow: 700ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
