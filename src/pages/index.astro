@@ -158,10 +158,17 @@ const steps = [
     color: var(--ink-soft);
   }
 
+  /* Square signature animation — show the FULL frame, never crop it. */
+  .hero-media {
+    display: grid;
+    justify-items: center;
+    padding-inline: var(--gutter);
+  }
+
   .hero-media video {
-    width: 100%;
-    height: clamp(20rem, 62vh, 44rem);
-    object-fit: cover;
+    width: min(100%, clamp(20rem, 72vh, 44rem));
+    height: auto;
+    aspect-ratio: 1;
   }
 
   .work-grid {
