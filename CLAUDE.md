@@ -1,10 +1,11 @@
 # SL3D Portfolio (Astro) — project context
 
 Sam Lepley's portfolio — 3D visualisation & CAD, south of the Netherlands.
-This is the **light "Dutch bureau" redesign** (2026-07-13). The older dark
-plain-HTML site lives separately at `D:\sl3d-portfolio` (deployed at
-https://lepleys02-cmd.github.io/sl3d-portfolio/); this repo is not deployed yet
-and has no remote.
+This is the **light "Dutch bureau" redesign** (2026-07-13), deployed at
+https://sl3d.net from `lepleys02-cmd/sl3d-portfolio` `main` via GitHub Actions
+(`.github/workflows/deploy.yml`, Pages build_type=workflow, CNAME in `public/`).
+The older flat-HTML site it replaced lives at `D:\sl3d-portfolio` and in this
+repo's pre-merge git history.
 
 ## Design direction (do not drift from this)
 
