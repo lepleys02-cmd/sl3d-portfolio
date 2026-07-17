@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import Testimonial from '../components/Testimonial.astro';
 import portrait from '../assets/about/portrait.jpg';
 
 const skills = [
@@ -79,37 +80,21 @@ const skills = [
     </section>
 
     <section class="wrap reference" aria-label="References">
-      <div class="reveal">
-        <p class="label label--accent">References</p>
-        <blockquote>
-          <p>
-            &ldquo;He seized the tasks that were put before him &hellip; bringing new services to the
-            company such as <em>2D and 3D CAD drawings and designs</em>, which have improved
-            communication and understanding of certain contracts tremendously. &hellip; I believe he
-            would be an asset to any organisation who employs him.&rdquo;
-          </p>
-          <cite>Employer&rsquo;s reference &mdash; Fixed Cost Property Maintenance (Pty) Ltd, Johannesburg</cite>
-        </blockquote>
-        <blockquote class="secondary reveal">
-          <p>
-            &ldquo;I was simply blown away by the workload that Mr Lepley was able to handle yet
-            remaining perfectly pleasant. &hellip; We were <em>kept well informed throughout and felt
-            extremely valued</em>. &hellip; I really struggle to think of when I&rsquo;ve enjoyed such
-            a fine example of excellence.&rdquo;
-          </p>
-          <cite>Corporate guest, in a letter to the General Manager &mdash; Sheraton Heathrow, London</cite>
-        </blockquote>
+      <div>
+        <p class="label label--accent reveal">References</p>
+        <div class="reference-cards">
+          <Testimonial
+            quote="He seized the tasks that were put before him &hellip; bringing new services to the company such as <em>2D and 3D CAD drawings and designs</em>, which have improved communication and understanding of certain contracts tremendously. &hellip; I believe he would be an asset to any organisation who employs him."
+            cite="Employer&rsquo;s reference &mdash; Fixed Cost Property Maintenance (Pty) Ltd, Johannesburg"
+          />
+          <Testimonial
+            quote="I was simply blown away by the workload that Mr Lepley was able to handle yet remaining perfectly pleasant. &hellip; We were <em>kept well informed throughout and felt extremely valued</em>. &hellip; I really struggle to think of when I&rsquo;ve enjoyed such a fine example of excellence."
+            cite="Corporate guest, in a letter to the General Manager &mdash; Sheraton Heathrow, London"
+          />
+        </div>
       </div>
     </section>
 
-    <section class="wrap signature" aria-label="SL3D signature animation">
-      <div class="reveal">
-        <p class="label label--accent">The signature</p>
-        <video autoplay muted loop playsinline preload="metadata" poster="/video/hero-poster-v2.jpg">
-          <source src="/video/hero-loop-v2.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </section>
   </main>
 </Base>
 
@@ -194,62 +179,17 @@ const skills = [
     margin-bottom: 1.4rem;
   }
 
-  .reference blockquote {
-    margin: 0;
+  .reference-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    align-items: start;
   }
 
-  .reference blockquote p {
-    font-family: var(--font-display);
-    font-weight: 560;
-    font-size: var(--text-h2);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    max-width: 34ch;
-    text-wrap: balance;
-  }
-
-  .reference blockquote em {
-    font-style: normal;
-    color: var(--accent-ink);
-  }
-
-  .reference cite {
-    display: block;
-    margin-top: 1.4rem;
-    font-style: normal;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-  }
-
-  .reference blockquote.secondary {
-    margin-top: clamp(2.5rem, 5vw, 4rem);
-    border-top: 1px solid var(--line-strong);
-    padding-top: clamp(1.5rem, 3vw, 2.5rem);
-  }
-
-  .reference blockquote.secondary p {
-    font-size: var(--text-h3);
-    max-width: 52ch;
-  }
-
-  .signature {
-    margin-top: calc(var(--space-section) * 0.5);
-  }
-
-  .signature > div {
-    border-top: 1px solid var(--ink);
-    padding-top: 1.3rem;
-  }
-
-  .signature .label {
-    margin-bottom: 1.4rem;
-  }
-
-  .signature video {
-    display: block;
-    width: min(100%, 26rem);
-    aspect-ratio: 1;
-    height: auto;
+  @media (max-width: 860px) {
+    .reference-cards {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 860px) {

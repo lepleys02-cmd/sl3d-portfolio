@@ -93,6 +93,46 @@ h3 {
   border-color: var(--accent);
 }
 
+/* Buttons: a filled, unmissable CTA — square-edged to stay in the site's
+   flat Dutch-bureau language (no pill shapes, no shadows-for-depth). */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.95rem 2.1rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.btn--primary:hover {
+  background: var(--accent-ink);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+.btn--secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
 /* Section head: title left, counter right (KAAN / cepezed pattern) */
 .section-head {
   display: flex;

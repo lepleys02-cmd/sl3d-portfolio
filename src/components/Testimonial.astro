@@ -1,0 +1,60 @@
+---
+/* Card-style testimonial ported from the sl3d-2 comparison build,
+   translated into the light Dutch-bureau language: white surface,
+   hairline border, square corners, oversized quote mark in accent. */
+interface Props {
+  quote: string;
+  cite: string;
+}
+
+const { quote, cite } = Astro.props;
+---
+
+<blockquote class="testimonial reveal">
+  <p set:html={quote} />
+  <cite set:html={cite} />
+</blockquote>
+
+<style>
+  .testimonial {
+    margin: 0;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.2rem;
+    left: 1rem;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: color-mix(in srgb, var(--accent) 22%, transparent);
+    line-height: 1;
+  }
+
+  .testimonial p {
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: 1.08rem;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .testimonial :global(em) {
+    font-style: normal;
+    color: var(--accent-ink);
+  }
+
+  .testimonial cite {
+    display: block;
+    margin-top: 1.1rem;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+</style>
