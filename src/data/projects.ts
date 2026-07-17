@@ -143,24 +143,14 @@ export const projects: Project[] = [
           'Departments, circulation and every workstation set out to scale across the H-shaped floor plate — the fit-out the client actually signs off.',
       },
       {
-        label: 'Zoning · Colour Coding',
-        caption:
-          'The floor read at a glance — open-plan, MICE, sales and executive zones separated by use before a single wall is drawn.',
-      },
-      {
-        label: 'A102 · Elevations',
-        caption:
-          'Four measured elevations — east, north, south and west — with ceiling and floor datums and numbered gridlines.',
-      },
-      {
         label: 'A104 · Reflected Ceiling Plan',
         caption:
           'Ceiling grid and luminaire layout with a fitting schedule — parabolic troffers and downlights located over the plan.',
       },
       {
-        label: 'First Floor · Measured Plan',
+        label: 'A102 · Elevations',
         caption:
-          'The dimensioned survey the layouts were built from — every wall, opening and room measured and verified on site.',
+          'Four measured elevations — east, north, south and west — with ceiling and floor datums and numbered gridlines.',
       },
     ],
   },
