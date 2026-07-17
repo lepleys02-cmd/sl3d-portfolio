@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import type { Collection } from '../data/projects';
+
+interface Props {
+  collection: Collection;
+  index: number;
+  cover: ImageMetadata;
+  /** Number of projects grouped under the collection. */
+  count: number;
+  /** Full-width cards get larger responsive image slots. */
+  wide?: boolean;
+}
+
+const { collection, index, cover, count, wide = false } = Astro.props;
+const num = String(index + 1).padStart(2, '0');
+---
+
+<article class:list={['card', 'card--collection', 'reveal', { 'card--wide': wide }]}>
+  <div class="media">
+    <Image
+      src={cover}
+      alt={`${collection.title} — ${collection.discipline}`}
+      widths={wide ? [640, 1080, 1600, 2000] : [480, 800, 1200]}
+      sizes={wide ? '(max-width: 720px) 100vw, 92vw' : '(max-width: 720px) 100vw, 46vw'}
+      loading="lazy"
+    />
+    <span class="badge" aria-hidden="true">Collection &middot; {count} projects</span>
+  </div>
+  <div class="meta">
+    <h3><span class="num">{num}</span>{collection.title}</h3>
+    <p class="sub">{collection.discipline}</p>
+  </div>
+  <a
+    class="cover-link"
+    href={`/${collection.slug}`}
+    aria-label={`View ${collection.title} — ${count} projects`}></a>
+</article>
+
+<style>
+  .card {
+    position: relative;
+  }
+
+  .media {
+    position: relative;
+    overflow: hidden;
+    background: var(--line);
+  }
+
+  .media img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: transform 600ms var(--ease-out);
+  }
+
+  .card--wide .media img {
+    aspect-ratio: 21 / 10;
+  }
+
+  .card:hover .media img {
+    transform: scale(1.03);
+  }
+
+  /* Small "Collection · N projects" tag — signals this card is a group. */
+  .badge {
+    position: absolute;
+    left: 0.85rem;
+    top: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28em 0.7em;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    border: 1px solid var(--line-strong);
+  }
+
+  .meta {
+    padding-top: 0.9rem;
+  }
+
+  .meta h3 {
+    font-size: var(--text-h3);
+  }
+
+  .num {
+    color: var(--accent-ink);
+    font-size: 0.7em;
+    font-variant-numeric: tabular-nums;
+    vertical-align: 0.25em;
+    margin-right: 0.9em;
+  }
+
+  .sub {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .card:hover .meta h3 {
+    color: var(--accent-ink);
+  }
+
+  .cover-link {
+    position: absolute;
+    inset: 0;
+  }
+</style>

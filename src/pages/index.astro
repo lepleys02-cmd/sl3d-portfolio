@@ -3,8 +3,10 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import CollectionCard from '../components/CollectionCard.astro';
 import ShowcaseTile from '../components/ShowcaseTile.astro';
-import { projects } from '../data/projects';
+import { projects, collections } from '../data/projects';
+import type { Project, Collection } from '../data/projects';
 import portrait from '../assets/about/portrait.jpg';
 
 // Curated best-of pieces (imported so astro:assets can size/optimise them).
@@ -24,6 +26,21 @@ function coverFor(slug: string): ImageMetadata {
   if (!entry) throw new Error(`Missing cover image for project "${slug}"`);
   return entry.default;
 }
+
+// Building projects are grouped behind one hub card so individual buildings
+// don't scatter across the grid. Order: product/environment work → architecture
+// hub → animation, with the hub slotted so the four cards pair without an orphan.
+const architecture = collections.find((c) => c.slug === 'architecture')!;
+const archMembers = projects.filter((p) => p.collection === 'architecture');
+const singles = projects.filter((p) => !p.collection);
+type HomeItem =
+  | { kind: 'project'; project: Project }
+  | { kind: 'collection'; collection: Collection };
+const homeItems: HomeItem[] = [
+  ...singles.slice(0, 2).map((project): HomeItem => ({ kind: 'project', project })),
+  { kind: 'collection', collection: architecture },
+  ...singles.slice(2).map((project): HomeItem => ({ kind: 'project', project })),
+];
 
 const steps = [
   {
@@ -209,14 +226,24 @@ const steps = [
       </div>
       <div class="work-grid">
         {
-          projects.map((project, i) => (
-            <ProjectCard
-              project={project}
-              index={i}
-              cover={coverFor(project.slug)}
-              wide={i === 0 || i >= projects.length - 2}
-            />
-          ))
+          homeItems.map((item, i) =>
+            item.kind === 'project' ? (
+              <ProjectCard
+                project={item.project}
+                index={i}
+                cover={coverFor(item.project.slug)}
+                wide={i === 0 || i === homeItems.length - 1}
+              />
+            ) : (
+              <CollectionCard
+                collection={item.collection}
+                index={i}
+                cover={coverFor(item.collection.slug)}
+                count={archMembers.length}
+                wide={i === 0 || i === homeItems.length - 1}
+              />
+            )
+          )
         }
       </div>
     </section>

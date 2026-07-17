@@ -25,7 +25,45 @@ export interface Project {
   /** Per-sheet label + caption, in the same order as the sorted asset files.
       Only used when `documentation` is true. */
   sheets?: { label: string; caption: string }[];
+  /** Slug of the collection this project belongs to. Collection members are
+      grouped behind a single hub card on the home page instead of appearing
+      individually, and cycle prev/next within the collection. */
+  collection?: string;
 }
+
+/** A themed grouping of projects, surfaced as one hub page + one home card. */
+export interface Collection {
+  slug: string;
+  title: string;
+  /** Small kicker above the hub title. */
+  kicker: string;
+  /** Short label shown under the collection's home card. */
+  discipline: string;
+  /** One-line summary for the home card + meta description. */
+  description: string;
+  /** Hub-page intro paragraph. */
+  intro: string;
+  /** The three facets the discipline covers, shown as a strip on the hub. */
+  facets: string[];
+}
+
+export const collections: Collection[] = [
+  {
+    slug: 'architecture',
+    title: 'Architectural Planning & Visualisation',
+    kicker: 'Collection',
+    discipline: 'Space planning · documentation · visualisation',
+    description:
+      'Buildings taken from measured space plan to coordinated drawing set to photoreal image.',
+    intro:
+      'The architectural side of the studio — commercial and residential buildings taken from a measured space plan, through a coordinated drawing set a contractor can build from, to the photoreal image that sells it. One model drives all three.',
+    facets: [
+      'Space planning & measured survey',
+      'Coordinated CAD documentation',
+      'Photoreal architectural visualisation',
+    ],
+  },
+];
 
 // TODO(sam): real case-study numbers still missing — e.g. how many product
 // variants / webshop scenes at Nubuiten, catalogue size at OLG. Add them to
@@ -37,7 +75,6 @@ export const projects: Project[] = [
     year: '2024',
     discipline: 'Product & environment visualisation',
     facts: [
-      { k: 'Year', v: '2024' },
       { k: 'Studio', v: 'Nubuiten' },
       { k: 'Deliverables', v: 'Webshop stills · lifestyle scenes' },
     ],
@@ -54,7 +91,6 @@ export const projects: Project[] = [
     year: '2026',
     discipline: 'Product & environment visualisation',
     facts: [
-      { k: 'Year', v: '2026' },
       { k: 'Studio', v: 'Outdoor Life Group' },
       { k: 'Deliverables', v: 'Product stills · environment scenes' },
     ],
@@ -70,8 +106,8 @@ export const projects: Project[] = [
     title: '5 Apple Road',
     year: '2024',
     discipline: 'Architectural visualisation',
+    collection: 'architecture',
     facts: [
-      { k: 'Year', v: '2024' },
       { k: 'Studio', v: 'Independent' },
       { k: 'Deliverables', v: 'Plans · elevations · photoreal stills' },
     ],
@@ -94,7 +130,6 @@ export const projects: Project[] = [
     year: '2024',
     discipline: '3D product animation',
     facts: [
-      { k: 'Year', v: '2024' },
       { k: 'Discipline', v: '3D animation' },
       { k: 'Format', v: '1080p MP4' },
     ],
@@ -119,6 +154,7 @@ export const projects: Project[] = [
     title: 'BCD Travel',
     year: '2020',
     discipline: 'Commercial space planning & CAD documentation',
+    collection: 'architecture',
     facts: [
       { k: 'Client', v: 'BCD Travel S.A' },
       { k: 'Site', v: 'Travel Campus, Johannesburg' },
