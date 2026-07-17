@@ -120,8 +120,8 @@ export const projects: Project[] = [
     year: '2020',
     discipline: 'Commercial space planning & CAD documentation',
     facts: [
-      { k: 'Year', v: '2020' },
       { k: 'Client', v: 'BCD Travel S.A' },
+      { k: 'Site', v: 'Travel Campus, Johannesburg' },
       { k: 'Deliverables', v: 'Space plans · elevations · schedules' },
     ],
     description:
