@@ -1,4 +1,6 @@
 ---
+import SoftwareMarquee from './SoftwareMarquee.astro';
+
 interface Props {
   compact?: boolean;
 }
@@ -21,6 +23,7 @@ const year = new Date().getFullYear();
       </div>
     )
   }
+  <SoftwareMarquee />
   <div class="wrap bar">
     <span>&copy; {year} Sam Lepley &mdash; SL3D &middot; South of the Netherlands</span>
     <div class="links">
