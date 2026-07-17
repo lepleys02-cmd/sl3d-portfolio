@@ -214,7 +214,7 @@ const steps = [
               project={project}
               index={i}
               cover={coverFor(project.slug)}
-              wide={i === 0 || i === projects.length - 1}
+              wide={i === 0 || i >= projects.length - 2}
             />
           ))
         }

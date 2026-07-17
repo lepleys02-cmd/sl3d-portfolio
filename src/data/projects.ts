@@ -19,6 +19,12 @@ export interface Project {
   headerVideo?: string;
   /** Projects without an image gallery list videos from /public/video instead. */
   videos?: string[];
+  /** Drawing-led case study: render the gallery as matted documentation sheets
+      (mat + hairline border + sheet label) instead of edge-to-edge images. */
+  documentation?: boolean;
+  /** Per-sheet label + caption, in the same order as the sorted asset files.
+      Only used when `documentation` is true. */
+  sheets?: { label: string; caption: string }[];
 }
 
 // TODO(sam): real case-study numbers still missing — e.g. how many product
@@ -106,6 +112,56 @@ export const projects: Project[] = [
       '/video/product-anim-03-v2.mp4',
       '/video/product-anim-04-v2.mp4',
       '/video/product-anim-05-v2.mp4',
+    ],
+  },
+  {
+    slug: 'bcd-travel',
+    title: 'BCD Travel',
+    year: '2020',
+    discipline: 'Commercial space planning & CAD documentation',
+    facts: [
+      { k: 'Year', v: '2020' },
+      { k: 'Client', v: 'BCD Travel S.A' },
+      { k: 'Deliverables', v: 'Space plans · elevations · schedules' },
+    ],
+    description:
+      'A full office fit-out documentation set for the BCD Travel campus in Johannesburg — space planning, elevations, reflected ceiling plans and schedules, drawn to be built.',
+    brief:
+      'A global travel-management company refitting a Johannesburg office floor needs a coordinated drawing set: how the space is zoned and furnished, how it is lit, and how every door and window is specified — enough for a contractor to price and build without a phone call.',
+    approach:
+      'One coordinated model drives the whole set — colour-coded space plans and furniture layouts, four measured elevations, and a reflected ceiling plan with its luminaire schedule, all keyed to door and window schedules and drawn to real dimensions verified on site.',
+    documentation: true,
+    sheets: [
+      {
+        label: 'A101 · Office Layout',
+        caption:
+          'Every space typed, colour-coded and counted against a room legend, with door and window schedules keyed back to the plan.',
+      },
+      {
+        label: 'Space Plan · Furniture Layout',
+        caption:
+          'Departments, circulation and every workstation set out to scale across the H-shaped floor plate — the fit-out the client actually signs off.',
+      },
+      {
+        label: 'Zoning · Colour Coding',
+        caption:
+          'The floor read at a glance — open-plan, MICE, sales and executive zones separated by use before a single wall is drawn.',
+      },
+      {
+        label: 'A102 · Elevations',
+        caption:
+          'Four measured elevations — east, north, south and west — with ceiling and floor datums and numbered gridlines.',
+      },
+      {
+        label: 'A104 · Reflected Ceiling Plan',
+        caption:
+          'Ceiling grid and luminaire layout with a fitting schedule — parabolic troffers and downlights located over the plan.',
+      },
+      {
+        label: 'First Floor · Measured Plan',
+        caption:
+          'The dimensioned survey the layouts were built from — every wall, opening and room measured and verified on site.',
+      },
     ],
   },
 ];

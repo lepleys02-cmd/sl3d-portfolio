@@ -38,6 +38,12 @@ const processFiles = project.process ? [project.process.before, project.process.
 const gallery = projectImages
   .filter(([path]) => !processFiles.some((file) => path.endsWith(`/${file}`)))
   .map(([, mod]) => mod.default);
+
+// Drawing-led case studies pair each sorted sheet with its label + caption.
+const sheetItems =
+  project.documentation && project.sheets
+    ? gallery.map((img, i) => ({ img, meta: project.sheets![i] }))
+    : [];
 ---
 
 <Base
@@ -128,20 +134,44 @@ const gallery = projectImages
     }
 
     {
-      gallery.length > 0 && (
-        <section class="gallery wrap" aria-label={`${project.title} gallery`}>
-          {gallery.map((img, i) => (
-            <figure class="reveal">
-              <Image
-                src={img}
-                alt={`${project.title} visualisation ${i + 1}`}
-                widths={[640, 1080, 1600, 2000]}
-                sizes="(max-width: 900px) 100vw, 92vw"
-                loading={i < 1 ? 'eager' : 'lazy'}
-              />
+      project.documentation && sheetItems.length > 0 ? (
+        <section class="gallery gallery--sheets wrap" aria-label={`${project.title} drawing set`}>
+          {sheetItems.map(({ img, meta }, i) => (
+            <figure class="sheet reveal">
+              <div class="sheet-frame">
+                <Image
+                  src={img}
+                  alt={meta ? `${project.title} — ${meta.label}` : `${project.title} drawing ${i + 1}`}
+                  widths={[640, 1080, 1600, 2000]}
+                  sizes="(max-width: 900px) 100vw, 92vw"
+                  loading={i < 1 ? 'eager' : 'lazy'}
+                />
+              </div>
+              {meta && (
+                <figcaption>
+                  <span class="sheet-label">{meta.label}</span>
+                  <span class="sheet-note">{meta.caption}</span>
+                </figcaption>
+              )}
             </figure>
           ))}
         </section>
+      ) : (
+        gallery.length > 0 && (
+          <section class="gallery wrap" aria-label={`${project.title} gallery`}>
+            {gallery.map((img, i) => (
+              <figure class="reveal">
+                <Image
+                  src={img}
+                  alt={`${project.title} visualisation ${i + 1}`}
+                  widths={[640, 1080, 1600, 2000]}
+                  sizes="(max-width: 900px) 100vw, 92vw"
+                  loading={i < 1 ? 'eager' : 'lazy'}
+                />
+              </figure>
+            ))}
+          </section>
+        )
       )
     }
 
@@ -281,6 +311,54 @@ const gallery = projectImages
 
   .gallery img {
     width: 100%;
+  }
+
+  /* Drawing-led projects: each sheet matted on paper with a hairline frame,
+     a sheet label and a one-line curatorial note — reads as documentation,
+     not a photo gallery. Shares the .gallery grid + full-bleed rhythm. */
+  .gallery--sheets {
+    align-items: start;
+    row-gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .sheet {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sheet-frame {
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    padding: clamp(0.7rem, 1.8vw, 1.6rem);
+  }
+
+  .sheet-frame img {
+    width: 100%;
+    display: block;
+  }
+
+  .gallery--sheets figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 0.85rem;
+  }
+
+  .sheet-label {
+    font-family: var(--font-display);
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+  }
+
+  .sheet-note {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 56ch;
   }
 
   .videos {
