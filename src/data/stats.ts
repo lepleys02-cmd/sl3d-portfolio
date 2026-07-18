@@ -10,9 +10,9 @@ export interface Stat {
 // Owner-confirmed numbers only — do not add or infer stats beyond these three.
 export const stats: Stat[] = [
   {
-    value: 12,
+    value: 10,
     suffix: '+',
-    label: 'years of production work',
+    label: 'years experience',
   },
   {
     value: 3,
