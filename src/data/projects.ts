@@ -10,9 +10,16 @@ export interface Project {
   brief?: string;
   /** Case study: how it was made. */
   approach?: string;
-  /** Optional drawing-vs-render pairing shown above the gallery.
-      Filenames are relative to the project's asset folder. */
-  process?: { before: string; after: string; caption: string };
+  /** Optional before/after pairing shown above the gallery.
+      Filenames are relative to the project's asset folder. Labels default to
+      the drawing-vs-render story ('Drawn'/'Rendered'). */
+  process?: {
+    before: string;
+    after: string;
+    caption: string;
+    beforeLabel?: string;
+    afterLabel?: string;
+  };
   /** Short muted MP4 played on card hover (path under /public). */
   previewVideo?: string;
   /** Autoplaying muted showreel shown as the project-page header (path under /public). */
@@ -58,6 +65,23 @@ export interface Collection {
 }
 
 export const collections: Collection[] = [
+  {
+    slug: 'ai',
+    title: 'AI-Assisted Production',
+    kicker: 'Collection',
+    discipline: 'Scene revival · photoreal regrades · generative motion',
+    description:
+      'Existing renders and product imagery taken further with AI — regraded, relit and set in motion, with every output checked against the real model.',
+    intro:
+      'A production pipeline, not a shortcut. Finished CGI work from the studio archive is taken further with AI — flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion. Every output is art-directed and verified against the accurate 3D model it started from; the tools change, the standard does not.',
+    facets: [
+      'Brief & art direction',
+      'Accurate 3D base model',
+      'AI iteration & regrade',
+      'Human selection & correction',
+      'Verified finish & delivery',
+    ],
+  },
   {
     slug: 'architecture',
     title: 'Architectural Planning & Visualisation',
@@ -172,6 +196,103 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'ai-revival',
+    title: 'Scene Revival',
+    year: '2026',
+    discipline: 'AI-assisted visualisation',
+    collection: 'ai',
+    facts: [
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Source', v: 'Existing CGI renders' },
+      { k: 'Deliverables', v: 'Photoreal regrades · lifestyle scenes' },
+    ],
+    description:
+      'Finished CGI renders from the archive, taken further — flat daylight regraded into photographic golden hour, clean product scenes lifted into believable places.',
+    brief:
+      'A render that was state of the art two years ago can look dated next to what is possible now. Rather than rebuilding every scene from scratch, the archive becomes raw material: the geometry, composition and product accuracy are already right — the image just needs to catch up.',
+    approach:
+      'Each revival starts from the original accurate render, is taken through an AI regrade under tight art direction, then checked back against the source model — proportions, materials and product detail must survive the process untouched. What changes is the light and the atmosphere; what the client is buying stays exact.',
+    process: {
+      before: 'before.jpg',
+      after: 'after.jpg',
+      beforeLabel: 'Original render',
+      afterLabel: 'AI regrade',
+      caption:
+        'Hardinxveld garden room — the original CGI render (left) and its AI-assisted regrade (right): same geometry, same product, photographic light.',
+    },
+  },
+  {
+    slug: 'ai-motion',
+    title: 'Still to Motion',
+    year: '2026',
+    discipline: 'AI-assisted animation',
+    collection: 'ai',
+    facts: [
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Source', v: 'Product stills & scenes' },
+      { k: 'Format', v: '1080p MP4' },
+    ],
+    description:
+      'Product stills and finished scenes set in motion with AI — camera moves, atmosphere and product reveals generated from a single accurate frame.',
+    brief:
+      'Full 3D animation is the gold standard, but not every product or campaign carries its production time. When an accurate still already exists, motion can now start from that frame instead of from an empty timeline.',
+    approach:
+      'Each clip begins from a finished, dimensionally accurate still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut — the clip below is one that survived.',
+    videos: ['/video/ai-motion-01.mp4'],
+  },
+  {
+    slug: 'park24-bulkheads',
+    title: 'Park 24 Bulkheads',
+    year: '2026',
+    discipline: 'AI-assisted interior visualisation',
+    collection: 'ai',
+    facts: [
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Source', v: '2017 construction drawings' },
+      { k: 'Rooms', v: 'Kitchen · dining · two bedroom options' },
+    ],
+    description:
+      'A 2017 bulkhead drawing set brought back as photoreal interiors — the ceiling details rebuilt in 3D to their drawn dimensions, then staged and finished with AI.',
+    brief:
+      'A construction drawing tells a contractor where the bulkhead goes; it tells a homeowner nothing about how the room will feel. Years after the drawings were issued, the question was whether an archive drawing set could become the marketing imagery it never had.',
+    process: {
+      before: 'drawing.jpg',
+      after: '04.jpg',
+      beforeLabel: 'Drawing set',
+      afterLabel: 'AI-finished interior',
+      caption:
+        'Park 24 — the bulkhead detail sheet (left) and the dining room bulkhead delivered from it (right): the same detail drawn, dimensioned, rebuilt in 3D, and finished.',
+    },
+    approach:
+      'The bulkhead details were rebuilt as an accurate 3D model straight from the original drawings — drops, shadow gaps and cove positions at their drawn dimensions — then each room was staged, lit and finished through the studio’s AI pipeline. The two bedroom schemes show the same detail resolved two ways: a cool perimeter cove and a warm recessed tray.',
+  },
+  {
+    slug: 'loftus-box',
+    title: 'Old Mutual Box',
+    year: '2026',
+    discipline: 'AI-assisted interior visualisation',
+    collection: 'ai',
+    facts: [
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Venue', v: 'Loftus Versfeld, Pretoria' },
+      { k: 'Space', v: 'Corporate hospitality box' },
+    ],
+    description:
+      'A corporate hospitality box at Loftus Versfeld, surveyed and drawn, rebuilt as a 3D model at its drawn dimensions, then staged and finished with AI — the stadium bowl beyond the glass.',
+    brief:
+      'A hospitality box is sold on how it feels on match day, and massing geometry says nothing about that. Drawn from an existing-layout survey, the box was an A101 sheet and a rough model; the question was whether that could become the imagery the suite needs before it is refitted.',
+    process: {
+      before: 'drawing.jpg',
+      after: '04.jpg',
+      beforeLabel: 'Drawing sheet',
+      afterLabel: 'AI-finished interior',
+      caption:
+        'Old Mutual Box — the A101 survey sheet (left) and the servery bulkhead delivered from it (right): the same detail drawn, dimensioned, rebuilt in 3D, and finished.',
+    },
+    approach:
+      'The box was drawn from a measured survey — plan, south elevation and a door and window legend on an A101 sheet — then rebuilt as a 3D model at those dimensions: face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead over the servery with recessed linear light and cove. Each zone was then staged, lit and finished through the studio’s AI pipeline. The light strategy carries the room — warm interior pools against the cooler daylight coming off the pitch — and the stadium beyond the glazing is the real Loftus bowl, never an invented one.',
+  },
+  {
     slug: 'bcd-travel',
     title: 'BCD Travel',
     year: '2020',
@@ -196,7 +317,7 @@ export const projects: Project[] = [
           'Every space typed, colour-coded and counted against a room legend, with door and window schedules keyed back to the plan.',
       },
       {
-        label: 'Space Plan · Furniture Layout',
+        label: 'A103 · Space Plan & Furniture Layout',
         caption:
           'Departments, circulation and every workstation set out to scale across the H-shaped floor plate — the fit-out the client actually signs off.',
       },
