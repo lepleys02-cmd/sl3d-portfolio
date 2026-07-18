@@ -149,7 +149,9 @@ export const projects: Project[] = [
       'Some products are easier to sell in motion: how a bicycle shed opens, how a veranda goes together, how a garden building sits in evening light.',
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
-    previewVideo: '/video/preview-product-animations-v2.mp4',
+    // SL3D brand ident loop as the card cover animation (the static cover at
+    // assets/covers/product-animations.jpg is this clip's poster frame).
+    previewVideo: '/video/hero-loop-wide.mp4',
     headerVideo: '/video/showreel-product-animations.mp4',
     videos: [
       '/video/product-anim-01.mp4',
