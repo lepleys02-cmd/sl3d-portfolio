@@ -278,9 +278,9 @@ export const projects: Project[] = [
       { k: 'Space', v: 'Corporate hospitality box' },
     ],
     description:
-      'A corporate hospitality box at Loftus Versfeld, surveyed and drawn, rebuilt as a 3D model at its drawn dimensions, then staged and finished with AI — the stadium bowl beyond the glass.',
+      'A corporate hospitality box at Loftus Versfeld, surveyed and drawn, rebuilt as a 3D model at its drawn dimensions, then staged and finished with AI — with match day beyond the glass.',
     brief:
-      'A hospitality box is sold on how it feels on match day, and massing geometry says nothing about that. Drawn from an existing-layout survey, the box was an A101 sheet and a rough model; the question was whether that could become the imagery the suite needs before it is refitted.',
+      'A hospitality box is sold on how it feels on match day, and a survey drawing says nothing about that. The box existed as an A101 sheet — plan, south elevation, door and window legend — and a rough model; the question was whether an archive survey could become the imagery a suite like this is sold on.',
     process: {
       before: 'drawing.jpg',
       after: '04.jpg',
