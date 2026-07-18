@@ -77,12 +77,18 @@ const num = String(index + 1).padStart(2, '0');
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 400ms var(--ease-out);
+    transition: opacity 500ms var(--ease-out);
     pointer-events: none;
   }
 
   .preview.is-playing {
     opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .preview.is-playing {
+      opacity: 0;
+    }
   }
 
   .media {
@@ -137,25 +143,48 @@ const num = String(index + 1).padStart(2, '0');
 </style>
 
 <script>
-  // Hover video preview: mouse/pen pointers only, and never for
-  // reduced-motion users. Videos are preload="none" so nothing downloads
-  // until the first hover.
-  document.addEventListener('astro:page-load', () => {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  // Preview videos autoplay/loop on their own — no hover needed. Nothing
+  // downloads until a card nears the viewport (preload="none" + this
+  // observer), and playback pauses again once it scrolls away, so at most
+  // a couple of cards are decoding video at once. Reduced-motion users
+  // never see the video layer (poster stays put; see the CSS override).
+  function initPreviews() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    for (const card of document.querySelectorAll('.card')) {
-      const preview = card.querySelector<HTMLVideoElement>('video.preview');
-      if (!preview) continue;
-      card.addEventListener('mouseenter', () => {
+    const previews = document.querySelectorAll<HTMLVideoElement>(
+      '.card video.preview:not([data-wired])'
+    );
+    if (!previews.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      previews.forEach((preview) => {
+        preview.dataset.wired = 'true';
         preview.classList.add('is-playing');
         preview.play().catch(() => preview.classList.remove('is-playing'));
       });
-      card.addEventListener('mouseleave', () => {
-        preview.classList.remove('is-playing');
-        preview.pause();
-        preview.currentTime = 0;
-      });
+      return;
     }
-  });
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const preview = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            preview.classList.add('is-playing');
+            preview.play().catch(() => preview.classList.remove('is-playing'));
+          } else {
+            preview.pause();
+          }
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    previews.forEach((preview) => {
+      preview.dataset.wired = 'true';
+      io.observe(preview);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initPreviews);
 </script>
