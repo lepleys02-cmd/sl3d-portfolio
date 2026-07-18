@@ -32,6 +32,7 @@ const track = [...software, ...software];
                 loading="lazy"
                 decoding="async"
               />
+              <span class="tip" aria-hidden="true">{tool.name}</span>
             </a>
           );
         })
@@ -42,7 +43,11 @@ const track = [...software, ...software];
 
 <style>
   .marquee-wrap {
-    padding-block: var(--space-block);
+    /* Bottom padding is trimmed by exactly the headroom .marquee gains below
+       for the tooltip pill, so the section's net height/rhythm is unchanged
+       — see .marquee's padding-bottom below. */
+    padding-top: var(--space-block);
+    padding-bottom: max(0rem, calc(var(--space-block) - 2.5rem));
   }
 
   .kicker {
@@ -51,6 +56,9 @@ const track = [...software, ...software];
 
   .marquee {
     overflow: hidden;
+    /* Headroom for the .tip pill, which sits below the tile and would
+       otherwise be sliced by this box's own overflow:hidden. */
+    padding-bottom: 2.5rem;
     mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
     -webkit-mask-image: linear-gradient(
       to right,
@@ -83,6 +91,7 @@ const track = [...software, ...software];
   }
 
   .logo {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,6 +100,38 @@ const track = [...software, ...software];
     height: 64px;
     background: transparent;
     transition: background var(--duration-fast) ease;
+  }
+
+  /* Name-only tooltip, styled like ShowcaseTile's .cue badge minus the
+     accent dot. Sits below the tile with room reserved by .marquee's
+     padding-bottom above. */
+  .tip {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: 50%;
+    z-index: 2;
+    padding: 0.28em 0.7em;
+    font-family: var(--font-display);
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--ink);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    border: 1px solid var(--line-strong);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -4px);
+    transition:
+      opacity var(--duration-fast) ease,
+      transform var(--duration-fast) ease;
+  }
+
+  .logo:hover .tip,
+  .logo:focus-visible .tip {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 
   /* Fallback for engines without color-mix() support: a quiet neutral ink
@@ -140,7 +181,8 @@ const track = [...software, ...software];
     }
 
     .logo,
-    .mark {
+    .mark,
+    .tip {
       transition: none;
     }
   }

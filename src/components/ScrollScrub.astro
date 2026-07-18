@@ -1,0 +1,272 @@
+---
+// Pinned scroll-progress section: a tall wrapper with a sticky inner panel.
+// Scroll fraction through the wrapper drives ONLY a UI progress rail +
+// chapter-label highlighting — the video plays normally (IO-gated, same
+// pattern as ShowcaseTile) rather than being scrubbed to scroll position.
+// Reduced-motion: no pin, no rail progress — renders inline like a normal tile.
+interface Chapter {
+  at: number;
+  label: string;
+}
+
+interface Props {
+  video: string;
+  poster?: string;
+  chapters: Chapter[];
+}
+
+const { video, poster, chapters } = Astro.props;
+---
+
+<section class="scrollscrub" aria-label="Assembly sequence, scroll to follow along">
+  <div class="scrollscrub-pin">
+    <div class="scrollscrub-inner wrap">
+      <p class="kicker label label--accent">Assembly, step by step</p>
+      <div class="panel">
+        <video
+          class="scrub-video"
+          data-motion
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster={poster}
+          width="1920"
+          height="1080"
+          aria-label="Assembly sequence animation"
+        >
+          <source src={video} type="video/mp4" />
+        </video>
+      </div>
+      <div class="rail" role="presentation">
+        <div class="rail-track">
+          <div class="rail-fill" data-rail-fill></div>
+        </div>
+        <ol class="rail-chapters">
+          {
+            chapters.map((chapter) => (
+              <li class="rail-chapter" data-at={chapter.at}>
+                <span class="label">{chapter.label}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollscrub {
+    height: 280vh;
+    margin-bottom: var(--space-block);
+  }
+
+  /* top offset matches the site header's fixed height (Header.astro's
+     .bar: 4rem + 1px border) so the pinned panel sits below it instead of
+     being covered by it — the header is itself position: sticky, z-index 10. */
+  .scrollscrub-pin {
+    position: sticky;
+    top: calc(4rem + 1px);
+    height: calc(100vh - 4rem - 1px);
+    display: flex;
+    align-items: center;
+    padding-block: 2rem;
+  }
+
+  .scrollscrub-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    width: 100%;
+  }
+
+  .kicker {
+    margin: 0;
+  }
+
+  .panel {
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+    border: 1px solid var(--line-strong);
+    overflow: hidden;
+  }
+
+  .scrub-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .rail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .rail-track {
+    position: relative;
+    height: 1px;
+    background: var(--line-strong);
+  }
+
+  .rail-fill {
+    position: absolute;
+    inset: 0;
+    transform-origin: left center;
+    transform: scaleX(0);
+    background: var(--accent);
+  }
+
+  .rail-chapters {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .rail-chapter .label {
+    color: var(--ink-soft);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .rail-chapter.is-active .label {
+    color: var(--accent-ink);
+  }
+
+  /* Reduced motion: drop the pin entirely, render inline like a normal tile —
+     no scroll-jacking, no rail progress, poster stands in until played. */
+  @media (prefers-reduced-motion: reduce) {
+    .scrollscrub {
+      height: auto;
+    }
+
+    .scrollscrub-pin {
+      position: static;
+      height: auto;
+    }
+
+    .rail-fill {
+      display: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .scrollscrub {
+      height: 200vh;
+    }
+
+    .rail-chapters .label {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+    }
+  }
+</style>
+
+<script>
+  // Scroll fraction through the tall wrapper drives the rail fill + active
+  // chapter label — NOT video.currentTime. The video itself plays/pauses via
+  // the same IntersectionObserver pattern as ShowcaseTile's [data-motion]
+  // tiles. Reads are batched in a rAF so scroll never forces sync layout.
+  // The window scroll/resize listeners are wired exactly ONCE per real page
+  // load (module-scope flag, same pattern as the peek pill in Base.astro) and
+  // re-query live .scrollscrub sections on each frame — ClientRouter swaps the
+  // section DOM on every navigation, so closing over section references here
+  // would leak a growing stack of handlers bound to detached nodes.
+  let scrubWired = false;
+  let scrubTicking = false;
+
+  function updateScrub() {
+    scrubTicking = false;
+    const sections = document.querySelectorAll<HTMLElement>('.scrollscrub');
+    sections.forEach((section) => {
+      const pin = section.querySelector<HTMLElement>('.scrollscrub-pin');
+      const fill = section.querySelector<HTMLElement>('[data-rail-fill]');
+      const chapterEls = Array.from(section.querySelectorAll<HTMLElement>('.rail-chapter'));
+
+      const rect = section.getBoundingClientRect();
+      // Use the sticky panel's own (constant) height rather than the raw
+      // viewport height — the panel sits below the fixed site header, so
+      // its pinned height is shorter than 100vh.
+      const pinH = pin?.getBoundingClientRect().height ?? window.innerHeight;
+      const scrolled = -rect.top;
+      const range = rect.height - pinH;
+      const fraction = range > 0 ? Math.min(1, Math.max(0, scrolled / range)) : 0;
+
+      if (fill) fill.style.transform = `scaleX(${fraction})`;
+
+      let activeIndex = 0;
+      chapterEls.forEach((el, i) => {
+        const at = Number(el.dataset.at ?? 0);
+        if (fraction >= at) activeIndex = i;
+      });
+      chapterEls.forEach((el, i) => el.classList.toggle('is-active', i === activeIndex));
+    });
+  }
+
+  function onScrubScroll() {
+    if (scrubTicking) return;
+    scrubTicking = true;
+    requestAnimationFrame(updateScrub);
+  }
+
+  function initScrollScrub() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!document.querySelector('.scrollscrub')) return;
+
+    if (!scrubWired) {
+      scrubWired = true;
+      window.addEventListener('scroll', onScrubScroll, { passive: true });
+      window.addEventListener('resize', onScrubScroll);
+    }
+    updateScrub();
+  }
+
+  // Play/pause the panel video only while it's actually in view — mirrors
+  // ShowcaseTile's [data-motion] wiring so the same IO instance conventions
+  // apply across the site.
+  // Single module-scope observer reused across navigations — a fresh IO per
+  // visit would pile up observers holding callbacks alive. (Observed targets
+  // don't block GC, so detached videos from previous navigations are cheap.)
+  let videoIO: IntersectionObserver | null = null;
+
+  function initScrubVideo() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const videos = document.querySelectorAll<HTMLVideoElement>(
+      '.scrollscrub video[data-motion]:not([data-wired])'
+    );
+    if (!videos.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach((v) => {
+        v.dataset.wired = 'true';
+        v.play().catch(() => {});
+      });
+      return;
+    }
+
+    videoIO ??= new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const v = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            v.play().catch(() => {});
+          } else {
+            v.pause();
+          }
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    videos.forEach((v) => {
+      v.dataset.wired = 'true';
+      videoIO!.observe(v);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initScrollScrub);
+  document.addEventListener('astro:page-load', initScrubVideo);
+</script>

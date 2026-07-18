@@ -29,6 +29,16 @@ export interface Project {
       grouped behind a single hub card on the home page instead of appearing
       individually, and cycle prev/next within the collection. */
   collection?: string;
+  /** Pinned scroll-progress feature shown above the plain video grid — a
+      sticky video panel with a chapter rail driven by scroll fraction
+      (see ScrollScrub.astro). `video` is excluded from the plain grid below
+      to avoid showing the same clip twice. */
+  scrollFeature?: {
+    video: string;
+    poster?: string;
+    /** `at` is a 0–1 fraction of scroll progress through the section. */
+    chapters: { at: number; label: string }[];
+  };
 }
 
 /** A themed grouping of projects, surfaced as one hub page + one home card. */
@@ -148,6 +158,16 @@ export const projects: Project[] = [
       '/video/product-anim-04-v2.mp4',
       '/video/product-anim-05-v2.mp4',
     ],
+    scrollFeature: {
+      video: '/video/product-anim-03-v2.mp4',
+      poster: '/video/product-anim-03-v2-poster.jpg',
+      chapters: [
+        { at: 0, label: 'Closed' },
+        { at: 0.33, label: 'Lid travel' },
+        { at: 0.66, label: 'Clearances' },
+        { at: 0.9, label: 'Open' },
+      ],
+    },
   },
   {
     slug: 'bcd-travel',

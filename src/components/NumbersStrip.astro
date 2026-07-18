@@ -1,0 +1,128 @@
+---
+import { stats } from '../data/stats';
+---
+
+<section class="numbers wrap reveal" aria-label="Studio numbers">
+  <ul class="numbers-row">
+    {
+      stats.map((stat) => (
+        <li>
+          <span class="value">
+            {/* True value server-rendered so no-JS/pre-hydration readers never
+                see a false "0" — the count-up script resets to 0 itself only
+                when it actually animates. */}
+            <span class="digits" data-final={stat.value}>
+              {stat.value}
+            </span>
+            {stat.suffix && <span class="suffix">{stat.suffix}</span>}
+          </span>
+          <span class="label">{stat.label}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .numbers {
+    border-block: 1px solid var(--line);
+    padding-block: var(--space-block);
+  }
+
+  .numbers-row {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: 0;
+    margin: 0;
+  }
+
+  .numbers-row li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .value {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 560;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .suffix {
+    color: var(--accent-ink);
+  }
+
+  @media (max-width: 720px) {
+    .numbers-row {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+  }
+</style>
+
+<script>
+  // Count-up: mirrors the hero-video reveal pattern — own IntersectionObserver,
+  // runs once (data-counted guard survives view transitions), instant for
+  // reduced-motion users.
+  const COUNT_DURATION = 800;
+
+  function easeOutCubic(t: number): number {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animateDigit(el: HTMLElement) {
+    if (el.dataset.counted === 'true') return;
+    el.dataset.counted = 'true';
+
+    const final = Number(el.dataset.final);
+    if (!Number.isFinite(final)) return;
+
+    // Reduced motion: the true value is already server-rendered — done.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Only now that we're definitely animating is it safe to zero the display.
+    el.textContent = '0';
+
+    const start = performance.now();
+    function tick(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / COUNT_DURATION, 1);
+      const eased = easeOutCubic(progress);
+      el.textContent = String(Math.round(final * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function initNumbersStrip() {
+    const strip = document.querySelector<HTMLElement>('.numbers');
+    if (!strip) return;
+    const digits = strip.querySelectorAll<HTMLElement>('.digits:not([data-counted="true"])');
+    if (!digits.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      digits.forEach(animateDigit);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            strip.querySelectorAll<HTMLElement>('.digits').forEach(animateDigit);
+            io.unobserve(strip);
+          }
+        }
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(strip);
+  }
+
+  document.addEventListener('astro:page-load', initNumbersStrip);
+</script>

@@ -179,3 +179,39 @@ h3 {
     transition: none;
   }
 }
+
+/* ---------- Cursor peek pill ---------- */
+/* Appended once by Base.astro's script, positioned via JS transform for a
+   direct 1:1 cursor follow. Visual language mirrors ShowcaseTile's .cue
+   hairline badge: paper-88% bg, hairline border, uppercase label. */
+.peek-pill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.peek-pill-inner {
+  display: inline-flex;
+  padding: 0.28em 0.7em;
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  border: 1px solid var(--line-strong);
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.peek-pill.is-active .peek-pill-inner {
+  opacity: 1;
+  transform: scale(1);
+}

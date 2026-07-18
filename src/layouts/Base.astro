@@ -72,7 +72,73 @@ const ogImage = new URL('/og.jpg', site);
           items.forEach((el) => el.classList.add('is-visible'));
         }
       }
+      // Cursor-following "peek" pill: appears while hovering a card that
+      // opts in via data-peek, tracking the cursor with a direct 1:1 follow
+      // (no lerp/inertia — trailing motion fights the site's restrained
+      // voice). Desktop-with-a-mouse only; a no-op on touch or when
+      // reduced-motion is requested. The pill element and its pointer
+      // listeners are set up once (module-scope `peekWired` flag): the
+      // ClientRouter swaps <body> content on every navigation, which would
+      // otherwise orphan the appended pill, so each astro:page-load
+      // re-creates it if missing without re-attaching duplicate listeners.
+      let peekPill: HTMLDivElement | null = null;
+      let peekWired = false;
+      let peekRaf = 0;
+      let peekX = 0;
+      let peekY = 0;
+
+      function movePeekPill() {
+        peekRaf = 0;
+        if (!peekPill) return;
+        const offset = 18;
+        const edge = 8;
+        const maxX = window.innerWidth - peekPill.offsetWidth - edge;
+        const maxY = window.innerHeight - peekPill.offsetHeight - edge;
+        const x = Math.min(Math.max(peekX + offset, edge), Math.max(maxX, edge));
+        const y = Math.min(Math.max(peekY + offset, edge), Math.max(maxY, edge));
+        peekPill.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
+
+      function initPeekPill() {
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        if (!peekPill || !document.body.contains(peekPill)) {
+          peekPill = document.createElement('div');
+          peekPill.className = 'peek-pill';
+          peekPill.setAttribute('aria-hidden', 'true');
+          peekPill.innerHTML = '<span class="peek-pill-inner"></span>';
+          document.body.appendChild(peekPill);
+        }
+
+        if (peekWired) return;
+        peekWired = true;
+
+        document.addEventListener('pointerover', (event) => {
+          const card = (event.target as HTMLElement).closest<HTMLElement>('.card[data-peek]');
+          if (!card || !peekPill) return;
+          const inner = peekPill.querySelector('.peek-pill-inner');
+          if (inner) inner.textContent = card.dataset.peek ?? '';
+          peekPill.classList.add('is-active');
+        });
+
+        document.addEventListener('pointermove', (event) => {
+          peekX = event.clientX;
+          peekY = event.clientY;
+          if (!peekRaf) peekRaf = requestAnimationFrame(movePeekPill);
+        });
+
+        document.addEventListener('pointerout', (event) => {
+          const card = (event.target as HTMLElement).closest<HTMLElement>('.card[data-peek]');
+          if (!card || !peekPill) return;
+          const related = event.relatedTarget as HTMLElement | null;
+          if (related && card.contains(related)) return;
+          peekPill.classList.remove('is-active');
+        });
+      }
+
       document.addEventListener('astro:page-load', initReveal);
+      document.addEventListener('astro:page-load', initPeekPill);
     </script>
   </body>
 </html>

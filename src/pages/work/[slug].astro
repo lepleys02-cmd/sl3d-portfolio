@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Base from '../../layouts/Base.astro';
+import ScrollScrub from '../../components/ScrollScrub.astro';
 import { projects, collections } from '../../data/projects';
 
 export function getStaticPaths() {
@@ -52,6 +53,10 @@ const sheetItems =
   project.documentation && project.sheets
     ? gallery.map((img, i) => ({ img, meta: project.sheets![i] }))
     : [];
+
+// The scroll-feature clip gets its own pinned section above the plain grid —
+// drop it from the grid list below so it doesn't appear twice.
+const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature?.video);
 ---
 
 <Base
@@ -199,9 +204,19 @@ const sheetItems =
     }
 
     {
-      project.videos && (
+      project.scrollFeature && (
+        <ScrollScrub
+          video={project.scrollFeature.video}
+          poster={project.scrollFeature.poster}
+          chapters={project.scrollFeature.chapters}
+        />
+      )
+    }
+
+    {
+      gridVideos && gridVideos.length > 0 && (
         <section class="videos wrap" aria-label={`${project.title} videos`}>
-          {project.videos.map((src) => (
+          {gridVideos.map((src) => (
             <figure class="reveal">
               {/* eslint-disable-next-line */}
               <video controls preload="metadata" playsinline poster={src.replace('.mp4', '-poster.jpg')}>

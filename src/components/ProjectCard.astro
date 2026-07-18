@@ -15,7 +15,7 @@ const { project, index, cover, wide = false } = Astro.props;
 const num = String(index + 1).padStart(2, '0');
 ---
 
-<article class:list={['card', 'reveal', { 'card--wide': wide }]}>
+<article class:list={['card', 'reveal', { 'card--wide': wide }]} data-peek="View case study →">
   <div class="media">
     <Image
       src={cover}
@@ -116,6 +116,22 @@ const num = String(index + 1).padStart(2, '0');
   .cover-link {
     position: absolute;
     inset: 0;
+  }
+
+  /* .cover-link is an invisible full-card overlay, so its own default
+     :focus-visible outline reads as unstyled. Ring the card instead and
+     suppress the link's own outline to avoid a doubled ring. */
+  .card:has(.cover-link:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Only suppress the link's own ring where :has() can re-draw it on the
+     card — otherwise keyboard users would get no focus indicator at all. */
+  @supports selector(:has(a)) {
+    .cover-link:focus-visible {
+      outline: none;
+    }
   }
 
 </style>
