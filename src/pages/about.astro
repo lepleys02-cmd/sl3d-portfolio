@@ -3,6 +3,12 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Testimonial from '../components/Testimonial.astro';
 import portrait from '../assets/about/portrait.jpg';
+import { software } from '../data/software';
+
+// Plain-text tool list (derived from the marquee data so it can never drift).
+// The footer marquee shows these as logos only — recruiters and search
+// engines scan for the words, so they must exist as visible text somewhere.
+const toolNames = software.map((tool) => tool.name).join(' · ');
 
 const skills = [
   {
@@ -59,7 +65,7 @@ const skills = [
             design school in Switzerland &mdash; committing fully to the work I wanted to master.
           </p>
           <p>
-            It paid off. Today I live in the south of the Netherlands with more than twelve years
+            It paid off. Today I live in the south of the Netherlands with more than ten years
             of experience behind me &mdash; from construction and property projects in Johannesburg
             to product design and 3D visualisation in the Netherlands &mdash; a career, and a life,
             that feels genuinely mine.
@@ -76,6 +82,7 @@ const skills = [
               </div>
             ))
           }
+          <p class="tools-line">Working daily in {toolNames}.</p>
         </div>
       </div>
     </section>
@@ -163,6 +170,13 @@ const skills = [
   }
 
   .skill-row p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .tools-line {
+    border-top: 1px solid var(--line-strong);
+    padding-block: 1.1rem;
     font-size: 0.92rem;
     color: var(--ink-soft);
   }

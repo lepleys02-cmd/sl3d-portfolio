@@ -110,6 +110,7 @@ export const projects: Project[] = [
     discipline: 'Product & environment visualisation',
     facts: [
       { k: 'Studio', v: 'Nubuiten' },
+      { k: 'Role', v: 'In-house 3D artist — modelling, lighting, post' },
       { k: 'Deliverables', v: 'Webshop stills · lifestyle scenes' },
     ],
     description:
@@ -126,6 +127,7 @@ export const projects: Project[] = [
     discipline: 'Product & environment visualisation',
     facts: [
       { k: 'Studio', v: 'Outdoor Life Group' },
+      { k: 'Role', v: 'In-house 3D artist (ongoing)' },
       { k: 'Deliverables', v: 'Product stills · environment scenes' },
     ],
     description:
@@ -143,6 +145,7 @@ export const projects: Project[] = [
     collection: 'architecture',
     facts: [
       { k: 'Studio', v: 'Independent' },
+      { k: 'Role', v: 'Survey, drawing set & visualisation — solo' },
       { k: 'Deliverables', v: 'Plans · elevations · photoreal stills' },
     ],
     description:
@@ -165,6 +168,7 @@ export const projects: Project[] = [
     discipline: '3D product animation',
     facts: [
       { k: 'Discipline', v: '3D animation' },
+      { k: 'Role', v: 'Modelling, animation & edit — solo' },
       { k: 'Format', v: '1080p MP4' },
     ],
     description:
@@ -173,9 +177,9 @@ export const projects: Project[] = [
       'Some products are easier to sell in motion: how a bicycle shed opens, how a veranda goes together, how a garden building sits in evening light.',
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
-    // SL3D brand ident loop as the card cover animation (the static cover at
-    // assets/covers/product-animations.jpg is this clip's poster frame).
-    previewVideo: '/video/hero-loop-wide.mp4',
+    // Real product-animation excerpt as the card cover loop — the chrome
+    // SL3D brand ident clashed with the site's restrained art direction.
+    previewVideo: '/video/preview-product-animations-v2.mp4',
     headerVideo: '/video/showreel-product-animations.mp4',
     videos: [
       '/video/product-anim-01.mp4',
@@ -203,6 +207,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
       { k: 'Source', v: 'Existing CGI renders' },
       { k: 'Deliverables', v: 'Photoreal regrades · lifestyle scenes' },
     ],
@@ -229,6 +234,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
       { k: 'Source', v: 'Product stills & scenes' },
       { k: 'Format', v: '1080p MP4' },
     ],
@@ -248,6 +254,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
       { k: 'Source', v: '2017 construction drawings' },
       { k: 'Rooms', v: 'Kitchen · dining · two bedroom options' },
     ],
@@ -274,6 +281,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
       { k: 'Venue', v: 'Loftus Versfeld, Pretoria' },
       { k: 'Space', v: 'Corporate hospitality box' },
     ],
@@ -301,6 +309,7 @@ export const projects: Project[] = [
     facts: [
       { k: 'Client', v: 'BCD Travel S.A' },
       { k: 'Site', v: 'Travel Campus, Johannesburg' },
+      { k: 'Role', v: 'Space planning & CAD documentation — solo' },
       { k: 'Deliverables', v: 'Space plans · elevations · schedules' },
     ],
     description:

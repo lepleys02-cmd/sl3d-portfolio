@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+
+// GitHub Pages serves the built 404.html for any unknown path.
+---
+
+<Base
+  title="Page not found — Sam Lepley | SL3D"
+  description="This page doesn't exist — the work does. Back to SL3D."
+>
+  <main>
+    <section class="page-hero wrap">
+      <p class="label label--accent reveal">404</p>
+      <h1 class="reveal">Nothing drawn here.</h1>
+      <p class="lede reveal">
+        This page doesn&rsquo;t exist &mdash; or it moved. The work is still where it should be.
+      </p>
+      <nav class="links reveal" aria-label="Recovery links">
+        <a class="arrow-link" href="/#work">Selected work &rarr;</a>
+        <a class="arrow-link" href="/about">About &rarr;</a>
+        <a class="arrow-link" href="/contact">Contact &rarr;</a>
+      </nav>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(6rem, 14vw, 11rem);
+  }
+
+  h1 {
+    font-size: var(--text-h1, clamp(2.6rem, 6vw, 4.5rem));
+    margin-block: 0.4em 0.5em;
+  }
+
+  .lede {
+    max-width: 34rem;
+    color: var(--ink-soft);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+</style>

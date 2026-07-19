@@ -156,7 +156,10 @@ h3 {
 }
 
 /* ---------- Scroll reveal ---------- */
-.reveal {
+/* The hidden state only applies once Base.astro's head script has stamped
+   html.js — without JS nothing could ever un-hide, so content must default
+   to visible. */
+.js .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -164,7 +167,7 @@ h3 {
     transform var(--duration-slow) var(--ease-out);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -173,7 +176,7 @@ h3 {
   html {
     scroll-behavior: auto;
   }
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;

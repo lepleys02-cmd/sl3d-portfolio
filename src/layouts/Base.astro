@@ -42,6 +42,13 @@ const ogImage = new URL('/og.jpg', site);
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
+    <!-- Reveal-animation gate: .reveal only starts hidden when this class is
+         present (see global.css), so content is never invisible without JS.
+         is:inline keeps it a blocking head script — it must run before first
+         paint or the reveal styles flash. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <ClientRouter />
   </head>
   <body>
@@ -68,6 +75,17 @@ const ogImage = new URL('/og.jpg', site);
             { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
           );
           items.forEach((el) => io.observe(el));
+          // Failsafe: if observer callbacks are starved (busy main thread,
+          // odd viewports), rescue anything sitting in the viewport while
+          // still hidden. Off-screen items keep their scroll reveal.
+          setTimeout(() => {
+            document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => {
+              const rect = el.getBoundingClientRect();
+              if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('is-visible');
+              }
+            });
+          }, 4000);
         } else {
           items.forEach((el) => el.classList.add('is-visible'));
         }
