@@ -15,7 +15,6 @@ import drawnElevation from '../assets/archviz/02.jpg';
 import renderedStreet from '../assets/archviz/01.jpg';
 import lakesideVeranda from '../assets/nubuiten/13.jpg';
 import goldenTerrace from '../assets/nubuiten/05.jpg';
-import productSheet from '../assets/outdoor-life-group/04.jpg';
 import chestnutFence from '../assets/outdoor-life-group/01.jpg';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
@@ -185,16 +184,6 @@ const steps = [
             poster="/video/product-anim-03-v2-poster.jpg"
             note="Lid travel, clearances and opening order proved in motion — one model serving the instruction manual and the campaign alike."
           />
-          <ShowcaseTile
-            discipline="Drawing"
-            title="Roll-border, production sheet"
-            ratio="4 / 5"
-            image={productSheet}
-            alt="Multilingual production drawing for a timber roll-border product"
-            widths={[420, 720, 1000]}
-            sizes="(max-width: 860px) 100vw, 40vw"
-            note="Dimensions, tolerances and packing counts, set multilingual for the factory floor — drawing as logistics."
-          />
         </div>
         <div class="bento-row bento-row--c">
           <ShowcaseTile
@@ -292,8 +281,8 @@ const steps = [
         <div>
           <p class="label label--accent">About</p>
           <blockquote>
-            From managing construction sites in South Africa to 3D visualisation in the Netherlands
-            &mdash; <em>&ldquo;he who dares, wins.&rdquo;</em>
+            From construction management in South Africa to 3D visualisation in the
+            Netherlands. <em>He who dares, wins.</em>
           </blockquote>
           <a class="arrow-link" href="/about">Read the full story &rarr;</a>
         </div>
@@ -461,7 +450,7 @@ const steps = [
   }
 
   .bento-row--b {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .bento-row--c {
