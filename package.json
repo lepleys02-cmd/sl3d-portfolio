@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check:assets": "node scripts/check-asset-refs.mjs",
+    "test": "npm run check:assets"
   },
   "dependencies": {
     "astro": "^5.0.0",

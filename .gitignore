@@ -4,3 +4,8 @@ dist/
 npm-debug.log*
 
 gan-harness/
+
+# Local source archives (repo root) — never publish to the public repo
+/models/
+/park24-bulkheads/
+/_masters/

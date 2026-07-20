@@ -271,7 +271,7 @@ export const projects: Project[] = [
         'Park 24 — the bulkhead detail sheet (left) and the dining room bulkhead delivered from it (right): the same detail drawn, dimensioned, rebuilt in 3D, and finished.',
     },
     approach:
-      'The bulkhead details were rebuilt as an accurate 3D model straight from the original drawings — drops, shadow gaps and cove positions at their drawn dimensions — then each room was staged, lit and finished through the studio’s AI pipeline. The two bedroom schemes show the same detail resolved two ways: a cool perimeter cove and a warm recessed tray.',
+      'The bulkhead details were rebuilt as an accurate 3D model straight from the original drawings — drops, shadow gaps and cove positions at their drawn dimensions — then each room was staged, lit and finished through the studio’s AI pipeline. The two bedroom schemes show the same detail resolved in two temperatures — one cove lit cool, the other warm.',
   },
   {
     slug: 'loftus-box',
