@@ -110,7 +110,7 @@ export const projects: Project[] = [
     discipline: 'Product & environment visualisation',
     facts: [
       { k: 'Studio', v: 'Nubuiten' },
-      { k: 'Role', v: 'In-house 3D artist — modelling, lighting, post' },
+      { k: 'Role', v: 'In-house 3D artist — every render from model to post' },
       { k: 'Deliverables', v: 'Webshop stills · lifestyle scenes' },
     ],
     description:
@@ -127,11 +127,11 @@ export const projects: Project[] = [
     discipline: 'Product & environment visualisation',
     facts: [
       { k: 'Studio', v: 'Outdoor Life Group' },
-      { k: 'Role', v: 'In-house 3D artist (ongoing)' },
+      { k: 'Role', v: 'In-house 3D artist' },
       { k: 'Deliverables', v: 'Product stills · environment scenes' },
     ],
     description:
-      'Product and environment visualisation for Outdoor Life Group (OLG) — ongoing in-house work.',
+      'Product and environment visualisation for Outdoor Life Group (OLG) — created in-house.',
     brief:
       'A product group covering multiple outdoor-living brands needs a steady stream of consistent, photoreal imagery across a wide catalogue.',
     approach:
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     collection: 'architecture',
     facts: [
       { k: 'Studio', v: 'Independent' },
-      { k: 'Role', v: 'Survey, drawing set & visualisation — solo' },
+      { k: 'Role', v: 'Solo project — survey, drawings and renders' },
       { k: 'Deliverables', v: 'Plans · elevations · photoreal stills' },
     ],
     description:
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     discipline: '3D product animation',
     facts: [
       { k: 'Discipline', v: '3D animation' },
-      { k: 'Role', v: 'Modelling, animation & edit — solo' },
+      { k: 'Role', v: 'All modelling, animation and editing' },
       { k: 'Format', v: '1080p MP4' },
     ],
     description:
@@ -207,7 +207,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
+      { k: 'Role', v: 'Art direction, base models and every regrade pass' },
       { k: 'Source', v: 'Existing CGI renders' },
       { k: 'Deliverables', v: 'Photoreal regrades · lifestyle scenes' },
     ],
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
+      { k: 'Role', v: 'Direction, generation and the final cut' },
       { k: 'Source', v: 'Product stills & scenes' },
       { k: 'Format', v: '1080p MP4' },
     ],
@@ -254,7 +254,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
+      { k: 'Role', v: 'Rebuilt the drawings in 3D, directed the finish' },
       { k: 'Source', v: '2017 construction drawings' },
       { k: 'Rooms', v: 'Kitchen · dining · two bedroom options' },
     ],
@@ -281,7 +281,7 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Art direction, 3D base & AI pipeline — solo' },
+      { k: 'Role', v: 'Measured survey, 3D model and art direction' },
       { k: 'Venue', v: 'Loftus Versfeld, Pretoria' },
       { k: 'Space', v: 'Corporate hospitality box' },
     ],
@@ -309,7 +309,7 @@ export const projects: Project[] = [
     facts: [
       { k: 'Client', v: 'BCD Travel S.A' },
       { k: 'Site', v: 'Travel Campus, Johannesburg' },
-      { k: 'Role', v: 'Space planning & CAD documentation — solo' },
+      { k: 'Role', v: 'Surveyed and drew the full set myself' },
       { k: 'Deliverables', v: 'Space plans · elevations · schedules' },
     ],
     description:
