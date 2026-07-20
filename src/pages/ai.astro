@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects, collections } from '../data/projects';
 
-const collection = collections.find((c) => c.slug === 'architecture')!;
+const collection = collections.find((c) => c.slug === 'ai')!;
 const members = projects.filter((p) => p.collection === collection.slug);
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
@@ -15,6 +15,17 @@ function coverFor(slug: string): ImageMetadata {
   if (!entry) throw new Error(`Missing cover image for "${slug}"`);
   return entry.default;
 }
+
+// One line per pipeline stage, paired by index with collection.facets.
+// Deliberately intent-level: the stages say what happens, never how.
+const stageNotes = [
+  'What the image has to say, and for whom — set before any tool is opened.',
+  'Every scene starts from geometry built to real product dimensions.',
+  'Light, atmosphere and grade are pushed in short, directed passes.',
+  'Most iterations are discarded. The keepers are corrected by hand.',
+  'The result is checked against the source model before it ships.',
+];
+const stages = collection.facets.map((name, i) => ({ name, note: stageNotes[i] ?? '' }));
 ---
 
 <Base
@@ -26,12 +37,13 @@ function coverFor(slug: string): ImageMetadata {
       <p class="label label--accent reveal">{collection.kicker}</p>
       <h1 class="reveal">{collection.title}</h1>
       <p class="intro reveal">{collection.intro}</p>
-      <ul class="facets reveal" aria-label="What this collection covers">
+      <ul class="facets reveal" aria-label="Production pipeline">
         {
-          collection.facets.map((facet, i) => (
+          stages.map((stage, i) => (
             <li>
               <span class="facet-num">{String(i + 1).padStart(2, '0')}</span>
-              <span>{facet}</span>
+              <span>{stage.name}</span>
+              <span class="facet-note">{stage.note}</span>
             </li>
           ))
         }
@@ -82,7 +94,7 @@ function coverFor(slug: string): ImageMetadata {
     padding: 0;
     margin-top: var(--space-block);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: clamp(1.25rem, 3vw, 2.5rem);
   }
 
@@ -101,6 +113,14 @@ function coverFor(slug: string): ImageMetadata {
     font-size: 0.8rem;
     color: var(--accent-ink);
     font-variant-numeric: tabular-nums;
+  }
+
+  .facet-note {
+    font-family: var(--font-body, inherit);
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
   }
 
   .hub-work {

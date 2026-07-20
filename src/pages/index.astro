@@ -27,11 +27,13 @@ function coverFor(slug: string): ImageMetadata {
   return entry.default;
 }
 
-// Building projects are grouped behind one hub card so individual buildings
-// don't scatter across the grid. Order: product/environment work → architecture
-// hub → animation, with the hub slotted so the four cards pair without an orphan.
+// Collection members are grouped behind one hub card each so they don't
+// scatter across the grid. Order: product/environment work → architecture
+// hub → animation → AI hub, keeping wide cards at the top and bottom.
 const architecture = collections.find((c) => c.slug === 'architecture')!;
-const archMembers = projects.filter((p) => p.collection === 'architecture');
+const ai = collections.find((c) => c.slug === 'ai')!;
+const memberCount = (slug: string) =>
+  projects.filter((p) => p.collection === slug).length;
 const singles = projects.filter((p) => !p.collection);
 type HomeItem =
   | { kind: 'project'; project: Project }
@@ -40,6 +42,7 @@ const homeItems: HomeItem[] = [
   ...singles.slice(0, 2).map((project): HomeItem => ({ kind: 'project', project })),
   { kind: 'collection', collection: architecture },
   ...singles.slice(2).map((project): HomeItem => ({ kind: 'project', project })),
+  { kind: 'collection', collection: ai },
 ];
 
 const steps = [
@@ -222,15 +225,15 @@ const steps = [
                 project={item.project}
                 index={i}
                 cover={coverFor(item.project.slug)}
-                wide={i === 0 || i === homeItems.length - 1}
+                wide={i === 0}
               />
             ) : (
               <CollectionCard
                 collection={item.collection}
                 index={i}
                 cover={coverFor(item.collection.slug)}
-                count={archMembers.length}
-                wide={i === 0 || i === homeItems.length - 1}
+                count={memberCount(item.collection.slug)}
+                wide={i === 0}
               />
             )
           )

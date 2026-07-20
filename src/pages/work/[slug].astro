@@ -133,27 +133,27 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
 
     {
       project.process && processImages?.before && processImages?.after && (
-        <section class="process wrap" aria-label="From drawing to render">
+        <section class="process wrap" aria-label="Before and after comparison">
           <div class="process-pair">
             <figure class="reveal">
               <Image
                 src={processImages.before}
-                alt="Technical drawing sheet"
+                alt={`${project.title} — ${project.process.beforeLabel ?? 'Drawn'}`}
                 widths={[640, 1080, 1600]}
                 sizes="(max-width: 900px) 100vw, 46vw"
                 loading="eager"
               />
-              <figcaption class="label">Drawn</figcaption>
+              <figcaption class="label">{project.process.beforeLabel ?? 'Drawn'}</figcaption>
             </figure>
             <figure class="reveal">
               <Image
                 src={processImages.after}
-                alt="Photorealistic render of the same building"
+                alt={`${project.title} — ${project.process.afterLabel ?? 'Rendered'}`}
                 widths={[640, 1080, 1600]}
                 sizes="(max-width: 900px) 100vw, 46vw"
                 loading="eager"
               />
-              <figcaption class="label">Rendered</figcaption>
+              <figcaption class="label">{project.process.afterLabel ?? 'Rendered'}</figcaption>
             </figure>
           </div>
           <p class="process-caption reveal">{project.process.caption}</p>
