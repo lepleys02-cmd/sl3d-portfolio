@@ -174,30 +174,19 @@ export const projects: Project[] = [
     description:
       'From a virtual 3D product to motion — turntables, assembly sequences and product reveals.',
     brief:
-      'Some products are easier to sell in motion: how a bicycle shed opens, how a veranda goes together, how a garden building sits in evening light.',
+      'Some products are easier to sell in motion: how a veranda goes together, how a garden building sits in evening light.',
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
-    // Real product-animation excerpt as the card cover loop — the chrome
-    // SL3D brand ident clashed with the site's restrained art direction.
-    previewVideo: '/video/preview-product-animations-v2.mp4',
+    // SL3D brand ident loop as the card cover animation (the static cover at
+    // assets/covers/product-animations.jpg is this clip's poster frame).
+    previewVideo: '/video/hero-loop-wide.mp4',
     headerVideo: '/video/showreel-product-animations.mp4',
     videos: [
       '/video/product-anim-01.mp4',
       '/video/product-anim-02.mp4',
-      '/video/product-anim-03-v2.mp4',
       '/video/product-anim-04-v2.mp4',
       '/video/product-anim-05-v2.mp4',
     ],
-    scrollFeature: {
-      video: '/video/product-anim-03-v2.mp4',
-      poster: '/video/product-anim-03-v2-poster.jpg',
-      chapters: [
-        { at: 0, label: 'Closed' },
-        { at: 0.33, label: 'Lid travel' },
-        { at: 0.66, label: 'Clearances' },
-        { at: 0.9, label: 'Open' },
-      ],
-    },
   },
   {
     slug: 'ai-revival',
