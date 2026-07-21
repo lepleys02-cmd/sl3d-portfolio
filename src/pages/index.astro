@@ -11,7 +11,7 @@ import type { Project, Collection } from '../data/projects';
 import portrait from '../assets/about/portrait.jpg';
 
 // Curated best-of pieces (imported so astro:assets can size/optimise them).
-import drawnElevation from '../assets/archviz/02.jpg';
+import drawnSheet from '../assets/archviz/04.jpg';
 import renderedStreet from '../assets/archviz/01.jpg';
 import lakesideVeranda from '../assets/nubuiten/13.jpg';
 import goldenTerrace from '../assets/nubuiten/05.jpg';
@@ -125,14 +125,14 @@ const steps = [
       <div class="pair reveal" aria-label="One model, two deliverables">
         <ShowcaseTile
           discipline="Drawing"
-          title="Technical elevation sheet"
+          title="Technical drawing sheet"
           ratio="4 / 3"
-          image={drawnElevation}
-          alt="Measured east & north elevation drawing sheet for 5 Apple Road"
+          image={drawnSheet}
+          alt="Ground floor plan, 3D study and stair section on a technical sheet for 5 Apple Road"
           widths={[520, 900, 1400]}
           sizes="(max-width: 860px) 100vw, 46vw"
           eager={true}
-          note="Measured elevations with datum lines, joinery call-outs and numbered openings — the quiet half of the job, drawn so a contractor can price it without a phone call."
+          note="Ground floor plan, a 3D massing study and a stair section on one sheet — the measured half of the job, drawn so a contractor can build from it."
         />
         <span class="pair-seam" aria-hidden="true">
           <span class="pair-seam-line"></span>
