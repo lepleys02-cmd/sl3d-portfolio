@@ -19,11 +19,20 @@ import Base from '../layouts/Base.astro';
           sam@sl3d.net &rarr;
         </a>
         <a
-          class="arrow-link reveal elsewhere"
+          class="linkedin-btn reveal elsewhere"
           href="https://www.linkedin.com/in/sam-lepley-7389b0180/"
           target="_blank"
-          rel="noopener">LinkedIn &nearr;</a
+          rel="noopener"
+          aria-label="Sam Lepley on LinkedIn"
         >
+          <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true" focusable="false">
+            <rect width="24" height="24" rx="4" fill="#0A66C2" />
+            <path
+              fill="#fff"
+              d="M7.12 9H3.56v11.45h3.56V9zM5.34 7.43a2.07 2.07 0 1 0 0-4.14 2.07 2.07 0 0 0 0 4.14zM20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"
+            />
+          </svg>
+        </a>
         <p class="based reveal">
           Based in the south of the Netherlands &mdash; working remotely across Europe.
         </p>
@@ -85,8 +94,33 @@ import Base from '../layouts/Base.astro';
   }
 
   .elsewhere {
-    display: inline-flex;
     margin-top: 1.6rem;
+  }
+
+  /* LinkedIn logo button — the brand bug links straight to the profile. */
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    border-radius: 6px;
+    transition:
+      transform var(--duration-fast) ease,
+      box-shadow var(--duration-fast) ease;
+  }
+
+  .linkedin-btn svg {
+    display: block;
+  }
+
+  .linkedin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(10, 102, 194, 0.28);
+  }
+
+  .linkedin-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 
   .based {
