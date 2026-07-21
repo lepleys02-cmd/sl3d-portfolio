@@ -185,6 +185,9 @@ export const projects: Project[] = [
       '/video/product-anim-01.mp4',
       '/video/product-anim-02.mp4',
       '/video/product-anim-04-v2.mp4',
+      // Bicycle shed placed low in the grid — kept in the portfolio but not
+      // featured (not the card cover, hero, or a scroll feature).
+      '/video/product-anim-03-v2.mp4',
       '/video/product-anim-05-v2.mp4',
     ],
   },
