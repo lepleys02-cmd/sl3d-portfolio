@@ -84,7 +84,7 @@ export const collections: Collection[] = [
   },
   {
     slug: 'architecture',
-    title: 'Architectural Planning & Visualisation',
+    title: 'Architectural Visualisation & Documentation',
     kicker: 'Collection',
     discipline: 'Space planning · documentation · visualisation',
     description:
