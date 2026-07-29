@@ -270,7 +270,7 @@ export const projects: Project[] = [
     title: 'Park 24 Bulkheads',
     year: '2026',
     discipline: 'AI-assisted interior visualisation',
-    collection: 'ai',
+    collection: 'architecture',
     facts: [
       { k: 'Studio', v: 'SL3D' },
       { k: 'Role', v: 'Rebuilt the drawings in 3D, directed the finish' },
