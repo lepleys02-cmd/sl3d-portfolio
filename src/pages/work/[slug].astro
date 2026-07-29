@@ -444,12 +444,13 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     gap: clamp(1.5rem, 3vw, 3rem);
   }
 
-  /* Clips sit matted on paper (mirrors .sheet-frame) rather than on a black
-     slab — square scenic clips read as matted prints, and the regraded
-     white-studio clips blend into the mat instead of floating on ink. */
+  /* Every clip fills the 16:9 frame edge to edge (square sources are
+     centre-cropped by object-fit) — no pillarbox mats. The surface tone only
+     shows for an instant while the poster loads. */
   .videos video {
     width: 100%;
     aspect-ratio: 16 / 9;
+    object-fit: cover;
     background: var(--surface);
     border: 1px solid var(--line-strong);
   }
