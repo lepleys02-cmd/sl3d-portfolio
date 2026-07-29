@@ -21,6 +21,15 @@ export interface Project {
     beforeLabel?: string;
     afterLabel?: string;
   };
+  /** Multiple before/after pairs (Scene Revival-style page built entirely of
+      comparisons). Takes precedence over `process` when set. */
+  pairs?: {
+    before: string;
+    after?: string;
+    caption: string;
+    beforeLabel?: string;
+    afterLabel?: string;
+  }[];
   /** Short muted MP4 played on card hover (path under /public). */
   previewVideo?: string;
   /** Autoplaying muted showreel shown as the project-page header (path under /public). */
@@ -217,14 +226,24 @@ export const projects: Project[] = [
       'A render that was state of the art two years ago can look dated next to what is possible now. Rather than rebuilding every scene from scratch, the archive becomes raw material: the geometry, composition and product accuracy are already right — the image just needs to catch up.',
     approach:
       'Each revival starts from the original accurate render, is taken through an AI regrade under tight art direction, then checked back against the source model — proportions, materials and product detail must survive the process untouched. What changes is the light and the atmosphere; what the client is buying stays exact.',
-    process: {
-      before: 'before.jpg',
-      after: 'after.jpg',
-      beforeLabel: 'Original render',
-      afterLabel: 'AI regrade',
-      caption:
-        'Hardinxveld garden room — the original CGI render (left) and its AI-assisted regrade (right): same geometry, same product, photographic light.',
-    },
+    pairs: [
+      {
+        before: 'before.jpg',
+        after: 'after.jpg',
+        beforeLabel: 'Original render',
+        afterLabel: 'AI regrade',
+        caption:
+          'Hardinxveld garden room — the original CGI render (left) and its AI-assisted regrade (right): same geometry, same product, photographic light.',
+      },
+      {
+        before: 'fence-before.jpg',
+        after: 'fence-after.jpg',
+        beforeLabel: 'Original render',
+        afterLabel: 'AI regrade',
+        caption:
+          'Chestnut paling fence — the original webshop render (left) and the AI-assisted regrade (right): same fence, same garden, warmer light and truer texture.',
+      },
+    ],
   },
   {
     slug: 'ai-motion',

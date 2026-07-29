@@ -34,18 +34,19 @@ const projectImages = Object.entries(allImages)
   .filter(([path]) => path.includes(`/assets/${project.slug}/`))
   .sort(([a], [b]) => a.localeCompare(b));
 
-// Drawing-vs-render pairing: pulled out of the normal gallery flow.
-const processImages = project.process
-  ? {
-      before: projectImages.find(([path]) => path.endsWith(`/${project.process!.before}`))?.[1]
-        .default,
-      after: projectImages.find(([path]) => path.endsWith(`/${project.process!.after}`))?.[1]
-        .default,
-    }
-  : undefined;
-const processFiles = project.process
-  ? [project.process.before, project.process.after].filter((f): f is string => Boolean(f))
-  : [];
+// Before/after pairing: pulled out of the normal gallery flow. `pairs` lets a
+// project be built entirely of comparisons; `process` is the one-pair case.
+const pairDefs = project.pairs ?? (project.process ? [project.process] : []);
+const findImage = (file: string) =>
+  projectImages.find(([path]) => path.endsWith(`/${file}`))?.[1].default;
+const resolvedPairs = pairDefs.map((def) => ({
+  def,
+  before: findImage(def.before),
+  after: def.after ? findImage(def.after) : undefined,
+}));
+const processFiles = pairDefs
+  .flatMap((def) => [def.before, def.after])
+  .filter((f): f is string => Boolean(f));
 const gallery = projectImages
   .filter(([path]) => !processFiles.some((file) => path.endsWith(`/${file}`)))
   .map(([, mod]) => mod.default);
@@ -134,39 +135,42 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     }
 
     {
-      project.process && processImages?.before && (
-        <section
-          class="process wrap"
-          aria-label={processImages.after ? 'Before and after comparison' : 'Drawing set'}
-        >
-          <div class:list={['process-pair', { 'process-pair--single': !processImages.after }]}>
-            <figure class="reveal">
-              <Image
-                src={processImages.before}
-                alt={`${project.title} — ${project.process.beforeLabel ?? 'Drawn'}`}
-                widths={[640, 1080, 1600]}
-                sizes={
-                  processImages.after ? '(max-width: 900px) 100vw, 46vw' : '(max-width: 900px) 100vw, 960px'
-                }
-                loading="eager"
-              />
-              <figcaption class="label">{project.process.beforeLabel ?? 'Drawn'}</figcaption>
-            </figure>
-            {processImages.after && (
-              <figure class="reveal">
-                <Image
-                  src={processImages.after}
-                  alt={`${project.title} — ${project.process.afterLabel ?? 'Rendered'}`}
-                  widths={[640, 1080, 1600]}
-                  sizes="(max-width: 900px) 100vw, 46vw"
-                  loading="eager"
-                />
-                <figcaption class="label">{project.process.afterLabel ?? 'Rendered'}</figcaption>
-              </figure>
-            )}
-          </div>
-          <p class="process-caption reveal">{project.process.caption}</p>
-        </section>
+      resolvedPairs.map(
+        (pair, pi) =>
+          pair.before && (
+            <section
+              class="process wrap"
+              aria-label={pair.after ? 'Before and after comparison' : 'Drawing set'}
+            >
+              <div class:list={['process-pair', { 'process-pair--single': !pair.after }]}>
+                <figure class="reveal">
+                  <Image
+                    src={pair.before}
+                    alt={`${project.title} — ${pair.def.beforeLabel ?? 'Drawn'}`}
+                    widths={[640, 1080, 1600]}
+                    sizes={
+                      pair.after ? '(max-width: 900px) 100vw, 46vw' : '(max-width: 900px) 100vw, 960px'
+                    }
+                    loading={pi === 0 ? 'eager' : 'lazy'}
+                  />
+                  <figcaption class="label">{pair.def.beforeLabel ?? 'Drawn'}</figcaption>
+                </figure>
+                {pair.after && (
+                  <figure class="reveal">
+                    <Image
+                      src={pair.after}
+                      alt={`${project.title} — ${pair.def.afterLabel ?? 'Rendered'}`}
+                      widths={[640, 1080, 1600]}
+                      sizes="(max-width: 900px) 100vw, 46vw"
+                      loading={pi === 0 ? 'eager' : 'lazy'}
+                    />
+                    <figcaption class="label">{pair.def.afterLabel ?? 'Rendered'}</figcaption>
+                  </figure>
+                )}
+              </div>
+              <p class="process-caption reveal">{pair.def.caption}</p>
+            </section>
+          )
       )
     }
 
