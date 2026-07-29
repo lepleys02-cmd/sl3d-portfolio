@@ -187,10 +187,12 @@ export const projects: Project[] = [
       'Some products are easier to sell in motion: how a veranda goes together, how a garden building sits in evening light.',
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
-    // Card hover: a short trimmed loop of the golden-hour veranda clip
-    // (product-anim-04-v2); the static cover at assets/covers/
-    // product-animations.jpg is a matching frame so the crossfade is seamless.
-    previewVideo: '/video/preview-golden.mp4',
+    // Card hover: the SL3D snowboard ident, GPU-enhanced 29 Jul 2026 (blur
+    // pillarbox cropped off, Real-ESRGAN 2x upscale, RIFE 48fps, winter filmic
+    // grade — full-res master in result_masters/hero-ident-v2.mp4). The static
+    // cover at assets/covers/product-animations.jpg is a matching frame so the
+    // crossfade is seamless.
+    previewVideo: '/video/preview-ident.mp4',
     headerVideo: '/video/showreel-product-animations-v2.mp4',
     // Strongest full scenes lead; the white-studio assembly clips (-v3 =
     // warm paper regrade of the old clinical white-void masters, originals
@@ -241,7 +243,7 @@ export const projects: Project[] = [
         beforeLabel: 'Original render',
         afterLabel: 'AI regrade',
         caption:
-          'Chestnut paling fence — the original webshop render (left) and the AI-assisted regrade (right): same fence, same garden, warmer light and truer texture.',
+          'Chestnut paling fence — the original webshop render (left) and the AI-enhanced version (right): same fence and meadow, deeper light and real texture in the wood.',
       },
     ],
   },
