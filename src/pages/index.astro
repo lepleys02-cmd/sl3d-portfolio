@@ -14,7 +14,7 @@ import portrait from '../assets/about/portrait.jpg';
 import drawnSheet from '../assets/archviz/04.jpg';
 import renderedStreet from '../assets/archviz/01.jpg';
 import lakesideVeranda from '../assets/nubuiten/13.jpg';
-import goldenTerrace from '../assets/nubuiten/05.jpg';
+import norwayTerrace from '../assets/nubuiten/norway-terrace.jpg';
 import chestnutFence from '../assets/outdoor-life-group/01.jpg';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
@@ -132,7 +132,7 @@ const steps = [
           widths={[520, 900, 1400]}
           sizes="(max-width: 860px) 100vw, 46vw"
           eager={true}
-          note="Ground floor plan, a 3D massing study and a stair section on one sheet — the measured half of the job, drawn so a contractor can build from it."
+          note="Ground floor plan, a 3D study and a stair section on one sheet — accurate technical drawings a contractor can build from."
         />
         <span class="pair-seam" aria-hidden="true">
           <span class="pair-seam-line"></span>
@@ -148,7 +148,7 @@ const steps = [
           widths={[520, 900, 1400]}
           sizes="(max-width: 860px) 100vw, 46vw"
           eager={true}
-          note="The same file taken to the street: soft overcast key light, true brick coursing, adapted for a typical European environment."
+          note="The same model rendered as a photorealistic street view, adapted for a typical European setting."
         />
       </div>
       <p class="pair-caption reveal">
@@ -167,7 +167,7 @@ const steps = [
             alt="Golden-hour render of a wooden veranda beside a pond with a swan"
             widths={[640, 1000, 1500]}
             sizes="(max-width: 860px) 100vw, 56vw"
-            note="A webshop product placed in a real evening — low sun raked through the trees, the water doing half the persuasion. Modelled to manufacturing dimensions before a single plank existed."
+            note="A webshop product shown in an evening garden scene by the water. Modelled to the real manufacturing dimensions."
           />
           <ShowcaseTile
             discipline="Animation"
@@ -175,18 +175,19 @@ const steps = [
             ratio="16 / 9"
             video="/video/product-anim-04-v2.mp4"
             poster="/video/product-anim-04-v2-poster.jpg"
-            note="The same scene in motion — a slow push-in, timed so the light is what you notice, not the camera."
+            note="The same scene in motion — a slow camera move through the evening light."
           />
         </div>
         <div class="bento-row bento-row--c">
           <ShowcaseTile
             discipline="Render"
-            title="Golden-hour terrace canopy"
+            title="Norwegian terrace at night"
             ratio="4 / 3"
-            image={goldenTerrace}
-            alt="Render of a glass terrace canopy against a white brick house at sunset"
+            image={norwayTerrace}
+            alt="Night render of an aluminium pergola with LED lighting on a timber deck, fjord and mountains behind"
             widths={[520, 860, 1200]}
             sizes="(max-width: 860px) 100vw, 48vw"
+            note="An imported pergola rendered for the Norwegian market — the same product model in a local setting."
           />
           <ShowcaseTile
             discipline="Render"
