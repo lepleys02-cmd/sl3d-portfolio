@@ -12,10 +12,11 @@ export interface Project {
   approach?: string;
   /** Optional before/after pairing shown above the gallery.
       Filenames are relative to the project's asset folder. Labels default to
-      the drawing-vs-render story ('Drawn'/'Rendered'). */
+      the drawing-vs-render story ('Drawn'/'Rendered'). Omit `after` to show
+      the drawing alone at a larger size. */
   process?: {
     before: string;
-    after: string;
+    after?: string;
     caption: string;
     beforeLabel?: string;
     afterLabel?: string;
@@ -260,11 +261,9 @@ export const projects: Project[] = [
       'A construction drawing tells a contractor where the bulkhead goes; it tells a homeowner nothing about how the room will feel. Years after the drawings were issued, the question was whether an archive drawing set could become the marketing imagery it never had.',
     process: {
       before: 'drawing.jpg',
-      after: '04.jpg',
       beforeLabel: 'Drawing set',
-      afterLabel: 'AI-finished interior',
       caption:
-        'Park 24 — the bulkhead detail sheet (left) and the dining room bulkhead delivered from it (right): the same detail drawn, dimensioned, rebuilt in 3D, and finished.',
+        'Park 24 — the 2017 bulkhead detail sheet the rooms were rebuilt from: every drop, shadow gap and cove drawn and dimensioned.',
     },
     approach:
       'The bulkhead details were rebuilt as an accurate 3D model straight from the original drawings — drops, shadow gaps and cove positions at their drawn dimensions — then each room was staged, lit and finished through the studio’s AI pipeline. The two bedroom schemes show the same detail resolved in two temperatures — one cove lit cool, the other warm.',

@@ -43,7 +43,9 @@ const processImages = project.process
         .default,
     }
   : undefined;
-const processFiles = project.process ? [project.process.before, project.process.after] : [];
+const processFiles = project.process
+  ? [project.process.before, project.process.after].filter((f): f is string => Boolean(f))
+  : [];
 const gallery = projectImages
   .filter(([path]) => !processFiles.some((file) => path.endsWith(`/${file}`)))
   .map(([, mod]) => mod.default);
@@ -132,29 +134,36 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     }
 
     {
-      project.process && processImages?.before && processImages?.after && (
-        <section class="process wrap" aria-label="Before and after comparison">
-          <div class="process-pair">
+      project.process && processImages?.before && (
+        <section
+          class="process wrap"
+          aria-label={processImages.after ? 'Before and after comparison' : 'Drawing set'}
+        >
+          <div class:list={['process-pair', { 'process-pair--single': !processImages.after }]}>
             <figure class="reveal">
               <Image
                 src={processImages.before}
                 alt={`${project.title} — ${project.process.beforeLabel ?? 'Drawn'}`}
                 widths={[640, 1080, 1600]}
-                sizes="(max-width: 900px) 100vw, 46vw"
+                sizes={
+                  processImages.after ? '(max-width: 900px) 100vw, 46vw' : '(max-width: 900px) 100vw, 960px'
+                }
                 loading="eager"
               />
               <figcaption class="label">{project.process.beforeLabel ?? 'Drawn'}</figcaption>
             </figure>
-            <figure class="reveal">
-              <Image
-                src={processImages.after}
-                alt={`${project.title} — ${project.process.afterLabel ?? 'Rendered'}`}
-                widths={[640, 1080, 1600]}
-                sizes="(max-width: 900px) 100vw, 46vw"
-                loading="eager"
-              />
-              <figcaption class="label">{project.process.afterLabel ?? 'Rendered'}</figcaption>
-            </figure>
+            {processImages.after && (
+              <figure class="reveal">
+                <Image
+                  src={processImages.after}
+                  alt={`${project.title} — ${project.process.afterLabel ?? 'Rendered'}`}
+                  widths={[640, 1080, 1600]}
+                  sizes="(max-width: 900px) 100vw, 46vw"
+                  loading="eager"
+                />
+                <figcaption class="label">{project.process.afterLabel ?? 'Rendered'}</figcaption>
+              </figure>
+            )}
           </div>
           <p class="process-caption reveal">{project.process.caption}</p>
         </section>
@@ -336,6 +345,18 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
 
   .process-pair figure {
     margin: 0;
+  }
+
+  /* Drawing-only variant: one sheet, centered and noticeably larger than its
+     old half-width slot in the pair. */
+  .process-pair--single {
+    grid-template-columns: 1fr;
+  }
+
+  .process-pair--single figure {
+    max-width: 60rem;
+    margin-inline: auto;
+    width: 100%;
   }
 
   .process-pair img {
