@@ -238,12 +238,10 @@ export const projects: Project[] = [
           'Hardinxveld garden room — the original CGI render (left) and its AI-assisted regrade (right): same geometry, same product, photographic light.',
       },
       {
-        before: 'fence-before.jpg',
-        after: 'fence-after.jpg',
-        beforeLabel: 'Original render',
-        afterLabel: 'AI regrade',
+        before: '01.jpg',
+        beforeLabel: 'AI-enhanced scene',
         caption:
-          'Chestnut paling fence — the original webshop render (left) and the AI-enhanced version (right): same fence and meadow, deeper light and real texture in the wood.',
+          'Paling fence — the webshop product placed in a lived-in Dutch front garden: low camera, neighbouring homes behind the hedge, and low golden sun throwing the fence’s shadow across the gravel.',
       },
     ],
   },
