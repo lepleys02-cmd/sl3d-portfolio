@@ -219,7 +219,15 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
           {gridVideos.map((src) => (
             <figure class="reveal">
               {/* eslint-disable-next-line */}
-              <video controls preload="metadata" playsinline poster={src.replace('.mp4', '-poster.jpg')}>
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                data-motion
+                poster={src.replace('.mp4', '-poster.jpg')}
+              >
                 <source src={src} type="video/mp4" />
               </video>
             </figure>
@@ -415,10 +423,14 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     gap: clamp(1.5rem, 3vw, 3rem);
   }
 
+  /* Clips sit matted on paper (mirrors .sheet-frame) rather than on a black
+     slab — square scenic clips read as matted prints, and the regraded
+     white-studio clips blend into the mat instead of floating on ink. */
   .videos video {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
   }
 
   .project-nav {
@@ -469,3 +481,60 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     }
   }
 </style>
+
+<script>
+  // Grid clips play muted on their own while in view (paused again offscreen)
+  // instead of sitting as static posters behind a play button — same IO
+  // conventions as ShowcaseTile / ScrollScrub. Controls stay for scrubbing
+  // and fullscreen; a visitor's explicit pause is respected until the clip
+  // leaves and re-enters the viewport. Reduced-motion users keep the
+  // poster + controls behaviour untouched.
+  let gridVideoIO: IntersectionObserver | null = null;
+
+  function initGridVideos() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const videos = document.querySelectorAll<HTMLVideoElement>(
+      '.videos video[data-motion]:not([data-wired])'
+    );
+    if (!videos.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach((v) => {
+        v.dataset.wired = 'true';
+        v.play().catch(() => {});
+      });
+      return;
+    }
+
+    gridVideoIO ??= new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const v = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            if (v.dataset.userPaused !== 'true') v.play().catch(() => {});
+          } else {
+            v.pause();
+            delete v.dataset.userPaused;
+          }
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    videos.forEach((v) => {
+      v.dataset.wired = 'true';
+      // A pause while the clip is (still) on screen came from the visitor,
+      // not from this observer — remember it so we don't fight their click.
+      v.addEventListener('pause', () => {
+        if (!v.ended && v.dataset.wired === 'true') {
+          const rect = v.getBoundingClientRect();
+          const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+          if (inView) v.dataset.userPaused = 'true';
+        }
+      });
+      gridVideoIO!.observe(v);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initGridVideos);
+</script>

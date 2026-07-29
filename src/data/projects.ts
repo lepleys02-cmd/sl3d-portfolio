@@ -177,18 +177,22 @@ export const projects: Project[] = [
       'Some products are easier to sell in motion: how a veranda goes together, how a garden building sits in evening light.',
     approach:
       'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
-    // SL3D brand ident loop as the card cover animation (the static cover at
-    // assets/covers/product-animations.jpg is this clip's poster frame).
-    previewVideo: '/video/hero-loop-wide.mp4',
-    headerVideo: '/video/showreel-product-animations.mp4',
+    // Card hover: a short trimmed loop of the golden-hour veranda clip
+    // (product-anim-04-v2); the static cover at assets/covers/
+    // product-animations.jpg is a matching frame so the crossfade is seamless.
+    previewVideo: '/video/preview-golden.mp4',
+    headerVideo: '/video/showreel-product-animations-v2.mp4',
+    // Strongest full scenes lead; the white-studio assembly clips (-v3 =
+    // warm paper regrade of the old clinical white-void masters, originals
+    // archived in result_masters/) follow as process material.
     videos: [
-      '/video/product-anim-01.mp4',
-      '/video/product-anim-02.mp4',
       '/video/product-anim-04-v2.mp4',
+      '/video/product-anim-02-v3.mp4',
+      '/video/product-anim-05-v2.mp4',
+      '/video/product-anim-01-v3.mp4',
       // Bicycle shed placed low in the grid — kept in the portfolio but not
       // featured (not the card cover, hero, or a scroll feature).
       '/video/product-anim-03-v2.mp4',
-      '/video/product-anim-05-v2.mp4',
     ],
   },
   {
