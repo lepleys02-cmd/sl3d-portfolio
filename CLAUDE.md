@@ -40,8 +40,10 @@ Benthem Crouwel, ABT, Vision Scapes, Beeldenfabriek):
 - `archviz/02.jpg` is a technical elevation sheet — fine in the gallery, not hero material.
 - Headless screenshots on this box: `--headless=new` hangs; use old `--headless`
   with a **fresh** `--user-data-dir` per shot.
-- Contact form posts to formsubmit.co/lepleys02@gmail.com — needs one-time email
-  confirmation on the first live submission after deploy.
+- Contact form posts to formsubmit.co/sam@sl3d.net — needs one-time email
+  confirmation on the first live submission after deploy. Switched from
+  lepleys02@gmail.com on 2026-07-29; until FormSubmit's confirmation link is
+  clicked from the sam@sl3d.net mailbox, submissions are NOT delivered.
 
 ## Open follow-ups
 
