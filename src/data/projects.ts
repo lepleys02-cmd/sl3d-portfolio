@@ -70,7 +70,7 @@ export interface Collection {
   description: string;
   /** Hub-page intro paragraph. */
   intro: string;
-  /** The three facets the discipline covers, shown as a strip on the hub. */
+  /** The facets the discipline covers, shown as a strip on the hub. */
   facets: string[];
 }
 
@@ -94,17 +94,18 @@ export const collections: Collection[] = [
   },
   {
     slug: 'architecture',
-    title: 'Architectural Visualisation & Documentation',
+    title: 'Architectural & Interior Design, Visualisation & Documentation',
     kicker: 'Collection',
-    discipline: 'Space planning · documentation · visualisation',
+    discipline: 'Space planning · interior design · documentation · visualisation',
     description:
-      'Buildings taken from measured space plan to coordinated drawing set to photoreal image.',
+      'Buildings and interiors taken from measured space plan and fit-out detailing to coordinated drawing set to photoreal image.',
     intro:
-      'The architectural side of the studio — commercial and residential buildings taken from a measured space plan, through a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
+      'The architectural and interior side of the studio — commercial and residential space taken from a measured survey, through the interior fit-out and a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
     facets: [
       'Space planning & measured survey',
+      'Interior design & fit-out detailing',
       'Coordinated CAD documentation',
-      'Photoreal architectural visualisation',
+      'Photoreal architectural & interior visualisation',
     ],
   },
 ];

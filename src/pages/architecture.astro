@@ -68,7 +68,9 @@ function coverFor(slug: string): ImageMetadata {
 
   .hub-hero h1 {
     font-size: var(--text-h1);
-    max-width: 16ch;
+    /* Wider than the 16ch the shorter title used — the four-part title needs
+       the extra measure to avoid stacking into a narrow column. */
+    max-width: 24ch;
   }
 
   .intro {
@@ -82,7 +84,9 @@ function coverFor(slug: string): ImageMetadata {
     padding: 0;
     margin-top: var(--space-block);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* auto-fit rather than a fixed 3, so the facet strip reflows instead of
+       orphaning one item on its own row as the list grows. */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: clamp(1.25rem, 3vw, 2.5rem);
   }
 
