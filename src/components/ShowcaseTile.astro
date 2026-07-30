@@ -20,6 +20,12 @@ interface Props {
   poster?: string;
   /** Optional one-line curatorial note shown under the caption row. */
   note?: string;
+  /**
+   * `object-position` for the cropped image, when the framed slot's ratio
+   * differs from the source's and `cover` has to shave something off. Lower
+   * the vertical value to keep the top of the subject in frame.
+   */
+  focus?: string;
 }
 
 const {
@@ -34,6 +40,7 @@ const {
   video,
   poster,
   note,
+  focus = '50% 50%',
 } = Astro.props;
 
 // Drawings are shown matted on a sheet (contain); renders/animation bleed to the edge (cover).
@@ -43,7 +50,7 @@ const isMotion = discipline === 'Animation';
 
 <figure
   class:list={['tile', 'reveal', { 'tile--sheet': isDrawing, 'tile--motion': isMotion }]}
-  style={`--tile-ratio: ${ratio};`}
+  style={`--tile-ratio: ${ratio}; --tile-focus: ${focus};`}
 >
   <div class="frame">
     {
@@ -106,6 +113,7 @@ const isMotion = discipline === 'Animation';
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: var(--tile-focus, 50% 50%);
     display: block;
   }
 
