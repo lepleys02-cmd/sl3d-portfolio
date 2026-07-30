@@ -47,8 +47,13 @@ const resolvedPairs = pairDefs.map((def) => ({
 const processFiles = pairDefs
   .flatMap((def) => [def.before, def.after])
   .filter((f): f is string => Boolean(f));
+// The still↔motion pair is its own section, so its seed still is held back
+// from the gallery the same way process/pair images are.
+const stillToMotion = project.stillToMotion;
+const stillImage = stillToMotion ? findImage(stillToMotion.still) : undefined;
+const heldBack = [...processFiles, ...(stillToMotion ? [stillToMotion.still] : [])];
 const gallery = projectImages
-  .filter(([path]) => !processFiles.some((file) => path.endsWith(`/${file}`)))
+  .filter(([path]) => !heldBack.some((file) => path.endsWith(`/${file}`)))
   .map(([, mod]) => mod.default);
 
 // Drawing-led case studies pair each sorted sheet with its label + caption.
@@ -171,6 +176,43 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
               <p class="process-caption reveal">{pair.def.caption}</p>
             </section>
           )
+      )
+    }
+
+    {
+      stillToMotion && stillImage && (
+        <section class="process wrap" aria-label="Still and the clip generated from it">
+          <div class="process-pair still-motion">
+            <figure class="reveal">
+              <Image
+                src={stillImage}
+                alt={`${project.title} — the source still`}
+                widths={[640, 1080, 1600]}
+                sizes="(max-width: 900px) 100vw, 46vw"
+                loading="eager"
+              />
+              <figcaption class="label">{stillToMotion.stillLabel ?? 'Still'}</figcaption>
+            </figure>
+            <figure class="reveal">
+              <video
+                data-motion
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster={stillToMotion.video.replace('.mp4', '-poster.jpg')}
+                aria-label={`${project.title} — the clip generated from the still`}
+              >
+                <source src={stillToMotion.video} type="video/mp4" />
+              </video>
+              <figcaption class="label">
+                <span class="live" aria-hidden="true" />
+                {stillToMotion.motionLabel ?? 'Motion'}
+              </figcaption>
+            </figure>
+          </div>
+          <p class="process-caption reveal">{stillToMotion.caption}</p>
+        </section>
       )
     }
 
@@ -372,6 +414,45 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     margin-top: 0.7rem;
   }
 
+  /* Still ↔ motion: the two halves have to sit in identical frames, or the
+     eye reads "two shots" instead of "one shot, frozen and running". Both
+     sources are square, so the slot is square and both are cropped the same
+     way; the pair aligns at the top rather than centring on differing
+     intrinsic heights. */
+  .still-motion {
+    align-items: start;
+  }
+
+  .still-motion figure {
+    margin: 0;
+    min-width: 0;
+  }
+
+  .still-motion img,
+  .still-motion video {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .still-motion figcaption {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.7rem;
+  }
+
+  /* One accent tick so the moving half is identifiable even in a screenshot. */
+  .still-motion .live {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
   .process-caption {
     margin-top: 1.2rem;
     max-width: var(--max-prose);
@@ -562,5 +643,45 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     });
   }
 
+  // The still↔motion half plays itself, with no controls: the point of the
+  // pair is a frozen frame beside the same frame running, and a play button
+  // on one side breaks that read. Same IO + reduced-motion conventions as
+  // ShowcaseTile — reduced-motion users are left with the poster, which is
+  // the seed still anyway, so the pair degrades to two matching frames.
+  let stillMotionIO: IntersectionObserver | null = null;
+
+  function initStillMotion() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const videos = document.querySelectorAll<HTMLVideoElement>(
+      '.still-motion video[data-motion]:not([data-wired])'
+    );
+    if (!videos.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach((v) => {
+        v.dataset.wired = 'true';
+        v.play().catch(() => {});
+      });
+      return;
+    }
+
+    stillMotionIO ??= new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const v = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) v.play().catch(() => {});
+          else v.pause();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    videos.forEach((v) => {
+      v.dataset.wired = 'true';
+      stillMotionIO!.observe(v);
+    });
+  }
+
   document.addEventListener('astro:page-load', initGridVideos);
+  document.addEventListener('astro:page-load', initStillMotion);
 </script>
