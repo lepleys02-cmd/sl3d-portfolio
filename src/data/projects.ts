@@ -30,6 +30,18 @@ export interface Project {
     beforeLabel?: string;
     afterLabel?: string;
   }[];
+  /** The seed still and the clip generated from it, shown side by side so the
+      one reads as the other frozen. `still` is a filename in the project's
+      asset folder (and is kept out of the gallery below); `video` is a path
+      under /public. Sources should share an aspect ratio — the pair only
+      works if the two frames match. */
+  stillToMotion?: {
+    still: string;
+    video: string;
+    caption: string;
+    stillLabel?: string;
+    motionLabel?: string;
+  };
   /** Short muted MP4 played on card hover (path under /public). */
   previewVideo?: string;
   /** Autoplaying muted showreel shown as the project-page header (path under /public). */
@@ -263,8 +275,15 @@ export const projects: Project[] = [
     brief:
       'Full 3D animation is the gold standard, but not every product or campaign carries its production time. When an accurate still already exists, motion can now start from that frame instead of from an empty timeline.',
     approach:
-      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut — the clip below is one that survived.',
-    videos: ['/video/ai-motion-02.mp4'],
+      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut — the pair below is one that survived: the still on the left, and the clip it became on the right.',
+    stillToMotion: {
+      still: 'still.jpg',
+      video: '/video/ai-motion-01.mp4',
+      stillLabel: 'Still',
+      motionLabel: 'Motion',
+      caption:
+        'Chestnut sheep fence — the finished still (left) and the clip generated from it (right): same fence, same posts, same paddock, now with the camera drifting and the grass moving through it.',
+    },
   },
   {
     slug: 'park24-bulkheads',
@@ -317,6 +336,25 @@ export const projects: Project[] = [
     },
     approach:
       'From the survey sheet the box was rebuilt in 3D — face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead with recessed linear light over the servery — and each zone was staged and finished with AI. The light strategy carries the room: warm interior pools against the cooler daylight coming off the pitch, and the stadium beyond the glazing is the real Loftus bowl, never an invented one.',
+  },
+  {
+    slug: 'schultz-mmuoe',
+    title: 'Schultz Mmuoe Inc',
+    year: '2026',
+    discipline: 'AI-assisted interior visualisation',
+    collection: 'architecture',
+    facts: [
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Cameras, art direction and every AI pass' },
+      { k: 'Source', v: 'SketchUp shell model' },
+      { k: 'Spaces', v: 'Boardroom · partner’s office · corridor' },
+    ],
+    description:
+      'An established attorneys’ practice revisualised — a bare SketchUp shell taken to four finished interiors through five directed passes per view.',
+    brief:
+      'The practice already had a model, but it was a shell: bare walls and no ceilings. Its existing renders showed what happens when a shell is pushed too fast — book spines repeating as one tiled texture, flat light, geometry that was never in the model. Four rooms had to reach photographic without inventing the building.',
+    approach:
+      'The missing planes were added, the cameras set level, and every view driven through five directed passes — photoreal conversion, one ceiling scheme held across all four rooms, the true single curve of the boardroom’s glass wall, a dressing pass carrying the practice’s own brass lettering and case files, and window treatments last. Each pass was judged against a defect table built from those original renders, and re-run until it passed.',
   },
   {
     slug: 'bcd-travel',
