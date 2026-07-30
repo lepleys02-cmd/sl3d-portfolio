@@ -83,7 +83,7 @@ export const collections: Collection[] = [
     description:
       'Existing renders and product imagery taken further with AI — regraded, relit and set in motion, with every output checked against the real model.',
     intro:
-      'A production pipeline, not a shortcut. Finished CGI work from the studio archive is taken further with AI — flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion. Every output is art-directed and verified against the accurate 3D model it started from; the tools change, the standard does not.',
+      'A production pipeline, not a shortcut. Finished CGI work from the studio archive is taken further with AI — flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion. The tools change; the standard does not.',
     facets: [
       'Brief & art direction',
       'Accurate 3D base model',
@@ -100,7 +100,7 @@ export const collections: Collection[] = [
     description:
       'Buildings taken from measured space plan to coordinated drawing set to photoreal image.',
     intro:
-      'The architectural side of the studio — commercial and residential buildings taken from a measured space plan, through a coordinated drawing set a contractor can build from, to the photoreal image that sells it. One model drives all three.',
+      'The architectural side of the studio — commercial and residential buildings taken from a measured space plan, through a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
     facets: [
       'Space planning & measured survey',
       'Coordinated CAD documentation',
@@ -134,18 +134,18 @@ export const projects: Project[] = [
     slug: 'outdoor-life-group',
     title: 'Outdoor Life Group',
     year: '2026',
-    discipline: 'Product & environment visualisation',
+    discipline: 'Product visualisation',
     facts: [
       { k: 'Studio', v: 'Outdoor Life Group' },
       { k: 'Role', v: 'In-house 3D artist' },
-      { k: 'Deliverables', v: 'Product stills · environment scenes' },
+      { k: 'Deliverables', v: 'Product stills · catalogue imagery' },
     ],
     description:
-      'Product and environment visualisation for Outdoor Life Group (OLG) — created in-house.',
+      'Product visualisation for Outdoor Life Group (OLG) — created in-house.',
     brief:
       'A product group covering multiple outdoor-living brands needs a steady stream of consistent, photoreal imagery across a wide catalogue.',
     approach:
-      'A reusable scene- and material-library keeps every render on brand, while individual products are built accurately from their technical drawings.',
+      'A shared scene- and material-library keeps a multi-brand catalogue consistent at volume, with every product modelled accurately from its technical drawings.',
   },
   {
     slug: 'archviz',
@@ -193,7 +193,6 @@ export const projects: Project[] = [
     // cover at assets/covers/product-animations.jpg is a matching frame so the
     // crossfade is seamless.
     previewVideo: '/video/preview-ident.mp4',
-    headerVideo: '/video/showreel-product-animations-v2.mp4',
     // Strongest full scenes lead; the white-studio assembly clips (-v3 =
     // warm paper regrade of the old clinical white-void masters, originals
     // archived in result_masters/) follow as process material.
@@ -203,7 +202,6 @@ export const projects: Project[] = [
       // render (project page only; deliberately not on the home page).
       '/video/product-anim-06.mp4',
       '/video/product-anim-02-v3.mp4',
-      '/video/product-anim-05-v2.mp4',
       '/video/product-anim-01-v3.mp4',
       // Bicycle shed placed low in the grid — kept in the portfolio but not
       // featured (not the card cover, hero, or a scroll feature).
@@ -227,7 +225,7 @@ export const projects: Project[] = [
     brief:
       'A render that was state of the art two years ago can look dated next to what is possible now. Rather than rebuilding every scene from scratch, the archive becomes raw material: the geometry, composition and product accuracy are already right — the image just needs to catch up.',
     approach:
-      'Each revival starts from the original accurate render, is taken through an AI regrade under tight art direction, then checked back against the source model — proportions, materials and product detail must survive the process untouched. What changes is the light and the atmosphere; what the client is buying stays exact.',
+      'Each revival is taken through an AI regrade under tight art direction, then checked back against the source render — proportions, materials and product detail must survive the process untouched. What changes is the light and the atmosphere; what the client is buying stays exact.',
     pairs: [
       {
         before: 'before.jpg',
@@ -238,10 +236,12 @@ export const projects: Project[] = [
           'Hardinxveld garden room — the original CGI render (left) and its AI-assisted regrade (right): same geometry, same product, photographic light.',
       },
       {
-        before: '01.jpg',
-        beforeLabel: 'AI-enhanced scene',
+        before: 'garden40-before.jpg',
+        after: 'garden40-after.jpg',
+        beforeLabel: 'Original render',
+        afterLabel: 'AI regrade',
         caption:
-          'Paling fence — the webshop product placed in a lived-in Dutch front garden: low camera, neighbouring homes behind the hedge, and low golden sun throwing the fence’s shadow across the gravel.',
+          'Garden 40 pergola — the original webshop render (left) and its AI regrade (right): same pergola, same courtyard, but the CGI sky, fresh timber and clean pavers give way to soft overcast light, weathered wood and worn brick paving.',
       },
     ],
   },
@@ -262,8 +262,8 @@ export const projects: Project[] = [
     brief:
       'Full 3D animation is the gold standard, but not every product or campaign carries its production time. When an accurate still already exists, motion can now start from that frame instead of from an empty timeline.',
     approach:
-      'Each clip begins from a finished, dimensionally accurate still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut — the clip below is one that survived.',
-    videos: ['/video/ai-motion-01.mp4'],
+      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut — the clip below is one that survived.',
+    videos: ['/video/ai-motion-02.mp4'],
   },
   {
     slug: 'park24-bulkheads',
@@ -278,9 +278,9 @@ export const projects: Project[] = [
       { k: 'Rooms', v: 'Kitchen · dining · two bedroom options' },
     ],
     description:
-      'A 2017 bulkhead drawing set brought back as photoreal interiors — the ceiling details rebuilt in 3D to their drawn dimensions, then staged and finished with AI.',
+      'A 2017 bulkhead drawing set brought back as photoreal interiors, where the drawn ceiling details — drops, shadow gaps and LED coves — do the lighting.',
     brief:
-      'A construction drawing tells a contractor where the bulkhead goes; it tells a homeowner nothing about how the room will feel. Years after the drawings were issued, the question was whether an archive drawing set could become the marketing imagery it never had.',
+      'On paper, a bulkhead is a set of drops and dimensions. In a finished room it is mostly light — where the cove washes the ceiling, where the shadow gap draws its line. The drawings had described that light for years; nobody had ever seen it.',
     process: {
       before: 'drawing.jpg',
       beforeLabel: 'Drawing set',
@@ -288,7 +288,7 @@ export const projects: Project[] = [
         'Park 24 — the 2017 bulkhead detail sheet the rooms were rebuilt from: every drop, shadow gap and cove drawn and dimensioned.',
     },
     approach:
-      'The bulkhead details were rebuilt as an accurate 3D model straight from the original drawings — drops, shadow gaps and cove positions at their drawn dimensions — then each room was staged, lit and finished through the studio’s AI pipeline. The two bedroom schemes show the same detail resolved in two temperatures — one cove lit cool, the other warm.',
+      'The ceiling details were rebuilt in 3D exactly as drawn, then each room was staged around what its bulkhead does best — the kitchen’s cove over the island, the dining room’s floating frame, and one bedroom resolved twice: the same detail lit cool in one scheme and warm in the other, so the client chooses a temperature, not a redesign.',
   },
   {
     slug: 'loftus-box',
@@ -303,7 +303,7 @@ export const projects: Project[] = [
       { k: 'Space', v: 'Corporate hospitality box' },
     ],
     description:
-      'A corporate hospitality box at Loftus Versfeld, surveyed and drawn, rebuilt as a 3D model at its drawn dimensions, then staged and finished with AI — with match day beyond the glass.',
+      'A corporate hospitality box at Loftus Versfeld — surveyed, drawn and rebuilt in 3D, then staged and finished with AI, with match day beyond the glass.',
     brief:
       'A hospitality box is sold on how it feels on match day, and a survey drawing says nothing about that. The box existed as an A101 sheet — plan, south elevation, door and window legend — and a rough model; the question was whether an archive survey could become the imagery a suite like this is sold on.',
     process: {
@@ -315,7 +315,7 @@ export const projects: Project[] = [
         'Old Mutual Box — the A101 survey sheet (left) and the servery bulkhead delivered from it (right): the same detail drawn, dimensioned, rebuilt in 3D, and finished.',
     },
     approach:
-      'The box was drawn from a measured survey — plan, south elevation and a door and window legend on an A101 sheet — then rebuilt as a 3D model at those dimensions: face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead over the servery with recessed linear light and cove. Each zone was then staged, lit and finished through the studio’s AI pipeline. The light strategy carries the room — warm interior pools against the cooler daylight coming off the pitch — and the stadium beyond the glazing is the real Loftus bowl, never an invented one.',
+      'From the survey sheet the box was rebuilt in 3D — face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead with recessed linear light over the servery — and each zone was staged and finished with AI. The light strategy carries the room: warm interior pools against the cooler daylight coming off the pitch, and the stadium beyond the glazing is the real Loftus bowl, never an invented one.',
   },
   {
     slug: 'bcd-travel',
@@ -334,7 +334,7 @@ export const projects: Project[] = [
     brief:
       'A global travel-management company refitting a Johannesburg office floor needs a coordinated drawing set: how the space is zoned and furnished, how it is lit, and how every door and window is specified — enough for a contractor to price and build without a phone call.',
     approach:
-      'One coordinated model drives the whole set — colour-coded space plans and furniture layouts, four measured elevations, and a reflected ceiling plan with its luminaire schedule, all keyed to door and window schedules and drawn to real dimensions verified on site.',
+      'Colour-coded space plans and furniture layouts, four measured elevations, and a reflected ceiling plan with its luminaire schedule — all keyed to door and window schedules and verified against the building on site.',
     documentation: true,
     sheets: [
       {
