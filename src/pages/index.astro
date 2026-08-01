@@ -48,20 +48,16 @@ const homeItems: HomeItem[] = [
 
 const steps = [
   {
-    title: 'Understand',
-    text: 'Drawings, product data, mood references — I start from what the project actually needs to communicate.',
+    title: 'Measured',
+    text: 'It starts with a brief. I visit the site and take the measurements myself, or work from drawings supplied by the client, supplier, architect or interior designer — whatever gets the dimensions right.',
   },
   {
-    title: 'Model',
-    text: 'Accurate 3D geometry and CAD-clean technical drawings, built to real dimensions.',
+    title: 'Modelled',
+    text: 'I build everything myself — the 3D models, the 2D plans, all the geometry a project needs, drawn accurately and ready to generate content from.',
   },
   {
-    title: 'Render',
-    text: 'Photorealistic stills, 360° panoramas and animation — materials and light treated like photography.',
-  },
-  {
-    title: 'Deliver',
-    text: 'Print- and web-ready files, revisions included, on the agreed date.',
+    title: 'Marketable',
+    text: 'Renders and animation finished to a high photorealistic standard, ready for online sales, showroom displays and marketing.',
   },
 ];
 ---
@@ -523,7 +519,7 @@ const steps = [
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: clamp(1.5rem, 3vw, 2.5rem);
   }
 
@@ -535,7 +531,7 @@ const steps = [
 
   /* Accent line draws left-to-right over the hairline track once the step
      becomes visible; each step's delay is staggered so it reads as one line
-     travelling Understand → Deliver. Tick-dot sits at the leading edge and
+     travelling Measured → Marketable. Tick-dot sits at the leading edge and
      fills solid right as its step's draw completes. */
   .steps li::after {
     content: '';
@@ -590,15 +586,6 @@ const steps = [
 
   .steps li:nth-child(3).is-visible::before {
     transition-delay: calc(550ms + var(--duration-slow));
-  }
-
-  .steps li:nth-child(4)::after,
-  .steps li:nth-child(4)::before {
-    transition-delay: 750ms;
-  }
-
-  .steps li:nth-child(4).is-visible::before {
-    transition-delay: calc(750ms + var(--duration-slow));
   }
 
   .step-num {
