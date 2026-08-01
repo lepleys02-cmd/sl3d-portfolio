@@ -159,6 +159,14 @@ export const projects: Project[] = [
       'A product group covering multiple outdoor-living brands needs a steady stream of consistent, photoreal imagery across a wide catalogue.',
     approach:
       'A shared scene- and material-library keeps a multi-brand catalogue consistent at volume, with every product modelled accurately from its technical drawings.',
+    stillToMotion: {
+      still: 'fence-still.jpg',
+      video: '/video/ai-motion-01.mp4',
+      stillLabel: 'Render',
+      motionLabel: 'Motion',
+      caption:
+        'Chestnut paling fence for Outdoor Life Group — the finished product render (left) and a short clip generated from that single frame (right): same fence, same posts, same paddock, now with the camera drifting and the grass moving through it.',
+    },
   },
   {
     slug: 'archviz',
