@@ -16,6 +16,7 @@ import renderedStreet from '../assets/archviz/01.jpg';
 import lakesideVeranda from '../assets/nubuiten/13.jpg';
 import norwayTerrace from '../assets/nubuiten/norway-terrace.jpg';
 import pergolaRegrade from '../assets/ai-revival/garden40-after.jpg';
+import bedroomUpgrade from '../assets/ai-upgrades/bedroom-upgrade.png';
 
 const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
   eager: true,
@@ -202,6 +203,20 @@ const steps = [
             sizes="(max-width: 860px) 100vw, 48vw"
             focus="50% 25%"
             note="A webshop pergola render taken through the studio's AI regrade — CGI daylight traded for soft overcast light and weathered timber."
+          />
+        </div>
+
+        <p class="pair-caption pair-caption--tight reveal"><strong>AI upgrades for past projects</strong></p>
+        <div class="bento-row bento-row--b">
+          <ShowcaseTile
+            discipline="AI upgrade"
+            title="Bedroom, refreshed with AI"
+            ratio="4 / 3"
+            image={bedroomUpgrade}
+            alt="AI-upgraded render of a bedroom with a recessed LED ceiling cove and open wardrobe"
+            widths={[640, 1000, 1500]}
+            sizes="(max-width: 860px) 100vw, 90vw"
+            note="The same old work, pushed to a modern standard through AI, without starting over."
           />
         </div>
       </div>
