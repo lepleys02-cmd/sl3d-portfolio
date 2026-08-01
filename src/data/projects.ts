@@ -133,8 +133,8 @@ export const projects: Project[] = [
     discipline: 'Product & environment visualisation',
     facts: [
       { k: 'Studio', v: 'Nubuiten' },
-      { k: 'Role', v: 'In-house 3D artist — every render from model to post' },
-      { k: 'Deliverables', v: 'Webshop stills · lifestyle scenes' },
+      { k: 'Role', v: 'In-house 3D artist — modelled and rendered every product' },
+      { k: 'Deliverables', v: 'Webshop product stills · lifestyle scenes' },
     ],
     description:
       'Photorealistic product renders and lifestyle scenes for outdoor living — created in-house at Nubuiten.',
@@ -150,8 +150,8 @@ export const projects: Project[] = [
     discipline: 'Product visualisation',
     facts: [
       { k: 'Studio', v: 'Outdoor Life Group' },
-      { k: 'Role', v: 'In-house 3D artist' },
-      { k: 'Deliverables', v: 'Product stills · catalogue imagery' },
+      { k: 'Role', v: 'In-house 3D artist across the group’s brands' },
+      { k: 'Deliverables', v: 'Catalogue product stills · lifestyle scenes' },
     ],
     description:
       'Product visualisation for Outdoor Life Group (OLG) — created in-house.',
@@ -198,9 +198,9 @@ export const projects: Project[] = [
     year: '2024',
     discipline: '3D product animation',
     facts: [
-      { k: 'Discipline', v: '3D animation' },
-      { k: 'Role', v: 'All modelling, animation and editing' },
-      { k: 'Format', v: '1080p MP4' },
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Modelling, animation and editing throughout' },
+      { k: 'Deliverables', v: 'Turntables · assembly sequences · product reveals' },
     ],
     description:
       'From a virtual 3D product to motion — turntables, assembly sequences and product reveals.',
@@ -238,8 +238,7 @@ export const projects: Project[] = [
     facts: [
       { k: 'Studio', v: 'SL3D' },
       { k: 'Role', v: 'Art direction, base models and every regrade pass' },
-      { k: 'Source', v: 'Existing CGI renders' },
-      { k: 'Deliverables', v: 'Photoreal regrades · lifestyle scenes' },
+      { k: 'Deliverables', v: 'Photoreal regrades of archive renders' },
     ],
     description:
       'Finished CGI renders from the archive, taken further — flat daylight regraded into photographic golden hour, clean product scenes lifted into believable places.',
@@ -274,9 +273,8 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Direction, generation and the final cut' },
-      { k: 'Source', v: 'Product stills & scenes' },
-      { k: 'Format', v: '1080p MP4' },
+      { k: 'Role', v: 'Direction, AI generation and the final cut' },
+      { k: 'Deliverables', v: 'Short product clips from a single still' },
     ],
     description:
       'Product stills and finished scenes set in motion with AI — camera moves, atmosphere and product reveals generated from a single accurate frame.',
@@ -301,9 +299,8 @@ export const projects: Project[] = [
     collection: 'ai',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Rebuilt the drawings in 3D, directed the finish' },
-      { k: 'Source', v: '2017 construction drawings' },
-      { k: 'Rooms', v: 'Kitchen · dining · two bedroom options' },
+      { k: 'Role', v: 'Rebuilt FCPM’s 2017 drawings in 3D and directed the finish' },
+      { k: 'Deliverables', v: 'Photoreal interiors — kitchen, dining, two bedrooms' },
     ],
     description:
       'A 2017 bulkhead drawing set brought back as photoreal interiors, where the drawn ceiling details — drops, shadow gaps and LED coves — do the lighting.',
@@ -326,9 +323,8 @@ export const projects: Project[] = [
     collection: 'architecture',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Measured survey, 3D model and art direction' },
-      { k: 'Venue', v: 'Loftus Versfeld, Pretoria' },
-      { k: 'Space', v: 'Corporate hospitality box' },
+      { k: 'Role', v: 'Surveyed and drew it at FCPM, rebuilt and finished in 3D' },
+      { k: 'Deliverables', v: 'Photoreal interiors of the hospitality box' },
     ],
     description:
       'A corporate hospitality box at Loftus Versfeld — surveyed, drawn and rebuilt in 3D, then staged and finished with AI, with match day beyond the glass.',
@@ -353,9 +349,8 @@ export const projects: Project[] = [
     collection: 'architecture',
     facts: [
       { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Cameras, art direction and every AI pass' },
-      { k: 'Source', v: 'SketchUp shell model' },
-      { k: 'Spaces', v: 'Boardroom · partner’s office · corridor' },
+      { k: 'Role', v: 'Revisualised an FCPM office — cameras, art direction, every pass' },
+      { k: 'Deliverables', v: 'Photoreal interiors — boardroom, office, corridor' },
     ],
     description:
       'An established attorneys’ practice revisualised — a bare SketchUp shell taken to four finished interiors through five directed passes per view.',
@@ -365,16 +360,33 @@ export const projects: Project[] = [
       'The missing planes were added, the cameras set level, and every view driven through five directed passes — photoreal conversion, one ceiling scheme held across all four rooms, the true single curve of the boardroom’s glass wall, a dressing pass carrying the practice’s own brass lettering and case files, and window treatments last. Each pass was judged against a defect table built from those original renders, and re-run until it passed.',
   },
   {
+    slug: 'sa-business-coach',
+    title: 'South African Business Coach',
+    year: '2026',
+    discipline: 'AI-assisted interior visualisation',
+    collection: 'architecture',
+    facts: [
+      { k: 'Studio', v: 'SL3D' },
+      { k: 'Role', v: 'Cameras, shell rebuild and every AI pass' },
+      { k: 'Deliverables', v: 'Photoreal interiors across four colour schemes' },
+    ],
+    description:
+      'A 2018 office colour study for a business-coaching practice — the same rooms painted four ways, stripped back to a bare shell and taken to photographic finish.',
+    brief:
+      'The model arrived as a colour-scheme study — "painting options" — the same office repainted in four schemes and presented as dollhouse renders: red V-chevrons and colour-blocked accent walls over one continuous dark green carpet. The colour logic was the design, red for group energy in the training spaces and yellow-green for focus in the offices, but the renders were never photographic. Eight years on, the question was whether that painted geometry could reach a finished interior without repainting a single wall.',
+    approach:
+      'The 60 MB model was stripped to a 0.6 MB shell — walls, floors, windows, red doors and the carpeted stair, no ceilings, no furniture — with every painted plane kept exactly where the 2018 study put it. Each camera view was then driven through directed AI passes to photographic finish: light, material and furniture were added around the shell, and the chevrons, diagonals and carpet were held to the model throughout.',
+  },
+  {
     slug: 'bcd-travel',
     title: 'BCD Travel',
     year: '2020',
     discipline: 'Commercial space planning & CAD documentation',
     collection: 'architecture',
     facts: [
-      { k: 'Client', v: 'BCD Travel S.A' },
-      { k: 'Site', v: 'Travel Campus, Johannesburg' },
-      { k: 'Role', v: 'Surveyed and drew the full set myself' },
-      { k: 'Deliverables', v: 'Space plans · elevations · schedules' },
+      { k: 'Studio', v: 'FCPM' },
+      { k: 'Role', v: 'Surveyed and drew the full documentation set' },
+      { k: 'Deliverables', v: 'Space plans · elevations · ceiling plans · schedules' },
     ],
     description:
       'A full office fit-out documentation set for the BCD Travel campus in Johannesburg — space planning, elevations, reflected ceiling plans and schedules, drawn to be built.',
