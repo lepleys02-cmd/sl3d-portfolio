@@ -106,13 +106,13 @@ export const collections: Collection[] = [
   },
   {
     slug: 'architecture',
-    title: 'Architectural & Interior Design, Visualisation & Documentation',
+    title: 'Interior Design, Architectural Visualisation & Documentation',
     kicker: 'Collection',
     discipline: 'Space planning · interior design · documentation · visualisation',
     description:
       'Buildings and interiors taken from measured space plan and fit-out detailing to coordinated drawing set to photoreal image.',
     intro:
-      'The architectural and interior side of the studio — commercial and residential space taken from a measured survey, through the interior fit-out and a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
+      'The buildings-and-interiors side of the studio — commercial and residential space taken from a measured survey, through the interior fit-out and a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
     facets: [
       'Space planning & measured survey',
       'Interior design & fit-out detailing',
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     description:
       'Architectural visualisation and technical documentation — from measured drawing sets to the final photoreal image.',
     brief:
-      'Architecture clients need both sides of the story: the measured drawing set that gets a building approved and built, and the photoreal image that sells it.',
+      'Architecture clients need both sides of the story: the measured, coordinated drawing set the build works from, and the photoreal image that sells it.',
     approach:
       'One model drives everything. The 5 Apple Road showroom below was documented as a full drawing set — plans, elevations, sections — and rendered as a photoreal street view from the same geometry.',
     process: {
