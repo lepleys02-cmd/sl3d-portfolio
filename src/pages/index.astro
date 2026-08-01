@@ -114,7 +114,6 @@ const steps = [
     <section class="section wrap showcase" id="showcase" aria-labelledby="showcase-heading">
       <div class="section-head reveal">
         <h2 id="showcase-heading">Measured, modelled, marketable</h2>
-        <span class="count">06 pieces</span>
       </div>
       <p class="showcase-lede reveal">
         A cross-section of the work &mdash; drawings measured for approval, a 3D model built for
@@ -122,6 +121,10 @@ const steps = [
       </p>
 
       <!-- The pairing: one model, two deliverables -->
+      <p class="pair-caption reveal">
+        <strong>5 Apple Road</strong> &mdash; the same geometry, drawn to be built and rendered to be
+        sold.
+      </p>
       <div class="pair reveal" aria-label="One model, two deliverables">
         <ShowcaseTile
           discipline="Drawing"
@@ -151,10 +154,6 @@ const steps = [
           note="The same model rendered as a photorealistic street view, adapted for a typical European setting."
         />
       </div>
-      <p class="pair-caption reveal">
-        <strong>5 Apple Road</strong> &mdash; the same geometry, drawn to be built and rendered to be
-        sold.
-      </p>
 
       <!-- Bento of the rest: varied scale, alternating weight -->
       <div class="bento">
@@ -208,7 +207,6 @@ const steps = [
     <section class="section wrap" id="work" aria-labelledby="work-heading">
       <div class="section-head reveal">
         <h2 id="work-heading">Selected work</h2>
-        <span class="count">{String(projects.length).padStart(2, '0')} projects</span>
       </div>
       <div class="work-grid">
         {
@@ -253,7 +251,6 @@ const steps = [
     <section class="section wrap" aria-labelledby="process-heading">
       <div class="section-head reveal">
         <h2 id="process-heading">How I work</h2>
-        <span class="count">04 steps</span>
       </div>
       <ol class="steps">
         {
@@ -387,6 +384,7 @@ const steps = [
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: clamp(1rem, 3vw, 2.5rem);
+    margin-bottom: var(--space-block);
   }
 
   .pair-seam {
@@ -417,8 +415,7 @@ const steps = [
   }
 
   .pair-caption {
-    margin-top: 1rem;
-    margin-bottom: var(--space-block);
+    margin-bottom: 1rem;
     font-size: 0.9rem;
     color: var(--ink-soft);
   }
