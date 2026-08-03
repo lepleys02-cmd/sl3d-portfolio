@@ -424,7 +424,7 @@ export const projects: Project[] = [
       {
         label: 'A103 · Space Plan & Furniture Layout',
         caption:
-          'Departments, circulation and every workstation set out to scale across the H-shaped floor plate — the fit-out the client actually signs off.',
+          'Departments, circulation and every workstation set out to scale across the H-shaped floor plate.',
       },
       {
         label: 'A104 · Suspended Ceiling Plan',
