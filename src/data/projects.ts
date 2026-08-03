@@ -137,7 +137,10 @@ export const projects: Project[] = [
         k: 'Role',
         v: 'In-house 3D artist — managed the render farm, supervised a partner CG studio in Ukraine, and helped build the webshop\'s 3D product generator',
       },
-      { k: 'Deliverables', v: 'Webshop product stills · lifestyle scenes' },
+      {
+        k: 'Deliverables',
+        v: 'Product renders with studio and environmental backgrounds · animations · 2D/3D technical drawings',
+      },
     ],
     description:
       'Photorealistic product renders and lifestyle scenes for outdoor living — created in-house at Nubuiten.',
