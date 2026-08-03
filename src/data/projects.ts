@@ -399,9 +399,14 @@ export const projects: Project[] = [
     discipline: 'Commercial space planning & CAD documentation',
     collection: 'architecture',
     facts: [
-      { k: 'Studio', v: 'FCPM' },
-      { k: 'Role', v: 'Surveyed and drew the full documentation set' },
-      { k: 'Deliverables', v: 'Space plans · elevations · ceiling plans · schedules' },
+      {
+        k: 'Role',
+        v: 'Surveyed the site and drew the full documentation set — space plans, elevations, reflected ceiling plans and schedules, coordinated for construction',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Space plans · elevations · reflected ceiling plans · door and window schedules',
+      },
     ],
     description:
       'A full office fit-out documentation set for the BCD Travel campus in Johannesburg — space planning, elevations, reflected ceiling plans and schedules, drawn to be built.',
