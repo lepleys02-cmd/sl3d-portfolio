@@ -368,9 +368,14 @@ export const projects: Project[] = [
     discipline: 'AI-assisted interior visualisation',
     collection: 'architecture',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Revisualised an FCPM office — cameras, art direction, every pass' },
-      { k: 'Deliverables', v: 'Photoreal interiors — boardroom, office, corridor' },
+      {
+        k: 'Role',
+        v: 'Rebuilt the office model into a complete shell, set the cameras and art direction, and drove every directed pass to a photographic finish',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Photoreal interiors — boardroom, private office and corridor',
+      },
     ],
     description:
       'An established attorneys’ practice revisualised — a bare SketchUp shell taken to four finished interiors through five directed passes per view.',
