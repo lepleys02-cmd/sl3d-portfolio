@@ -132,7 +132,6 @@ export const projects: Project[] = [
     year: '2024',
     discipline: 'Product & environment visualisation',
     facts: [
-      { k: 'Studio', v: 'Nubuiten' },
       {
         k: 'Role',
         v: 'In-house 3D artist — managed the render farm, supervised a partner CG studio in Ukraine, and helped build the webshop\'s 3D product generator',
