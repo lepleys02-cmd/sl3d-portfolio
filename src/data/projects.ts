@@ -339,11 +339,11 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Surveyed and drew the original box, then rebuilt it in 3D and drove every AI pass to a photographic finish',
+        v: 'Surveyed and drew the interior of the hospitality box for one of the practice\'s largest clients, ahead of a full renovation to ready the suite for hosting their most important guests',
       },
       {
         k: 'Deliverables',
-        v: 'Photoreal interiors of the hospitality box',
+        v: 'Completed drawing set documenting the box for future reference · full renovation of the suite — general maintenance, repainting and revarnishing',
       },
     ],
     description:
