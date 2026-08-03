@@ -142,7 +142,7 @@ export const projects: Project[] = [
       },
     ],
     description:
-      'Photorealistic product renders and lifestyle scenes for outdoor living — created in-house at Nubuiten.',
+      'Photorealistic product renders and environmental scenes for outdoor living — created in-house at Nubuiten.',
     brief:
       'An outdoor-living webshop sells verandas, garden rooms and fencing that are configured, not photographed — every variant needs believable imagery long before it exists in a warehouse.',
     approach:
