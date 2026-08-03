@@ -96,18 +96,23 @@ const steps = [
           preload="auto"
           width="1920"
           height="1080"
-          poster="/video/hero-reel-v5-poster.jpg"
+          poster="/video/hero-reel-v8-poster.jpg"
         >
-          <!-- Phones get the 720p cut (2.9 MB, 1.2 Mbps) — same 2s-keyframe
-               structure, but roughly half the decode load of the 1080p master,
-               which is where dropped frames actually showed up. Browsers pick
-               the first matching <source>, so the narrow query must come first. -->
+          <!-- Rebuilt from the source stills at 60fps with an exact sub-pixel
+               Ken Burns zoom. v4/v5 were composited with ffmpeg's zoompan,
+               whose crop window is computed in WHOLE pixels: on a slow zoom it
+               holds 3-4 frames then jumps, a ~0.5px sawtooth at 6-7Hz that read
+               as stutter and was glaring on the 2D drawings. v7 also resamples
+               with Lanczos-3 rather than a triangle filter, which had left the
+               reel looking soft and upscaled.
+               Phones get the 720p cut - browsers pick the first matching
+               <source>, so the narrow query must come first. -->
           <source
-            src="/video/hero-reel-v5-720.mp4"
+            src="/video/hero-reel-v8-720.mp4"
             type="video/mp4"
             media="(max-width: 720px)"
           />
-          <source src="/video/hero-reel-v5.mp4" type="video/mp4" />
+          <source src="/video/hero-reel-v8.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="reel-cap">
