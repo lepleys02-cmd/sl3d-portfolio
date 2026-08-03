@@ -185,9 +185,14 @@ export const projects: Project[] = [
     discipline: 'Architectural visualisation',
     collection: 'architecture',
     facts: [
-      { k: 'Studio', v: 'Independent' },
-      { k: 'Role', v: 'Solo project — survey, drawings and renders' },
-      { k: 'Deliverables', v: 'Plans · elevations · photoreal stills' },
+      {
+        k: 'Role',
+        v: 'Solo project — measured the site, modelled the building, and produced the full drawing set and photoreal renders',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Measured survey · plans, elevations and sections · photoreal street-view render',
+      },
     ],
     description:
       'Architectural visualisation and technical documentation — from measured drawing sets to the final photoreal image.',
