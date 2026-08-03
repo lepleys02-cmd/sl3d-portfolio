@@ -334,7 +334,7 @@ export const projects: Project[] = [
     slug: 'loftus-box',
     title: 'Old Mutual Box',
     year: '2026',
-    discipline: 'AI-assisted interior visualisation',
+    discipline: 'Interior survey, documentation & renovation',
     collection: 'architecture',
     facts: [
       {
@@ -347,19 +347,19 @@ export const projects: Project[] = [
       },
     ],
     description:
-      'A corporate hospitality box at Loftus Versfeld — surveyed, drawn and rebuilt in 3D, then staged and finished with AI, with match day beyond the glass.',
+      'A corporate hospitality box at Loftus Versfeld — surveyed and drawn for one of the practice\'s largest clients, documented as a full drawing set, and taken through to a complete renovation of the suite.',
     brief:
-      'A hospitality box is sold on how it feels on match day, and a survey drawing says nothing about that. The box existed as an A101 sheet — plan, south elevation, door and window legend — and a rough model; the question was whether an archive survey could become the imagery a suite like this is sold on.',
+      'A hospitality box lives or dies on how it feels on match day. Old Mutual needed their suite at Loftus brought back up to standard for hosting their most important guests — work that started with an accurate survey of the existing box and a coordinated drawing set the renovation could be run from.',
     process: {
       before: 'drawing.jpg',
       after: '04.jpg',
-      beforeLabel: 'Drawing sheet',
-      afterLabel: 'AI-finished interior',
+      beforeLabel: 'Survey sheet',
+      afterLabel: 'Interior visualisation',
       caption:
-        'Old Mutual Box — the A101 survey sheet (left) and the servery bulkhead delivered from it (right): the same detail drawn, dimensioned, rebuilt in 3D, and finished.',
+        'Old Mutual Box — the A101 survey sheet (left) and a visualisation of the box interior produced from it (right): the same detail surveyed, drawn and dimensioned, then modelled and presented.',
     },
     approach:
-      'From the survey sheet the box was rebuilt in 3D — face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead with recessed linear light over the servery — and each zone was staged and finished with AI. The light strategy carries the room: warm interior pools against the cooler daylight coming off the pitch, and the stadium beyond the glazing is the real Loftus bowl, never an invented one.',
+      'The existing box was surveyed and captured as an A101 sheet — plan, south elevation, and a door and window legend — then modelled from those drawings to show the interior: face-brick piers, oak counters over white shaker cabinetry, and a dropped bulkhead with recessed linear light over the servery. With the box documented for future reference, the project proceeded to a full renovation of the suite: general maintenance throughout, with the joinery and finishes repainted and revarnished.',
   },
   {
     slug: 'schultz-mmuoe',
