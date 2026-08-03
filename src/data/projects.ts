@@ -401,19 +401,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Surveyed the site and drew the full documentation set — space plans, elevations, reflected ceiling plans and schedules, coordinated for construction',
+        v: 'Surveyed the site and drew the full documentation set — space plans, elevations, suspended ceiling plans and schedules, coordinated for construction',
       },
       {
         k: 'Deliverables',
-        v: 'Space plans · elevations · reflected ceiling plans · door and window schedules',
+        v: 'Space plans · elevations · suspended ceiling plans · door and window schedules',
       },
     ],
     description:
-      'A full office fit-out documentation set for the BCD Travel campus in Johannesburg — space planning, elevations, reflected ceiling plans and schedules, drawn to be built.',
+      'A full office fit-out documentation set for the BCD Travel campus in Johannesburg — space planning, elevations, suspended ceiling plans and schedules, drawn to be built.',
     brief:
       'A global travel-management company refitting a Johannesburg office floor needs a coordinated drawing set: how the space is zoned and furnished, how it is lit, and how every door and window is specified — enough for a contractor to price and build without a phone call.',
     approach:
-      'Colour-coded space plans and furniture layouts, four measured elevations, and a reflected ceiling plan with its luminaire schedule — all keyed to door and window schedules and verified against the building on site.',
+      'Colour-coded space plans and furniture layouts, four measured elevations, and a suspended ceiling plan — all keyed to door and window schedules and verified against the building on site.',
     documentation: true,
     sheets: [
       {
@@ -427,9 +427,9 @@ export const projects: Project[] = [
           'Departments, circulation and every workstation set out to scale across the H-shaped floor plate — the fit-out the client actually signs off.',
       },
       {
-        label: 'A104 · Reflected Ceiling Plan',
+        label: 'A104 · Suspended Ceiling Plan',
         caption:
-          'Ceiling grid and luminaire layout with a fitting schedule — parabolic troffers and downlights located over the plan.',
+          'Suspended ceiling grid — parabolic troffers and downlights located over the plan.',
       },
       {
         label: 'A102 · Elevations',
