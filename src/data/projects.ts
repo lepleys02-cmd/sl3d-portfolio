@@ -133,7 +133,10 @@ export const projects: Project[] = [
     discipline: 'Product & environment visualisation',
     facts: [
       { k: 'Studio', v: 'Nubuiten' },
-      { k: 'Role', v: 'In-house 3D artist — modelled and rendered every product' },
+      {
+        k: 'Role',
+        v: 'In-house 3D artist — managed the render farm, supervised a partner CG studio in Ukraine, and helped build the webshop\'s 3D product generator',
+      },
       { k: 'Deliverables', v: 'Webshop product stills · lifestyle scenes' },
     ],
     description:
