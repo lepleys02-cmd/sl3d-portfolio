@@ -197,7 +197,7 @@ export const projects: Project[] = [
     description:
       'Architectural visualisation and technical documentation — from measured drawing sets to the final photoreal image.',
     brief:
-      'Architecture clients need both sides of the story: the measured, coordinated drawing set the build works from, and the photoreal image that sells it.',
+      'Building owners need both sides of the story: the measured, coordinated drawing set the contractor builds from, and the photoreal images that help market it.',
     approach:
       'One model drives everything. The 5 Apple Road showroom below was documented as a full drawing set — plans, elevations, sections — and rendered as a photoreal street view from the same geometry.',
     process: {
