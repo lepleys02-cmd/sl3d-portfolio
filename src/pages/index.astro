@@ -96,9 +96,18 @@ const steps = [
           preload="auto"
           width="1920"
           height="1080"
-          poster="/video/hero-reel-v4-poster.jpg"
+          poster="/video/hero-reel-v5-poster.jpg"
         >
-          <source src="/video/hero-reel-v4.mp4" type="video/mp4" />
+          <!-- Phones get the 720p cut (2.9 MB, 1.2 Mbps) — same 2s-keyframe
+               structure, but roughly half the decode load of the 1080p master,
+               which is where dropped frames actually showed up. Browsers pick
+               the first matching <source>, so the narrow query must come first. -->
+          <source
+            src="/video/hero-reel-v5-720.mp4"
+            type="video/mp4"
+            media="(max-width: 720px)"
+          />
+          <source src="/video/hero-reel-v5.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="reel-cap">
