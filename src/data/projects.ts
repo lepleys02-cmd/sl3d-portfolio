@@ -381,9 +381,14 @@ export const projects: Project[] = [
     discipline: 'AI-assisted interior visualisation',
     collection: 'architecture',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Cameras, shell rebuild and every AI pass' },
-      { k: 'Deliverables', v: 'Photoreal interiors across four colour schemes' },
+      {
+        k: 'Role',
+        v: 'Rebuilt the 2018 model as a bare shell, set the cameras, and drove every AI pass to a photographic finish',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Photoreal interiors across four colour schemes',
+      },
     ],
     description:
       'A 2018 office colour study for a business-coaching practice — the same rooms painted four ways, stripped back to a bare shell and taken to photographic finish.',
