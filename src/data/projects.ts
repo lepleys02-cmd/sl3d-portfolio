@@ -154,9 +154,14 @@ export const projects: Project[] = [
     year: '2026',
     discipline: 'Product visualisation',
     facts: [
-      { k: 'Studio', v: 'Outdoor Life Group' },
-      { k: 'Role', v: 'In-house 3D artist across the group’s brands' },
-      { k: 'Deliverables', v: 'Catalogue product stills · lifestyle scenes' },
+      {
+        k: 'Role',
+        v: 'In-house 3D artist across the group\'s brands — produced technical drawings for new product development and maintained a shared render library for catalogue-wide consistency',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Catalogue renders with studio and environmental backgrounds · animations · 2D/3D technical drawings',
+      },
     ],
     description:
       'Product visualisation for Outdoor Life Group (OLG) — created in-house.',
