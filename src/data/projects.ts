@@ -337,9 +337,14 @@ export const projects: Project[] = [
     discipline: 'AI-assisted interior visualisation',
     collection: 'architecture',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Surveyed and drew it at FCPM, rebuilt and finished in 3D' },
-      { k: 'Deliverables', v: 'Photoreal interiors of the hospitality box' },
+      {
+        k: 'Role',
+        v: 'Surveyed and drew the original box, then rebuilt it in 3D and drove every AI pass to a photographic finish',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Photoreal interiors of the hospitality box',
+      },
     ],
     description:
       'A corporate hospitality box at Loftus Versfeld — surveyed, drawn and rebuilt in 3D, then staged and finished with AI, with match day beyond the glass.',
