@@ -1,0 +1,128 @@
+/* ------------------------------------------------------------------
+   2.5D motion layer — styles for the progressive enhancement driven by
+   /motion.js. Nothing here changes the page unless the engine stamps
+   html.m25 (GSAP loaded, no reduced-motion): without it, the site is
+   exactly what it was.
+
+   Voice rules the engine obeys (from this site's own conventions):
+   no shadows-for-depth, no pill shapes, no trailing/lerped motion,
+   no pinning. Depth = parallax speed differential + overlap + scale.
+------------------------------------------------------------------- */
+
+/* The engine takes over entrances, so the legacy .reveal hidden state is
+   neutralised — but ONLY the visual part. Base.astro's initReveal still
+   stamps .is-visible, which the steps' travelling accent line relies on. */
+.m25 .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* First section of <main> gets an injected brand-triangle ghost + wash.
+   isolation keeps the ghost's negative z-index inside the section, so it
+   sits behind the content but above the page background. */
+.m25 main > section:first-of-type {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+.m-ghost {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.m-ghost svg {
+  position: absolute;
+  top: -4%;
+  right: -6%;
+  width: min(52vw, 44rem);
+  color: var(--line-strong);
+  opacity: 0.55;
+}
+
+.m-ghost .m-wash {
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(ellipse 60% 45% at 78% 10%, var(--surface) 0%, transparent 65%);
+  opacity: 0.7;
+}
+
+@keyframes m-breathe {
+  0%, 100% { scale: 1; rotate: 0deg; }
+  50%      { scale: 1.025; rotate: 0.4deg; }
+}
+
+.m-ghost svg {
+  animation: m-breathe 16s ease-in-out infinite;
+}
+
+/* Mask line reveals: the engine wraps a heading's content in .m-line inside
+   the (now clipping) element. Hidden state is applied by GSAP, not here, so
+   an engine failure can never strand content invisible. */
+.m-mask {
+  overflow: hidden;
+}
+
+.m-line {
+  display: block;
+}
+
+/* Rule draw: injected hairline that redraws an element's top border. The
+   original border is faded only once the engine owns it. */
+.m-ruled {
+  position: relative;
+  border-top-color: transparent !important;
+}
+
+.m-rule {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* Clipping frame the engine wraps around gallery images before drifting
+   them — a scaled image must never spill out of its slot. */
+.m-frame {
+  overflow: hidden;
+  display: block;
+}
+
+/* Card hover zoom, motion edition: the engine owns the img's inline
+   transform (drift), which would override the stylesheet's
+   transform-based hover. The `scale` property composes WITH transform,
+   so hover keeps working on drifting images. */
+.m25 .card .media img,
+.m25 .tile:not(.tile--sheet) .frame img {
+  transition: scale 600ms var(--ease-out);
+}
+
+.m25 .card:hover .media img,
+.m25 .tile:not(.tile--sheet):hover .frame img {
+  scale: 1.03;
+}
+
+/* Scroll-lit lede (home showcase): words ink up as the section arrives. */
+.m25 .showcase-lede .m-w {
+  color: var(--ink-soft);
+  transition: color 160ms linear;
+}
+
+.m25 .showcase-lede .m-w.on {
+  color: var(--ink);
+}
+
+/* The engine never runs under prefers-reduced-motion (html.m25 is not
+   stamped), so the legacy reveal path and its reduced-motion handling in
+   global.css remain authoritative there. This block is belt-and-braces. */
+@media (prefers-reduced-motion: reduce) {
+  .m-ghost svg {
+    animation: none;
+  }
+}

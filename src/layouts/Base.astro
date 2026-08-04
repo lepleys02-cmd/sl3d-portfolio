@@ -49,6 +49,13 @@ const ogImage = new URL('/og.jpg', site);
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
+    <!-- 2.5D motion layer: GSAP + ScrollTrigger + /motion.js (progressive
+         enhancement — see motion.js header). `defer` preserves order and
+         keeps all three off the critical path; if the CDN fails, motion.js
+         no-ops and the legacy .reveal path above stays in charge. -->
+    <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script is:inline defer src="/motion.js"></script>
     <ClientRouter />
   </head>
   <body>
