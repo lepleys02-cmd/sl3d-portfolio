@@ -213,9 +213,14 @@ export const projects: Project[] = [
     year: '2024',
     discipline: '3D product animation',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Modelling, animation and editing throughout' },
-      { k: 'Deliverables', v: 'Turntables · assembly sequences · product reveals' },
+      {
+        k: 'Role',
+        v: 'Modelled each product, planned the camera movement and assembly sequence, then animated and edited the final films',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Product turntables · assembly animations showing how each structure goes together · short lifestyle reveals',
+      },
     ],
     description:
       'From a virtual 3D product to motion — turntables, assembly sequences and product reveals.',
@@ -258,9 +263,14 @@ export const projects: Project[] = [
     discipline: 'AI-assisted visualisation',
     collection: 'ai',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Art direction, base models and every regrade pass' },
-      { k: 'Deliverables', v: 'Photoreal regrades of archive renders' },
+      {
+        k: 'Role',
+        v: 'Returned to finished archive renders, directed each regrade and checked every result against the original product model',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Before-and-after image sets · photoreal regrades with updated light and atmosphere',
+      },
     ],
     description:
       'Finished CGI renders from the archive, taken further — flat daylight regraded into photographic golden hour, clean product scenes lifted into believable places.',
@@ -294,9 +304,14 @@ export const projects: Project[] = [
     discipline: 'AI-assisted animation',
     collection: 'ai',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Direction, AI generation and the final cut' },
-      { k: 'Deliverables', v: 'Short product clips from a single still' },
+      {
+        k: 'Role',
+        v: 'Directed the camera movement and atmosphere from each finished still, rejected any product drift and edited the final clips',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Short product films created from finished stills · controlled camera movement · atmospheric motion',
+      },
     ],
     description:
       'Product stills and finished scenes set in motion with AI — camera moves, atmosphere and product reveals generated from a single accurate frame.',
@@ -320,9 +335,14 @@ export const projects: Project[] = [
     discipline: 'AI-assisted interior visualisation',
     collection: 'ai',
     facts: [
-      { k: 'Studio', v: 'SL3D' },
-      { k: 'Role', v: 'Rebuilt FCPM’s 2017 drawings in 3D and directed the finish' },
-      { k: 'Deliverables', v: 'Photoreal interiors — kitchen, dining, two bedrooms' },
+      {
+        k: 'Role',
+        v: 'Returned to FCPM’s 2017 bulkhead drawings, rebuilt each ceiling detail in 3D and directed the rooms around the lighting each one creates',
+      },
+      {
+        k: 'Deliverables',
+        v: 'Rebuilt 3D model · four photoreal interiors — kitchen, dining room and two bedroom schemes',
+      },
     ],
     description:
       'A 2017 bulkhead drawing set brought back as photoreal interiors, where the drawn ceiling details — drops, shadow gaps and LED coves — do the lighting.',
