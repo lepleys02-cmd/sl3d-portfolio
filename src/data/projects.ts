@@ -95,7 +95,7 @@ export const collections: Collection[] = [
     description:
       'Existing renders and product imagery taken further with AI — regraded, relit and set in motion, with every output checked against the real model.',
     intro:
-      'A production pipeline, not a shortcut. Finished CGI work from the studio archive is taken further with AI — flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion. The tools change; the standard does not.',
+      'A production pipeline, not a shortcut. Finished CGI work from the studio archive is taken further with AI — flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion. The tools change, and so do the standards.',
     facets: [
       'Brief & art direction',
       'Accurate 3D base model',
