@@ -85,17 +85,15 @@ const SHOTS = [
   { src: A + 'nubuiten/01.jpg',         cs: 0,   ce: 78,  a: 2,   b: 64,  s: { cw: 0.9850, x: 0.0080, y: 0.2150 },  e: { cw: 0.9000, x: 0.0520, y: 0.2580 } },
   { src: A + 'archviz/02.jpg',          cs: 67,  ce: 144, a: 81,  b: 130, s: { cw: 1.2718, x: -0.1361, y: -0.0049 }, e: { cw: 1.2506, x: -0.1260, y: 0.0013 } },
   { src: A + 'nubuiten/02.jpg',         cs: 133, ce: 210, a: 147, b: 196, s: { cw: 0.9828, x: 0.0081, y: 0.0982 },  e: { cw: 0.9299, x: 0.0345, y: 0.1130 } },
-  // Shot 3 has no still in src/assets: it is a FROZEN GRAB of
-  // public/video/product-anim-02-v3.mp4 frame 51 (t~1.70s), extracted below.
-  // The orbit peak is sharp — frame 47 scores only 0.83 and is visibly the wrong
-  // rotation; 51 scores 0.931. `lv` is a per-channel linear levels fit solved
-  // against the original reel: the animation has a grey studio backdrop and the
-  // reel's version was lifted to white (residual MAD 30.2 -> 9.9).
-  // Applied to THIS SHOT ONLY. Other shots show an apparent -14 offset against
-  // the old reel, but that is the old reel's own full/limited-range tagging bug
-  // and must not be reproduced.
-  { src: '@product-anim-02-v3:51',      cs: 199, ce: 276, a: 213, b: 262, s: { cw: 0.9318, x: 0.0339, y: 0.0191 },  e: { cw: 0.9842, x: 0.0080, y: 0.0045 },
-    lv: { g: [0.9919, 1.1406, 1.1893], o: [28.07, 1.48, 2.47] } },
+  // v10: shot 3 was a FROZEN GRAB of product-anim-02-v3.mp4 frame 51 (the
+  // white-studio pod with bunting) — a decoded H.264 frame, intrinsically the
+  // softest source in the reel, and the shot Sam singled out. Replaced with
+  // the Sussex 2 exploded-view hero still (4K native V-Ray render, delivered
+  // 2026-08-04) — same studio-backdrop role in the reel's rhythm, and it
+  // shows the assembly/explosion service. 16:9 source, so cw 1.0 = exactly
+  // full frame; the move is a slow zoom-OUT reveal of the exploded stack.
+  // The old shot's `lv` levels fit was for that video grab only — dropped.
+  { src: A + 'showreel/sussex-exploded.jpg', cs: 199, ce: 276, a: 213, b: 262, s: { cw: 0.9300, x: 0.0350, y: 0.0197 },  e: { cw: 0.9950, x: 0.0025, y: 0.0014 } },
   { src: A + 'archviz/03.jpg',          cs: 265, ce: 342, a: 279, b: 328, s: { cw: 1.2735, x: -0.1369, y: -0.0054 }, e: { cw: 1.2496, x: -0.1248, y: 0.0014 } },
   { src: A + 'park24-bulkheads/01.jpg', cs: 331, ce: 408, a: 345, b: 394, s: { cw: 0.9814, x: 0.0089, y: 0.0360 },  e: { cw: 0.9240, x: 0.0375, y: 0.0524 } },
   // Solved to no zoom (ncc 0.963, cw pinned at 1.0000) — kept static, as measured.

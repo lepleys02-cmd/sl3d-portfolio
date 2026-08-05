@@ -96,7 +96,7 @@ const steps = [
           preload="auto"
           width="1920"
           height="1080"
-          poster="/video/hero-reel-v9-poster.jpg"
+          poster="/video/hero-reel-v10-poster.jpg"
         >
           <!-- Rebuilt from the source stills at 60fps with an exact sub-pixel
                Ken Burns zoom. v4/v5 were composited with ffmpeg's zoompan,
@@ -111,14 +111,17 @@ const steps = [
                poster with it. It now opens on the pure-CGI nubuiten/01
                garden room (~7x the measured texture detail), with a slightly
                richer encode (crf 19 / maxrate 8500k) for the linework.
+               v10 replaces shot 3: the frozen product-anim video grab (the
+               softest source in the reel) gives way to the Sussex 2
+               exploded-view hero still, a native 4K render.
                Phones get the 720p cut - browsers pick the first matching
                <source>, so the narrow query must come first. -->
           <source
-            src="/video/hero-reel-v9-720.mp4"
+            src="/video/hero-reel-v10-720.mp4"
             type="video/mp4"
             media="(max-width: 720px)"
           />
-          <source src="/video/hero-reel-v9.mp4" type="video/mp4" />
+          <source src="/video/hero-reel-v10.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="reel-cap">
