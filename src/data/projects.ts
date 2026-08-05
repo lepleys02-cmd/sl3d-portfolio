@@ -240,12 +240,12 @@ export const projects: Project[] = [
     videos: [
       '/video/product-anim-04-v2.mp4',
       '/video/explosion-sussex.mp4',
-      '/video/product-anim-02-v3.mp4',
-      '/video/product-anim-03-v2.mp4',
-      '/video/explosion-tuinkantoor.mp4',
       // Norwegian terrace at night — depth+parallax montage of the pergola
       // render (project page only; deliberately not on the home page).
       '/video/product-anim-06.mp4',
+      '/video/explosion-tuinkantoor.mp4',
+      '/video/product-anim-03-v2.mp4',
+      '/video/product-anim-02-v3.mp4',
       '/video/explosion-c5zb.mp4',
       '/video/product-anim-01-v3.mp4',
     ],
