@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import type { Collection } from '../data/projects';
+import { defaultLang, localizePath } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
 
 interface Props {
   collection: Collection;
@@ -11,15 +14,17 @@ interface Props {
   count: number;
   /** Full-width cards get larger responsive image slots. */
   wide?: boolean;
+  lang?: Lang;
 }
 
-const { collection, index, cover, count, wide = false } = Astro.props;
+const { collection, index, cover, count, wide = false, lang = defaultLang } = Astro.props;
+const ui = t(lang);
 const num = String(index + 1).padStart(2, '0');
 ---
 
 <article
   class:list={['card', 'card--collection', 'reveal', { 'card--wide': wide }]}
-  data-peek="View collection →"
+  data-peek={ui.card.peekCollection}
 >
   <div class="media">
     <Image
@@ -29,7 +34,7 @@ const num = String(index + 1).padStart(2, '0');
       sizes={wide ? '(max-width: 720px) 100vw, 92vw' : '(max-width: 720px) 100vw, 46vw'}
       loading="lazy"
     />
-    <span class="badge" aria-hidden="true">Collection &middot; {count} projects</span>
+    <span class="badge" aria-hidden="true">{ui.card.badge(count)}</span>
   </div>
   <div class="meta">
     <h3><span class="num">{num}</span>{collection.title}</h3>
@@ -37,8 +42,8 @@ const num = String(index + 1).padStart(2, '0');
   </div>
   <a
     class="cover-link"
-    href={`/${collection.slug}`}
-    aria-label={`View ${collection.title} — ${count} projects`}></a>
+    href={localizePath(`/${collection.slug}`, lang)}
+    aria-label={ui.card.ariaCollection(collection.title, count)}></a>
 </article>
 
 <style>

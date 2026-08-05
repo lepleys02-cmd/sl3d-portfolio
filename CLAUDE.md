@@ -22,11 +22,55 @@ Benthem Crouwel, ABT, Vision Scapes, Beeldenfabriek):
 
 ## Structure
 
-- `src/data/projects.ts` — the 4 projects (metadata, facts, videos)
-- `src/assets/<slug>/*.jpg` — galleries, auto-globbed + filename-sorted in `src/pages/work/[slug].astro`
+- `src/data/projects.ts` — the projects (metadata, facts, videos) — **English is the source of truth**
+- `src/views/*.astro` — the actual pages; each takes a `lang` prop
+- `src/pages/**` — thin route wrappers only (`<HomeView lang="en" />`). Never put markup here.
+- `src/assets/<slug>/*.jpg` — galleries, auto-globbed + filename-sorted in `src/views/ProjectView.astro`
 - `src/assets/covers/<slug>.jpg` — grid card covers
-- `public/video/` — 5 product-animation MP4s served as-is
-- Add a project = entry in `projects.ts` + gallery folder + cover jpg
+- `public/video/` — product-animation MP4s served as-is
+- Add a project = entry in `projects.ts` + gallery folder + cover jpg + Dutch copy in `content.nl.ts`
+
+## Languages (EN + NL)
+
+English lives at the root (`/about`); Dutch under `/nl` (`/nl/about`). Route
+segments are **not** translated, so the language switcher is an exact 1:1 map
+and no existing URL moved.
+
+- `src/i18n/config.ts` — locale list, `getLangFromUrl`, `localizePath`, `alternatesFor`
+- `src/i18n/ui.ts` — every string that lives in markup. `en` is the source of
+  truth; `nl` must mirror its shape.
+- `src/data/content.nl.ts` — Dutch copy for `projects.ts`, keyed by slug.
+  **Array overrides match by INDEX**, so keep `facts` / `pairs` / `sheets` in
+  the same order on both sides.
+- `src/data/localized.ts` — `getProjects(lang)` / `getCollections(lang)`.
+  Merge is explicit, so a new translatable field on `Project` fails to compile
+  until it is handled here rather than silently shipping English inside `/nl`.
+- `Base.astro` emits `<html lang>`, reciprocal `hreflang` (+ `x-default`),
+  `og:locale`, and the `ProfessionalService` JSON-LD (NL address, KVK, both
+  languages). `src/pages/sitemap.xml.ts` emits `xhtml:link` alternates.
+
+`LangHint.astro` is the one-line "Deze site is ook in het Nederlands
+beschikbaar" bar shown on **English** pages when the browser asks for Dutch.
+It links to the Dutch twin of the current page, is dismissible, and remembers
+that in `localStorage` (`sl3d:lang-hint`). Deliberately not an auto-redirect —
+Google advises against them and they strand anyone who chose English on
+purpose. Visibility is gated by `langHintGate`, a blocking `<head>` script that
+sets `data-lang-hint` on `<html>` before first paint, so the bar never shifts
+the page after load.
+
+Rules:
+- A missing entry in `content.nl.ts` falls back to English — visibly
+  untranslated, never missing. That is deliberate.
+- Inline `<script is:inline>` bodies must be injected with `set:html` from a
+  frontmatter string. Writing JS as script children makes Astro emit the
+  braces/backticks literally — a silent no-op script. This bit once.
+- Never derive layout from a translated string. `ShowcaseTile` takes a `kind`
+  (`drawing` / `render` / `animation`) for its treatment; `discipline` is only
+  the visible label. Deriving `isDrawing` from the label broke `/nl` once.
+- Translated quotations carry "(vertaald uit het Engels)" in the citation —
+  a translated quote is no longer verbatim.
+- Dutch compounds overflow narrow headings. `global.css` scopes
+  `hyphens: auto` to `:root[lang='nl']`, so English type is untouched.
 
 ## Commands
 

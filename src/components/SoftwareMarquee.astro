@@ -1,14 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 import { software } from '../data/software';
+import { defaultLang } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const ui = t(lang);
 
 // Render the set twice back-to-back so a -50% translate loop is seam-free.
 const track = [...software, ...software];
 ---
 
 <div class="wrap marquee-wrap reveal">
-  <p class="label kicker">Tools of the trade</p>
-  <div class="marquee" role="group" aria-label="Software I work with">
+  <p class="label kicker">{ui.marquee.kicker}</p>
+  <div class="marquee" role="group" aria-label={ui.marquee.aria}>
     <div class="track">
       {
         track.map((tool, i) => {

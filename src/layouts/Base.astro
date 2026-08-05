@@ -3,34 +3,97 @@ import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import LangHint from '../components/LangHint.astro';
+import { languages, defaultLang, alternatesFor } from '../i18n/config';
+import type { Lang } from '../i18n/config';
 
 interface Props {
   title: string;
   description: string;
   /** Hide the big footer CTA on pages that are themselves a CTA (contact). */
   compactFooter?: boolean;
+  lang?: Lang;
 }
 
-const { title, description, compactFooter = false } = Astro.props;
+const { title, description, compactFooter = false, lang = defaultLang } = Astro.props;
+const meta = languages[lang];
 const site = Astro.site ?? new URL('https://sl3d.net');
 const canonical = new URL(Astro.url.pathname, site);
 const ogImage = new URL('/og.jpg', site);
+
+// Reciprocal hreflang: every locale of this page points at every other one,
+// plus an x-default aimed at the English root. Google needs the set to be
+// mutual — a one-way alternate is ignored — so both trees emit the same list.
+const alternates = alternatesFor(Astro.url.pathname).map((alt) => ({
+  ...alt,
+  href: new URL(alt.path, site).href,
+  hreflang: languages[alt.lang].hreflang,
+}));
+const xDefault = alternates.find((alt) => alt.lang === defaultLang)!;
+
+// Tells Dutch-facing search results this is a Netherlands-based business that
+// works in both languages — the part a translation widget can never supply.
+// Runs before first paint (see the head comment). Matches 'nl' anywhere in the
+// preference list rather than only first: plenty of Dutch users run an English
+// browser UI with nl second, and this is a dismissible line rather than a
+// redirect, so a false positive costs almost nothing.
+const langHintGate = `(function () {
+  try {
+    if (localStorage.getItem('sl3d:lang-hint') === 'dismissed') return;
+  } catch (e) {
+    /* storage blocked - fall through and offer the hint */
+  }
+  var prefs = navigator.languages || [navigator.language || ''];
+  for (var i = 0; i < prefs.length; i++) {
+    if (String(prefs[i]).toLowerCase().indexOf('nl') === 0) {
+      document.documentElement.setAttribute('data-lang-hint', 'nl');
+      return;
+    }
+  }
+})();`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'SL3D — Sam Lepley',
+  url: site.href,
+  image: ogImage.href,
+  email: 'sam@sl3d.net',
+  founder: { '@type': 'Person', name: 'Sam Lepley', jobTitle: 'CAD Specialist' },
+  address: { '@type': 'PostalAddress', addressCountry: 'NL' },
+  areaServed: [
+    { '@type': 'Country', name: 'Netherlands' },
+    { '@type': 'Place', name: 'Europe' },
+  ],
+  knowsLanguage: ['nl-NL', 'en'],
+  identifier: { '@type': 'PropertyValue', name: 'KVK', value: '42131264' },
+  sameAs: ['https://www.linkedin.com/in/sam-lepley-7389b0180/'],
+};
 ---
 
-<html lang="en">
+<html lang={meta.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault.href} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SL3D — Sam Lepley" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={meta.ogLocale} />
+    {
+      alternates
+        .filter((alt) => alt.lang !== lang)
+        .map((alt) => <meta property="og:locale:alternate" content={languages[alt.lang].ogLocale} />)
+    }
     <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f6f2'/%3E%3Cpath d='M6 22 16 6l10 16z' fill='none' stroke='%23c14a0a' stroke-width='2.5'/%3E%3C/svg%3E"
@@ -49,6 +112,15 @@ const ogImage = new URL('/og.jpg', site);
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
+    <!-- Language hint gate. MUST stay a blocking head script: it decides
+         whether the switch-language bar renders BEFORE first paint, so the bar
+         never shifts the page down after load (CLS) and never flashes. Only
+         emitted on the default-locale tree — the Dutch pages are already the
+         destination it would point at.
+         Body lives in `langHintGate` and is injected with set:html: writing it
+         as script children makes Astro emit the braces/backticks literally,
+         which silently produces a no-op script. -->
+    {lang === defaultLang && <script is:inline set:html={langHintGate} />}
     <!-- 2.5D motion layer: GSAP + ScrollTrigger + /motion.js (progressive
          enhancement — see motion.js header). `defer` preserves order and
          keeps all three off the critical path; if the CDN fails, motion.js
@@ -59,9 +131,12 @@ const ogImage = new URL('/og.jpg', site);
     <ClientRouter />
   </head>
   <body>
-    <Header currentPath={Astro.url.pathname} />
+    {/* Above the sticky header so it scrolls away for good and the header
+        still pins to the top of the viewport once it has. */}
+    {lang === defaultLang && <LangHint lang={lang} />}
+    <Header currentPath={Astro.url.pathname} lang={lang} />
     <slot />
-    <Footer compact={compactFooter} />
+    <Footer compact={compactFooter} lang={lang} />
 
     <script>
       // Scroll-reveal: purely progressive enhancement. Reduced-motion users

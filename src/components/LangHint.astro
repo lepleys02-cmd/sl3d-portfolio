@@ -1,0 +1,150 @@
+---
+import { defaultLang, localizePath, languages } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+
+/**
+ * A one-line offer to switch language, shown to visitors whose browser asks
+ * for a language this page isn't written in.
+ *
+ * Deliberately NOT an automatic redirect: Google advises against them, they
+ * strand anyone who chose this language on purpose, they break the back
+ * button, and Googlebot crawling from US IPs can end up indexing the wrong
+ * tree. A dismissible link gets the same outcome with none of that.
+ *
+ * Visibility is decided by a blocking script in Base.astro's <head> (it sets
+ * `data-lang-hint` on <html> before first paint) rather than by revealing the
+ * bar after hydration — otherwise it would shove the page down on load.
+ */
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const ui = t(lang);
+
+// The other locale, and the equivalent of THIS page within it — landing a
+// visitor on a translated home page they didn't ask for loses their place.
+const other: Lang = lang === 'en' ? 'nl' : 'en';
+const otherMeta = languages[other];
+const otherPath = localizePath(Astro.url.pathname, other);
+---
+
+<aside class="lang-hint" aria-label={ui.langHint.aria}>
+  <div class="wrap inner">
+    <p lang={otherMeta.htmlLang}>
+      <span>{ui.langHint.text}</span>
+      <a href={otherPath} lang={otherMeta.htmlLang} hreflang={otherMeta.hreflang}>
+        {ui.langHint.link}
+      </a>
+    </p>
+    <button type="button" data-lang-hint-dismiss aria-label={ui.langHint.dismiss}>
+      <svg viewBox="0 0 16 16" width="11" height="11" aria-hidden="true" focusable="false">
+        <path
+          d="M1 1l14 14M15 1L1 15"
+          stroke="currentColor"
+          stroke-width="1.6"
+          fill="none"
+          vector-effect="non-scaling-stroke"></path>
+      </svg>
+    </button>
+  </div>
+</aside>
+
+<style>
+  /* Hidden unless the head script found a matching browser preference. No JS
+     (or no match) = the bar never exists, and never costs a layout shift. */
+  .lang-hint {
+    display: none;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  :global(:root[data-lang-hint]) .lang-hint {
+    display: block;
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.6rem;
+  }
+
+  .lang-hint p {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.15rem 0.6rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .lang-hint a {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--accent-ink);
+    border-bottom: 1px solid var(--accent);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .lang-hint a:hover {
+    color: var(--ink);
+  }
+
+  /* Square, hairline, ink-soft — same chrome language as the rest of the bar. */
+  .lang-hint button {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition:
+      color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease;
+  }
+
+  .lang-hint button:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+
+  .lang-hint button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 520px) {
+    .lang-hint p {
+      font-size: 0.78rem;
+    }
+  }
+</style>
+
+<script>
+  // Delegated and guarded: the ClientRouter swaps <body> on navigation, so a
+  // per-element listener would be lost and a per-page listener would stack.
+  // `document` survives both, so one listener bound once is enough.
+  if (!(window as any).__sl3dLangHintWired) {
+    (window as any).__sl3dLangHintWired = true;
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement | null;
+      if (!target?.closest('[data-lang-hint-dismiss]')) return;
+      document.documentElement.removeAttribute('data-lang-hint');
+      try {
+        localStorage.setItem('sl3d:lang-hint', 'dismissed');
+      } catch {
+        /* Private mode / storage disabled — the bar just returns next visit. */
+      }
+    });
+  }
+</script>

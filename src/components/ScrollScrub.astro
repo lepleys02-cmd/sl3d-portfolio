@@ -4,6 +4,10 @@
 // chapter-label highlighting — the video plays normally (IO-gated, same
 // pattern as ShowcaseTile) rather than being scrubbed to scroll position.
 // Reduced-motion: no pin, no rail progress — renders inline like a normal tile.
+import { defaultLang } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+
 interface Chapter {
   at: number;
   label: string;
@@ -13,15 +17,17 @@ interface Props {
   video: string;
   poster?: string;
   chapters: Chapter[];
+  lang?: Lang;
 }
 
-const { video, poster, chapters } = Astro.props;
+const { video, poster, chapters, lang = defaultLang } = Astro.props;
+const ui = t(lang);
 ---
 
-<section class="scrollscrub" aria-label="Assembly sequence, scroll to follow along">
+<section class="scrollscrub" aria-label={ui.scrollScrub.kicker}>
   <div class="scrollscrub-pin">
     <div class="scrollscrub-inner wrap">
-      <p class="kicker label label--accent">Assembly, step by step</p>
+      <p class="kicker label label--accent">{ui.scrollScrub.kicker}</p>
       <div class="panel">
         <video
           class="scrub-video"

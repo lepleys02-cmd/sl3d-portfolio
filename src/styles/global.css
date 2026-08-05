@@ -42,6 +42,28 @@ h3 {
   line-height: 1.02;
   letter-spacing: -0.028em;
   text-wrap: balance;
+  /* Backstop only: fires when a single word genuinely cannot fit the line box,
+     so English display type renders identically to before. */
+  overflow-wrap: break-word;
+}
+
+/* Dutch compounds ("architectuurvisualisatie", "interieurvisualisatie") run
+   past 24 characters and blow out a 320px heading. Hyphenation is idiomatic in
+   Dutch typography and the browser only has the dictionary because <html lang>
+   is set per locale — so scope it to the Dutch tree and leave English alone. */
+:root[lang='nl'] h1,
+:root[lang='nl'] h2,
+:root[lang='nl'] h3 {
+  hyphens: auto;
+}
+
+/* Same backstop for Dutch running text — inert until a compound genuinely
+   exceeds its column, which only happens on narrow phones. */
+:root[lang='nl'] p,
+:root[lang='nl'] dd,
+:root[lang='nl'] li,
+:root[lang='nl'] figcaption {
+  overflow-wrap: break-word;
 }
 
 ::selection {

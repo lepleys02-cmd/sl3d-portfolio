@@ -1,0 +1,198 @@
+---
+import type { ImageMetadata } from 'astro';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getProjects, getCollections } from '../data/localized';
+import { defaultLang, localizePath } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+
+/**
+ * Shared collection hub. `architecture` and `ai` were two near-identical pages
+ * with duplicated CSS; the only real differences are the title measure and
+ * whether the facet strip carries per-stage notes, both driven off the slug.
+ */
+interface Props {
+  slug: 'architecture' | 'ai';
+  lang?: Lang;
+}
+
+const { slug, lang = defaultLang } = Astro.props;
+const ui = t(lang);
+
+const collection = getCollections(lang).find((c) => c.slug === slug)!;
+const members = getProjects(lang).filter((p) => p.collection === slug);
+
+const covers = import.meta.glob<{ default: ImageMetadata }>('../assets/covers/*.jpg', {
+  eager: true,
+});
+function coverFor(projectSlug: string): ImageMetadata {
+  const entry = covers[`../assets/covers/${projectSlug}.jpg`];
+  if (!entry) throw new Error(`Missing cover image for "${projectSlug}"`);
+  return entry.default;
+}
+
+// The AI hub reads as a pipeline: one intent-level note per stage, paired by
+// index with the collection's facets. The architecture hub is a plain strip.
+const isPipeline = slug === 'ai';
+const facets = collection.facets.map((name, i) => ({
+  name,
+  note: isPipeline ? (ui.hub.aiStageNotes[i] ?? '') : '',
+}));
+---
+
+<Base
+  title={`${collection.title} ${ui.project.titleSuffix}`}
+  description={collection.description}
+  lang={lang}
+>
+  <main>
+    <section class="hub-hero wrap">
+      <p class="label label--accent reveal">{collection.kicker}</p>
+      <h1 class:list={['reveal', { 'h1--wide': !isPipeline }]}>{collection.title}</h1>
+      <p class="intro reveal">{collection.intro}</p>
+      <ul
+        class="facets reveal"
+        aria-label={isPipeline ? ui.hub.ariaPipeline : ui.hub.ariaFacets}
+      >
+        {
+          facets.map((facet, i) => (
+            <li>
+              <span class="facet-num">{String(i + 1).padStart(2, '0')}</span>
+              <span>{facet.name}</span>
+              {facet.note && <span class="facet-note">{facet.note}</span>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="hub-work wrap" aria-label={ui.hub.ariaProjects(collection.title)}>
+      <div class="work-grid">
+        {
+          members.map((project, i) => (
+            <ProjectCard
+              project={project}
+              index={i}
+              cover={coverFor(project.slug)}
+              lang={lang}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <nav class="hub-nav wrap" aria-label={ui.hub.ariaBack}>
+      <a href={localizePath('/#work', lang)}>
+        <span class="label">{ui.hub.backLabel}</span>
+        <span class="name">{ui.hub.backName}</span>
+      </a>
+    </nav>
+  </main>
+</Base>
+
+<style>
+  .hub-hero {
+    padding-block: calc(var(--space-section) * 0.55) var(--space-block);
+  }
+
+  .hub-hero .label {
+    margin-bottom: 1.4rem;
+  }
+
+  .hub-hero h1 {
+    font-size: var(--text-h1);
+    max-width: 16ch;
+  }
+
+  /* The four-part architecture title needs the extra measure to avoid
+     stacking into a narrow column. */
+  .hub-hero h1.h1--wide {
+    max-width: 24ch;
+  }
+
+  .intro {
+    max-width: var(--max-prose);
+    color: var(--ink-soft);
+    margin-top: 1.4rem;
+  }
+
+  .facets {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-block);
+    /* auto-fit rather than a fixed count, so the facet strip reflows instead
+       of orphaning one item on its own row as the list grows. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  .facets li {
+    border-top: 1px solid var(--line-strong);
+    padding-top: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .facet-num {
+    font-size: 0.8rem;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .facet-note {
+    font-family: var(--font-body, inherit);
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .hub-work {
+    padding-bottom: var(--space-block);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 3.5rem) clamp(1.25rem, 2.5vw, 2.5rem);
+  }
+
+  .work-grid > :global(.card--wide) {
+    grid-column: 1 / -1;
+  }
+
+  .hub-nav {
+    border-top: 1px solid var(--ink);
+    margin-top: var(--space-block);
+    padding-top: 1.4rem;
+  }
+
+  .hub-nav a {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .hub-nav .name {
+    font-family: var(--font-display);
+    font-weight: 560;
+    font-size: var(--text-h3);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .hub-nav a:hover .name {
+    color: var(--accent-ink);
+  }
+
+  @media (max-width: 720px) {
+    .facets,
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

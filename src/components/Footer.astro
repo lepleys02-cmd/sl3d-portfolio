@@ -1,11 +1,16 @@
 ---
 import SoftwareMarquee from './SoftwareMarquee.astro';
+import { defaultLang, localizePath } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
 
 interface Props {
   compact?: boolean;
+  lang?: Lang;
 }
 
-const { compact = false } = Astro.props;
+const { compact = false, lang = defaultLang } = Astro.props;
+const ui = t(lang);
 const year = new Date().getFullYear();
 ---
 
@@ -13,21 +18,22 @@ const year = new Date().getFullYear();
   {
     !compact && (
       <div class="wrap cta reveal">
-        <p class="label label--accent">Get in touch</p>
+        <p class="label label--accent">{ui.footer.kicker}</p>
         <h2>
-          Have a project that needs clarity? <a href="/contact">Let&rsquo;s talk.</a>
+          {ui.footer.headingLead}{' '}
+          <a href={localizePath('/contact', lang)}>{ui.footer.headingLink}</a>
         </h2>
-        <p class="availability">
-          Available for freelance projects and full-time roles &mdash; Netherlands / remote.
-        </p>
+        <p class="availability">{ui.footer.availability}</p>
       </div>
     )
   }
-  <SoftwareMarquee />
+  <SoftwareMarquee lang={lang} />
   <div class="wrap bar">
-    <span>&copy; {year} Sam Lepley &mdash; SL3D &middot; South of the Netherlands &middot; KVK 42131264</span>
+    <span>
+      &copy; {year} Sam Lepley &mdash; SL3D &middot; {ui.footer.locality} &middot; KVK 42131264
+    </span>
     <div class="links">
-      <a href="/SL3D-Portfolio.pdf" download>Portfolio (PDF)</a>
+      <a href="/SL3D-Portfolio.pdf" download>{ui.footer.portfolioPdf}</a>
       <a href="mailto:sam@sl3d.net">sam@sl3d.net</a>
       <a href="https://www.linkedin.com/in/sam-lepley-7389b0180/" target="_blank" rel="noopener">
         LinkedIn

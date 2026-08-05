@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import { defaultLang, localizePath } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+
+// GitHub Pages serves the built 404.html for any unknown path.
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const ui = t(lang);
+---
+
+<Base title={ui.notFound.title} description={ui.notFound.description} lang={lang}>
+  <main>
+    <section class="page-hero wrap">
+      <p class="label label--accent reveal">{ui.notFound.kicker}</p>
+      <h1 class="reveal">{ui.notFound.heading}</h1>
+      <p class="lede reveal">{ui.notFound.lede}</p>
+      <nav class="links reveal" aria-label={ui.notFound.ariaLinks}>
+        <a class="arrow-link" href={localizePath('/#work', lang)}>{ui.notFound.linkWork}</a>
+        <a class="arrow-link" href={localizePath('/about', lang)}>{ui.notFound.linkAbout}</a>
+        <a class="arrow-link" href={localizePath('/contact', lang)}>{ui.notFound.linkContact}</a>
+      </nav>
+      <p class="cross-lang reveal" set:html={ui.notFound.crossLangHtml} />
+    </section>
+  </main>
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(6rem, 14vw, 11rem);
+  }
+
+  h1 {
+    font-size: var(--text-h1, clamp(2.6rem, 6vw, 4.5rem));
+    margin-block: 0.4em 0.5em;
+  }
+
+  .lede {
+    max-width: 34rem;
+    color: var(--ink-soft);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .cross-lang {
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .cross-lang :global(a) {
+    color: var(--accent-ink);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .cross-lang :global(a:hover) {
+    border-bottom-color: var(--accent);
+  }
+</style>

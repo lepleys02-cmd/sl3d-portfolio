@@ -1,29 +1,73 @@
 ---
+import { languages, defaultLang, localizePath, toRootPath, alternatesFor } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+
 interface Props {
   currentPath: string;
+  lang?: Lang;
 }
 
-const { currentPath } = Astro.props;
+const { currentPath, lang = defaultLang } = Astro.props;
+const ui = t(lang);
+
+// Active state is judged on the locale-stripped path so /nl/about highlights
+// the same item /about does.
+const rootPath = toRootPath(currentPath);
 
 const links = [
-  { href: '/#work', label: 'Work', active: currentPath.startsWith('/work') },
-  { href: '/about', label: 'About', active: currentPath.startsWith('/about') },
-  { href: '/contact', label: 'Contact', active: currentPath.startsWith('/contact') },
+  { href: localizePath('/#work', lang), label: ui.nav.work, active: rootPath.startsWith('/work') },
+  { href: localizePath('/about', lang), label: ui.nav.about, active: rootPath.startsWith('/about') },
+  {
+    href: localizePath('/contact', lang),
+    label: ui.nav.contact,
+    active: rootPath.startsWith('/contact'),
+  },
 ];
+
+// The switcher points at the SAME page in the other locale, not at its home —
+// a language toggle that dumps you on the home page loses the reader's place.
+const switcher = alternatesFor(currentPath).map((alt) => ({
+  ...alt,
+  meta: languages[alt.lang],
+  current: alt.lang === lang,
+}));
 ---
 
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="/">SL3D<sup>&#9650;</sup></a>
-    <nav aria-label="Main navigation">
-      {
-        links.map((link) => (
-          <a href={link.href} aria-current={link.active ? 'page' : undefined}>
-            {link.label}
-          </a>
-        ))
-      }
-    </nav>
+    <a class="brand" href={localizePath('/', lang)}>SL3D<sup>&#9650;</sup></a>
+    <div class="right">
+      <nav aria-label={ui.nav.ariaMain}>
+        {
+          links.map((link) => (
+            <a href={link.href} aria-current={link.active ? 'page' : undefined}>
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+      <nav class="lang" aria-label={ui.nav.ariaLanguage}>
+        {
+          switcher.map((alt) =>
+            alt.current ? (
+              <span class="is-current" lang={alt.meta.htmlLang} aria-current="true">
+                {alt.meta.short}
+              </span>
+            ) : (
+              <a
+                href={alt.path}
+                lang={alt.meta.htmlLang}
+                hreflang={alt.meta.hreflang}
+                title={ui.nav.switchTo}
+              >
+                {alt.meta.short}
+              </a>
+            )
+          )
+        }
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -57,9 +101,65 @@ const links = [
     margin-left: 0.15em;
   }
 
+  .right {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 3vw, 2.25rem);
+  }
+
   nav {
     display: flex;
     gap: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  /* Language toggle reads as one small unit, set apart from the main nav by a
+     hairline rather than more whitespace — the bar is already tight at 320px. */
+  .lang {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding-left: clamp(0.7rem, 2vw, 1.25rem);
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .lang a,
+  .lang .is-current {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding-block: 0.35rem;
+    border-bottom: 1px solid transparent;
+    transition:
+      color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease;
+  }
+
+  .lang a {
+    color: var(--ink-soft);
+    opacity: 0.65;
+  }
+
+  .lang a:hover {
+    color: var(--ink);
+    opacity: 1;
+    border-color: var(--line-strong);
+  }
+
+  .lang .is-current {
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 520px) {
+    .right,
+    nav {
+      gap: 0.85rem;
+    }
+
+    .lang {
+      padding-left: 0.7rem;
+    }
   }
 
   nav a {

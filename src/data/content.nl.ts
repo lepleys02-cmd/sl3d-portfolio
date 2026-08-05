@@ -1,0 +1,358 @@
+/**
+ * Dutch copy for `projects.ts`, keyed by slug.
+ *
+ * English in `projects.ts` stays the source of truth — this file only carries
+ * overrides, so adding a project never silently half-translates: anything with
+ * no entry here falls back to English and is visibly untranslated rather than
+ * missing.
+ *
+ * Structural fields (slug, year, image filenames, video paths, collection
+ * membership, `documentation`) are intentionally absent — they are not copy.
+ * Array overrides are matched BY INDEX against the English arrays, so keep the
+ * order identical when either side changes.
+ */
+
+export interface ProjectCopy {
+  title?: string;
+  discipline?: string;
+  description?: string;
+  brief?: string;
+  approach?: string;
+  facts?: { k: string; v: string }[];
+  process?: { caption?: string; beforeLabel?: string; afterLabel?: string };
+  pairs?: { caption?: string; beforeLabel?: string; afterLabel?: string }[];
+  stillToMotion?: { caption?: string; stillLabel?: string; motionLabel?: string };
+  sheets?: { label?: string; caption?: string }[];
+  /** Scroll-feature chapter labels, in order. */
+  chapters?: string[];
+}
+
+export interface CollectionCopy {
+  title?: string;
+  kicker?: string;
+  discipline?: string;
+  description?: string;
+  intro?: string;
+  facets?: string[];
+}
+
+export const projectsNl: Record<string, ProjectCopy> = {
+  nubuiten: {
+    discipline: 'Product- en omgevingsvisualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Vaste 3D-artist — beheerde de renderfarm, stuurde een partner-CG-studio in Oekraïne aan en hielp de 3D-productgenerator van de webshop bouwen',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Productrenders met studio- en omgevingsachtergronden · animaties · 2D/3D technische tekeningen',
+      },
+    ],
+    description:
+      'Fotorealistische productrenders en omgevingsscènes voor buitenleven — in eigen huis gemaakt bij Nubuiten.',
+    brief:
+      'Een webshop voor buitenleven verkoopt veranda’s, tuinkamers en schuttingen die geconfigureerd worden, niet gefotografeerd — elke variant heeft geloofwaardig beeld nodig lang voordat die in een magazijn staat.',
+    approach:
+      'Elk product wordt gemodelleerd op de werkelijke productiematen en vervolgens geplaatst in Nederlandse tuinscènes, waarbij materialen en belichting worden behandeld als productfotografie.',
+  },
+
+  'outdoor-life-group': {
+    discipline: 'Productvisualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Vaste 3D-artist voor alle merken van de groep — maakte technische tekeningen voor nieuwe productontwikkeling en beheerde een gedeelde renderbibliotheek voor consistentie in de hele catalogus',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Catalogusrenders met studio- en omgevingsachtergronden · animaties · 2D/3D technische tekeningen',
+      },
+    ],
+    description: 'Productvisualisatie voor Outdoor Life Group (OLG) — in eigen huis gemaakt.',
+    brief:
+      'Een productgroep met meerdere merken voor buitenleven heeft een gestage stroom consistent, fotorealistisch beeld nodig over een brede catalogus.',
+    approach:
+      'Een gedeelde scène- en materiaalbibliotheek houdt een catalogus met meerdere merken consistent op volume, met elk product nauwkeurig gemodelleerd vanuit de technische tekeningen.',
+    stillToMotion: {
+      stillLabel: 'Render',
+      motionLabel: 'Beweging',
+      caption:
+        'Kastanjehouten schapenhek voor Outdoor Life Group — de afgewerkte productrender (links) en een korte clip die uit dat ene frame is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, nu met een driftende camera en bewegend gras.',
+    },
+  },
+
+  archviz: {
+    discipline: 'Architectuurvisualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Soloproject — de locatie ingemeten, het gebouw gemodelleerd en de volledige tekeningenset plus fotorealistische renders geproduceerd',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Inmeting · plattegronden, aanzichten en doorsneden · fotorealistische straatbeeldrender',
+      },
+    ],
+    description:
+      'Architectuurvisualisatie en technische documentatie — van ingemeten tekeningensets tot het uiteindelijke fotorealistische beeld.',
+    brief:
+      'Gebouweigenaren hebben beide kanten van het verhaal nodig: de ingemeten, gecoördineerde tekeningenset waarmee de aannemer bouwt, en de fotorealistische beelden die helpen verkopen.',
+    approach:
+      'Eén model stuurt alles aan. De showroom aan 5 Apple Road hieronder is gedocumenteerd als volledige tekeningenset — plattegronden, aanzichten, doorsneden — en vanuit diezelfde geometrie gerenderd als fotorealistisch straatbeeld.',
+    process: {
+      caption:
+        '5 Apple Road — één model, twee eindproducten: het technische aanzichtblad (links) en het fotorealistische straatbeeld (rechts).',
+    },
+  },
+
+  'product-animations': {
+    title: 'Productanimaties',
+    discipline: '3D-productanimatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Elk product gemodelleerd, de camerabeweging en montagevolgorde uitgedacht, en daarna de uiteindelijke films geanimeerd en gemonteerd',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Productturntables · montage-animaties die laten zien hoe elke constructie in elkaar zit · korte lifestyle-reveals',
+      },
+    ],
+    description:
+      'Van een virtueel 3D-product naar beweging — turntables, montagevolgordes en productreveals.',
+    brief:
+      'Sommige producten verkopen makkelijker in beweging: hoe een veranda in elkaar zit, hoe een tuinhuis staat in avondlicht.',
+    approach:
+      'Animaties worden gebouwd vanuit dezelfde nauwkeurige productmodellen als de stills — montagevolgordes op strak wit voor duidelijkheid, lifestyleopnamen in volledige scènes voor sfeer.',
+  },
+
+  'ai-revival': {
+    discipline: 'AI-ondersteunde visualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Teruggekeerd naar afgeronde archiefrenders, elke regrade geregisseerd en elk resultaat gecontroleerd tegen het originele productmodel',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Voor-en-na-beeldsets · fotorealistische regrades met vernieuwd licht en sfeer',
+      },
+    ],
+    description:
+      'Afgeronde CGI-renders uit het archief, verder gebracht — vlak daglicht geregradeerd naar fotografisch gouden uur, strakke productscènes getild naar geloofwaardige plekken.',
+    brief:
+      'Een render die twee jaar geleden state of the art was, kan gedateerd ogen naast wat nu kan. In plaats van elke scène opnieuw op te bouwen, wordt het archief grondstof: de geometrie, compositie en productnauwkeurigheid kloppen al — alleen het beeld moet bijtrekken.',
+    approach:
+      'Elke revival gaat onder strakke art direction door een AI-regrade en wordt daarna teruggecontroleerd tegen de bronrender — verhoudingen, materialen en productdetail moeten het proces ongeschonden doorstaan. Wat verandert is het licht en de sfeer; wat de klant koopt blijft exact.',
+    pairs: [
+      {
+        beforeLabel: 'Originele render',
+        afterLabel: 'AI-regrade',
+        caption:
+          'Tuinkamer Hardinxveld — de originele CGI-render (links) en de AI-ondersteunde regrade (rechts): dezelfde geometrie, hetzelfde product, fotografisch licht.',
+      },
+      {
+        beforeLabel: 'Originele render',
+        afterLabel: 'AI-regrade',
+        caption:
+          'Pergola Garden 40 — de originele webshoprender (links) en de AI-regrade (rechts): dezelfde pergola, dezelfde binnenplaats, maar de CGI-lucht, het frisse hout en de strakke bestrating maken plaats voor zacht bewolkt licht, verweerd hout en versleten klinkers.',
+      },
+    ],
+  },
+
+  'ai-motion': {
+    discipline: 'AI-ondersteunde animatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'De camerabeweging en sfeer vanuit elke afgeronde still geregisseerd, elke productafwijking afgekeurd en de uiteindelijke clips gemonteerd',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Korte productfilms gemaakt uit afgeronde stills · gecontroleerde camerabeweging · sfeervolle beweging',
+      },
+    ],
+    description:
+      'Productstills en afgeronde scènes in beweging gebracht met AI — camerabewegingen, sfeer en productreveals gegenereerd uit één nauwkeurig frame.',
+    brief:
+      'Volledige 3D-animatie is de gouden standaard, maar niet elk product of elke campagne draagt de productietijd ervan. Als er al een nauwkeurige still bestaat, kan beweging nu vanuit dat frame beginnen in plaats van vanuit een lege tijdlijn.',
+    approach:
+      'Elke clip begint bij een afgeronde still. Camerabeweging en sfeer worden er in korte, geregisseerde passes overheen gegenereerd, en alles wat afwijkt van het echte product gaat eruit — het paar hieronder is er een dat het haalde: links de still, rechts de clip die eruit ontstond.',
+    stillToMotion: {
+      stillLabel: 'Still',
+      motionLabel: 'Beweging',
+      caption:
+        'Kastanjehouten schapenhek — de afgewerkte still (links) en de clip die eruit is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, nu met een driftende camera en bewegend gras.',
+    },
+  },
+
+  'park24-bulkheads': {
+    discipline: 'AI-ondersteunde interieurvisualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Teruggekeerd naar de koventekeningen van FCPM uit 2017, elk plafonddetail opnieuw in 3D opgebouwd en de kamers geregisseerd rond het licht dat elk detail maakt',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Herbouwd 3D-model · vier fotorealistische interieurs — keuken, eetkamer en twee slaapkamervarianten',
+      },
+    ],
+    description:
+      'Een koventekeningenset uit 2017 teruggebracht als fotorealistische interieurs, waarin de getekende plafonddetails — verlagingen, schaduwvoegen en ledkoven — het licht maken.',
+    brief:
+      'Op papier is een koof een reeks verlagingen en maten. In een afgewerkte ruimte is het vooral licht — waar de koof het plafond aanstraalt, waar de schaduwvoeg zijn lijn trekt. De tekeningen beschreven dat licht al jaren; niemand had het ooit gezien.',
+    process: {
+      beforeLabel: 'Tekeningenset',
+      caption:
+        'Park 24 — het koofdetailblad uit 2017 waaruit de kamers zijn herbouwd: elke verlaging, schaduwvoeg en koof getekend en van maten voorzien.',
+    },
+    approach:
+      'De plafonddetails zijn exact zoals getekend opnieuw in 3D opgebouwd, waarna elke ruimte is geënsceneerd rond wat de koof daar het beste doet — de koof boven het kookeiland, het zwevende kader in de eetkamer, en één slaapkamer twee keer uitgewerkt: hetzelfde detail koel belicht in de ene variant en warm in de andere, zodat de klant een lichtkleur kiest en geen nieuw ontwerp.',
+  },
+
+  'loftus-box': {
+    discipline: 'Interieurinmeting, documentatie & renovatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Het interieur van de skybox ingemeten en getekend voor een van de grootste klanten van het bureau, vooruitlopend op een volledige renovatie om de suite gereed te maken voor hun belangrijkste gasten',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Complete tekeningenset die de skybox vastlegt voor toekomstig gebruik · volledige renovatie van de suite — algemeen onderhoud, opnieuw schilderen en vernissen',
+      },
+    ],
+    description:
+      'Een zakelijke skybox in Loftus Versfeld — ingemeten en getekend voor een van de grootste klanten van het bureau, vastgelegd als volledige tekeningenset en doorgevoerd tot een complete renovatie van de suite.',
+    brief:
+      'Een skybox staat of valt met hoe hij aanvoelt op wedstrijddag. Old Mutual wilde hun suite in Loftus weer op niveau voor het ontvangen van hun belangrijkste gasten — werk dat begon met een nauwkeurige inmeting van de bestaande skybox en een gecoördineerde tekeningenset waarmee de renovatie kon worden aangestuurd.',
+    process: {
+      beforeLabel: 'Inmeetblad',
+      afterLabel: 'Interieurvisualisatie',
+      caption:
+        'Old Mutual Box — het A101-inmeetblad (links) en een visualisatie van het interieur die daaruit is gemaakt (rechts): hetzelfde detail ingemeten, getekend en van maten voorzien, daarna gemodelleerd en gepresenteerd.',
+    },
+    approach:
+      'De bestaande skybox is ingemeten en vastgelegd op een A101-blad — plattegrond, zuidgevel en een deur- en raamlegenda — en vervolgens vanuit die tekeningen gemodelleerd om het interieur te tonen: penanten in schoon metselwerk, eiken bladen boven witte shaker-kasten, en een verlaagde koof met verzonken lijnverlichting boven de buffetzone. Met de skybox vastgelegd voor toekomstig gebruik ging het project door naar een volledige renovatie van de suite: algemeen onderhoud overal, met het schrijnwerk en de afwerkingen opnieuw geschilderd en gevernist.',
+  },
+
+  'schultz-mmuoe': {
+    discipline: 'AI-ondersteunde interieurvisualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Het kantoormodel herbouwd tot een compleet casco, de camera’s en art direction bepaald en elke geregisseerde pass tot een fotografische afwerking gebracht',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Fotorealistische interieurs — bestuurskamer, directiekantoor en gang',
+      },
+    ],
+    description:
+      'Een gevestigd advocatenkantoor opnieuw gevisualiseerd — een kaal SketchUp-casco gebracht tot vier afgewerkte interieurs via vijf geregisseerde passes per aanzicht.',
+    brief:
+      'Het kantoor had al een model, maar het was een casco: kale muren en geen plafonds. De bestaande renders lieten zien wat er gebeurt als je een casco te snel doorduwt — boekruggen die zich herhalen als één getegelde textuur, vlak licht, geometrie die nooit in het model zat. Vier ruimtes moesten fotografisch worden zonder het gebouw te verzinnen.',
+    approach:
+      'De ontbrekende vlakken zijn toegevoegd, de camera’s waterpas gezet en elk aanzicht door vijf geregisseerde passes gehaald — fotorealistische conversie, één plafondschema vastgehouden over alle vier de ruimtes, de werkelijke enkele kromming van de glaswand in de bestuurskamer, een aankleedpass met de eigen messing letters en dossiers van het kantoor, en als laatste de raambekleding. Elke pass is beoordeeld tegen een gebrekentabel opgesteld uit die originele renders, en opnieuw gedraaid tot hij slaagde.',
+  },
+
+  'sa-business-coach': {
+    title: 'Zuid-Afrikaanse business coach',
+    discipline: 'AI-ondersteunde interieurvisualisatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'Het model uit 2018 herbouwd als kaal casco, de camera’s gezet en elke AI-pass tot een fotografische afwerking gebracht',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Fotorealistische interieurs in vier kleurschema’s',
+      },
+    ],
+    description:
+      'Een kleurstudie uit 2018 voor het kantoor van een business-coachingpraktijk — dezelfde ruimtes op vier manieren geschilderd, teruggebracht tot kaal casco en tot fotografische afwerking gebracht.',
+    brief:
+      'Het model kwam binnen als kleurschemastudie — “schilderopties” — hetzelfde kantoor in vier schema’s overgeschilderd en gepresenteerd als poppenhuisrenders: rode V-chevrons en kleurvlakken op accentwanden boven één doorlopend donkergroen tapijt. De kleurlogica wás het ontwerp, rood voor groepsenergie in de trainingsruimtes en geelgroen voor focus in de kantoren, maar de renders waren nooit fotografisch. Acht jaar later was de vraag of die geschilderde geometrie een afgewerkt interieur kon halen zonder ook maar één wand over te schilderen.',
+    approach:
+      'Het model van 60 MB is teruggebracht tot een casco van 0,6 MB — wanden, vloeren, ramen, rode deuren en de betapijte trap, geen plafonds, geen meubels — waarbij elk geschilderd vlak precies bleef waar de studie uit 2018 het neerzette. Elk camera-aanzicht is vervolgens via geregisseerde AI-passes tot fotografische afwerking gebracht: licht, materiaal en meubilair zijn rond het casco toegevoegd, en de chevrons, diagonalen en het tapijt zijn steeds aan het model gehouden.',
+  },
+
+  'bcd-travel': {
+    discipline: 'Commerciële ruimte-indeling & CAD-documentatie',
+    facts: [
+      {
+        k: 'Rol',
+        v: 'De locatie ingemeten en de volledige documentatieset getekend — indelingsplannen, aanzichten, verlaagd-plafondplannen en staten, gecoördineerd voor uitvoering',
+      },
+      {
+        k: 'Opgeleverd',
+        v: 'Indelingsplannen · aanzichten · verlaagd-plafondplannen · deur- en raamstaten',
+      },
+    ],
+    description:
+      'Een volledige documentatieset voor de kantoorinrichting van de BCD Travel-campus in Johannesburg — ruimte-indeling, aanzichten, verlaagd-plafondplannen en staten, getekend om gebouwd te worden.',
+    brief:
+      'Een wereldwijd travel-managementbedrijf dat een kantoorverdieping in Johannesburg herinricht, heeft een gecoördineerde tekeningenset nodig: hoe de ruimte is ingedeeld en ingericht, hoe die wordt verlicht, en hoe elke deur en elk raam is gespecificeerd — genoeg om een aannemer te laten prijzen en bouwen zonder één telefoontje.',
+    approach:
+      'Kleurgecodeerde indelingsplannen en meubelplattegronden, vier ingemeten aanzichten en een verlaagd-plafondplan — allemaal gekoppeld aan deur- en raamstaten en ter plaatse geverifieerd tegen het gebouw.',
+    sheets: [
+      {
+        label: 'A101 · Kantoorindeling',
+        caption:
+          'Elke ruimte getypeerd, kleurgecodeerd en geteld tegen een ruimtelegenda, met deur- en raamstaten teruggekoppeld aan de plattegrond.',
+      },
+      {
+        label: 'A103 · Indelingsplan & meubelplattegrond',
+        caption:
+          'Afdelingen, looproutes en elke werkplek op schaal uitgezet over de H-vormige verdieping.',
+      },
+      {
+        label: 'A104 · Verlaagd-plafondplan',
+        caption:
+          'Plafondraster — parabolische armaturen en downlights ingemeten over de plattegrond.',
+      },
+      {
+        label: 'A102 · Aanzichten',
+        caption:
+          'Vier ingemeten aanzichten — oost, noord, zuid en west — met plafond- en vloerpeilen en genummerde stramienlijnen.',
+      },
+    ],
+  },
+};
+
+export const collectionsNl: Record<string, CollectionCopy> = {
+  ai: {
+    title: 'AI-ondersteunde productie',
+    kicker: 'Collectie',
+    discipline: 'Scene revival · fotorealistische regrades · generatieve beweging',
+    description:
+      'Bestaande renders en productbeelden verder gebracht met AI — geregradeerd, opnieuw belicht en in beweging gezet, met elk resultaat gecontroleerd tegen het echte model.',
+    intro:
+      'Een productiepijplijn, geen shortcut. Afgerond CGI-werk uit het studioarchief wordt verder gebracht met AI — vlakke renders geregradeerd naar fotografisch licht, productstills geplaatst in levende scènes, en stilstaand beeld in beweging gezet. De gereedschappen veranderen, en de normen ook.',
+    facets: [
+      'Opdracht & art direction',
+      'Nauwkeurig 3D-basismodel',
+      'AI-iteratie & regrade',
+      'Menselijke selectie & correctie',
+      'Geverifieerde afwerking & oplevering',
+    ],
+  },
+
+  architecture: {
+    title: 'Interieurontwerp, architectuurvisualisatie & documentatie',
+    kicker: 'Collectie',
+    discipline: 'Ruimte-indeling · interieurontwerp · documentatie · visualisatie',
+    description:
+      'Gebouwen en interieurs van ingemeten indelingsplan en inrichtingsdetaillering, via een gecoördineerde tekeningenset, naar fotorealistisch beeld.',
+    intro:
+      'De gebouwen-en-interieurskant van de studio — commerciële en residentiële ruimte van inmeting, via de interieurinrichting en een gecoördineerde tekeningenset waarmee een aannemer kan bouwen, tot het fotorealistische beeld dat het verkoopt.',
+    facets: [
+      'Ruimte-indeling & inmeting',
+      'Interieurontwerp & inrichtingsdetaillering',
+      'Gecoördineerde CAD-documentatie',
+      'Fotorealistische architectuur- en interieurvisualisatie',
+    ],
+  },
+};
