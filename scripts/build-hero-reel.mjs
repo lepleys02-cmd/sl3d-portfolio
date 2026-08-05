@@ -48,10 +48,13 @@ if (!VERSION) {
 }
 const ONLY = flag('preset');
 
-// Matches what shipped as v8. 60fps halves the bits available per frame, so the
-// rate cap has to be generous or the encode adds its own softness on top.
+// v8 shipped crf 20 / maxrate 7000k. v9 spends slightly more (crf 19, 8500k):
+// measured on v8, 9% of frame steps on the drawing shots exceeded 0.25px through
+// the codec — quantization wobble on thin linework, not a motion defect — and
+// bitrate is the lever for that. 60fps halves the bits available per frame, so
+// the rate cap has to be generous or the encode adds its own softness on top.
 const PRESETS = {
-  desktop: { w: 1920, h: 1080, crf: '20', maxrate: '7000k', bufsize: '3500k', level: '4.2', suffix: '' },
+  desktop: { w: 1920, h: 1080, crf: '19', maxrate: '8500k', bufsize: '4200k', level: '4.2', suffix: '' },
   mobile: { w: 1280, h: 720, crf: '21', maxrate: '3000k', bufsize: '1800k', level: '3.2', suffix: '-720' },
 };
 
@@ -72,7 +75,14 @@ const A = 'src/assets/';
 //            These solve to cw ~1.26 = 1.778/1.416, a 16:9 frame around an
 //            A-series sheet.
 const SHOTS = [
-  { src: A + 'ai-revival/after.jpg',    cs: 0,   ce: 78,  a: 2,   b: 64,  s: { cw: 0.9525, x: 0.0239, y: 0.2366 },  e: { cw: 0.8880, x: 0.0559, y: 0.2549 } },
+  // v9: opener swapped from ai-revival/after.jpg (an AI regrade — Laplacian
+  // variance 378, painterly-soft, and it made the whole reel read as
+  // "AI-upscaled" from the first frame) to the pure-CGI nubuiten/01 garden
+  // room (LapV 1486, crisp timber grain). Same subject family, so the reel's
+  // story is unchanged; the poster (frame 0) changes with it. Crop composed
+  // fresh for the square 2560x2560 source: slow push toward the seating area,
+  // same zoom magnitude as the shot it replaces.
+  { src: A + 'nubuiten/01.jpg',         cs: 0,   ce: 78,  a: 2,   b: 64,  s: { cw: 0.9850, x: 0.0080, y: 0.2150 },  e: { cw: 0.9000, x: 0.0520, y: 0.2580 } },
   { src: A + 'archviz/02.jpg',          cs: 67,  ce: 144, a: 81,  b: 130, s: { cw: 1.2718, x: -0.1361, y: -0.0049 }, e: { cw: 1.2506, x: -0.1260, y: 0.0013 } },
   { src: A + 'nubuiten/02.jpg',         cs: 133, ce: 210, a: 147, b: 196, s: { cw: 0.9828, x: 0.0081, y: 0.0982 },  e: { cw: 0.9299, x: 0.0345, y: 0.1130 } },
   // Shot 3 has no still in src/assets: it is a FROZEN GRAB of
