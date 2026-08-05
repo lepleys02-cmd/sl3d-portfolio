@@ -27,6 +27,17 @@
   overflow-x: clip;
 }
 
+/* The ghost is TALLER than the hero section — its tip and legs run down
+   into the sections that follow, and unpositioned sections painted the
+   triangle's overflow on top of their content (it crossed the showreel).
+   Positioning every section at z-index: 1 puts all real content decisively
+   above the ghost layer: later sections at the same z-index paint over an
+   earlier section's overflow. */
+.m25 main > section {
+  position: relative;
+  z-index: 1;
+}
+
 .m-ghost {
   position: absolute;
   inset: 0;
