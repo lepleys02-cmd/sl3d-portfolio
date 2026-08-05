@@ -234,26 +234,20 @@ export const projects: Project[] = [
     // cover at assets/covers/product-animations.jpg is a matching frame so the
     // crossfade is seamless.
     previewVideo: '/video/preview-ident.mp4',
-    // Strongest full scenes lead; the white-studio assembly clips (-v3 =
-    // warm paper regrade of the old clinical white-void masters, originals
-    // archived in result_masters/) follow as process material.
-    // The three explosion/assembly diagrams (Aug 2026) open the grid — the
-    // studio's newest service. Web encodes are warm-graded from the V-Ray
-    // masters (per-channel gains mapping the cool studio rig's backdrop onto
-    // the -v3 warm paper tone) so every clip on this page shares one look.
+    // Alternate lifestyle, exploded-view, turntable and assembly clips so
+    // similar work does not bunch together. The strongest garden scene opens.
+    // The technical clips share the same warm paper grade.
     videos: [
-      '/video/explosion-sussex.mp4',
-      '/video/explosion-tuinkantoor.mp4',
-      '/video/explosion-c5zb.mp4',
       '/video/product-anim-04-v2.mp4',
+      '/video/explosion-sussex.mp4',
+      '/video/product-anim-02-v3.mp4',
+      '/video/product-anim-03-v2.mp4',
+      '/video/explosion-tuinkantoor.mp4',
       // Norwegian terrace at night — depth+parallax montage of the pergola
       // render (project page only; deliberately not on the home page).
       '/video/product-anim-06.mp4',
-      '/video/product-anim-02-v3.mp4',
+      '/video/explosion-c5zb.mp4',
       '/video/product-anim-01-v3.mp4',
-      // Bicycle shed placed low in the grid — kept in the portfolio but not
-      // featured (not the card cover, hero, or a scroll feature).
-      '/video/product-anim-03-v2.mp4',
     ],
   },
   {
