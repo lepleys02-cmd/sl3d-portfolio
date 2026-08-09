@@ -138,15 +138,15 @@ export const projects: Project[] = [
       },
       {
         k: 'Deliverables',
-        v: 'Product renders with studio and environmental backgrounds · animations · 2D/3D technical drawings',
+        v: 'Product renders with studio and environmental backgrounds · animations · 2D and 3D technical drawings and documentation',
       },
     ],
     description:
       'Photorealistic product renders and environmental scenes for outdoor living — created in-house at Nubuiten.',
     brief:
-      'An outdoor-living webshop sells verandas, garden rooms and fencing that are configured, not photographed — every variant needs believable imagery long before it exists in a warehouse.',
+      'Nubuiten is an outdoor-living webshop selling verandas, garden rooms and fencing among a range of roughly 10,000 products. Renders make the presales possible — a product can be sold before it is ever built, and far more of the range gets online than photography could cover.',
     approach:
-      'Each product is modelled to its real manufacturing dimensions, then placed in Dutch garden scenes with materials and lighting treated like product photography.',
+      'I had to model every product to exact scale dimensions, then place it in a suitable setting — either a garden scene or a studio background. The same models also produced the technical documentation: assembly manuals, parts lists and any other technical paperwork the product needed.',
   },
   {
     slug: 'outdoor-life-group',
@@ -156,26 +156,26 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'In-house 3D artist across the group\'s brands — produced technical drawings for new product development and maintained a shared render library for catalogue-wide consistency',
+        v: 'In-house 3D artist across the group\'s brands — Woodvision, Hillhout, Royal Well, Lasita Maja and Weka — took over the drawing and content work after the previous draughtsman retired, and maintained a shared render library for catalogue-wide consistency',
       },
       {
         k: 'Deliverables',
-        v: 'Catalogue renders with studio and environmental backgrounds · animations · 2D/3D technical drawings',
+        v: 'Catalogue renders in studio and garden settings · animations · 2D and 3D technical drawings, parts lists and manuals · support on the 3D configurator',
       },
     ],
     description:
       'Product visualisation for Outdoor Life Group (OLG) — created in-house.',
     brief:
-      'A product group covering multiple outdoor-living brands needs a steady stream of consistent, photoreal imagery across a wide catalogue.',
+      'Outdoor Life Group is the head company of the group, supplying outdoor-living products to large retailers such as Intergamma, Karwei and Hornbach. Their draughtsman had retired, content creation was falling behind, and a catalogue of thousands of products needed updating — technical drawings, parts lists, manuals and renders alike.',
     approach:
-      'A shared scene- and material-library keeps a multi-brand catalogue consistent at volume, with every product modelled accurately from its technical drawings.',
+      'I came across from Nubuiten to take the work over. Each product had its own specific requirements — anything from technical drawings, parts lists and manuals to 2D drawings and 3D renders staged in garden and studio environments. I produced close to 600 renders in my time there, alongside work on the 3D configurator and adapting the company’s AI setup to see where else it could be used.',
     stillToMotion: {
       still: 'fence-still.jpg',
       video: '/video/ai-motion-01.mp4',
       stillLabel: 'Render',
       motionLabel: 'Motion',
       caption:
-        'Chestnut paling fence for Outdoor Life Group — the finished product render (left) and a short clip generated from that single frame (right): same fence, same posts, same paddock, now with the camera drifting and the grass moving through it.',
+        'Chestnut paling fence for Outdoor Life Group — the finished product render (left) and a short clip generated from that single frame (right): same fence, same posts, same paddock, with the camera locked off and only the wind and the sheep behind it moving.',
     },
   },
   {
@@ -197,9 +197,9 @@ export const projects: Project[] = [
     description:
       'Architectural visualisation and technical documentation — from measured drawing sets to the final photoreal image.',
     brief:
-      'Building owners need both sides of the story: the measured, coordinated drawing set the contractor builds from, and the photoreal images that help market it.',
+      'A returning client in Johannesburg had bought an existing building to use as a showroom for their products. It was already built, so nothing needed designing — what they lacked was an accurate set of plans: dimensioned drawings their contractors could work from, and a permanent record of the building for future reference.',
     approach:
-      'One model drives everything. The 5 Apple Road showroom below was documented as a full drawing set — plans, elevations, sections — and rendered as a photoreal street view from the same geometry.',
+      'One model drives everything. I measured the building as it stood, modelled it from that survey, and produced the full drawing set — plans, elevations and sections. The photoreal street view comes from the same geometry, staged in a European street rather than the Johannesburg original.',
     process: {
       before: '02.jpg',
       after: '01.jpg',
@@ -319,7 +319,7 @@ export const projects: Project[] = [
       stillLabel: 'Still',
       motionLabel: 'Motion',
       caption:
-        'Chestnut sheep fence — the finished still (left) and the clip generated from it (right): same fence, same posts, same paddock, now with the camera drifting and the grass moving through it.',
+        'Chestnut sheep fence — the finished still (left) and the clip generated from it (right): same fence, same posts, same paddock, with the camera locked off and only the wind and the sheep behind it moving.',
     },
   },
   {

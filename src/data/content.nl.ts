@@ -46,15 +46,15 @@ export const projectsNl: Record<string, ProjectCopy> = {
       },
       {
         k: 'Opgeleverd',
-        v: 'Productrenders met studio- en omgevingsachtergronden · animaties · 2D/3D technische tekeningen',
+        v: 'Productrenders met studio- en omgevingsachtergronden · animaties · 2D- en 3D-technische tekeningen en documentatie',
       },
     ],
     description:
       'Fotorealistische productrenders en omgevingsscènes voor buitenleven — in eigen huis gemaakt bij Nubuiten.',
     brief:
-      'Een webshop voor buitenleven verkoopt veranda’s, tuinkamers en schuttingen die geconfigureerd worden, niet gefotografeerd — elke variant heeft geloofwaardig beeld nodig lang voordat die in een magazijn staat.',
+      'Nubuiten is een webshop voor buitenleven die veranda’s, tuinkamers en schuttingen verkoopt, binnen een assortiment van ruwweg 10.000 producten. Renders maken de voorverkoop mogelijk — een product kan verkocht worden voordat het ooit gebouwd is, en er komt veel meer van het assortiment online dan fotografie zou aankunnen.',
     approach:
-      'Elk product wordt gemodelleerd op de werkelijke productiematen en vervolgens geplaatst in Nederlandse tuinscènes, waarbij materialen en belichting worden behandeld als productfotografie.',
+      'Ik moest elk product op exacte maat modelleren en het vervolgens in een passende omgeving plaatsen — een tuinscène of een studioachtergrond. Uit diezelfde modellen kwam ook de technische documentatie: montagehandleidingen, onderdelenlijsten en alles wat het product verder nodig had.',
   },
 
   'outdoor-life-group': {
@@ -62,23 +62,23 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Vaste 3D-artist voor alle merken van de groep — maakte technische tekeningen voor nieuwe productontwikkeling en beheerde een gedeelde renderbibliotheek voor consistentie in de hele catalogus',
+        v: 'Vaste 3D-artist voor alle merken van de groep — Woodvision, Hillhout, Royal Well, Lasita Maja en Weka — nam het teken- en contentwerk over nadat de vorige tekenaar met pensioen ging en beheerde een gedeelde renderbibliotheek voor consistentie in de hele catalogus',
       },
       {
         k: 'Opgeleverd',
-        v: 'Catalogusrenders met studio- en omgevingsachtergronden · animaties · 2D/3D technische tekeningen',
+        v: 'Catalogusrenders in studio- en tuinsettings · animaties · 2D- en 3D-technische tekeningen, onderdelenlijsten en handleidingen · ondersteuning bij de 3D-configurator',
       },
     ],
     description: 'Productvisualisatie voor Outdoor Life Group (OLG) — in eigen huis gemaakt.',
     brief:
-      'Een productgroep met meerdere merken voor buitenleven heeft een gestage stroom consistent, fotorealistisch beeld nodig over een brede catalogus.',
+      'Outdoor Life Group is het hoofdbedrijf van de groep en levert producten voor buitenleven aan grote retailers zoals Intergamma, Karwei en Hornbach. Hun tekenaar was met pensioen gegaan, de contentproductie liep achter, en een catalogus van duizenden producten moest worden bijgewerkt — technische tekeningen, onderdelenlijsten, handleidingen en renders.',
     approach:
-      'Een gedeelde scène- en materiaalbibliotheek houdt een catalogus met meerdere merken consistent op volume, met elk product nauwkeurig gemodelleerd vanuit de technische tekeningen.',
+      'Ik kwam over van Nubuiten om het werk over te nemen. Elk product had zijn eigen specifieke eisen — van technische tekeningen, onderdelenlijsten en handleidingen tot 2D-tekeningen en 3D-renders in tuin- en studio-omgevingen. In mijn tijd daar heb ik bijna 600 renders gemaakt, naast het werk aan de 3D-configurator en het aanpassen van de AI-structuur van het bedrijf om te verkennen waar die verder ingezet kon worden.',
     stillToMotion: {
       stillLabel: 'Render',
       motionLabel: 'Beweging',
       caption:
-        'Kastanjehouten schapenhek voor Outdoor Life Group — de afgewerkte productrender (links) en een korte clip die uit dat ene frame is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, nu met een driftende camera en bewegend gras.',
+        'Kastanjehouten schapenhek voor Outdoor Life Group — de afgewerkte productrender (links) en een korte clip die uit dat ene frame is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, met een stilstaande camera waarbij alleen de wind en de schapen erachter bewegen.',
     },
   },
 
@@ -97,9 +97,9 @@ export const projectsNl: Record<string, ProjectCopy> = {
     description:
       'Architectuurvisualisatie en technische documentatie — van ingemeten tekeningensets tot het uiteindelijke fotorealistische beeld.',
     brief:
-      'Gebouweigenaren hebben beide kanten van het verhaal nodig: de ingemeten, gecoördineerde tekeningenset waarmee de aannemer bouwt, en de fotorealistische beelden die helpen verkopen.',
+      'Een terugkerende klant in Johannesburg had een bestaand pand gekocht om als showroom voor zijn producten te gebruiken. Het gebouw stond er al, dus er hoefde niets ontworpen te worden — wat ontbrak was een nauwkeurige set tekeningen: gemaatvoerde plannen waarmee de aannemers konden werken, en een blijvende vastlegging van het gebouw voor later.',
     approach:
-      'Eén model stuurt alles aan. De showroom aan 5 Apple Road hieronder is gedocumenteerd als volledige tekeningenset — plattegronden, aanzichten, doorsneden — en vanuit diezelfde geometrie gerenderd als fotorealistisch straatbeeld.',
+      'Eén model stuurt alles aan. Ik heb het gebouw ingemeten zoals het er stond, het vanuit die opmeting gemodelleerd en de volledige tekeningenset gemaakt — plattegronden, aanzichten en doorsneden. Het fotorealistische straatbeeld komt uit diezelfde geometrie, geplaatst in een Europese straat in plaats van de oorspronkelijke Johannesburgse.',
     process: {
       caption:
         '5 Apple Road — één model, twee eindproducten: het technische aanzichtblad (links) en het fotorealistische straatbeeld (rechts).',
@@ -183,7 +183,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
       stillLabel: 'Still',
       motionLabel: 'Beweging',
       caption:
-        'Kastanjehouten schapenhek — de afgewerkte still (links) en de clip die eruit is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, nu met een driftende camera en bewegend gras.',
+        'Kastanjehouten schapenhek — de afgewerkte still (links) en de clip die eruit is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, met een stilstaande camera waarbij alleen de wind en de schapen erachter bewegen.',
     },
   },
 
