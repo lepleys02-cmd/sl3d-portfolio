@@ -141,6 +141,10 @@ export const ui = {
       pullQuote:
         '“Bringing new services to the company such as <em>2D and 3D CAD drawings and designs</em>, which have improved communication and understanding of certain contracts tremendously.”',
       pullQuoteCite: 'Employer’s reference — Fixed Cost Property Maintenance, Johannesburg',
+      pullQuoteTwo:
+        '“I was simply blown away by the workload that Mr Lepley was able to handle yet remaining perfectly pleasant. We were <em>kept well informed throughout and felt extremely valued</em>.”',
+      pullQuoteTwoCite:
+        'Corporate guest, in a letter to the General Manager — Sheraton Heathrow, London',
       allReferences: 'All references →',
 
       processHeading: 'How I work',
@@ -418,6 +422,10 @@ export const ui = {
         '“Hij bracht nieuwe diensten naar het bedrijf, zoals <em>2D- en 3D-CAD-tekeningen en -ontwerpen</em>, die de communicatie over en het begrip van bepaalde contracten enorm hebben verbeterd.”',
       pullQuoteCite:
         'Referentie van werkgever — Fixed Cost Property Maintenance, Johannesburg (vertaald uit het Engels)',
+      pullQuoteTwo:
+        '“Ik was simpelweg overdonderd door de hoeveelheid werk die de heer Lepley aankon, terwijl hij volstrekt aangenaam bleef. We werden gedurende het hele traject <em>goed geïnformeerd en voelden ons enorm gewaardeerd</em>.”',
+      pullQuoteTwoCite:
+        'Zakelijke gast, in een brief aan de General Manager — Sheraton Heathrow, Londen (vertaald uit het Engels)',
       allReferences: 'Alle referenties →',
 
       processHeading: 'Hoe ik werk',

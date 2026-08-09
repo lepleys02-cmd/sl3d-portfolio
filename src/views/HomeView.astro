@@ -278,15 +278,21 @@ const homeItems: HomeItem[] = [
       </div>
     </section>
 
-    <!-- Third-party proof: one employer reference pulled up from /about -->
+    <!-- Third-party proof: two references pulled up from /about -->
     <section class="section wrap" aria-label={ui.home.ariaReference}>
-      <figure class="pull-quote reveal">
-        <blockquote set:html={ui.home.pullQuote} />
-        <figcaption>
-          {ui.home.pullQuoteCite} &middot;
-          <a href={localizePath('/about', lang)}>{ui.home.allReferences}</a>
-        </figcaption>
-      </figure>
+      <div class="pull-quotes">
+        <figure class="pull-quote reveal">
+          <blockquote set:html={ui.home.pullQuote} />
+          <figcaption>{ui.home.pullQuoteCite}</figcaption>
+        </figure>
+        <figure class="pull-quote reveal">
+          <blockquote set:html={ui.home.pullQuoteTwo} />
+          <figcaption>{ui.home.pullQuoteTwoCite}</figcaption>
+        </figure>
+      </div>
+      <p class="pull-quotes-more reveal">
+        <a href={localizePath('/about', lang)}>{ui.home.allReferences}</a>
+      </p>
     </section>
 
     <!-- Process strip (Vision Scapes pattern) -->
@@ -504,6 +510,27 @@ const homeItems: HomeItem[] = [
     gap: clamp(1.5rem, 3.5vw, 3.5rem) clamp(1.25rem, 2.5vw, 2.5rem);
   }
 
+  /* Two references sit side by side on wide screens and stack on narrow.
+     Each keeps its own top rule so the pair reads as one continuous line
+     across the container, matching the single-quote treatment it replaces. */
+  .pull-quotes {
+    display: grid;
+    gap: clamp(2.75rem, 6vw, 6rem);
+  }
+
+  @media (min-width: 900px) {
+    .pull-quotes {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Half the width, so step the display size down a notch. Full h2 at
+       column width wraps into a very tall block and unbalances the pair. */
+    .pull-quotes .pull-quote blockquote {
+      font-size: clamp(1.35rem, 0.95rem + 1.15vw, 2rem);
+      max-width: 30ch;
+    }
+  }
+
   .pull-quote {
     margin: 0;
     border-top: 1px solid var(--ink);
@@ -530,6 +557,17 @@ const homeItems: HomeItem[] = [
     margin-top: 1.4rem;
     font-size: 0.85rem;
     color: var(--ink-soft);
+    max-width: 34ch;
+  }
+
+  .pull-quotes-more {
+    margin: var(--space-block) 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .pull-quotes-more a:hover {
+    color: var(--accent-ink);
   }
 
   .pull-quote figcaption a:hover {
