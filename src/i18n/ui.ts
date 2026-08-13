@@ -37,7 +37,6 @@ export const ui = {
       headingLink: 'Let’s talk.',
       availability:
         'Available for freelance projects and full-time roles — Netherlands / remote.',
-      locality: 'South of the Netherlands',
       portfolioPdf: 'Portfolio (PDF)',
     },
 
@@ -318,7 +317,6 @@ export const ui = {
       headingLink: 'Laten we praten.',
       availability:
         'Beschikbaar voor freelanceopdrachten en vaste functies — Nederland / remote.',
-      locality: 'Zuid-Nederland',
       portfolioPdf: 'Portfolio (pdf)',
     },
 
