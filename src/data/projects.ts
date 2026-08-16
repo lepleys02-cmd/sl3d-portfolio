@@ -391,19 +391,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Rebuilt the office model into a complete shell, set the cameras and art direction, and drove every directed pass to a photographic finish',
+        v: 'Surveyed the offices, drew the renovation plans, and produced the interior visuals our in-house trades and the client both worked from',
       },
       {
         k: 'Deliverables',
-        v: 'Photoreal interiors — boardroom, private office and corridor',
+        v: 'Renovation plans · interior visuals — boardroom, private office and corridor',
       },
     ],
     description:
-      'An established attorneys’ practice revisualised — a bare SketchUp shell taken to four finished interiors through five directed passes per view.',
+      'A 2017 office refresh for an attorneys’ practice — planned and visualised so the trades knew exactly what to do, and where.',
     brief:
-      'The practice already had a model, but it was a shell: bare walls and no ceilings. Its existing renders showed what happens when a shell is pushed too fast — book spines repeating as one tiled texture, flat light, geometry that was never in the model. Four rooms had to reach photographic without inventing the building.',
+      'Schultz Mmuoe Inc is an attorneys’ practice whose offices hadn’t been touched in about five years. What they asked for in 2017 was basic: repaint throughout, make good the damage, new lighting, and an overall brightening and clean-up so the place read as professional again. They didn’t ask for drawings, plans or visuals — just the work.',
     approach:
-      'The missing planes were added, the cameras set level, and every view driven through five directed passes — photoreal conversion, one ceiling scheme held across all four rooms, the true single curve of the boardroom’s glass wall, a dressing pass carrying the practice’s own brass lettering and case files, and window treatments last. Each pass was judged against a defect table built from those original renders, and re-run until it passed.',
+      'I drew it up anyway. The renovation was carried out by our own in-house trades, and a job like that only runs cleanly when everyone is working to the same picture — so I produced plans and visuals together: the plans saying what had to happen and where, the visuals showing what each room should look like once it was done. The trades built from those instead of from a verbal brief, and the practice could sign off a room before a wall was painted. The images here are those original 2017 plans and visuals brought up to current standard.',
   },
   {
     slug: 'sa-business-coach',

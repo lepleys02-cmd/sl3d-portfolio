@@ -243,19 +243,19 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Het kantoormodel herbouwd tot een compleet casco, de camera’s en art direction bepaald en elke geregisseerde pass tot een fotografische afwerking gebracht',
+        v: 'De kantoren opgemeten, de renovatieplannen getekend en de interieurvisuals gemaakt waar onze eigen vaklieden en de klant allebei naar werkten',
       },
       {
         k: 'Opgeleverd',
-        v: 'Fotorealistische interieurs — bestuurskamer, directiekantoor en gang',
+        v: 'Renovatieplannen · interieurvisuals — bestuurskamer, directiekantoor en gang',
       },
     ],
     description:
-      'Een gevestigd advocatenkantoor opnieuw gevisualiseerd — een kaal SketchUp-casco gebracht tot vier afgewerkte interieurs via vijf geregisseerde passes per aanzicht.',
+      'Een kantooropfrissing uit 2017 voor een advocatenkantoor — uitgetekend en gevisualiseerd zodat de vaklieden precies wisten wat er moest gebeuren, en waar.',
     brief:
-      'Het kantoor had al een model, maar het was een casco: kale muren en geen plafonds. De bestaande renders lieten zien wat er gebeurt als je een casco te snel doorduwt — boekruggen die zich herhalen als één getegelde textuur, vlak licht, geometrie die nooit in het model zat. Vier ruimtes moesten fotografisch worden zonder het gebouw te verzinnen.',
+      'Schultz Mmuoe Inc is een advocatenkantoor waarvan de kantoren zo’n vijf jaar niet waren aangepakt. Wat ze in 2017 vroegen was eenvoudig: alles opnieuw schilderen, schades herstellen, nieuwe verlichting, en een algehele opfrissing zodat het er weer professioneel uitzag. Ze vroegen niet om tekeningen, plannen of visuals — alleen om het werk.',
     approach:
-      'De ontbrekende vlakken zijn toegevoegd, de camera’s waterpas gezet en elk aanzicht door vijf geregisseerde passes gehaald — fotorealistische conversie, één plafondschema vastgehouden over alle vier de ruimtes, de werkelijke enkele kromming van de glaswand in de bestuurskamer, een aankleedpass met de eigen messing letters en dossiers van het kantoor, en als laatste de raambekleding. Elke pass is beoordeeld tegen een gebrekentabel opgesteld uit die originele renders, en opnieuw gedraaid tot hij slaagde.',
+      'Ik heb het toch uitgetekend. De renovatie werd uitgevoerd door onze eigen vaklieden, en zo’n klus loopt alleen soepel als iedereen naar hetzelfde beeld werkt — dus maakte ik plannen en visuals samen: de plannen die zeiden wat er moest gebeuren en waar, de visuals die lieten zien hoe elke ruimte er na afloop uit moest zien. De vaklieden bouwden daarnaar in plaats van naar een mondelinge briefing, en het kantoor kon een ruimte goedkeuren voordat er een muur geschilderd was. De beelden hier zijn die oorspronkelijke plannen en visuals uit 2017, opgewaardeerd naar de huidige standaard.',
   },
 
   'sa-business-coach': {
