@@ -34,7 +34,6 @@ const num = String(index + 1).padStart(2, '0');
       sizes={wide ? '(max-width: 720px) 100vw, 92vw' : '(max-width: 720px) 100vw, 46vw'}
       loading="lazy"
     />
-    <span class="badge" aria-hidden="true">{ui.card.badge(count)}</span>
   </div>
   <div class="meta">
     <h3><span class="num">{num}</span>{collection.title}</h3>
@@ -70,24 +69,6 @@ const num = String(index + 1).padStart(2, '0');
 
   .card:hover .media img {
     transform: scale(1.03);
-  }
-
-  /* Small "Collection · N projects" tag — signals this card is a group. */
-  .badge {
-    position: absolute;
-    left: 0.85rem;
-    top: 0.85rem;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.28em 0.7em;
-    font-family: var(--font-display);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: color-mix(in srgb, var(--paper) 88%, transparent);
-    border: 1px solid var(--line-strong);
   }
 
   .meta {

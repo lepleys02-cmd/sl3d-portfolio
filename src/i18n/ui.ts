@@ -58,7 +58,6 @@ export const ui = {
       /** `${title}` is substituted at the call site. */
       ariaProject: (title: string) => `View ${title} project`,
       ariaCollection: (title: string, count: number) => `View ${title} — ${count} projects`,
-      badge: (count: number) => `Collection · ${count} projects`,
     },
 
     home: {
@@ -337,7 +336,6 @@ export const ui = {
       peekCollection: 'Bekijk collectie →',
       ariaProject: (title: string) => `Bekijk project ${title}`,
       ariaCollection: (title: string, count: number) => `Bekijk ${title} — ${count} projecten`,
-      badge: (count: number) => `Collectie · ${count} projecten`,
     },
 
     home: {
