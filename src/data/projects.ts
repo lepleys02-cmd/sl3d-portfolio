@@ -235,9 +235,14 @@ export const projects: Project[] = [
     // crossfade is seamless.
     previewVideo: '/video/preview-ident.mp4',
     // Alternate lifestyle, exploded-view, turntable and assembly clips so
-    // similar work does not bunch together. The strongest garden scene opens.
+    // similar work does not bunch together. The full assembly montage opens —
+    // it is the longest and most complete piece of work here.
     // The technical clips share the same warm paper grade.
     videos: [
+      // Overkapping C4Z montagefilm — the whole structure assembled step by
+      // step with 13 close-up cutaways on the fixings. 2:51, 1080p web encode
+      // of the 1440p master in Overkapping Montagefilm/out_final.
+      '/video/montage-c4z.mp4',
       '/video/product-anim-04-v2.mp4',
       '/video/explosion-sussex.mp4',
       // Norwegian terrace at night — depth+parallax montage of the pergola
