@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+import { defaultLang } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+import { terms } from '../data/terms';
+
+// General Terms & Conditions — the published (canonical) copy of business
+// doc 07. Clause text lives in src/data/terms.ts; page furniture in ui.ts.
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const ui = t(lang);
+const content = terms[lang];
+
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<Base title={ui.terms.title} description={ui.terms.description} lang={lang} compactFooter>
+  <main>
+    <section class="terms-hero wrap">
+      <h1 class="reveal">{ui.terms.heading}</h1>
+      <p class="lede reveal">{ui.terms.lede}</p>
+      <div class="actions reveal">
+        <a class="btn btn--primary" href={ui.terms.downloadFile} download>
+          {ui.terms.download}
+        </a>
+        <p class="cross-lang" set:html={ui.terms.crossLangHtml} />
+      </div>
+    </section>
+
+    <section class="terms-body wrap">
+      <ol class="clauses">
+        {
+          content.clauses.map((clause, i) => (
+            <li id={`artikel-${i + 1}`} class="clause">
+              <h2>
+                <span class="clause-num" aria-hidden="true">
+                  {num(i)}
+                </span>
+                {clause.heading}
+              </h2>
+              {clause.bullets && clause.bullets.map((item) => <p set:html={item} />)}
+              {clause.paras.map((para) => (
+                <p set:html={para} />
+              ))}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .terms-hero {
+    padding-block: clamp(5rem, 11vw, 8.5rem) clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  h1 {
+    font-size: var(--text-h1, clamp(2.6rem, 6vw, 4.5rem));
+    margin-block: 0.4em 0.45em;
+    max-width: 16ch;
+  }
+
+  .lede {
+    max-width: var(--max-prose);
+    color: var(--ink-soft);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  .terms-body {
+    display: grid;
+    gap: clamp(2.5rem, 5vw, 4rem);
+    padding-block: clamp(2.5rem, 5vw, 4rem) var(--space-block);
+  }
+
+  /* --- clauses --- */
+  .clauses {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: var(--max-prose);
+  }
+
+  .clause {
+    padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .clause:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .clause h2 {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: var(--text-h3, clamp(1.15rem, 2vw, 1.45rem));
+    margin-bottom: 0.9em;
+  }
+
+  .clause-num {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+  }
+
+  .clause p {
+    margin-block: 0 0.85em;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .clause p:last-child {
+    margin-bottom: 0;
+  }
+
+  .clause :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .cross-lang {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .cross-lang :global(a) {
+    color: var(--accent-ink);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .cross-lang :global(a:hover) {
+    border-bottom-color: var(--accent);
+  }
+
+</style>

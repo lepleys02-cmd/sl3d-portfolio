@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+import { defaultLang } from '../i18n/config';
+import type { Lang } from '../i18n/config';
+import { t } from '../i18n/ui';
+import { privacy } from '../data/privacy';
+
+// Privacy policy — website-only scope. Section text lives in
+// src/data/privacy.ts; page furniture in ui.ts. Sibling of TermsView.
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const ui = t(lang);
+const content = privacy[lang];
+
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<Base title={ui.privacy.title} description={ui.privacy.description} lang={lang} compactFooter>
+  <main>
+    <section class="privacy-hero wrap">
+      <p class="label label--accent reveal">{ui.privacy.kicker}</p>
+      <h1 class="reveal">{ui.privacy.heading}</h1>
+      <p class="lede reveal">{ui.privacy.lede}</p>
+      <div class="meta reveal">
+        <span>{ui.privacy.versionLabel} {content.version}</span>
+        <span>{ui.privacy.entity}</span>
+      </div>
+    </section>
+
+    <section class="privacy-body wrap">
+      <ol class="sections">
+        {
+          content.sections.map((section, i) => (
+            <li id={`sectie-${i + 1}`} class="section-item">
+              <h2>
+                <span class="section-num" aria-hidden="true">
+                  {num(i)}
+                </span>
+                {section.heading}
+              </h2>
+              {section.paras.map((para) => (
+                <p set:html={para} />
+              ))}
+            </li>
+          ))
+        }
+      </ol>
+      <p class="cross-lang" set:html={ui.privacy.crossLangHtml} />
+    </section>
+  </main>
+</Base>
+
+<style>
+  .privacy-hero {
+    padding-block: clamp(5rem, 11vw, 8.5rem) clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  h1 {
+    font-size: var(--text-h1, clamp(2.6rem, 6vw, 4.5rem));
+    margin-block: 0.4em 0.45em;
+    max-width: 16ch;
+  }
+
+  .lede {
+    max-width: var(--max-prose);
+    color: var(--ink-soft);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 2rem;
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .privacy-body {
+    padding-block: clamp(2.5rem, 5vw, 4rem) var(--space-block);
+  }
+
+  .sections {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: var(--max-prose);
+  }
+
+  .section-item {
+    padding-block: clamp(1.75rem, 3.5vw, 2.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .section-item:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .section-item h2 {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: var(--text-h3, clamp(1.15rem, 2vw, 1.45rem));
+    margin-bottom: 0.9em;
+  }
+
+  .section-num {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+  }
+
+  .section-item p {
+    margin-block: 0 0.85em;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .section-item p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-item :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .section-item :global(a) {
+    color: var(--accent-ink);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .section-item :global(a:hover) {
+    border-bottom-color: var(--accent);
+  }
+
+  .cross-lang {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .cross-lang :global(a) {
+    color: var(--accent-ink);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .cross-lang :global(a:hover) {
+    border-bottom-color: var(--accent);
+  }
+</style>

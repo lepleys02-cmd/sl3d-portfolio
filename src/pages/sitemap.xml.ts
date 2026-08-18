@@ -16,6 +16,8 @@ const routes = [
   '/contact',
   '/architecture',
   '/ai',
+  '/terms',
+  '/privacy',
   ...projects.map((project) => `/work/${project.slug}`),
 ];
 

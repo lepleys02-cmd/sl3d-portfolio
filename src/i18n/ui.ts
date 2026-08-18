@@ -38,6 +38,8 @@ export const ui = {
       availability:
         'Available for freelance projects and full-time roles — Netherlands / remote.',
       portfolioPdf: 'Portfolio (PDF)',
+      terms: 'Terms & Conditions',
+      privacy: 'Privacy',
     },
 
     marquee: {
@@ -276,6 +278,40 @@ export const ui = {
       kicker: 'Assembly, step by step',
     },
 
+    terms: {
+      title: 'General Terms & Conditions — SL3D',
+      description:
+        'The general terms and conditions that apply to every SL3D quotation, offer and agreement.',
+      kicker: 'Legal',
+      heading: 'General Terms & Conditions',
+      lede:
+        'These terms apply to every quotation, offer and agreement of SL3D. By accepting a quotation you accept these terms.',
+      versionLabel: 'Version',
+      entity: 'SL3D — eenmanszaak of Sam Lepley · KVK 42131264 · BTW NL005520384B17',
+      download: 'Download as PDF',
+      downloadFile: '/SL3D-Terms-EN.pdf',
+      onRequestHtml:
+        'A copy is sent free of charge on request — <a href="mailto:sam@sl3d.net">sam@sl3d.net</a>.',
+      tocAria: 'Clause index',
+      tocLabel: 'Contents',
+      crossLangHtml:
+        'Deze voorwaarden zijn ook <a href="/nl/terms">in het Nederlands</a> beschikbaar.',
+    },
+
+    privacy: {
+      title: 'Privacy Policy — SL3D',
+      description:
+        'How sl3d.net handles personal data: contact form, hosting, no tracking.',
+      kicker: 'Legal',
+      heading: 'Privacy Policy',
+      lede:
+        'What this website does — and deliberately does not do — with your data. No analytics, no advertising, no tracking.',
+      versionLabel: 'Version',
+      entity: 'SL3D — eenmanszaak of Sam Lepley · KVK 42131264',
+      crossLangHtml:
+        'Dit privacybeleid is ook <a href="/nl/privacy">in het Nederlands</a> beschikbaar.',
+    },
+
     notFound: {
       title: 'Page not found — Sam Lepley | SL3D',
       description: 'This page doesn’t exist — the work does. Back to SL3D.',
@@ -317,6 +353,8 @@ export const ui = {
       availability:
         'Beschikbaar voor freelanceopdrachten en vaste functies — Nederland / remote.',
       portfolioPdf: 'Portfolio (pdf)',
+      terms: 'Algemene voorwaarden',
+      privacy: 'Privacy',
     },
 
     marquee: {
@@ -553,6 +591,40 @@ export const ui = {
 
     scrollScrub: {
       kicker: 'Montage, stap voor stap',
+    },
+
+    terms: {
+      title: 'Algemene Voorwaarden — SL3D',
+      description:
+        'De algemene voorwaarden die van toepassing zijn op elke offerte, aanbieding en overeenkomst van SL3D.',
+      kicker: 'Juridisch',
+      heading: 'Algemene Voorwaarden',
+      lede:
+        'Deze voorwaarden zijn van toepassing op elke offerte, aanbieding en overeenkomst van SL3D. Door een offerte te aanvaarden aanvaardt u deze voorwaarden.',
+      versionLabel: 'Versie',
+      entity: 'SL3D — eenmanszaak van Sam Lepley · KVK 42131264 · BTW NL005520384B17',
+      download: 'Download als pdf',
+      downloadFile: '/SL3D-Terms-NL.pdf',
+      onRequestHtml:
+        'Op verzoek sturen wij u kosteloos een exemplaar toe — <a href="mailto:sam@sl3d.net">sam@sl3d.net</a>.',
+      tocAria: 'Artikelindex',
+      tocLabel: 'Inhoud',
+      crossLangHtml:
+        'These terms are also available <a href="/terms">in English</a>.',
+    },
+
+    privacy: {
+      title: 'Privacybeleid — SL3D',
+      description:
+        'Hoe sl3d.net met persoonsgegevens omgaat: contactformulier, hosting, geen tracking.',
+      kicker: 'Juridisch',
+      heading: 'Privacybeleid',
+      lede:
+        'Wat deze website wel — en bewust niet — met uw gegevens doet. Geen analytics, geen advertenties, geen tracking.',
+      versionLabel: 'Versie',
+      entity: 'SL3D — eenmanszaak van Sam Lepley · KVK 42131264',
+      crossLangHtml:
+        'This privacy policy is also available <a href="/privacy">in English</a>.',
     },
 
     notFound: {
