@@ -336,17 +336,17 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Returned to FCPM’s 2017 bulkhead drawings, rebuilt each ceiling detail in 3D and directed the rooms around the lighting each one creates',
+        v: 'Measured the rooms on site, designed a bulkhead for every room and drew the detail set that carried the quotation — then rebuilt each detail in 3D and directed the rooms around its light',
       },
       {
         k: 'Deliverables',
-        v: 'Rebuilt 3D model · four photoreal interiors — kitchen, dining room and two bedroom schemes',
+        v: 'Measured survey and full bulkhead drawing set · room-by-room quotation cross-checked against the drawings · four photoreal interiors — kitchen, dining room and two bedroom schemes',
       },
     ],
     description:
-      'A 2017 bulkhead drawing set brought back as photoreal interiors, where the drawn ceiling details — drops, shadow gaps and LED coves — do the lighting.',
+      'A 2017 bulkhead design — measured, drawn and quoted room by room — brought back as photoreal interiors where the drawn details do the lighting.',
     brief:
-      'On paper, a bulkhead is a set of drops and dimensions. In a finished room it is mostly light — where the cove washes the ceiling, where the shadow gap draws its line. The drawings had described that light for years; nobody had ever seen it.',
+      'The client owned the house and wanted bulkheads in every room — shadow gaps with LED lighting throughout. He asked for a quotation; I went to site, measured each room myself and designed a bulkhead for every one. On paper a bulkhead is a set of drops and dimensions, but in a finished room it is mostly light — where the cove washes the ceiling, where the shadow gap draws its line.',
     process: {
       before: 'drawing.jpg',
       beforeLabel: 'Drawing set',
@@ -354,7 +354,7 @@ export const projects: Project[] = [
         'Park 24 — the 2017 bulkhead detail sheet the rooms were rebuilt from: every drop, shadow gap and cove drawn and dimensioned.',
     },
     approach:
-      'The ceiling details were rebuilt in 3D exactly as drawn, then each room was staged around what its bulkhead does best — the kitchen’s cove over the island, the dining room’s floating frame, and one bedroom resolved twice: the same detail lit cool in one scheme and warm in the other, so the client chooses a temperature, not a redesign.',
+      'I drew the full detail set so the client wasn’t pricing blind: every drop, shadow gap and cove dimensioned, and a quotation he could cross-check against the drawings line by line. It was a specialised job — the LED electrical work sat with our electrician, the rest could be built in-house — and the drawings meant everyone, client and trades alike, was looking at the same ceiling. Recently I returned to that set and rebuilt each detail in 3D exactly as drawn, then staged every room around what its bulkhead does best — the kitchen’s cove over the island, the dining room’s floating frame, and one bedroom resolved twice: the same detail lit cool and warm, so a client chooses a temperature, not a redesign. The drawings had described that light for years; now you can see it.',
   },
   {
     slug: 'loftus-box',

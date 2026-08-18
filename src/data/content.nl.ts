@@ -192,24 +192,24 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Teruggekeerd naar de koventekeningen van FCPM uit 2017, elk plafonddetail opnieuw in 3D opgebouwd en de kamers geregisseerd rond het licht dat elk detail maakt',
+        v: 'De kamers op locatie ingemeten, voor elke ruimte een koof ontworpen en de detailset getekend die de offerte droeg — daarna elk detail opnieuw in 3D opgebouwd en de kamers geregisseerd rond hun licht',
       },
       {
         k: 'Opgeleverd',
-        v: 'Herbouwd 3D-model · vier fotorealistische interieurs — keuken, eetkamer en twee slaapkamervarianten',
+        v: 'Inmeting en volledige koventekeningenset · offerte per ruimte, te controleren tegen de tekeningen · vier fotorealistische interieurs — keuken, eetkamer en twee slaapkamervarianten',
       },
     ],
     description:
-      'Een koventekeningenset uit 2017 teruggebracht als fotorealistische interieurs, waarin de getekende plafonddetails — verlagingen, schaduwvoegen en ledkoven — het licht maken.',
+      'Een koofontwerp uit 2017 — ingemeten, getekend en per ruimte geoffreerd — teruggebracht als fotorealistische interieurs waarin de getekende details het licht maken.',
     brief:
-      'Op papier is een koof een reeks verlagingen en maten. In een afgewerkte ruimte is het vooral licht — waar de koof het plafond aanstraalt, waar de schaduwvoeg zijn lijn trekt. De tekeningen beschreven dat licht al jaren; niemand had het ooit gezien.',
+      'De klant was eigenaar van het huis en wilde in elke ruimte een koof — schaduwvoegen met ledverlichting door het hele huis. Hij vroeg een offerte; ik ben naar de locatie gegaan, heb elke ruimte zelf ingemeten en voor elke ruimte een koof ontworpen. Op papier is een koof een reeks verlagingen en maten, maar in een afgewerkte ruimte is het vooral licht — waar de koof het plafond aanstraalt, waar de schaduwvoeg zijn lijn trekt.',
     process: {
       beforeLabel: 'Tekeningenset',
       caption:
         'Park 24 — het koofdetailblad uit 2017 waaruit de kamers zijn herbouwd: elke verlaging, schaduwvoeg en koof getekend en van maten voorzien.',
     },
     approach:
-      'De plafonddetails zijn exact zoals getekend opnieuw in 3D opgebouwd, waarna elke ruimte is geënsceneerd rond wat de koof daar het beste doet — de koof boven het kookeiland, het zwevende kader in de eetkamer, en één slaapkamer twee keer uitgewerkt: hetzelfde detail koel belicht in de ene variant en warm in de andere, zodat de klant een lichtkleur kiest en geen nieuw ontwerp.',
+      'Ik heb de volledige detailset getekend zodat de klant niet blind hoefde te prijzen: elke verlaging, schaduwvoeg en koof van maten voorzien, en een offerte die hij regel voor regel tegen de tekeningen kon controleren. Het was specialistisch werk — het led-elektrawerk lag bij onze elektricien, de rest kon in eigen beheer worden gebouwd — en door de tekeningen keken klant en vakmensen naar hetzelfde plafond. Onlangs ben ik naar die set teruggekeerd en heb elk detail exact zoals getekend opnieuw in 3D opgebouwd, waarna elke ruimte is geënsceneerd rond wat de koof daar het beste doet — de koof boven het kookeiland, het zwevende kader in de eetkamer, en één slaapkamer twee keer uitgewerkt: hetzelfde detail koel en warm belicht, zodat een klant een lichtkleur kiest en geen nieuw ontwerp. De tekeningen beschreven dat licht al jaren; nu is het te zien.',
   },
 
   'loftus-box': {
