@@ -419,19 +419,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Rebuilt the 2018 model as a bare shell, set the cameras, and drove every AI pass to a photographic finish',
+        v: 'Modelled the office and previewed the paint schemes in-house alongside the designer’s layout — then rebuilt the model as a bare shell in 2026 and drove every AI pass to a photographic finish',
       },
       {
         k: 'Deliverables',
-        v: 'Photoreal interiors across four colour schemes',
+        v: 'Four paint-scheme previews the client chose from before painting · photoreal interiors across all four schemes',
       },
     ],
     description:
-      'A 2018 office colour study for a business-coaching practice — the same rooms painted four ways, stripped back to a bare shell and taken to photographic finish.',
+      'A 2018 office restoration for a business-coaching practice — the paint schemes previewed on the walls before a brush was lifted, revived in 2026 to photographic finish.',
     brief:
-      'The model arrived as a colour-scheme study — "painting options" — the same office repainted in four schemes and presented as dollhouse renders: red V-chevrons and colour-blocked accent walls over one continuous dark green carpet. The colour logic was the design, red for group energy in the training spaces and yellow-green for focus in the offices, but the renders were never photographic. Eight years on, the question was whether that painted geometry could reach a finished interior without repainting a single wall.',
+      'The business coach was restoring his offices and already had an interior designer’s layout for the space. What the designer hadn’t provided was the paint: how the rooms should be coloured, and what any of it would look like on the walls. That became our extra ask — so while we built the designer’s layout, I modelled the office and previewed the painting schemes in-house: the same rooms four ways, red V-chevrons and colour-blocked accent walls over one continuous dark green carpet — red for group energy in the training spaces, yellow-green for focus in the offices. The client could stand in front of each option and choose before a single wall was painted.',
     approach:
-      'The 60 MB model was stripped to a 0.6 MB shell — walls, floors, windows, red doors and the carpeted stair, no ceilings, no furniture — with every painted plane kept exactly where the 2018 study put it. Each camera view was then driven through directed AI passes to photographic finish: light, material and furniture were added around the shell, and the chevrons, diagonals and carpet were held to the model throughout.',
+      'In 2026 I brought the project back to show what an archive like this can carry. The 60 MB model was stripped to a 0.6 MB shell — walls, floors, windows, red doors and the carpeted stair — with every painted plane kept exactly where the 2018 study put it. Each camera view was then driven through directed AI passes to photographic finish: light, material and furniture added around the shell, the chevrons, diagonals and carpet held to the model throughout. Not just plans and elevations — colour schemes, palettes and mood boards, taken to the point where a client sees the finished room.',
   },
   {
     slug: 'bcd-travel',

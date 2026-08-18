@@ -264,19 +264,19 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Het model uit 2018 herbouwd als kaal casco, de camera’s gezet en elke AI-pass tot een fotografische afwerking gebracht',
+        v: 'Het kantoor gemodelleerd en de schilderschema’s in eigen huis gevisualiseerd naast de indeling van de ontwerper — daarna het model in 2026 herbouwd als kaal casco en elke AI-pass tot een fotografische afwerking gebracht',
       },
       {
         k: 'Opgeleverd',
-        v: 'Fotorealistische interieurs in vier kleurschema’s',
+        v: 'Vier schilderschema-previews waaruit de klant koos vóór het schilderen · fotorealistische interieurs in alle vier de schema’s',
       },
     ],
     description:
-      'Een kleurstudie uit 2018 voor het kantoor van een business-coachingpraktijk — dezelfde ruimtes op vier manieren geschilderd, teruggebracht tot kaal casco en tot fotografische afwerking gebracht.',
+      'Een kantoorrestauratie uit 2018 voor een business-coachingpraktijk — de schilderschema’s op de wanden gevisualiseerd voordat er een kwast werd opgepakt, in 2026 opnieuw tot leven gebracht in fotografische afwerking.',
     brief:
-      'Het model kwam binnen als kleurschemastudie — “schilderopties” — hetzelfde kantoor in vier schema’s overgeschilderd en gepresenteerd als poppenhuisrenders: rode V-chevrons en kleurvlakken op accentwanden boven één doorlopend donkergroen tapijt. De kleurlogica wás het ontwerp, rood voor groepsenergie in de trainingsruimtes en geelgroen voor focus in de kantoren, maar de renders waren nooit fotografisch. Acht jaar later was de vraag of die geschilderde geometrie een afgewerkt interieur kon halen zonder ook maar één wand over te schilderen.',
+      'De business coach liet zijn kantoren restaureren en had al een indeling van een interieurontwerper. Wat de ontwerper niet had geleverd, was het schilderwerk: hoe de ruimtes gekleurd moesten worden, en hoe dat er op de wanden uit zou zien. Dat werd onze extra vraag — dus terwijl wij de indeling van de ontwerper bouwden, heb ik het kantoor gemodelleerd en de schilderschema’s in eigen huis gevisualiseerd: dezelfde ruimtes op vier manieren, rode V-chevrons en kleurvlakken op accentwanden boven één doorlopend donkergroen tapijt — rood voor groepsenergie in de trainingsruimtes, geelgroen voor focus in de kantoren. De klant kon voor elke optie gaan staan en kiezen voordat er ook maar één wand geschilderd was.',
     approach:
-      'Het model van 60 MB is teruggebracht tot een casco van 0,6 MB — wanden, vloeren, ramen, rode deuren en de betapijte trap, geen plafonds, geen meubels — waarbij elk geschilderd vlak precies bleef waar de studie uit 2018 het neerzette. Elk camera-aanzicht is vervolgens via geregisseerde AI-passes tot fotografische afwerking gebracht: licht, materiaal en meubilair zijn rond het casco toegevoegd, en de chevrons, diagonalen en het tapijt zijn steeds aan het model gehouden.',
+      'In 2026 heb ik het project teruggehaald om te laten zien wat zo’n archief kan dragen. Het model van 60 MB is teruggebracht tot een casco van 0,6 MB — wanden, vloeren, ramen, rode deuren en de betapijte trap — waarbij elk geschilderd vlak precies bleef waar de studie uit 2018 het neerzette. Elk camera-aanzicht is vervolgens via geregisseerde AI-passes tot fotografische afwerking gebracht: licht, materiaal en meubilair rond het casco toegevoegd, de chevrons, diagonalen en het tapijt steeds aan het model gehouden. Niet alleen plattegronden en aanzichten — ook kleurschema’s, paletten en moodboards, tot het punt waarop een klant de afgewerkte ruimte ziet.',
   },
 
   'bcd-travel': {
