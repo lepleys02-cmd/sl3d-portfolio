@@ -215,19 +215,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Modelled each product, planned the camera movement and assembly sequence, then animated and edited the final films',
+        v: 'Modelled each product, planned the assembly sequence shot by shot, then animated, edited and graded the final films',
       },
       {
         k: 'Deliverables',
-        v: 'Product turntables · assembly animations showing how each structure goes together · short lifestyle reveals',
+        v: 'Assembly films with close-up fixing details · product turntables · lifestyle reveals · QR-linked video manuals shipped with the product',
       },
     ],
     description:
-      'From a virtual 3D product to motion — turntables, assembly sequences and product reveals.',
+      'From product model to motion — turntables, assembly films, and a build manual customers can watch instead of read.',
     brief:
-      'Some products are easier to sell in motion: how a veranda goes together, how a garden building sits in evening light.',
+      'The garden-timber companies I worked with sell verandas, carports and garden buildings — products almost nobody in the market was showing in motion; most competitors didn’t even have proper stills. They wanted marketing content that set them apart. And their customers faced the same hurdle with every delivery: a thick printed manual for a structure that takes two people a weekend to build.',
     approach:
-      'Animations are built from the same accurate product models as the stills — assembly sequences on clean white for clarity, lifestyle shots in full scenes for atmosphere.',
+      'Every film starts from the same accurate product model as the stills. I planned each assembly sequence the way an installer actually builds the structure — post by post, beam by beam — with close-up cutaways on the fixings at exactly the steps where people get them wrong. Assembly runs on clean white so nothing distracts from the build order; lifestyle reveals put the finished product in full scenes with real light. The assembly film then replaced the bulk of the printed manual: products now ship with a slim booklet and a QR code to the video. Customers watch the build instead of decoding it, and the company stopped printing and posting heavyweight manuals. Nobody has to guess how it goes together.',
     // Card hover: the SL3D snowboard ident, GPU-enhanced 29 Jul 2026 (blur
     // pillarbox cropped off, Real-ESRGAN 2x upscale, RIFE 48fps, winter filmic
     // grade — full-res master in result_masters/hero-ident-v2.mp4). The static

@@ -112,19 +112,19 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Elk product gemodelleerd, de camerabeweging en montagevolgorde uitgedacht, en daarna de uiteindelijke films geanimeerd en gemonteerd',
+        v: 'Elk product gemodelleerd, de montagevolgorde shot voor shot uitgedacht, en daarna de uiteindelijke films geanimeerd, gemonteerd en gegradeerd',
       },
       {
         k: 'Opgeleverd',
-        v: 'Productturntables · montage-animaties die laten zien hoe elke constructie in elkaar zit · korte lifestyle-reveals',
+        v: 'Montagefilms met close-ups van de bevestigingen · productturntables · lifestyle-reveals · videohandleidingen via QR-code, meegeleverd met het product',
       },
     ],
     description:
-      'Van een virtueel 3D-product naar beweging — turntables, montagevolgordes en productreveals.',
+      'Van productmodel naar beweging — turntables, montagefilms, en een bouwhandleiding die klanten kunnen kijken in plaats van lezen.',
     brief:
-      'Sommige producten verkopen makkelijker in beweging: hoe een veranda in elkaar zit, hoe een tuinhuis staat in avondlicht.',
+      'De houtbedrijven waarvoor ik werkte verkopen veranda’s, carports en tuingebouwen — producten die vrijwel niemand in de markt in beweging liet zien; de meeste concurrenten hadden niet eens goede stills. Zij wilden marketingcontent die hen onderscheidde. En hun klanten liepen bij elke levering tegen dezelfde drempel aan: een dik gedrukt boekwerk voor een constructie waar twee mensen een weekend aan bouwen.',
     approach:
-      'Animaties worden gebouwd vanuit dezelfde nauwkeurige productmodellen als de stills — montagevolgordes op strak wit voor duidelijkheid, lifestyleopnamen in volledige scènes voor sfeer.',
+      'Elke film begint vanuit hetzelfde nauwkeurige productmodel als de stills. Ik heb elke montagevolgorde uitgedacht zoals een monteur de constructie daadwerkelijk bouwt — paal voor paal, balk voor balk — met close-up cutaways van de bevestigingen precies op de stappen waar het misgaat. De montage loopt op strak wit zodat niets afleidt van de bouwvolgorde; lifestyle-reveals zetten het eindproduct in volledige scènes met echt licht. De montagefilm verving vervolgens het grootste deel van de gedrukte handleiding: producten worden nu geleverd met een dun boekje en een QR-code naar de video. Klanten kijken de bouw in plaats van hem te ontcijferen, en het bedrijf hoefde geen zware handleidingen meer te drukken en versturen. Niemand hoeft te gokken hoe het in elkaar zit.',
   },
 
   'ai-revival': {
