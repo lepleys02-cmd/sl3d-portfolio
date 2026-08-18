@@ -227,7 +227,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
     description:
       'Een zakelijke skybox in Loftus Versfeld — ingemeten en getekend voor een van de grootste klanten van het bureau, vastgelegd als volledige tekeningenset en doorgevoerd tot een complete renovatie van de suite.',
     brief:
-      'Een skybox staat of valt met hoe hij aanvoelt op wedstrijddag. Old Mutual wilde hun suite in Loftus weer op niveau voor het ontvangen van hun belangrijkste gasten — werk dat begon met een nauwkeurige inmeting van de bestaande skybox en een gecoördineerde tekeningenset waarmee de renovatie kon worden aangestuurd.',
+      'Dit project was persoonlijk — Loftus Versfeld was mijn oude thuisbasis uit mijn schoolrugbyjaren in Pretoria, en nu liep ik er binnen met meetapparatuur. De opdracht begon als een inspectie: loop de hospitality-box van Old Mutual door, documenteer elke beschadiging en kom terug met een volledige tekeningenset en een offerte voor het herstel. De box was er slecht aan toe — en een skybox staat of valt met hoe hij aanvoelt op wedstrijddag.',
     process: {
       beforeLabel: 'Inmeetblad',
       afterLabel: 'Interieurvisualisatie',
@@ -235,7 +235,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
         'Old Mutual Box — het A101-inmeetblad (links) en een visualisatie van het interieur die daaruit is gemaakt (rechts): hetzelfde detail ingemeten, getekend en van maten voorzien, daarna gemodelleerd en gepresenteerd.',
     },
     approach:
-      'De bestaande skybox is ingemeten en vastgelegd op een A101-blad — plattegrond, zuidgevel en een deur- en raamlegenda — en vervolgens vanuit die tekeningen gemodelleerd om het interieur te tonen: penanten in schoon metselwerk, eiken bladen boven witte shaker-kasten, en een verlaagde koof met verzonken lijnverlichting boven de buffetzone. Met de skybox vastgelegd voor toekomstig gebruik ging het project door naar een volledige renovatie van de suite: algemeen onderhoud overal, met het schrijnwerk en de afwerkingen opnieuw geschilderd en gevernist.',
+      'Ik heb de box ingemeten en vastgelegd op een A101-blad — plattegrond, zuidgevel en een deur- en raamlegenda — en het herstel daartegen geoffreerd. Daarna ging ik een stap verder dan de inspectie vroeg: naast de tekeningen heb ik de box gemodelleerd en gerenderd hoe de suite eruit kon zien zodra alles hersteld was — penanten in schoon metselwerk, eiken bladen boven witte shaker-kasten, een verlaagde koof met verzonken lijnverlichting boven de buffetzone. Die renders wonnen het contract. Vervolgens hebben we de renovatie uitgevoerd: een nieuw plafond, nieuw schilderwerk, het metselwerk gelakt en netjes afgewerkt, nieuwe vloerbedekking, elke beschadiging hersteld — van vloer tot plafond. Old Mutual zorgde zelf voor meubilair en styling; onze taak was een box terug te geven waarin ze hun belangrijkste gasten weer konden ontvangen.',
   },
 
   'schultz-mmuoe': {

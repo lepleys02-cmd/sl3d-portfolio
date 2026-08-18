@@ -375,7 +375,7 @@ export const projects: Project[] = [
     description:
       'A corporate hospitality box at Loftus Versfeld — surveyed and drawn for one of the practice\'s largest clients, documented as a full drawing set, and taken through to a complete renovation of the suite.',
     brief:
-      'A hospitality box lives or dies on how it feels on match day. Old Mutual needed their suite at Loftus brought back up to standard for hosting their most important guests — work that started with an accurate survey of the existing box and a coordinated drawing set the renovation could be run from.',
+      'This one was personal — Loftus Versfeld was my old stomping ground from schoolboy rugby days in Pretoria, and I walked back in with a survey kit. The job started as an inspection: go through Old Mutual’s hospitality box, document every bit of damage, and come back with a full set of drawings and a quotation for the repairs. The box was in rough shape — and a hospitality box lives or dies on how it feels on match day.',
     process: {
       before: 'drawing.jpg',
       after: '04.jpg',
@@ -385,7 +385,7 @@ export const projects: Project[] = [
         'Old Mutual Box — the A101 survey sheet (left) and a visualisation of the box interior produced from it (right): the same detail surveyed, drawn and dimensioned, then modelled and presented.',
     },
     approach:
-      'The existing box was surveyed and captured as an A101 sheet — plan, south elevation, and a door and window legend — then modelled from those drawings to show the interior: face-brick piers, oak counters over white shaker cabinetry, and a dropped bulkhead with recessed linear light over the servery. With the box documented for future reference, the project proceeded to a full renovation of the suite: general maintenance throughout, with the joinery and finishes repainted and revarnished.',
+      'I surveyed the box and captured it as an A101 sheet — plan, south elevation, and a door and window legend — and priced the repairs against it. Then I went a step further than the inspection asked for: alongside the plans, I modelled the box and rendered what the suite could look like once it was sorted — face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead with recessed linear light over the servery. Those renders won us the contract. Then we renovated it: new ceiling, new paint, the brickwork varnished and finished properly, new carpets, every bit of damage repaired floor to ceiling. Old Mutual brought their own furniture and styling; our job was handing back a box they could host their most important guests in again.',
   },
   {
     slug: 'schultz-mmuoe',
