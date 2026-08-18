@@ -196,7 +196,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
       },
       {
         k: 'Opgeleverd',
-        v: 'Inmeting en volledige koventekeningenset · offerte per ruimte, te controleren tegen de tekeningen · vier fotorealistische interieurs — keuken, eetkamer en twee slaapkamervarianten',
+        v: 'Inmeting en volledige koventekeningenset · offerte per ruimte, te controleren tegen de tekeningen · vier fotorealistische interieurs — keuken, eetkamer en twee slaapkamers',
       },
     ],
     description:
@@ -209,7 +209,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
         'Park 24 — het koofdetailblad uit 2017 waaruit de kamers zijn herbouwd: elke verlaging, schaduwvoeg en koof getekend en van maten voorzien.',
     },
     approach:
-      'Ik heb de volledige detailset getekend zodat de klant niet blind hoefde te prijzen: elke verlaging, schaduwvoeg en koof van maten voorzien, en een offerte die hij regel voor regel tegen de tekeningen kon controleren. Het was specialistisch werk — het led-elektrawerk lag bij onze elektricien, de rest kon in eigen beheer worden gebouwd — en door de tekeningen keken klant en vakmensen naar hetzelfde plafond. Onlangs ben ik naar die set teruggekeerd en heb elk detail exact zoals getekend opnieuw in 3D opgebouwd, waarna elke ruimte is geënsceneerd rond wat de koof daar het beste doet — de koof boven het kookeiland, het zwevende kader in de eetkamer, en één slaapkamer twee keer uitgewerkt: hetzelfde detail koel en warm belicht, zodat een klant een lichtkleur kiest en geen nieuw ontwerp. De tekeningen beschreven dat licht al jaren; nu is het te zien.',
+      'Ik heb de volledige detailset getekend zodat de klant niet blind hoefde te prijzen: elke verlaging, schaduwvoeg en koof van maten voorzien, en een offerte die hij regel voor regel tegen de tekeningen kon controleren. Het was specialistisch werk — het led-elektrawerk lag bij onze elektricien, de rest kon in eigen beheer worden gebouwd — en door de tekeningen keken klant en vakmensen naar hetzelfde plafond. Onlangs ben ik naar die set teruggekeerd en heb elk detail exact zoals getekend opnieuw in 3D opgebouwd, waarna elke ruimte is geënsceneerd rond wat de koof daar het beste doet — de koof boven het kookeiland, het zwevende kader in de eetkamer, en twee slaapkamers, elk met een eigen koofontwerp. De tekeningen beschreven dat licht al jaren; nu is het te zien.',
   },
 
   'loftus-box': {
