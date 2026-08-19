@@ -132,19 +132,19 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Teruggekeerd naar afgeronde archiefrenders, elke regrade geregisseerd en elk resultaat gecontroleerd tegen het originele productmodel',
+        v: 'Op eigen initiatief, in eigen tijd en op eigen kosten — elke regrade geregisseerd en elk resultaat gecontroleerd tegen het originele productmodel',
       },
       {
         k: 'Opgeleverd',
-        v: 'Voor-en-na-beeldsets · fotorealistische regrades met vernieuwd licht en sfeer',
+        v: 'Voor-en-na-beeldsets · fotorealistische regrades met vernieuwd licht en sfeer · een werkbare regel voor waar AI thuishoort',
       },
     ],
     description:
-      'Afgeronde CGI-renders uit het archief, verder gebracht — vlak daglicht geregradeerd naar fotografisch gouden uur, strakke productscènes getild naar geloofwaardige plekken.',
+      'Een experiment op eigen kosten met mijn eigen archief: afgeronde CGI-renders verder gebracht — vlak daglicht geregradeerd naar fotografisch gouden uur, strakke productscènes getild naar geloofwaardige plekken.',
     brief:
-      'Een render die twee jaar geleden state of the art was, kan gedateerd ogen naast wat nu kan. In plaats van elke scène opnieuw op te bouwen, wordt het archief grondstof: de geometrie, compositie en productnauwkeurigheid kloppen al — alleen het beeld moet bijtrekken.',
+      'Niemand heeft hierom gevraagd. Ik wilde weten wat de nieuwe AI-modellen echt met een afgeronde render kunnen doen, dus deed ik het experiment zelf — eigen tijd, eigen budget, mijn eigen archief als testmateriaal. Een render die twee jaar geleden state of the art was, kan gedateerd ogen naast wat nu kan, en archiefwerk is het ideale testmateriaal: de geometrie, compositie en productnauwkeurigheid kloppen al, dus het enige dat nog verandert is het beeld.',
     approach:
-      'Elke revival gaat onder strakke art direction door een AI-regrade en wordt daarna teruggecontroleerd tegen de bronrender — verhoudingen, materialen en productdetail moeten het proces ongeschonden doorstaan. Wat verandert is het licht en de sfeer; wat de klant koopt blijft exact.',
+      'Elke render gaat onder strakke art direction door een AI-regrade en gaat daarna direct terug naast de bron — verhoudingen, materialen en productdetail moeten ongeschonden blijven. De resultaten zijn indrukwekkend, en ze komen met een eerlijke grens: de winst in realisme is echt, de controle niet. Je kunt een AI-regrade regisseren, maar je houdt hem niet op de millimeter zoals je een model op de millimeter houdt. Daarom houd ik het hier — conceptwerk en postproductie — en alles waar een klant op moet bouwen blijft gemodelleerd.',
     pairs: [
       {
         beforeLabel: 'Originele render',

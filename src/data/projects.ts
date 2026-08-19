@@ -264,19 +264,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Returned to finished archive renders, directed each regrade and checked every result against the original product model',
+        v: 'Self-initiated, in my own time and at my own cost — directed each regrade and checked every result against the original product model',
       },
       {
         k: 'Deliverables',
-        v: 'Before-and-after image sets · photoreal regrades with updated light and atmosphere',
+        v: 'Before-and-after image sets · photoreal regrades with updated light and atmosphere · a working rule for where AI belongs',
       },
     ],
     description:
-      'Finished CGI renders from the archive, taken further — flat daylight regraded into photographic golden hour, clean product scenes lifted into believable places.',
+      'A self-funded experiment on my own archive: finished CGI renders taken further — flat daylight regraded into photographic golden hour, clean product scenes lifted into believable places.',
     brief:
-      'A render that was state of the art two years ago can look dated next to what is possible now. Rather than rebuilding every scene from scratch, the archive becomes raw material: the geometry, composition and product accuracy are already right — the image just needs to catch up.',
+      'Nobody asked for this one. I wanted to know what the new AI models could really do to a finished render, so I ran the experiment myself — my own time, my own budget, my own archive as the test material. A render that was state of the art two years ago can look dated next to what is possible now, and archive work is the ideal thing to test on: the geometry, composition and product accuracy are already right, so the only thing left to change is the image.',
     approach:
-      'Each revival is taken through an AI regrade under tight art direction, then checked back against the source render — proportions, materials and product detail must survive the process untouched. What changes is the light and the atmosphere; what the client is buying stays exact.',
+      'Each render goes through an AI regrade under tight art direction, then straight back against the source for comparison — proportions, materials and product detail have to survive untouched. The results are genuinely impressive, and they come with an honest limit: the lift in realism is real, the control is not. You can direct an AI regrade; you cannot hold it to the millimetre the way you can hold a model. So this is where I keep it — concept work and post-production — and anything a client has to build from stays modelled.',
     pairs: [
       {
         before: 'before.jpg',
