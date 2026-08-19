@@ -305,19 +305,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Directed the camera movement and atmosphere from each finished still, rejected any product drift and edited the final clips',
+        v: 'Self-initiated, in my own time and at my own cost — learned the tools and models, directed each clip from its still and cut anything that drifted from the real product',
       },
       {
         k: 'Deliverables',
-        v: 'Short product films created from finished stills · controlled camera movement · atmospheric motion',
+        v: 'Short product films created from finished stills · controlled camera movement and atmosphere · a tested sense of which models suit which scene',
       },
     ],
     description:
-      'Product stills and finished scenes set in motion with AI — camera moves, atmosphere and product reveals generated from a single accurate frame.',
+      'A self-taught experiment in AI animation: finished stills brought to life — wind in the planting, animals moving, atmosphere drifting — without touching the accuracy of the frame underneath.',
     brief:
-      'Full 3D animation is the gold standard, but not every product or campaign carries its production time. When an accurate still already exists, motion can now start from that frame instead of from an empty timeline.',
+      'This one runs in the same spirit as the scene revivals: my own initiative, my own time and my own budget, spent learning what AI animation can add to a finished image. Full 3D animation is the gold standard, but not every product or campaign carries its production time — so I wanted to know whether an accurate still could be the starting point instead of an empty timeline, and set about learning the tools, the platforms and which models work best on which material.',
     approach:
-      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut — the pair below is one that survived: the still on the left, and the clip it became on the right.',
+      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut. What survives is the point of the experiment: the scene comes to life. In the pair below the camera is locked off and nothing about the fence has changed — but the wind moves through the grass, the sheep graze behind the posts, and a frame that was already accurate picks up life and character.',
     stillToMotion: {
       still: 'still.jpg',
       video: '/video/ai-motion-01.mp4',

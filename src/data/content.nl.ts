@@ -166,19 +166,19 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'De camerabeweging en sfeer vanuit elke afgeronde still geregisseerd, elke productafwijking afgekeurd en de uiteindelijke clips gemonteerd',
+        v: 'Op eigen initiatief, in eigen tijd en op eigen kosten — de tools en modellen geleerd, elke clip vanuit zijn still geregisseerd en alles wat afweek van het echte product eruit gehaald',
       },
       {
         k: 'Opgeleverd',
-        v: 'Korte productfilms gemaakt uit afgeronde stills · gecontroleerde camerabeweging · sfeervolle beweging',
+        v: 'Korte productfilms gemaakt uit afgeronde stills · gecontroleerde camerabeweging en sfeer · een getest gevoel voor welk model bij welke scène past',
       },
     ],
     description:
-      'Productstills en afgeronde scènes in beweging gebracht met AI — camerabewegingen, sfeer en productreveals gegenereerd uit één nauwkeurig frame.',
+      'Een zelf aangeleerd experiment in AI-animatie: afgeronde stills tot leven gebracht — wind in de beplanting, dieren die bewegen, sfeer die verschuift — zonder de nauwkeurigheid van het onderliggende frame aan te tasten.',
     brief:
-      'Volledige 3D-animatie is de gouden standaard, maar niet elk product of elke campagne draagt de productietijd ervan. Als er al een nauwkeurige still bestaat, kan beweging nu vanuit dat frame beginnen in plaats van vanuit een lege tijdlijn.',
+      'Dit loopt in dezelfde geest als de scene revivals: eigen initiatief, eigen tijd en eigen budget, besteed aan leren wat AI-animatie aan een afgerond beeld kan toevoegen. Volledige 3D-animatie is de gouden standaard, maar niet elk product of elke campagne draagt de productietijd ervan — dus wilde ik weten of een nauwkeurige still het vertrekpunt kon zijn in plaats van een lege tijdlijn, en ben ik de tools en platforms gaan leren, en welk model het beste werkt op welk materiaal.',
     approach:
-      'Elke clip begint bij een afgeronde still. Camerabeweging en sfeer worden er in korte, geregisseerde passes overheen gegenereerd, en alles wat afwijkt van het echte product gaat eruit — het paar hieronder is er een dat het haalde: links de still, rechts de clip die eruit ontstond.',
+      'Elke clip begint bij een afgeronde still. Camerabeweging en sfeer worden er in korte, geregisseerde passes overheen gegenereerd, en alles wat afwijkt van het echte product gaat eruit. Wat overblijft is waar het experiment om draaide: de scène komt tot leven. In het paar hieronder staat de camera stil en is er niets aan het hek veranderd — maar de wind trekt door het gras, de schapen grazen achter de palen, en een frame dat al klopte krijgt leven en karakter.',
     stillToMotion: {
       stillLabel: 'Still',
       motionLabel: 'Beweging',
