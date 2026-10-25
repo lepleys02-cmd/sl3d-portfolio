@@ -36,7 +36,7 @@ export const ui = {
       headingLead: 'Have a project that needs clarity?',
       headingLink: 'Let’s talk.',
       availability:
-        'Available for freelance projects and full-time roles — Netherlands / remote.',
+        'Available for freelance projects — Netherlands / remote.',
       portfolioPdf: 'Portfolio (PDF)',
       terms: 'Terms & Conditions',
       privacy: 'Privacy',
@@ -351,7 +351,7 @@ export const ui = {
       headingLead: 'Heb je een project dat helderheid nodig heeft?',
       headingLink: 'Laten we praten.',
       availability:
-        'Beschikbaar voor freelanceopdrachten en vaste functies — Nederland / remote.',
+        'Beschikbaar voor freelanceopdrachten — Nederland / remote.',
       portfolioPdf: 'Portfolio (pdf)',
       terms: 'Algemene voorwaarden',
       privacy: 'Privacy',
