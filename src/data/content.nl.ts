@@ -78,7 +78,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
       stillLabel: 'Render',
       motionLabel: 'Beweging',
       caption:
-        'Kastanjehouten schapenhek voor Outdoor Life Group — de afgewerkte productrender (links) en een korte clip die uit dat ene frame is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, met een stilstaande camera waarbij alleen de wind en de schapen erachter bewegen.',
+        'Kastanjehouten schapenhek voor Outdoor Life Group — de afgewerkte productrender (links) en een korte clip die uit dat ene frame is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, terwijl de camera langzaam naar de poort toe schuift en een schaap vlak erachter komt grazen.',
     },
   },
 
@@ -178,12 +178,12 @@ export const projectsNl: Record<string, ProjectCopy> = {
     brief:
       'Dit loopt in dezelfde geest als de scene revivals: eigen initiatief, eigen tijd en eigen budget, besteed aan leren wat AI-animatie aan een afgerond beeld kan toevoegen. Volledige 3D-animatie is de gouden standaard, maar niet elk product of elke campagne draagt de productietijd ervan — dus wilde ik weten of een nauwkeurige still het vertrekpunt kon zijn in plaats van een lege tijdlijn, en ben ik de tools en platforms gaan leren, en welk model het beste werkt op welk materiaal.',
     approach:
-      'Elke clip begint bij een afgeronde still. Camerabeweging en sfeer worden er in korte, geregisseerde passes overheen gegenereerd, en alles wat afwijkt van het echte product gaat eruit. Wat overblijft is waar het experiment om draaide: de scène komt tot leven. In het paar hieronder staat de camera stil en is er niets aan het hek veranderd — maar de wind trekt door het gras, de schapen grazen achter de palen, en een frame dat al klopte krijgt leven en karakter.',
+      'Elke clip begint bij een afgeronde still. Camerabeweging en sfeer worden er in korte, geregisseerde passes overheen gegenereerd, en alles wat afwijkt van het echte product gaat eruit. Wat overblijft is waar het experiment om draaide: de scène komt tot leven. In het paar hieronder is er niets aan het hek veranderd — maar de camera schuift langzaam naar de poort toe, de wind trekt door het gras, een schaap komt achter de palen grazen, en een frame dat al klopte krijgt leven en karakter.',
     stillToMotion: {
       stillLabel: 'Still',
       motionLabel: 'Beweging',
       caption:
-        'Kastanjehouten schapenhek — de afgewerkte still (links) en de clip die eruit is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, met een stilstaande camera waarbij alleen de wind en de schapen erachter bewegen.',
+        'Kastanjehouten schapenhek — de afgewerkte still (links) en de clip die eruit is gegenereerd (rechts): hetzelfde hek, dezelfde palen, dezelfde weide, terwijl de camera langzaam naar de poort toe schuift en een schaap vlak erachter komt grazen.',
     },
   },
 

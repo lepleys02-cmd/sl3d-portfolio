@@ -171,11 +171,11 @@ export const projects: Project[] = [
       'I came across from Nubuiten to take the work over. Each product had its own specific requirements — anything from technical drawings, parts lists and manuals to 2D drawings and 3D renders staged in garden and studio environments. I produced close to 600 renders in my time there, alongside work on the 3D configurator and adapting the company’s AI setup to see where else it could be used.',
     stillToMotion: {
       still: 'fence-still.jpg',
-      video: '/video/ai-motion-01.mp4',
+      video: '/video/ai-motion-fence-v2.mp4',
       stillLabel: 'Render',
       motionLabel: 'Motion',
       caption:
-        'Chestnut paling fence for Outdoor Life Group — the finished product render (left) and a short clip generated from that single frame (right): same fence, same posts, same paddock, with the camera locked off and only the wind and the sheep behind it moving.',
+        'Chestnut paling fence for Outdoor Life Group — the finished product render (left) and a short clip generated from that single frame (right): same fence, same posts, same paddock, with the camera easing in towards the gate while a sheep wanders up to graze just behind it.',
     },
   },
   {
@@ -317,14 +317,14 @@ export const projects: Project[] = [
     brief:
       'This one runs in the same spirit as the scene revivals: my own initiative, my own time and my own budget, spent learning what AI animation can add to a finished image. Full 3D animation is the gold standard, but not every product or campaign carries its production time — so I wanted to know whether an accurate still could be the starting point instead of an empty timeline, and set about learning the tools, the platforms and which models work best on which material.',
     approach:
-      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut. What survives is the point of the experiment: the scene comes to life. In the pair below the camera is locked off and nothing about the fence has changed — but the wind moves through the grass, the sheep graze behind the posts, and a frame that was already accurate picks up life and character.',
+      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut. What survives is the point of the experiment: the scene comes to life. In the pair below nothing about the fence has changed — but the camera eases in towards the gate, the wind moves through the grass, a sheep wanders up to graze behind the posts, and a frame that was already accurate picks up life and character.',
     stillToMotion: {
       still: 'still.jpg',
-      video: '/video/ai-motion-01.mp4',
+      video: '/video/ai-motion-fence-v2.mp4',
       stillLabel: 'Still',
       motionLabel: 'Motion',
       caption:
-        'Chestnut sheep fence — the finished still (left) and the clip generated from it (right): same fence, same posts, same paddock, with the camera locked off and only the wind and the sheep behind it moving.',
+        'Chestnut sheep fence — the finished still (left) and the clip generated from it (right): same fence, same posts, same paddock, with the camera easing in towards the gate while a sheep wanders up to graze just behind it.',
     },
   },
   {
