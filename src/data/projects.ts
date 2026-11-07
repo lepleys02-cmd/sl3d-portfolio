@@ -249,7 +249,12 @@ export const projects: Project[] = [
       // Norwegian terrace at night — depth+parallax montage of the pergola
       // render (project page only; deliberately not on the home page).
       '/video/product-anim-06.mp4',
-      '/video/explosion-tuinkantoor.mp4',
+      // Zen work pod garden film (7 Nov 2026): the V-Ray explosion played in
+      // reverse so the pod builds itself, then VizMaker Kling o3 Pro
+      // first/last-frame clips grow the garden, furnish the interior and arc
+      // the camera left. 27.9 s, 24 fps; parts + prompts in
+      // Animations/3D-Production/Tuinkantoor-Explosion/garden-reveal-2026-11-07.
+      '/video/explosion-tuinkantoor-garden.mp4',
       '/video/product-anim-03-v2.mp4',
       '/video/product-anim-02-v3.mp4',
       '/video/product-anim-01-v3.mp4',
