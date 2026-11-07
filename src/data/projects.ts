@@ -228,12 +228,13 @@ export const projects: Project[] = [
       'The garden-timber companies I worked with sell verandas, carports and garden buildings — products almost nobody in the market was showing in motion; most competitors didn’t even have proper stills. They wanted marketing content that set them apart. And their customers faced the same hurdle with every delivery: a thick printed manual for a structure that takes two people a weekend to build.',
     approach:
       'Every film starts from the same accurate product model as the stills. I planned each assembly sequence the way an installer actually builds the structure — post by post, beam by beam — with close-up cutaways on the fixings at exactly the steps where people get them wrong. Assembly runs on clean white so nothing distracts from the build order; lifestyle reveals put the finished product in full scenes with real light. The assembly film then replaced the bulk of the printed manual: products now ship with a slim booklet and a QR code to the video. Customers watch the build instead of decoding it, and the company stopped printing and posting heavyweight manuals. Nobody has to guess how it goes together.',
-    // Card hover: the SL3D snowboard ident, GPU-enhanced 29 Jul 2026 (blur
-    // pillarbox cropped off, Real-ESRGAN 2x upscale, RIFE 48fps, winter filmic
-    // grade — full-res master in result_masters/hero-ident-v2.mp4). The static
-    // cover at assets/covers/product-animations.jpg is a matching frame so the
-    // crossfade is seamless.
-    previewVideo: '/video/preview-ident.mp4',
+    // Card hover: exploded-view loop cut from the C5ZB explosion film (src
+    // 1.5–8.3 s, reversed then forward, 2x at 60fps, 1600x900). It opens on the
+    // fully exploded frame, which is also the static cover at
+    // assets/covers/product-animations.jpg, so the crossfade is seamless and
+    // touch screens (no hover) still show an exploded view. The C5ZB film is
+    // used ONLY here — it is deliberately not in the grid below.
+    previewVideo: '/video/preview-explode.mp4',
     // Alternate lifestyle, exploded-view, turntable and assembly clips so
     // similar work does not bunch together. The full assembly montage opens —
     // it is the longest and most complete piece of work here.
@@ -251,7 +252,6 @@ export const projects: Project[] = [
       '/video/explosion-tuinkantoor.mp4',
       '/video/product-anim-03-v2.mp4',
       '/video/product-anim-02-v3.mp4',
-      '/video/explosion-c5zb.mp4',
       '/video/product-anim-01-v3.mp4',
     ],
   },
