@@ -238,7 +238,7 @@ CSS = f"""
 def cover(v):
     return f"""
 <section class="page">
-  <img class="cover-img" src="{img('nubuiten/13.jpg', PX['bleed'])}" alt="">
+  <img class="cover-img" src="{img('nubuiten/13.jpg', 2560)}" alt="">
   <div class="cover-scrim"></div>
   <span class="cover-mark word">SL3D<sup>&#9650;</sup></span>
   <span class="cover-yr">Portfolio &middot; 2026</span>

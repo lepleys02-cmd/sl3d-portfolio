@@ -110,13 +110,13 @@ export const ui = {
           note: 'The same model rendered as a photorealistic street view, adapted for a typical European setting.',
         },
         veranda: {
-          title: 'Lakeside veranda, golden hour',
-          alt: 'Golden-hour render of a wooden veranda beside a pond with a swan',
-          note: 'A webshop product staged in an evening garden scene by the water — a marketing-ready shot without the photography budget behind it.',
+          title: 'Lakeside veranda, afternoon',
+          alt: 'Afternoon render of a wooden veranda beside a pond with a swan',
+          note: 'A webshop product staged in a garden scene by the water — a marketing-ready shot without the photography budget behind it.',
         },
         verandaMotion: {
           title: 'Lakeside veranda — reveal',
-          note: 'The same scene, now in motion — a slow zoom onto the product through the evening rays of light.',
+          note: 'The same scene as a short selling film — from the timber joints to the whole veranda, then on into the evening with the lanterns lit.',
         },
         norway: {
           title: 'Norwegian terrace at night',
@@ -424,13 +424,13 @@ export const ui = {
           note: 'Hetzelfde model gerenderd als fotorealistisch straatbeeld, aangepast aan een typisch Europese omgeving.',
         },
         veranda: {
-          title: 'Veranda aan het water, gouden uur',
-          alt: 'Render bij gouden uur van een houten veranda aan een vijver met een zwaan',
-          note: 'Een webshopproduct geënsceneerd in een avondlijke tuinscène aan het water — een marketingklare opname zonder het fotografiebudget erachter.',
+          title: 'Veranda aan het water, middag',
+          alt: 'Middagrender van een houten veranda aan een vijver met een zwaan',
+          note: 'Een webshopproduct geënsceneerd in een tuinscène aan het water — een marketingklare opname zonder het fotografiebudget erachter.',
         },
         verandaMotion: {
           title: 'Veranda aan het water — reveal',
-          note: 'Dezelfde scène, nu in beweging — een langzame zoom naar het product door de avondzon.',
+          note: 'Dezelfde scène als korte verkoopfilm — van de houtverbindingen naar de hele veranda, en dan de avond in met brandende lantaarns.',
         },
         norway: {
           title: 'Noors terras bij nacht',

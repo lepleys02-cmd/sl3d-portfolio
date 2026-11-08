@@ -253,7 +253,11 @@ export const projects: Project[] = [
       // Music: the clip's existing CC0 track (Screen Saver), stretched 3.6 %
       // so its own ending lands on the end card.
       '/video/montage-c4z-garden.mp4',
-      '/video/product-anim-04-v2.mp4',
+      // Lakeside veranda selling film (8 Nov 2026): the 2023 Garden 46 render
+      // redone in VizMaker (NB 2.1 master + keyframes, Kling o3 Pro clips),
+      // timber close-up -> reveal -> afternoon to dusk, SL3D end card, CC0
+      // "Inspiration". Job folder SL3D/Still-to-Motion/lakeside-veranda-2026-11-08.
+      '/video/product-anim-04-v3.mp4',
       '/video/explosion-sussex.mp4',
       // Norwegian terrace at night — depth+parallax montage of the pergola
       // render (project page only; deliberately not on the home page).
