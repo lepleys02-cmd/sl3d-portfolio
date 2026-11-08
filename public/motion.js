@@ -129,7 +129,7 @@
       frame.appendChild(img);
     });
 
-    var sel = ['.tile:not(.tile--sheet) .frame img', '.card .media img',
+    var sel = ['.tile:not(.tile--sheet) .frame img', '.card .media img:not([data-still])',
       '.m-frame img'].join(', ');
     $$(sel).forEach(function (img) {
       if (!once(img)) return;

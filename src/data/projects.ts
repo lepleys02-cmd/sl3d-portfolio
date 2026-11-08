@@ -48,6 +48,9 @@ export interface Project {
   headerVideo?: string;
   /** Projects without an image gallery list videos from /public/video instead. */
   videos?: string[];
+  /** Hold the card cover still: no scroll drift and no 1.12 drift zoom. For
+      covers whose subject runs to the frame edge, where the zoom would clip it. */
+  coverStill?: boolean;
   /** Drawing-led case study: render the gallery as matted documentation sheets
       (mat + hairline border + sheet label) instead of edge-to-edge images. */
   documentation?: boolean;
@@ -272,6 +275,9 @@ export const projects: Project[] = [
     year: '2026',
     discipline: 'AI-assisted visualisation',
     collection: 'ai',
+    // The regrade's framing ends just past the pergola's right post, so the
+    // drift zoom cut the post and roof off the card.
+    coverStill: true,
     facts: [
       {
         k: 'Role',
