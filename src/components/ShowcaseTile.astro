@@ -39,9 +39,12 @@ interface Props {
    */
   focus?: string;
   lang?: Lang;
+  /** Extra classes from the call site, e.g. `side-lines`. */
+  class?: string;
 }
 
 const {
+  class: className,
   discipline,
   kind,
   lang = defaultLang,
@@ -67,7 +70,12 @@ const isMotion = resolvedKind === 'animation';
 ---
 
 <figure
-  class:list={['tile', 'reveal', { 'tile--sheet': isDrawing, 'tile--motion': isMotion }]}
+  class:list={[
+    'tile',
+    'reveal',
+    className,
+    { 'tile--sheet': isDrawing, 'tile--motion': isMotion },
+  ]}
   style={`--tile-ratio: ${ratio}; --tile-focus: ${focus};`}
 >
   <div class="frame">

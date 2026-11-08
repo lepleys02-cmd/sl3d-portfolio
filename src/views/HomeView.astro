@@ -202,6 +202,7 @@ const homeItems: HomeItem[] = [
             discipline={ui.home.disciplines.render}
             kind="render"
             lang={lang}
+            class="side-lines"
             title={ui.home.tiles.norway.title}
             ratio="4 / 3"
             image={norwayTerrace}
@@ -218,6 +219,7 @@ const homeItems: HomeItem[] = [
             discipline={ui.home.disciplines.aiRegrade}
             kind="render"
             lang={lang}
+            class="side-lines"
             title={ui.home.tiles.pergola.title}
             ratio="4 / 3"
             image={pergolaRegrade}
@@ -235,6 +237,7 @@ const homeItems: HomeItem[] = [
             discipline={ui.home.disciplines.aiUpgrade}
             kind="render"
             lang={lang}
+            class="side-lines"
             title={ui.home.tiles.bedroom.title}
             ratio="4 / 3"
             image={bedroomUpgrade}
@@ -503,11 +506,15 @@ const homeItems: HomeItem[] = [
   /* Full-width rows only: never taller than the screen. Frame + caption fit
      under the 4rem sticky header (12rem = header + caption + breathing room),
      centred when that makes the tile narrower than the column. The two-up
-     rows above are left alone. 20rem floor for landscape phones. */
+     rows above are left alone. 20rem floor for landscape phones. The tile
+     is its own size container so its side lines can run the picture's
+     height (width / ratio) and stop above the caption. */
   .bento-row--b > :global(.tile) {
     width: 100%;
     max-width: max(20rem, calc((100svh - 12rem) * (var(--tile-ratio))));
     justify-self: center;
+    container-type: inline-size;
+    --side-lines-h: calc(100cqw / (var(--tile-ratio)));
   }
 
   .bento-row--c {

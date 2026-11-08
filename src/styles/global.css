@@ -178,6 +178,45 @@ h3 {
   font-size: 0.9rem;
 }
 
+/* ---------- Side lines ---------- */
+/* Two hairlines in the white margin either side of a picture that has been
+   narrowed to fit the screen, to break up the empty paper. Each sits halfway
+   between the picture and the window edge and runs the picture's height
+   (set --side-lines-h when a caption hangs below it). They only appear once
+   that margin is at least 8rem, so a picture that fills the column never
+   gets a line crowding its edge. A clip-wipe entrance would cut them off, so
+   they wait for it to finish and fade in. */
+.side-lines {
+  position: relative;
+}
+
+.side-lines::before,
+.side-lines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: var(--side-lines-h, 100%);
+  width: clamp(0px, calc((100vw - 100% - 16rem) * 1000), 1px);
+  background: var(--line-strong);
+  pointer-events: none;
+  transition: opacity 600ms var(--ease-out);
+}
+
+.side-lines::before {
+  right: calc(100% + (100vw - 100%) / 4);
+}
+
+.side-lines::after {
+  left: calc(100% + (100vw - 100%) / 4);
+}
+
+.side-lines[style*='clip-path']::before,
+.side-lines[style*='clip-path']::after,
+[style*='clip-path'] > .side-lines::before,
+[style*='clip-path'] > .side-lines::after {
+  opacity: 0;
+}
+
 /* ---------- Scroll reveal ---------- */
 /* The hidden state only applies once Base.astro's head script has stamped
    html.js — without JS nothing could ever un-hide, so content must default

@@ -73,6 +73,12 @@ const sheetItems =
 // The scroll-feature clip gets its own pinned section above the plain grid —
 // drop it from the grid list below so it doesn't appear twice.
 const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature?.video);
+
+// Full-width gallery slots: every third figure, matching the CSS
+// `.gallery figure:nth-child(3n + 1)`. These are the ones capped to the
+// screen height, so they carry their picture's ratio.
+const isFullWidth = (i: number) => i % 3 === 0;
+const fitRatio = (img: ImageMetadata) => `--fit-ratio: ${img.width} / ${img.height}`;
 ---
 
 <Base
@@ -157,7 +163,10 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
               aria-label={pair.after ? ui.project.ariaBeforeAfter : ui.project.ariaDrawingSet}
             >
               <div class:list={['process-pair', { 'process-pair--single': !pair.after }]}>
-                <figure class="reveal">
+                <figure
+                  class:list={['reveal', { 'fit side-lines': !pair.after }]}
+                  style={pair.after ? undefined : fitRatio(pair.before)}
+                >
                   <Image
                     src={pair.before}
                     alt={`${project.title} — ${pair.def.beforeLabel ?? ui.project.drawn}`}
@@ -229,8 +238,11 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
       project.documentation && sheetItems.length > 0 ? (
         <section class="gallery gallery--sheets wrap" aria-label={ui.project.ariaSheets(project.title)}>
           {sheetItems.map(({ img, meta }, i) => (
-            <figure class="sheet reveal">
-              <div class="sheet-frame">
+            <figure
+              class:list={['sheet', 'reveal', { fit: isFullWidth(i) }]}
+              style={isFullWidth(i) ? fitRatio(img) : undefined}
+            >
+              <div class:list={['sheet-frame', { 'side-lines': isFullWidth(i) }]}>
                 <Image
                   src={img}
                   alt={
@@ -256,7 +268,10 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
         gallery.length > 0 && (
           <section class="gallery wrap" aria-label={ui.project.ariaGallery(project.title)}>
             {gallery.map((img, i) => (
-              <figure class="reveal">
+              <figure
+                class:list={['reveal', { 'fit side-lines': isFullWidth(i) }]}
+                style={isFullWidth(i) ? fitRatio(img) : undefined}
+              >
                 <Image
                   src={img}
                   alt={ui.project.altGallery(project.title, i + 1)}
@@ -286,7 +301,7 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
       gridVideos && gridVideos.length > 0 && (
         <section class="videos wrap" aria-label={ui.project.ariaVideos(project.title)}>
           {gridVideos.map((src) => (
-            <figure class="reveal">
+            <figure class="reveal fit side-lines" style="--fit-ratio: 16 / 9">
               {/* eslint-disable-next-line */}
               <video
                 controls
@@ -423,6 +438,29 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
     width: 100%;
   }
 
+  /* Full-width pictures never taller than the screen, the same rule as the
+     home page's full-width rows: the picture fits under the 4rem sticky
+     header (12rem = header + caption + breathing room), centred when that
+     makes it narrower than the column. --fit-ratio is the picture's own
+     ratio, --fit-pad any mat around it. 20rem floor for landscape phones. */
+  .fit {
+    --fit-cap: max(
+      20rem,
+      calc((100svh - 12rem - var(--fit-pad, 0px)) * (var(--fit-ratio)) + var(--fit-pad, 0px))
+    );
+    width: 100%;
+    max-width: var(--fit-cap);
+    justify-self: center;
+  }
+
+  /* The single drawing keeps its 60rem limit too. Its own size container,
+     so the side lines run the drawing's height and stop above the caption. */
+  .process-pair--single figure.fit {
+    max-width: min(60rem, var(--fit-cap));
+    container-type: inline-size;
+    --side-lines-h: calc(100cqw / (var(--fit-ratio)));
+  }
+
   .process-pair img {
     width: 100%;
     border: 1px solid var(--line);
@@ -503,15 +541,22 @@ const gridVideos = project.videos?.filter((src) => src !== project.scrollFeature
   }
 
   .sheet {
+    --sheet-pad: clamp(0.7rem, 1.8vw, 1.6rem);
     margin: 0;
     display: flex;
     flex-direction: column;
   }
 
+  /* A full-width sheet fits the screen mat and all: padding + 1px border
+     on both sides. */
+  .sheet.fit {
+    --fit-pad: calc(2 * var(--sheet-pad) + 2px);
+  }
+
   .sheet-frame {
     background: var(--surface);
     border: 1px solid var(--line-strong);
-    padding: clamp(0.7rem, 1.8vw, 1.6rem);
+    padding: var(--sheet-pad);
   }
 
   .sheet-frame img {
