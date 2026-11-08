@@ -112,17 +112,10 @@ const isMotion = resolvedKind === 'animation';
 </figure>
 
 <style>
-  /* Never taller than the screen: frame + caption fit under the 4rem sticky
-     header (12rem = header + caption + breathing room). Only the full-width
-     home rows are wide enough to hit the cap; they then sit centred. The
-     20rem floor keeps landscape phones from shrinking the tile to a stamp. */
   .tile {
     display: flex;
     flex-direction: column;
     min-width: 0;
-    width: 100%;
-    max-width: max(20rem, calc((100svh - 12rem) * (var(--tile-ratio))));
-    justify-self: center;
   }
 
   .frame {
