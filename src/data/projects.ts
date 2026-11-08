@@ -240,10 +240,16 @@ export const projects: Project[] = [
     // it is the longest and most complete piece of work here.
     // The technical clips share the same warm paper grade.
     videos: [
-      // Overkapping C4Z montagefilm — the whole structure assembled step by
-      // step with 13 close-up cutaways on the fixings. 2:51, 1080p web encode
-      // of the 1440p master in Overkapping Montagefilm/out_final.
-      '/video/montage-c4z.mp4',
+      // Overkapping C4Z montagefilm, garden version (8 Nov 2026) — the same
+      // build with 13 close-up cutaways on the fixings, re-composited into a
+      // photographed garden with V-Ray ground shadows; opens on a glide down
+      // from the garden view, ends on the furnished overkapping drifting into
+      // dusk (Kling o3 Pro) and the SL3D end card. 3:09, 1080p two-pass web
+      // encode of the v2 1080p master in
+      // Animations/3D-Production/Overkapping-C4Z-Montagefilm/garden-2026-11-07/delivery.
+      // Music: the clip's existing CC0 track (Screen Saver), stretched 3.6 %
+      // so its own ending lands on the end card.
+      '/video/montage-c4z-garden.mp4',
       '/video/product-anim-04-v2.mp4',
       '/video/explosion-sussex.mp4',
       // Norwegian terrace at night — depth+parallax montage of the pergola
