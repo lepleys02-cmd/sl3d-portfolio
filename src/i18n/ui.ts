@@ -55,8 +55,6 @@ export const ui = {
     },
 
     card: {
-      peekProject: 'View case study',
-      peekCollection: 'View collection',
       /** `${title}` is substituted at the call site. */
       ariaProject: (title: string) => `View ${title} project`,
       ariaCollection: (title: string, count: number) => `View ${title}, ${count} projects`,
@@ -370,8 +368,6 @@ export const ui = {
     },
 
     card: {
-      peekProject: 'Bekijk case study',
-      peekCollection: 'Bekijk collectie',
       ariaProject: (title: string) => `Bekijk project ${title}`,
       ariaCollection: (title: string, count: number) => `Bekijk ${title}, ${count} projecten`,
     },

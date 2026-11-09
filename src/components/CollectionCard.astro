@@ -22,10 +22,7 @@ const ui = t(lang);
 const num = String(index + 1).padStart(2, '0');
 ---
 
-<article
-  class:list={['card', 'card--collection', 'reveal', { 'card--wide': wide }]}
-  data-peek={ui.card.peekCollection}
->
+<article class:list={['card', 'card--collection', 'reveal', { 'card--wide': wide }]}>
   <div class="media">
     <Image
       src={cover}

@@ -176,7 +176,7 @@ const ui = t(lang);
   // the same IntersectionObserver pattern as ShowcaseTile's [data-motion]
   // tiles. Reads are batched in a rAF so scroll never forces sync layout.
   // The window scroll/resize listeners are wired exactly ONCE per real page
-  // load (module-scope flag, same pattern as the peek pill in Base.astro) and
+  // load (module-scope flag) and
   // re-query live .scrollscrub sections on each frame — ClientRouter swaps the
   // section DOM on every navigation, so closing over section references here
   // would leak a growing stack of handlers bound to detached nodes.
