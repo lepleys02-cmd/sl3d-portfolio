@@ -136,6 +136,29 @@ const fitRatio = (img: ImageMetadata) => `--fit-ratio: ${img.width} / ${img.heig
     }
 
     {
+      project.videosFirst && gridVideos && gridVideos.length > 0 && (
+        <section class="videos videos--lead wrap" aria-label={ui.project.ariaVideos(project.title)}>
+          {gridVideos.map((src) => (
+            <figure class="reveal fit side-lines" style="--fit-ratio: 16 / 9">
+              {/* eslint-disable-next-line */}
+              <video
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                data-motion
+                poster={src.replace('.mp4', '-poster.jpg')}
+              >
+                <source src={src} type="video/mp4" />
+              </video>
+            </figure>
+          ))}
+        </section>
+      )
+    }
+
+    {
       (project.brief || project.approach) && (
         <section class="case wrap" aria-label={ui.project.ariaCase}>
           {project.brief && (
@@ -298,7 +321,7 @@ const fitRatio = (img: ImageMetadata) => `--fit-ratio: ${img.width} / ${img.heig
     }
 
     {
-      gridVideos && gridVideos.length > 0 && (
+      !project.videosFirst && gridVideos && gridVideos.length > 0 && (
         <section class="videos wrap" aria-label={ui.project.ariaVideos(project.title)}>
           {gridVideos.map((src) => (
             <figure class="reveal fit side-lines" style="--fit-ratio: 16 / 9">
@@ -590,6 +613,11 @@ const fitRatio = (img: ImageMetadata) => `--fit-ratio: ${img.width} / ${img.heig
   .videos {
     display: grid;
     gap: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  /* `videosFirst`: the film sits under the header, spaced like the header media. */
+  .videos--lead {
+    margin-bottom: var(--space-block);
   }
 
   /* Every clip fills the 16:9 frame edge to edge (square sources are

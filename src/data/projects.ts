@@ -48,6 +48,10 @@ export interface Project {
   headerVideo?: string;
   /** Projects without an image gallery list videos from /public/video instead. */
   videos?: string[];
+  /** Show the `videos` right under the project header (above the case text and
+      the gallery) instead of at the foot of the page — for a film that leads
+      the project, with the stills underneath it. */
+  videosFirst?: boolean;
   /** Hold the card cover still: no scroll drift and no 1.12 drift zoom. For
       covers whose subject runs to the frame edge, where the zoom would clip it. */
   coverStill?: boolean;
@@ -460,8 +464,11 @@ export const projects: Project[] = [
     // Animations/3D-Production/SABC-Walkthrough-2026-11.
     // Extended the same day (~44 s walk): principal's office, a look into the store room and the coffee point were
     // added after the coaching room; the training room got a printer and a new print, the office and store were
-    // re-furnished, and stills 04 / 06 / 08 match those changes.
+    // re-furnished, and the stills match those changes. The film leads the page;
+    // the 9 stills follow the walk: training room, entrance hall, waiting bench,
+    // training room (back), breakout, coaching room, office, store, coffee point.
     videos: ['/video/sabc-walkthrough.mp4'],
+    videosFirst: true,
   },
   {
     slug: 'bcd-travel',
