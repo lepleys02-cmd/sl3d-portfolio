@@ -458,6 +458,9 @@ export const projects: Project[] = [
     // (Video Editor, Seedance 2.5 Turbo 1080p) against NB 2.1 stills of the same views, graded to the stills, cut
     // together with the SL3D end card. Music: City Sunshine (CC0). Job folder
     // Animations/3D-Production/SABC-Walkthrough-2026-11.
+    // Extended the same day (~44 s walk): principal's office, a look into the store room and the coffee point were
+    // added after the coaching room; the training room got a printer and a new print, the office and store were
+    // re-furnished, and stills 04 / 06 / 08 match those changes.
     videos: ['/video/sabc-walkthrough.mp4'],
   },
   {
