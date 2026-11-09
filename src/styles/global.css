@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 img,
@@ -45,6 +47,7 @@ h3 {
   /* Backstop only: fires when a single word genuinely cannot fit the line box,
      so English display type renders identically to before. */
   overflow-wrap: break-word;
+  min-width: 0;
 }
 
 /* Dutch compounds ("architectuurvisualisatie", "interieurvisualisatie") run
@@ -88,11 +91,9 @@ h3 {
 }
 
 .label {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-weight: 500;
   color: var(--ink-soft);
 }
 
@@ -260,11 +261,9 @@ h3 {
 .peek-pill-inner {
   display: inline-flex;
   padding: 0.28em 0.7em;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-weight: 500;
   white-space: nowrap;
   color: var(--ink);
   background: color-mix(in srgb, var(--paper) 88%, transparent);

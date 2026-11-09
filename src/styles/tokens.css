@@ -23,7 +23,7 @@
   --text-h2: clamp(1.7rem, 1.2rem + 2vw, 3rem);
   --text-h3: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
   --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  --text-label: 0.72rem;
+  --text-label: 0.8rem;
 
   /* Rhythm */
   --space-section: clamp(4.5rem, 3rem + 7vw, 11rem);

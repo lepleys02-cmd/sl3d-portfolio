@@ -83,7 +83,7 @@ const isMotion = resolvedKind === 'animation';
       image && (
         <Image
           src={image}
-          alt={alt ?? `${title} — ${discipline}`}
+          alt={alt ?? `${title}, ${discipline}`}
           widths={widths}
           sizes={sizes}
           loading={eager ? 'eager' : 'lazy'}
@@ -102,7 +102,7 @@ const isMotion = resolvedKind === 'animation';
           poster={poster}
           width="1920"
           height="1080"
-          aria-label={`${title} — ${ui.home.disciplines.animation}`}
+          aria-label={`${title}, ${ui.home.disciplines.animation}`}
         >
           <source src={video} type="video/mp4" />
         </video>
@@ -181,10 +181,8 @@ const isMotion = resolvedKind === 'animation';
     gap: 0.45em;
     padding: 0.28em 0.7em;
     font-family: var(--font-display);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 500;
     color: var(--ink);
     background: color-mix(in srgb, var(--paper) 88%, transparent);
     border: 1px solid var(--line-strong);
@@ -224,8 +222,6 @@ const isMotion = resolvedKind === 'animation';
     font-family: var(--font-display);
     font-size: var(--text-label);
     font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
     color: var(--accent-ink);
   }
 

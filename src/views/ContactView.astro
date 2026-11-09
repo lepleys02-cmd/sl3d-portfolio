@@ -16,7 +16,6 @@ const ui = t(lang);
   <main>
     <section class="wrap layout">
       <div class="intro-col">
-        <p class="label label--accent reveal">{ui.contact.kicker}</p>
         <h1 class="reveal" set:html={ui.contact.headingHtml} />
         <p class="intro reveal">{ui.contact.intro}</p>
         <div class="actions reveal">
@@ -155,9 +154,7 @@ const ui = t(lang);
   label {
     font-family: var(--font-display);
     font-size: var(--text-label);
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-weight: 500;
     color: var(--ink-soft);
   }
 

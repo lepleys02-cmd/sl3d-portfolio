@@ -29,7 +29,7 @@ const num = String(index + 1).padStart(2, '0');
   <div class="media">
     <Image
       src={cover}
-      alt={`${collection.title} — ${collection.discipline}`}
+      alt={`${collection.title}, ${collection.discipline}`}
       widths={wide ? [640, 1080, 1600, 2000] : [480, 800, 1200]}
       sizes={wide ? '(max-width: 720px) 100vw, 92vw' : '(max-width: 720px) 100vw, 46vw'}
       loading="lazy"

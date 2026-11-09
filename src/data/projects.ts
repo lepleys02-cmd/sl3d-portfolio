@@ -98,11 +98,11 @@ export const collections: Collection[] = [
     slug: 'ai',
     title: 'AI-Assisted Production',
     kicker: 'Collection',
-    discipline: 'Scene revival · photoreal regrades · generative motion',
+    discipline: 'Scene revival, photoreal regrades and generative motion',
     description:
-      'Existing renders and product imagery taken further with AI — regraded, relit and set in motion, with every output checked against the real model.',
+      'Existing renders and product imagery taken further with AI: regraded, relit and set in motion, with every output checked against the real model.',
     intro:
-      'A production pipeline, not a shortcut. Finished CGI work from the studio archive is taken further with AI — flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion. The tools change, and so do the standards.',
+      'Finished CGI work from the studio archive, taken further with AI: flat renders regraded into photographic light, product stills placed in living scenes, and still imagery set in motion.',
     facets: [
       'Brief & art direction',
       'Accurate 3D base model',
@@ -115,11 +115,11 @@ export const collections: Collection[] = [
     slug: 'architecture',
     title: 'Interior Design, Architectural Visualisation & Documentation',
     kicker: 'Collection',
-    discipline: 'Space planning · interior design · documentation · visualisation',
+    discipline: 'Space planning, interior design, documentation and visualisation',
     description:
       'Buildings and interiors taken from measured space plan and fit-out detailing to coordinated drawing set to photoreal image.',
     intro:
-      'The buildings-and-interiors side of the studio — commercial and residential space taken from a measured survey, through the interior fit-out and a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
+      'The buildings-and-interiors side of the studio: commercial and residential space taken from a measured survey, through the interior fit-out and a coordinated drawing set a contractor can build from, to the photoreal image that sells it.',
     facets: [
       'Space planning & measured survey',
       'Interior design & fit-out detailing',
@@ -141,19 +141,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'In-house 3D artist — managed the render farm, supervised a partner CG studio in Ukraine, and helped build the webshop\'s 3D product generator',
+        v: 'In-house 3D artist: managed the render farm, supervised a partner CG studio in Ukraine, and helped build the webshop\'s 3D product generator',
       },
       {
         k: 'Deliverables',
-        v: 'Product renders with studio and environmental backgrounds · animations · 2D and 3D technical drawings and documentation',
+        v: 'Product renders with studio and environmental backgrounds, animations, and 2D and 3D technical drawings and documentation',
       },
     ],
     description:
-      'Photorealistic product renders and environmental scenes for outdoor living — created in-house at Nubuiten.',
+      'Photorealistic product renders and environmental scenes for outdoor living, created in-house at Nubuiten.',
     brief:
-      'Nubuiten is an outdoor-living webshop selling verandas, garden rooms and fencing among a range of roughly 10,000 products. Renders make the presales possible — a product can be sold before it is ever built, and far more of the range gets online than photography could cover.',
+      'Nubuiten is an outdoor-living webshop selling verandas, garden rooms and fencing among a range of roughly 10,000 products. Renders make the presales possible: a product can be sold before it is ever built, and far more of the range gets online than photography could cover.',
     approach:
-      'I had to model every product to exact scale dimensions, then place it in a suitable setting — either a garden scene or a studio background. The same models also produced the technical documentation: assembly manuals, parts lists and any other technical paperwork the product needed.',
+      'I had to model every product to exact scale dimensions, then place it in a suitable setting, either a garden scene or a studio background. The same models also produced the technical documentation: assembly manuals, parts lists and any other technical paperwork the product needed.',
   },
   {
     slug: 'outdoor-life-group',
@@ -163,26 +163,26 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'In-house 3D artist across the group\'s brands — Woodvision, Hillhout, Royal Well, Lasita Maja and Weka — took over the drawing and content work after the previous draughtsman retired, and maintained a shared render library for catalogue-wide consistency',
+        v: 'In-house 3D artist across the group\'s brands (Woodvision, Hillhout, Royal Well, Lasita Maja and Weka). Took over the drawing and content work after the previous draughtsman retired, and maintained a shared render library for catalogue-wide consistency',
       },
       {
         k: 'Deliverables',
-        v: 'Catalogue renders in studio and garden settings · animations · 2D and 3D technical drawings, parts lists and manuals · support on the 3D configurator',
+        v: 'Catalogue renders in studio and garden settings, animations, 2D and 3D technical drawings, parts lists and manuals, and support on the 3D configurator',
       },
     ],
     description:
-      'Product visualisation for Outdoor Life Group (OLG) — created in-house.',
+      'Product visualisation for Outdoor Life Group (OLG), created in-house.',
     brief:
-      'Outdoor Life Group is the head company of the group, supplying outdoor-living products to large retailers such as Intergamma, Karwei and Hornbach. Their draughtsman had retired, content creation was falling behind, and a catalogue of thousands of products needed updating — technical drawings, parts lists, manuals and renders alike.',
+      'Outdoor Life Group is the head company of the group, supplying outdoor-living products to large retailers such as Intergamma, Karwei and Hornbach. Their draughtsman had retired, content creation was falling behind, and a catalogue of thousands of products needed updating: technical drawings, parts lists, manuals and renders alike.',
     approach:
-      'I came across from Nubuiten to take the work over. Each product had its own specific requirements — anything from technical drawings, parts lists and manuals to 2D drawings and 3D renders staged in garden and studio environments. I produced close to 600 renders in my time there, alongside work on the 3D configurator and adapting the company’s AI setup to see where else it could be used.',
+      'I came across from Nubuiten to take the work over. Each product had its own specific requirements: anything from technical drawings, parts lists and manuals to 2D drawings and 3D renders staged in garden and studio environments. I produced close to 600 renders in my time there, alongside work on the 3D configurator and adapting the company’s AI setup to see where else it could be used.',
     stillToMotion: {
       still: 'fence-still.jpg',
       video: '/video/ai-motion-fence-v2.mp4',
       stillLabel: 'Render',
       motionLabel: 'Motion',
       caption:
-        'Chestnut paling fence for Outdoor Life Group — the finished product render (left) and a short clip generated from that single frame (right): same fence, same posts, same paddock, with the camera easing in towards the gate while a sheep wanders up to graze just behind it.',
+        'Chestnut paling fence for Outdoor Life Group: the finished product render (left) and a short clip generated from that single frame (right). Same fence, same posts, same paddock, with the camera easing in towards the gate while a sheep wanders up to graze just behind it.',
     },
   },
   {
@@ -194,24 +194,24 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Solo project — measured the site, modelled the building, and produced the full drawing set and photoreal renders',
+        v: 'Solo project: measured the site, modelled the building, and produced the full drawing set and photoreal renders',
       },
       {
         k: 'Deliverables',
-        v: 'Measured survey · plans, elevations and sections · photoreal street-view render',
+        v: 'Measured survey, plans, elevations and sections, and a photoreal street-view render',
       },
     ],
     description:
-      'Architectural visualisation and technical documentation — from measured drawing sets to the final photoreal image.',
+      'Architectural visualisation and technical documentation, from measured drawing sets to the final photoreal image.',
     brief:
-      'A returning client in Johannesburg had bought an existing building to use as a showroom for their products. It was already built, so nothing needed designing — what they lacked was an accurate set of plans: dimensioned drawings their contractors could work from, and a permanent record of the building for future reference.',
+      'A returning client in Johannesburg had bought an existing building to use as a showroom for their products. It was already built, so nothing needed designing. What they lacked was an accurate set of plans: dimensioned drawings their contractors could work from, and a permanent record of the building for future reference.',
     approach:
-      'One model drives everything. I measured the building as it stood, modelled it from that survey, and produced the full drawing set — plans, elevations and sections. The photoreal street view comes from the same geometry, staged in a European street rather than the Johannesburg original.',
+      'One model drives everything. I measured the building as it stood, modelled it from that survey, and produced the full drawing set: plans, elevations and sections. The photoreal street view comes from the same geometry, staged in a European street rather than the Johannesburg original.',
     process: {
       before: '02.jpg',
       after: '01.jpg',
       caption:
-        '5 Apple Road — one model, two deliverables: the technical elevation sheet (left) and the photoreal street view (right).',
+        '5 Apple Road, one model and two deliverables: the technical elevation sheet (left) and the photoreal street view (right).',
     },
   },
   {
@@ -226,15 +226,15 @@ export const projects: Project[] = [
       },
       {
         k: 'Deliverables',
-        v: 'Assembly films with close-up fixing details · product turntables · lifestyle reveals · QR-linked video manuals shipped with the product',
+        v: 'Assembly films with close-up fixing details, product turntables, lifestyle reveals and QR-linked video manuals shipped with the product',
       },
     ],
     description:
-      'From product model to motion — turntables, assembly films, and a build manual customers can watch instead of read.',
+      'From product model to motion: turntables, assembly films, and a build manual customers can watch instead of read.',
     brief:
-      'The garden-timber companies I worked with sell verandas, carports and garden buildings — products almost nobody in the market was showing in motion; most competitors didn’t even have proper stills. They wanted marketing content that set them apart. And their customers faced the same hurdle with every delivery: a thick printed manual for a structure that takes two people a weekend to build.',
+      'The garden-timber companies I worked with sell verandas, carports and garden buildings. Almost nobody in the market was showing these in motion, and most competitors didn’t even have proper stills. They wanted marketing content that set them apart. And their customers faced the same hurdle with every delivery: a thick printed manual for a structure that takes two people a weekend to build.',
     approach:
-      'Every film starts from the same accurate product model as the stills. I planned each assembly sequence the way an installer actually builds the structure — post by post, beam by beam — with close-up cutaways on the fixings at exactly the steps where people get them wrong. Assembly runs on clean white so nothing distracts from the build order; lifestyle reveals put the finished product in full scenes with real light. The assembly film then replaced the bulk of the printed manual: products now ship with a slim booklet and a QR code to the video. Customers watch the build instead of decoding it, and the company stopped printing and posting heavyweight manuals. Nobody has to guess how it goes together.',
+      'Every film starts from the same accurate product model as the stills. I planned each assembly sequence the way an installer actually builds the structure: post by post, beam by beam, with close-up cutaways on the fixings at exactly the steps where people get them wrong. Assembly runs on clean white so nothing distracts from the build order; lifestyle reveals put the finished product in full scenes with real light. The assembly film then replaced the bulk of the printed manual: products now ship with a slim booklet and a QR code to the video. Customers watch the build instead of decoding it, and the company stopped printing and posting heavyweight manuals. Nobody has to guess how it goes together.',
     // Card hover: exploded-view loop cut from the C5ZB explosion film (src
     // 1.5–8.3 s, reversed then forward, 2x at 60fps, 1600x900). It opens on the
     // fully exploded frame, which is also the static cover at
@@ -289,19 +289,19 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Self-initiated, in my own time and at my own cost — directed each regrade and checked every result against the original product model',
+        v: 'Self-initiated, in my own time and at my own cost. Directed each regrade and checked every result against the original product model',
       },
       {
         k: 'Deliverables',
-        v: 'Before-and-after image sets · photoreal regrades with updated light and atmosphere · a working rule for where AI belongs',
+        v: 'Before-and-after image sets, photoreal regrades with updated light and atmosphere, and a working rule for where AI belongs',
       },
     ],
     description:
-      'A self-funded experiment on my own archive: finished CGI renders taken further — flat daylight regraded into photographic golden hour, clean product scenes lifted into believable places.',
+      'A self-funded experiment on my own archive: finished CGI renders taken further, with flat daylight regraded into photographic golden hour and clean product scenes lifted into believable places.',
     brief:
-      'Nobody asked for this one. I wanted to know what the new AI models could really do to a finished render, so I ran the experiment myself — my own time, my own budget, my own archive as the test material. A render that was state of the art two years ago can look dated next to what is possible now, and archive work is the ideal thing to test on: the geometry, composition and product accuracy are already right, so the only thing left to change is the image.',
+      'Nobody asked for this one. I wanted to know what the new AI models could really do to a finished render, so I ran the experiment myself, using my own time, my own budget and my own archive as the test material. A render that was state of the art two years ago can look dated next to what is possible now, and archive work is the ideal thing to test on: the geometry, composition and product accuracy are already right, so the only thing left to change is the image.',
     approach:
-      'Each render goes through an AI regrade under tight art direction, then straight back against the source for comparison — proportions, materials and product detail have to survive untouched. The results are genuinely impressive, and they come with an honest limit: the lift in realism is real, the control is not. You can direct an AI regrade; you cannot hold it to the millimetre the way you can hold a model. So this is where I keep it — concept work and post-production — and anything a client has to build from stays modelled.',
+      'Each render goes through an AI regrade under tight art direction, then straight back against the source for comparison: proportions, materials and product detail have to survive untouched. The gain in realism is real; the control is limited. You can direct an AI regrade, but you cannot hold it to the millimetre the way you can hold a model. So I keep it for concept work and post-production, and anything a client has to build from stays modelled.',
     pairs: [
       {
         before: 'before.jpg',
@@ -309,7 +309,7 @@ export const projects: Project[] = [
         beforeLabel: 'Original render',
         afterLabel: 'AI regrade',
         caption:
-          'Hardinxveld garden room — the original CGI render (left) and its AI-assisted regrade (right): same geometry, same product, photographic light.',
+          'Hardinxveld garden room: the original CGI render (left) and its AI-assisted regrade (right). Same geometry, same product, photographic light.',
       },
       {
         before: 'garden40-before.jpg',
@@ -317,7 +317,7 @@ export const projects: Project[] = [
         beforeLabel: 'Original render',
         afterLabel: 'AI regrade',
         caption:
-          'Garden 40 pergola — the original webshop render (left) and its AI regrade (right): same pergola, same courtyard, but the CGI sky, fresh timber and clean pavers give way to soft overcast light, weathered wood and worn brick paving.',
+          'Garden 40 pergola: the original webshop render (left) and its AI regrade (right). Same pergola, same courtyard, but the CGI sky, fresh timber and clean pavers give way to soft overcast light, weathered wood and worn brick paving.',
       },
     ],
   },
@@ -330,26 +330,26 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Self-initiated, in my own time and at my own cost — learned the tools and models, directed each clip from its still and cut anything that drifted from the real product',
+        v: 'Self-initiated, in my own time and at my own cost. Learned the tools and models, directed each clip from its still and cut anything that drifted from the real product',
       },
       {
         k: 'Deliverables',
-        v: 'Short product films created from finished stills · controlled camera movement and atmosphere · a tested sense of which models suit which scene',
+        v: 'Short product films created from finished stills, controlled camera movement and atmosphere, and a tested sense of which models suit which scene',
       },
     ],
     description:
-      'A self-taught experiment in AI animation: finished stills brought to life — wind in the planting, animals moving, atmosphere drifting — without touching the accuracy of the frame underneath.',
+      'A self-taught experiment in AI animation: finished stills brought to life, with wind in the planting, animals moving and atmosphere drifting, without touching the accuracy of the frame underneath.',
     brief:
-      'This one runs in the same spirit as the scene revivals: my own initiative, my own time and my own budget, spent learning what AI animation can add to a finished image. Full 3D animation is the gold standard, but not every product or campaign carries its production time — so I wanted to know whether an accurate still could be the starting point instead of an empty timeline, and set about learning the tools, the platforms and which models work best on which material.',
+      'This one runs in the same spirit as the scene revivals: my own initiative, my own time and my own budget, spent learning what AI animation can add to a finished image. Full 3D animation is the gold standard, but not every product or campaign carries its production time, so I wanted to know whether an accurate still could be the starting point instead of an empty timeline, and set about learning the tools, the platforms and which models work best on which material.',
     approach:
-      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut. What survives is the point of the experiment: the scene comes to life. In the pair below nothing about the fence has changed — but the camera eases in towards the gate, the wind moves through the grass, a sheep wanders up to graze behind the posts, and a frame that was already accurate picks up life and character.',
+      'Each clip begins from a finished still. Camera movement and atmosphere are generated over it in short, directed passes, and anything that drifts from the real product is cut. What survives is the point of the experiment: the scene comes to life. In the pair below nothing about the fence has changed, but the camera eases in towards the gate, the wind moves through the grass, a sheep wanders up to graze behind the posts, and a frame that was already accurate picks up life and character.',
     stillToMotion: {
       still: 'still.jpg',
       video: '/video/ai-motion-fence-v2.mp4',
       stillLabel: 'Still',
       motionLabel: 'Motion',
       caption:
-        'Chestnut sheep fence — the finished still (left) and the clip generated from it (right): same fence, same posts, same paddock, with the camera easing in towards the gate while a sheep wanders up to graze just behind it.',
+        'Chestnut sheep fence: the finished still (left) and the clip generated from it (right). Same fence, same posts, same paddock, with the camera easing in towards the gate while a sheep wanders up to graze just behind it.',
     },
   },
   {
@@ -361,25 +361,25 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Measured the rooms on site, designed a bulkhead for every room and drew the detail set that carried the quotation — then rebuilt each detail in 3D and directed the rooms around its light',
+        v: 'Measured the rooms on site, designed a bulkhead for every room and drew the detail set that carried the quotation, then rebuilt each detail in 3D and directed the rooms around its light',
       },
       {
         k: 'Deliverables',
-        v: 'Measured survey and full bulkhead drawing set · room-by-room quotation cross-checked against the drawings · four photoreal interiors — kitchen, dining room and two bedrooms',
+        v: 'Measured survey and full bulkhead drawing set, a room-by-room quotation cross-checked against the drawings, and four photoreal interiors: kitchen, dining room and two bedrooms',
       },
     ],
     description:
-      'A 2017 bulkhead design — measured, drawn and quoted room by room — brought back as photoreal interiors where the drawn details do the lighting.',
+      'A 2017 bulkhead design, measured, drawn and quoted room by room, brought back as photoreal interiors where the drawn details do the lighting.',
     brief:
-      'The client owned the house and wanted bulkheads in every room — shadow gaps with LED lighting throughout. He asked for a quotation; I went to site, measured each room myself and designed a bulkhead for every one. On paper a bulkhead is a set of drops and dimensions, but in a finished room it is mostly light — where the cove washes the ceiling, where the shadow gap draws its line.',
+      'The client owned the house and wanted bulkheads in every room: shadow gaps with LED lighting throughout. He asked for a quotation; I went to site, measured each room myself and designed a bulkhead for every one. On paper a bulkhead is a set of drops and dimensions, but in a finished room it is mostly light: where the cove washes the ceiling, where the shadow gap draws its line.',
     process: {
       before: 'drawing.jpg',
       beforeLabel: 'Drawing set',
       caption:
-        'Park 24 — the 2017 bulkhead detail sheet the rooms were rebuilt from: every drop, shadow gap and cove drawn and dimensioned.',
+        'Park 24: the 2017 bulkhead detail sheet the rooms were rebuilt from: every drop, shadow gap and cove drawn and dimensioned.',
     },
     approach:
-      'I drew the full detail set so the client wasn’t pricing blind: every drop, shadow gap and cove dimensioned, and a quotation he could cross-check against the drawings line by line. It was a specialised job — the LED electrical work sat with our electrician, the rest could be built in-house — and the drawings meant everyone, client and trades alike, was looking at the same ceiling. Recently I returned to that set and rebuilt each detail in 3D exactly as drawn, then staged every room around what its bulkhead does best — the kitchen’s cove over the island, the dining room’s floating frame, and two bedrooms, each with its own bulkhead design. The drawings had described that light for years; now you can see it.',
+      'I drew the full detail set so the client wasn’t pricing blind: every drop, shadow gap and cove dimensioned, and a quotation he could cross-check against the drawings line by line. It was a specialised job. The LED electrical work sat with our electrician and the rest could be built in-house, and the drawings meant everyone, client and trades alike, was looking at the same ceiling. Recently I returned to that set and rebuilt each detail in 3D exactly as drawn, then staged every room around what its bulkhead does best: the kitchen’s cove over the island, the dining room’s floating frame, and two bedrooms, each with its own bulkhead design. The drawings had described that light for years; now you can see it.',
   },
   {
     slug: 'loftus-box',
@@ -394,23 +394,23 @@ export const projects: Project[] = [
       },
       {
         k: 'Deliverables',
-        v: 'Completed drawing set documenting the box for future reference · full renovation of the suite — general maintenance, repainting and revarnishing',
+        v: 'Completed drawing set documenting the box for future reference, and a full renovation of the suite: general maintenance, repainting and revarnishing',
       },
     ],
     description:
-      'A corporate hospitality box at Loftus Versfeld — surveyed and drawn for one of the practice\'s largest clients, documented as a full drawing set, and taken through to a complete renovation of the suite.',
+      'A corporate hospitality box at Loftus Versfeld, surveyed and drawn for one of the practice\'s largest clients, documented as a full drawing set, and taken through to a complete renovation of the suite.',
     brief:
-      'This one was personal — Loftus Versfeld was my old stomping ground from schoolboy rugby days in Pretoria, and I walked back in with a survey kit. The job started as an inspection: go through Old Mutual’s hospitality box, document every bit of damage, and come back with a full set of drawings and a quotation for the repairs. The box was in rough shape — and a hospitality box lives or dies on how it feels on match day.',
+      'This one was personal. Loftus Versfeld was my old stomping ground from schoolboy rugby days in Pretoria, and I walked back in with a survey kit. The job started as an inspection: go through Old Mutual’s hospitality box, document every bit of damage, and come back with a full set of drawings and a quotation for the repairs. The box was in rough shape, and a hospitality box lives or dies on how it feels on match day.',
     process: {
       before: 'drawing.jpg',
       after: '04.jpg',
       beforeLabel: 'Survey sheet',
       afterLabel: 'Interior visualisation',
       caption:
-        'Old Mutual Box — the A101 survey sheet (left) and a visualisation of the box interior produced from it (right): the same detail surveyed, drawn and dimensioned, then modelled and presented.',
+        'Old Mutual Box: the A101 survey sheet (left) and a visualisation of the box interior produced from it (right). The same detail surveyed, drawn and dimensioned, then modelled and presented.',
     },
     approach:
-      'I surveyed the box and captured it as an A101 sheet — plan, south elevation, and a door and window legend — and priced the repairs against it. Then I went a step further than the inspection asked for: alongside the plans, I modelled the box and rendered what the suite could look like once it was sorted — face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead with recessed linear light over the servery. Those renders won us the contract. Then we renovated it: new ceiling, new paint, the brickwork varnished and finished properly, new carpets, every bit of damage repaired floor to ceiling. Old Mutual brought their own furniture and styling; our job was handing back a box they could host their most important guests in again.',
+      'I surveyed the box and captured it as an A101 sheet (plan, south elevation, and a door and window legend) and priced the repairs against it. Then I went a step further than the inspection asked for: alongside the plans, I modelled the box and rendered what the suite could look like once it was sorted: face-brick piers, oak counters over white shaker cabinetry, a dropped bulkhead with recessed linear light over the servery. Those renders won us the contract. Then we renovated it: new ceiling, new paint, the brickwork varnished and finished properly, new carpets, every bit of damage repaired floor to ceiling. Old Mutual brought their own furniture and styling; our job was handing back a box they could host their most important guests in again.',
   },
   {
     slug: 'schultz-mmuoe',
@@ -425,15 +425,15 @@ export const projects: Project[] = [
       },
       {
         k: 'Deliverables',
-        v: 'Renovation plans · interior visuals — boardroom, private office and corridor',
+        v: 'Renovation plans and interior visuals of the boardroom, private office and corridor',
       },
     ],
     description:
-      'A 2017 office refresh for an attorneys’ practice — planned and visualised so the trades knew exactly what to do, and where.',
+      'A 2017 office refresh for an attorneys’ practice, planned and visualised so the trades knew exactly what to do, and where.',
     brief:
-      'Schultz Mmuoe Inc is an attorneys’ practice whose offices hadn’t been touched in about five years. What they asked for in 2017 was basic: repaint throughout, make good the damage, new lighting, and an overall brightening and clean-up so the place read as professional again. They didn’t ask for drawings, plans or visuals — just the work.',
+      'Schultz Mmuoe Inc is an attorneys’ practice whose offices hadn’t been touched in about five years. What they asked for in 2017 was basic: repaint throughout, make good the damage, new lighting, and an overall brightening and clean-up so the place read as professional again. They didn’t ask for drawings, plans or visuals, just the work.',
     approach:
-      'I drew it up anyway. The renovation was carried out by our own in-house trades, and a job like that only runs cleanly when everyone is working to the same picture — so I produced plans and visuals together: the plans saying what had to happen and where, the visuals showing what each room should look like once it was done. The trades built from those instead of from a verbal brief, and the practice could sign off a room before a wall was painted. The images here are those original 2017 plans and visuals brought up to current standard.',
+      'I drew it up anyway. The renovation was carried out by our own in-house trades, and a job like that only runs cleanly when everyone is working to the same picture, so I produced plans and visuals together: the plans saying what had to happen and where, the visuals showing what each room should look like once it was done. The trades built from those instead of from a verbal brief, and the practice could sign off a room before a wall was painted. The images here are those original 2017 plans and visuals brought up to current standard.',
   },
   {
     slug: 'sa-business-coach',
@@ -448,15 +448,15 @@ export const projects: Project[] = [
       },
       {
         k: 'Deliverables',
-        v: 'Four paint-scheme previews the client chose from before painting · photoreal interiors across all four schemes',
+        v: 'Four paint-scheme previews the client chose from before painting, and in 2026 a 47-second walkthrough film with nine stills of the furnished office',
       },
     ],
     description:
-      'A 2018 office restoration for a business-coaching practice — the paint schemes previewed on the walls before a brush was lifted, revived in 2026 to photographic finish.',
+      'A 2018 office restoration for a business-coaching practice. The paint schemes were tested on screen before a wall was painted, and in 2026 the model became a furnished walkthrough.',
     brief:
-      'The business coach was restoring his offices and already had an interior designer’s layout for the space. What the designer hadn’t provided was the paint: how the rooms should be coloured, and what any of it would look like on the walls. That became our extra ask — so while we built the designer’s layout, I modelled the office and previewed the painting schemes in-house: the same rooms four ways, red V-chevrons and colour-blocked accent walls over one continuous dark green carpet — red for group energy in the training spaces, yellow-green for focus in the offices. The client could stand in front of each option and choose before a single wall was painted.',
+      'The business coach was restoring his offices and already had an interior designer’s layout. What the designer hadn’t provided was the paint: how the rooms should be coloured, and what that would look like on the walls. That became our extra ask. While we built the designer’s layout, I modelled the office and previewed the paint schemes in-house: the same rooms four ways, red V-chevrons and colour-blocked accent walls over one continuous dark green carpet. Red for group energy in the training spaces, yellow-green for focus in the offices. The client could look at each option and choose before a single wall was painted.',
     approach:
-      'In 2026 I brought the project back to show what an archive like this can carry. The 60 MB model was stripped to a 0.6 MB shell — walls, floors, windows, red doors and the carpeted stair — with every painted plane kept exactly where the 2018 study put it. Each camera view was then driven through directed AI passes to photographic finish: light, material and furniture added around the shell, the chevrons, diagonals and carpet held to the model throughout. Not just plans and elevations — colour schemes, palettes and mood boards, taken to the point where a client sees the finished room.',
+      'In 2026 I went back to the model and furnished it room by room: training tables, a coaching corner, the principal’s office, a store room and a coffee point, with prints, plants and lamps. Every painted plane stayed where the 2018 study put it. From that model I set camera paths through the building and rendered them in VizMaker into a 47-second walkthrough, then made a matching still of every room so the film and the pictures show the same office.',
     // 30 s walkthrough (9 Nov 2026): the furnished v3 SketchUp model walked on three camera paths (entrance hall ->
     // through the red door -> training room; breakout corner; coaching room), each path turned photoreal in VizMaker
     // (Video Editor, Seedance 2.5 Turbo 1080p) against NB 2.1 stills of the same views, graded to the stills, cut
@@ -479,40 +479,40 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Surveyed the site and drew the full documentation set — space plans, elevations, suspended ceiling plans and schedules, coordinated for construction',
+        v: 'Surveyed the site and drew the full documentation set: space plans, elevations, suspended ceiling plans and schedules, coordinated for construction',
       },
       {
         k: 'Deliverables',
-        v: 'Space plans · elevations · suspended ceiling plans · door and window schedules',
+        v: 'Space plans, elevations, suspended ceiling plans, and door and window schedules',
       },
     ],
     description:
-      'A full office fit-out documentation set for the BCD Travel campus in Johannesburg — space planning, elevations, suspended ceiling plans and schedules, drawn to be built.',
+      'A full office fit-out documentation set for the BCD Travel campus in Johannesburg: space planning, elevations, suspended ceiling plans and schedules, drawn to be built.',
     brief:
-      'A global travel-management company refitting a Johannesburg office floor needs a coordinated drawing set: how the space is zoned and furnished, how it is lit, and how every door and window is specified — enough for a contractor to price and build without a phone call.',
+      'A global travel-management company refitting a Johannesburg office floor needs a coordinated drawing set: how the space is zoned and furnished, how it is lit, and how every door and window is specified, enough for a contractor to price and build without a phone call.',
     approach:
-      'Colour-coded space plans and furniture layouts, four measured elevations, and a suspended ceiling plan — all keyed to door and window schedules and verified against the building on site.',
+      'Colour-coded space plans and furniture layouts, four measured elevations, and a suspended ceiling plan, all keyed to door and window schedules and verified against the building on site.',
     documentation: true,
     sheets: [
       {
-        label: 'A101 · Office Layout',
+        label: 'A101 Office Layout',
         caption:
           'Every space typed, colour-coded and counted against a room legend, with door and window schedules keyed back to the plan.',
       },
       {
-        label: 'A103 · Space Plan & Furniture Layout',
+        label: 'A103 Space Plan & Furniture Layout',
         caption:
           'Departments, circulation and every workstation set out to scale across the H-shaped floor plate.',
       },
       {
-        label: 'A104 · Suspended Ceiling Plan',
+        label: 'A104 Suspended Ceiling Plan',
         caption:
-          'Suspended ceiling grid — parabolic troffers and downlights located over the plan.',
+          'Suspended ceiling grid with parabolic troffers and downlights located over the plan.',
       },
       {
-        label: 'A102 · Elevations',
+        label: 'A102 Elevations',
         caption:
-          'Four measured elevations — east, north, south and west — with ceiling and floor datums and numbered gridlines.',
+          'Four measured elevations (east, north, south and west) with ceiling and floor datums and numbered gridlines.',
       },
     ],
   },

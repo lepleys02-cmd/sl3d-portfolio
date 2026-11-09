@@ -18,20 +18,20 @@ const year = new Date().getFullYear();
   {
     !compact && (
       <div class="wrap cta reveal">
-        <p class="label label--accent">{ui.footer.kicker}</p>
-        <h2>
-          {ui.footer.headingLead}{' '}
-          <a href={localizePath('/contact', lang)}>{ui.footer.headingLink}</a>
-        </h2>
+        <h2>{ui.footer.headingLead}</h2>
+        <p class="cta-action">
+          <a class="arrow-link" href={localizePath('/contact', lang)}>{ui.footer.headingLink}</a>
+        </p>
         <p class="availability">{ui.footer.availability}</p>
       </div>
     )
   }
   <SoftwareMarquee lang={lang} />
   <div class="wrap bar">
-    <span>
-      &copy; {year} Sam Lepley &mdash; SL3D &middot; KVK&nbsp;42131264 &middot;
-      BTW&nbsp;NL005520384B17
+    <span class="legal">
+      <span>&copy; {year} Sam Lepley, SL3D</span>
+      <span>KVK&nbsp;42131264</span>
+      <span>BTW&nbsp;NL005520384B17</span>
     </span>
     <div class="links">
       <a href={localizePath('/terms', lang)}>{ui.footer.terms}</a>
@@ -55,23 +55,25 @@ const year = new Date().getFullYear();
     padding-block: var(--space-section);
   }
 
-  .cta .label {
-    margin-bottom: 1.2rem;
-  }
-
   .cta h2 {
     font-size: var(--text-h1);
     max-width: 20ch;
   }
 
-  .cta a {
-    color: var(--accent-ink);
-    border-bottom: 3px solid var(--accent);
-    transition: color var(--duration-fast) ease;
+  .cta-action {
+    margin-top: 2rem;
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
   }
 
-  .cta a:hover {
-    color: var(--ink);
+  .cta-action a {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.1em;
+  }
+
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
   }
 
   .availability {
