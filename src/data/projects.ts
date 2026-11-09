@@ -453,6 +453,12 @@ export const projects: Project[] = [
       'The business coach was restoring his offices and already had an interior designer’s layout for the space. What the designer hadn’t provided was the paint: how the rooms should be coloured, and what any of it would look like on the walls. That became our extra ask — so while we built the designer’s layout, I modelled the office and previewed the painting schemes in-house: the same rooms four ways, red V-chevrons and colour-blocked accent walls over one continuous dark green carpet — red for group energy in the training spaces, yellow-green for focus in the offices. The client could stand in front of each option and choose before a single wall was painted.',
     approach:
       'In 2026 I brought the project back to show what an archive like this can carry. The 60 MB model was stripped to a 0.6 MB shell — walls, floors, windows, red doors and the carpeted stair — with every painted plane kept exactly where the 2018 study put it. Each camera view was then driven through directed AI passes to photographic finish: light, material and furniture added around the shell, the chevrons, diagonals and carpet held to the model throughout. Not just plans and elevations — colour schemes, palettes and mood boards, taken to the point where a client sees the finished room.',
+    // 30 s walkthrough (9 Nov 2026): the furnished v3 SketchUp model walked on three camera paths (entrance hall ->
+    // through the red door -> training room; breakout corner; coaching room), each path turned photoreal in VizMaker
+    // (Video Editor, Seedance 2.5 Turbo 1080p) against NB 2.1 stills of the same views, graded to the stills, cut
+    // together with the SL3D end card. Music: City Sunshine (CC0). Job folder
+    // Animations/3D-Production/SABC-Walkthrough-2026-11.
+    videos: ['/video/sabc-walkthrough.mp4'],
   },
   {
     slug: 'bcd-travel',
