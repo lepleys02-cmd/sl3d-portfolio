@@ -234,7 +234,7 @@ export const projects: Project[] = [
     brief:
       'The garden-timber companies I worked with sell verandas, carports and garden buildings. Almost nobody in the market was showing these in motion, and most competitors didn’t even have proper stills. They wanted marketing content that set them apart. And their customers faced the same hurdle with every delivery: a thick printed manual for a structure that takes two people a weekend to build.',
     approach:
-      'Every film starts from the same accurate product model as the stills. I planned each assembly sequence the way an installer actually builds the structure: post by post, beam by beam, with close-up cutaways on the fixings at exactly the steps where people get them wrong. Assembly runs on clean white so nothing distracts from the build order; lifestyle reveals put the finished product in full scenes with real light. The assembly film then replaced the bulk of the printed manual: products now ship with a slim booklet and a QR code to the video. Customers watch the build instead of decoding it, and the company stopped printing and posting heavyweight manuals. Nobody has to guess how it goes together.',
+      'Every film starts from the same accurate product model as the stills. I planned each assembly sequence the way an installer actually builds the structure: post by post, beam by beam, with close-up cutaways on the fixings at exactly the steps where people get them wrong. The full assembly film plays out in a photographed garden, the exploded views keep a plain warm-paper background, and lifestyle reveals put the finished product in full scenes with real light. The assembly film then replaced the bulk of the printed manual: products now ship with a slim booklet and a QR code to the video. Customers watch the build instead of decoding it, and the company stopped printing and posting heavyweight manuals. Nobody has to guess how it goes together.',
     // Card hover: exploded-view loop cut from the C5ZB explosion film (src
     // 1.5–8.3 s, reversed then forward, 2x at 60fps, 1600x900). It opens on the
     // fully exploded frame, which is also the static cover at
@@ -495,22 +495,22 @@ export const projects: Project[] = [
     documentation: true,
     sheets: [
       {
-        label: 'A101 Office Layout',
+        label: 'A101: Office Layout',
         caption:
           'Every space typed, colour-coded and counted against a room legend, with door and window schedules keyed back to the plan.',
       },
       {
-        label: 'A103 Space Plan & Furniture Layout',
+        label: 'A103: Space Plan & Furniture Layout',
         caption:
           'Departments, circulation and every workstation set out to scale across the H-shaped floor plate.',
       },
       {
-        label: 'A104 Suspended Ceiling Plan',
+        label: 'A104: Suspended Ceiling Plan',
         caption:
           'Suspended ceiling grid with parabolic troffers and downlights located over the plan.',
       },
       {
-        label: 'A102 Elevations',
+        label: 'A102: Elevations',
         caption:
           'Four measured elevations (east, north, south and west) with ceiling and floor datums and numbered gridlines.',
       },
