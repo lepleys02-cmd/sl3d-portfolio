@@ -444,7 +444,7 @@ export const projects: Project[] = [
     facts: [
       {
         k: 'Role',
-        v: 'Modelled the office and previewed the paint schemes in-house alongside the designer’s layout — then rebuilt the model as a bare shell in 2026 and drove every AI pass to a photographic finish',
+        v: 'Modelled the office and previewed the paint schemes in-house alongside the designer’s layout',
       },
       {
         k: 'Deliverables',

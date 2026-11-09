@@ -264,7 +264,7 @@ export const projectsNl: Record<string, ProjectCopy> = {
     facts: [
       {
         k: 'Rol',
-        v: 'Het kantoor gemodelleerd en de schilderschema’s in eigen huis gevisualiseerd naast de indeling van de ontwerper — daarna het model in 2026 herbouwd als kaal casco en elke AI-pass tot een fotografische afwerking gebracht',
+        v: 'Het kantoor gemodelleerd en de schilderschema’s in eigen huis gevisualiseerd naast de indeling van de ontwerper',
       },
       {
         k: 'Opgeleverd',
