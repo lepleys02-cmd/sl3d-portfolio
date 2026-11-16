@@ -6,6 +6,9 @@ export interface Project {
   /** Fact rows shown on the project page (cepezed-style key/value). */
   facts: { k: string; v: string }[];
   description: string;
+  /** Search-result description (meta tag only). Defaults to "<title>: <description>";
+      set when that runs past ~160 characters. The visible intro is unaffected. */
+  metaDescription?: string;
   /** Case study: what the work had to achieve. */
   brief?: string;
   /** Case study: how it was made. */
@@ -85,8 +88,12 @@ export interface Collection {
   kicker: string;
   /** Short label shown under the collection's home card. */
   discipline: string;
-  /** One-line summary for the home card + meta description. */
+  /** One-line summary used as the meta description. */
   description: string;
+  /** Browser-tab/search title when `title` (also the hub H1) is too long. Meta only. */
+  metaTitle?: string;
+  /** Search-result description when `description` is too long. Meta only. */
+  metaDescription?: string;
   /** Hub-page intro paragraph. */
   intro: string;
   /** The facets the discipline covers, shown as a strip on the hub. */
@@ -114,6 +121,7 @@ export const collections: Collection[] = [
   {
     slug: 'architecture',
     title: 'Interior Design, Architectural Visualisation & Documentation',
+    metaTitle: 'Interior Design & Architectural Visualisation',
     kicker: 'Collection',
     discipline: 'Space planning, interior design, documentation and visualisation',
     description:
@@ -280,6 +288,8 @@ export const projects: Project[] = [
   {
     slug: 'ai-revival',
     title: 'Scene Revival',
+    metaDescription:
+      'Scene Revival: A self-funded experiment on my own archive. CGI renders regraded from flat daylight into golden hour, product scenes set in believable places.',
     year: '2026',
     discipline: 'AI-assisted visualisation',
     collection: 'ai',
@@ -324,6 +334,8 @@ export const projects: Project[] = [
   {
     slug: 'ai-motion',
     title: 'Still to Motion',
+    metaDescription:
+      'Still to Motion: A self-taught experiment in AI animation. Finished stills brought to life with wind in the planting, animals moving and atmosphere drifting.',
     year: '2026',
     discipline: 'AI-assisted animation',
     collection: 'ai',
@@ -384,6 +396,8 @@ export const projects: Project[] = [
   {
     slug: 'loftus-box',
     title: 'Old Mutual Box',
+    metaDescription:
+      'Old Mutual Box: A hospitality box at Loftus Versfeld, surveyed, documented as a full drawing set and taken through to a complete renovation of the suite.',
     year: '2026',
     discipline: 'Interior survey, documentation & renovation',
     collection: 'architecture',
@@ -438,6 +452,8 @@ export const projects: Project[] = [
   {
     slug: 'sa-business-coach',
     title: 'South African Business Coach',
+    metaDescription:
+      'South African Business Coach: A 2018 office restoration. Paint schemes were tested on screen before a wall was painted; in 2026 the model became a walkthrough.',
     year: '2026',
     discipline: 'AI-assisted interior visualisation',
     collection: 'architecture',
@@ -473,6 +489,8 @@ export const projects: Project[] = [
   {
     slug: 'bcd-travel',
     title: 'BCD Travel',
+    metaDescription:
+      'BCD Travel: A full office fit-out documentation set for the Johannesburg campus, with space planning, elevations, ceiling plans and schedules.',
     year: '2020',
     discipline: 'Commercial space planning & CAD documentation',
     collection: 'architecture',

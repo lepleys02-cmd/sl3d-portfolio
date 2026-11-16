@@ -59,6 +59,15 @@ const homeItems: HomeItem[] = [
 ---
 
 <Base title={ui.home.title} description={ui.home.description} lang={lang}>
+  <!-- The showreel poster is the first large thing on screen (the LCP image):
+       fetch it before anything else. -->
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="/video/hero-reel-v12-poster.jpg"
+    fetchpriority="high"
+  />
   <main>
     <!-- Statement hero (UNStudio pattern): type first, image after -->
     <section class="hero wrap" aria-label={ui.home.ariaIntro}>
@@ -265,6 +274,7 @@ const homeItems: HomeItem[] = [
                 cover={coverFor(item.project.slug)}
                 wide={i === 0}
                 lang={lang}
+                eager={false}
               />
             ) : (
               <CollectionCard

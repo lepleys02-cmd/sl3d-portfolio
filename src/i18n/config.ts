@@ -48,8 +48,22 @@ export function toRootPath(pathname: string): string {
 export function localizePath(path: string, lang: Lang): string {
   if (/^[a-z]+:/i.test(path) || path.startsWith('#')) return path;
   const root = toRootPath(path);
-  if (lang === defaultLang) return root;
-  return root === '/' ? `/${lang}` : `/${lang}${root}`;
+  if (lang === defaultLang) return withTrailingSlash(root);
+  return withTrailingSlash(root === '/' ? `/${lang}` : `/${lang}${root}`);
+}
+
+/**
+ * Page URLs end in a slash (`/about/`, `/nl/`). GitHub Pages serves every page
+ * as `<page>/index.html` and 301-redirects the bare form, so a canonical,
+ * hreflang or sitemap URL without the slash points Google at a redirect.
+ * Hash and query stay after the slash; file paths (`/og.jpg`) are left alone.
+ */
+export function withTrailingSlash(path: string): string {
+  const cut = path.search(/[?#]/);
+  const base = cut === -1 ? path : path.slice(0, cut);
+  const rest = cut === -1 ? '' : path.slice(cut);
+  if (base.endsWith('/') || /\.[a-z0-9]+$/i.test(base)) return path;
+  return `${base}/${rest}`;
 }
 
 /** Every locale variant of a path, for hreflang + the language switcher. */

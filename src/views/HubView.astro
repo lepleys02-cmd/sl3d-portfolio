@@ -42,8 +42,8 @@ const facets = collection.facets.map((name, i) => ({
 ---
 
 <Base
-  title={`${collection.title} ${ui.project.titleSuffix}`}
-  description={collection.description}
+  title={`${collection.metaTitle ?? collection.title} ${ui.project.titleSuffix}`}
+  description={collection.metaDescription ?? collection.description}
   lang={lang}
 >
   <main>

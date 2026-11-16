@@ -4,7 +4,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LangHint from '../components/LangHint.astro';
-import { languages, defaultLang, alternatesFor } from '../i18n/config';
+import { languages, defaultLang, alternatesFor, withTrailingSlash } from '../i18n/config';
 import type { Lang } from '../i18n/config';
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 const { title, description, compactFooter = false, lang = defaultLang } = Astro.props;
 const meta = languages[lang];
 const site = Astro.site ?? new URL('https://sl3d.net');
-const canonical = new URL(Astro.url.pathname, site);
+const canonical = new URL(withTrailingSlash(Astro.url.pathname), site);
 const ogImage = new URL('/og.jpg', site);
 
 // Reciprocal hreflang: every locale of this page points at every other one,
@@ -95,10 +95,11 @@ const jsonLd = {
     }
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f7f6f2'/%3E%3Cpath d='M6 22 16 6l10 16z' fill='none' stroke='%23c14a0a' stroke-width='2.5'/%3E%3C/svg%3E"
-    />
+    <!-- Real icon files (same triangle as the old inline data-URI icon, which
+         Google Search ignores). Made from that SVG on 16 Nov 2026. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -106,6 +107,8 @@ const jsonLd = {
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
+    <!-- Page-specific head tags (e.g. the home page's hero preload). -->
+    <slot name="head" />
     <!-- Reveal-animation gate: .reveal only starts hidden when this class is
          present (see global.css), so content is never invisible without JS.
          is:inline keeps it a blocking head script — it must run before first

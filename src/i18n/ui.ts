@@ -63,7 +63,7 @@ export const ui = {
     home: {
       title: 'Sam Lepley, SL3D | 3D Visualisation & CAD',
       description:
-        'Sam Lepley (SL3D): 3D visualisation, photorealistic rendering, CAD floor plans and product animation from the south of the Netherlands. Clarity you can build from.',
+        'Sam Lepley: 3D visualisation, photorealistic rendering, CAD floor plans and product animation from the south of the Netherlands. Clarity you can build from.',
       ariaIntro: 'Introduction',
       kicker: 'Sam Lepley, CAD Specialist',
       tagline: 'Clarity you can build from.',
@@ -293,7 +293,7 @@ export const ui = {
       tocAria: 'Clause index',
       tocLabel: 'Contents',
       crossLangHtml:
-        'Deze voorwaarden zijn ook <a href="/nl/terms">in het Nederlands</a> beschikbaar.',
+        'Deze voorwaarden zijn ook <a href="/nl/terms/">in het Nederlands</a> beschikbaar.',
     },
 
     privacy: {
@@ -307,7 +307,7 @@ export const ui = {
       versionLabel: 'Version',
       entity: 'SL3D — eenmanszaak of Sam Lepley · KVK 42131264',
       crossLangHtml:
-        'Dit privacybeleid is ook <a href="/nl/privacy">in het Nederlands</a> beschikbaar.',
+        'Dit privacybeleid is ook <a href="/nl/privacy/">in het Nederlands</a> beschikbaar.',
     },
 
     notFound: {
@@ -323,7 +323,7 @@ export const ui = {
       // Written in the OTHER language on purpose: GitHub Pages serves this one
       // 404 for every unknown path, including Dutch ones, so the way out has
       // to be readable by the reader who is lost.
-      crossLangHtml: 'Liever Nederlands? Ga naar de <a href="/nl">Nederlandse site</a>.',
+      crossLangHtml: 'Liever Nederlands? Ga naar de <a href="/nl/">Nederlandse site</a>.',
     },
   },
 
@@ -606,7 +606,7 @@ export const ui = {
       tocAria: 'Artikelindex',
       tocLabel: 'Inhoud',
       crossLangHtml:
-        'These terms are also available <a href="/terms">in English</a>.',
+        'These terms are also available <a href="/terms/">in English</a>.',
     },
 
     privacy: {
@@ -620,7 +620,7 @@ export const ui = {
       versionLabel: 'Versie',
       entity: 'SL3D — eenmanszaak van Sam Lepley · KVK 42131264',
       crossLangHtml:
-        'This privacy policy is also available <a href="/privacy">in English</a>.',
+        'This privacy policy is also available <a href="/privacy/">in English</a>.',
     },
 
     notFound: {

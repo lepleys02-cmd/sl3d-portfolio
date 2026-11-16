@@ -13,9 +13,12 @@ interface Props {
   /** Full-width cards get larger responsive image slots. */
   wide?: boolean;
   lang?: Lang;
+  /** Load the cover eagerly. Defaults to the first card only; the home page
+   *  turns it off because its first card sits far below the fold. */
+  eager?: boolean;
 }
 
-const { project, index, cover, wide = false, lang = defaultLang } = Astro.props;
+const { project, index, cover, wide = false, lang = defaultLang, eager = index === 0 } = Astro.props;
 const ui = t(lang);
 const num = String(index + 1).padStart(2, '0');
 ---
@@ -27,7 +30,7 @@ const num = String(index + 1).padStart(2, '0');
       alt={`${project.title}, ${project.discipline}`}
       widths={wide ? [640, 1080, 1600, 2000] : [480, 800, 1200]}
       sizes={wide ? '(max-width: 720px) 100vw, 92vw' : '(max-width: 720px) 100vw, 46vw'}
-      loading={index === 0 ? 'eager' : 'lazy'}
+      loading={eager ? 'eager' : 'lazy'}
       data-still={project.coverStill ? '' : undefined}
     />
     {

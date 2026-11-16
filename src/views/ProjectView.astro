@@ -83,7 +83,7 @@ const fitRatio = (img: ImageMetadata) => `--fit-ratio: ${img.width} / ${img.heig
 
 <Base
   title={`${project.title} ${ui.project.titleSuffix}`}
-  description={`${project.title}: ${project.description}`}
+  description={project.metaDescription ?? `${project.title}: ${project.description}`}
   lang={lang}
 >
   <main>

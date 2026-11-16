@@ -30,6 +30,9 @@ function mergeProject(project: Project, copy: ProjectCopy | undefined): Project 
     title: copy.title ?? project.title,
     discipline: copy.discipline ?? project.discipline,
     description: copy.description ?? project.description,
+    // Meta-only text never falls back to English: a Dutch page without its own
+    // metaDescription uses its Dutch title + description instead.
+    metaDescription: copy.metaDescription,
     brief: copy.brief ?? project.brief,
     approach: copy.approach ?? project.approach,
     facts: copy.facts ?? project.facts,
@@ -59,6 +62,8 @@ function mergeCollection(collection: Collection, copy: CollectionCopy | undefine
     kicker: copy.kicker ?? collection.kicker,
     discipline: copy.discipline ?? collection.discipline,
     description: copy.description ?? collection.description,
+    metaTitle: copy.metaTitle,
+    metaDescription: copy.metaDescription,
     intro: copy.intro ?? collection.intro,
     facets: copy.facets ?? collection.facets,
   };

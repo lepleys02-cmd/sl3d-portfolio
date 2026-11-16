@@ -16,6 +16,7 @@ export interface ProjectCopy {
   title?: string;
   discipline?: string;
   description?: string;
+  metaDescription?: string;
   brief?: string;
   approach?: string;
   facts?: { k: string; v: string }[];
@@ -32,6 +33,8 @@ export interface CollectionCopy {
   kicker?: string;
   discipline?: string;
   description?: string;
+  metaTitle?: string;
+  metaDescription?: string;
   intro?: string;
   facets?: string[];
 }
@@ -128,6 +131,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'ai-revival': {
+    metaDescription:
+      'Scene Revival: Een experiment op eigen kosten met mijn eigen archief. CGI-renders geregradeerd naar gouden uur, productscènes op geloofwaardige plekken.',
     discipline: 'AI-ondersteunde visualisatie',
     facts: [
       {
@@ -162,6 +167,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'ai-motion': {
+    metaDescription:
+      'Still to Motion: Een zelf aangeleerd experiment in AI-animatie. Stills tot leven gebracht, met wind in de beplanting, bewegende dieren en verschuivende sfeer.',
     discipline: 'AI-ondersteunde animatie',
     facts: [
       {
@@ -188,6 +195,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'park24-bulkheads': {
+    metaDescription:
+      'Park 24 Bulkheads: Een koofontwerp uit 2017, ingemeten, getekend en per ruimte geoffreerd, teruggebracht als fotorealistische interieurs.',
     discipline: 'AI-ondersteunde interieurvisualisatie',
     facts: [
       {
@@ -213,6 +222,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'loftus-box': {
+    metaDescription:
+      'Old Mutual Box: Een skybox in Loftus Versfeld, ingemeten, vastgelegd als volledige tekeningenset en doorgevoerd tot een complete renovatie van de suite.',
     discipline: 'Interieurinmeting, documentatie & renovatie',
     facts: [
       {
@@ -239,6 +250,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'schultz-mmuoe': {
+    metaDescription:
+      'Schultz Mmuoe Inc: Een kantooropfrissing uit 2017 voor een advocatenkantoor, uitgetekend en gevisualiseerd zodat de vaklieden wisten wat er moest gebeuren.',
     discipline: 'AI-ondersteunde interieurvisualisatie',
     facts: [
       {
@@ -259,6 +272,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'sa-business-coach': {
+    metaDescription:
+      'Zuid-Afrikaanse business coach: Een kantoorrestauratie uit 2018. De schilderschema’s zijn op het scherm getest voordat er een wand geschilderd werd.',
     title: 'Zuid-Afrikaanse business coach',
     discipline: 'AI-ondersteunde interieurvisualisatie',
     facts: [
@@ -280,6 +295,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
   },
 
   'bcd-travel': {
+    metaDescription:
+      'BCD Travel: Een volledige documentatieset voor de kantoorinrichting van de campus in Johannesburg, met ruimte-indeling, aanzichten, plafondplannen en staten.',
     discipline: 'Commerciële ruimte-indeling & CAD-documentatie',
     facts: [
       {
@@ -324,6 +341,8 @@ export const projectsNl: Record<string, ProjectCopy> = {
 
 export const collectionsNl: Record<string, CollectionCopy> = {
   ai: {
+    metaDescription:
+      'Bestaande renders en productbeelden met AI geregradeerd, opnieuw belicht en in beweging gezet, met elk resultaat gecontroleerd tegen het echte model.',
     title: 'AI-ondersteunde productie',
     kicker: 'Collectie',
     discipline: 'Scene revival, fotorealistische regrades en generatieve beweging',
@@ -341,6 +360,7 @@ export const collectionsNl: Record<string, CollectionCopy> = {
   },
 
   architecture: {
+    metaTitle: 'Interieurontwerp & architectuurvisualisatie',
     title: 'Interieurontwerp, architectuurvisualisatie & documentatie',
     kicker: 'Collectie',
     discipline: 'Ruimte-indeling, interieurontwerp, documentatie en visualisatie',
